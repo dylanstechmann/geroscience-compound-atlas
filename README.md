@@ -15,6 +15,10 @@ This repository does **not** implement or provide:
 
 All outputs are strictly research and educational computational biology artifacts.
 
+## Live Interactive Dashboard
+Explore the compound cards, evidence grades, benchmark bake-off, and generated candidate gallery:  
+👉 **[https://dylanstechmann.github.io/geroscience-compound-atlas/](https://dylanstechmann.github.io/geroscience-compound-atlas/)**
+
 ## Quickstart
 ```bash
 make setup
