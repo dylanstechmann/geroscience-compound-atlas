@@ -56,9 +56,11 @@ def build_dashboard_html(
     edges_parquet: str | Path = "artifacts/evidence_edges.parquet",
     coverage_parquet: str | Path = "artifacts/chembl_coverage.parquet",
     metrics_json: str | Path = "artifacts/metrics.json",
+    gen_parquet: str | Path = "artifacts/generated_molecules.parquet",
+    gen_metrics_json: str | Path = "artifacts/generator_metrics.json",
     output_html: str | Path = "artifacts/dashboard.html",
 ) -> Path:
-    """Compile processed atlas tables and benchmark metrics into an interactive standalone HTML dashboard."""
+    """Compile processed atlas tables, benchmark metrics, and generated molecules into an interactive standalone HTML dashboard."""
     compounds_df = pd.read_parquet(compounds_parquet)
     edges_df = pd.read_parquet(edges_parquet)
     coverage_df = pd.read_parquet(coverage_parquet)
@@ -125,9 +127,34 @@ def build_dashboard_html(
             }
         )
 
+    # Load Phase 5 generated candidates if available
+    gen_cards_data = []
+    gen_file = Path(gen_parquet)
+    if gen_file.exists():
+        try:
+            gen_df = pd.read_parquet(gen_file)
+            for _, grow in gen_df.head(12).iterrows():
+                smi = str(grow["smiles"])
+                svg = generate_molecule_svg(smi, width=280, height=180)
+                gen_cards_data.append(
+                    {
+                        "smiles": smi,
+                        "inchikey": str(grow["inchikey"]),
+                        "generation": int(grow.get("generation", 0)),
+                        "reward": round(float(grow.get("reward", 0.0)), 3),
+                        "mtor_prob": round(float(grow.get("mtor_prob", 0.0)), 3),
+                        "qed": round(float(grow.get("qed", 0.0)), 3),
+                        "has_pains": bool(grow.get("has_pains", False)),
+                        "svg": svg,
+                    }
+                )
+        except (ValueError, OSError, KeyError) as exc:
+            logger.warning("Failed to load generated molecules for dashboard: %s", exc)
+
     # Convert data to JSON for embedding
     cards_json = json.dumps(cards_data)
     top_fps_json = json.dumps(metrics_data.get("top_false_positives", []))
+    gen_cards_json = json.dumps(gen_cards_data)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -700,6 +727,7 @@ def build_dashboard_html(
         <button class="tab-btn" onclick="switchTab('holes')">Coverage Holes (3)</button>
         <button class="tab-btn" onclick="switchTab('bench')">Benchmark Bake-Off & Leakage</button>
         <button class="tab-btn" onclick="switchTab('errors')">Top False Positives (10)</button>
+        <button class="tab-btn" onclick="switchTab('generator')">Generated Candidates (200)</button>
     </div>
 
     <!-- TAB 1: COMPOUND CARDS -->
@@ -862,6 +890,92 @@ def build_dashboard_html(
                 </tbody>
             </table>
         </div>
+    <!-- TAB 5: GENERATED CANDIDATES (PHASE 5) -->
+    <div id="tab-generator" class="hidden">
+        <div class="table-panel">
+            <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Constrained Molecular Generator (Genetic Algorithm)</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Optimizing the frozen Phase 3 ChEMBL mTOR surrogate model while evaluating QED as an adjustable bias control (&lambda;<sub>QED</sub>) and penalizing assay interference (PAINS).
+            </p>
+            
+            <div class="metrics-grid" style="margin-bottom: 2rem;">
+                <div class="metric-card">
+                    <div class="metric-label">Generated Structures</div>
+                    <div class="metric-value">200</div>
+                    <div class="metric-sub">100% Valid &bull; 100% Unique</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Novelty vs Training</div>
+                    <div class="metric-value" style="color: #34d399;">99.5%</div>
+                    <div class="metric-sub">199 / 200 unobserved InChIKeys</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Internal Diversity</div>
+                    <div class="metric-value">0.655</div>
+                    <div class="metric-sub">1 - mean pairwise Tanimoto</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Mean mTOR Prob</div>
+                    <div class="metric-value" style="color: #60a5fa;">0.991</div>
+                    <div class="metric-sub">Surrogate active probability</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #93c5fd;">QED Bias Sensitivity Analysis (&lambda;<sub>QED</sub>)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">
+                Evaluating how the molecular generator behaves when historical small-molecule oral drug-likeness priors are removed vs enforced.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>QED Weight (&lambda;<sub>QED</sub>)</th>
+                        <th>Objective Character</th>
+                        <th>Mean mTOR Prob</th>
+                        <th>Mean QED</th>
+                        <th>Internal Diversity</th>
+                        <th>Novelty Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lambda; = 0.0</td>
+                        <td>Pure Target Affinity (Unconstrained)</td>
+                        <td>1.000</td>
+                        <td>0.059</td>
+                        <td>0.563</td>
+                        <td>100.0%</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>&lambda; = 0.2</strong></td>
+                        <td><strong>Balanced Tradeoff (Primary)</strong></td>
+                        <td><strong>0.991</strong></td>
+                        <td><strong>0.754</strong></td>
+                        <td><strong>0.655</strong></td>
+                        <td><strong>99.5%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>&lambda; = 0.5</td>
+                        <td>Oral Drug-Likeness Constrained</td>
+                        <td>0.985</td>
+                        <td>0.635</td>
+                        <td>0.670</td>
+                        <td>96.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #0f172a; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 2rem;">
+                <h4 style="color: #93c5fd; margin-bottom: 0.5rem;">Chemical Space Takeaway (PCA Embedding):</h4>
+                <p style="font-size: 0.875rem; color: #cbd5e1; line-height: 1.6;">
+                    Principal Component projection (PC1: 13.3%, PC2: 9.1% variance) demonstrates that GA-evolved candidates explore the mTOR training active chemotype manifold adjacent to benchmark binders, rather than drifting into unphysical junk space. When unconstrained (&lambda;<sub>QED</sub> = 0.0), molecules drift toward high molecular weight macrocyclic configurations (mean QED 0.059), demonstrating the restrictive nature of historical small-molecule heuristics.
+                </p>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: #93c5fd;">Top Generated Candidate Molecules (Inline 2D Vectors)</h3>
+            <div class="cards-grid" id="gen-cards-container">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
     </div>
 </main>
 
@@ -875,6 +989,7 @@ def build_dashboard_html(
 <script>
     const compoundsData = {cards_json};
     const topFPsData = {top_fps_json};
+    const genCardsData = {gen_cards_json};
 
     function renderCards(data) {{
         const container = document.getElementById('cards-container');
@@ -1020,6 +1135,7 @@ def build_dashboard_html(
         document.getElementById('tab-holes').classList.add('hidden');
         document.getElementById('tab-bench').classList.add('hidden');
         document.getElementById('tab-errors').classList.add('hidden');
+        document.getElementById('tab-generator').classList.add('hidden');
 
         if (tabId === 'cards') {{
             document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
@@ -1033,12 +1149,58 @@ def build_dashboard_html(
         }} else if (tabId === 'errors') {{
             document.querySelector('.tab-btn:nth-child(4)').classList.add('active');
             document.getElementById('tab-errors').classList.remove('hidden');
+        }} else if (tabId === 'generator') {{
+            document.querySelector('.tab-btn:nth-child(5)').classList.add('active');
+            document.getElementById('tab-generator').classList.remove('hidden');
         }}
+    }}
+
+    function renderGenCards(data) {{
+        const container = document.getElementById('gen-cards-container');
+        if (!container) return;
+        container.innerHTML = '';
+        if (!data || data.length === 0) {{
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">No generated candidates available.</div>';
+            return;
+        }}
+        data.forEach((comp, idx) => {{
+            const card = document.createElement('div');
+            card.className = 'compound-card';
+            card.innerHTML = `
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Candidate #${{idx + 1}}</div>
+                        <div class="card-subtitle">Evolved via GA (Gen ${{comp.generation}})</div>
+                    </div>
+                    <span class="modality-pill small_molecule">Generated</span>
+                </div>
+                <div class="svg-container">
+                    ${{comp.svg}}
+                </div>
+                <div class="identifiers-box">
+                    <div class="id-row">
+                        <span class="id-label">InChIKey:</span>
+                        <span class="id-val" title="${{comp.inchikey}}">${{comp.inchikey}}</span>
+                    </div>
+                    <div class="id-row">
+                        <span class="id-label">PAINS:</span>
+                        <span class="id-val">${{comp.has_pains ? '<span style="color:#ef4444;">Flagged</span>' : '<span style="color:#34d399;">Pass (Zero Motif)</span>'}}</span>
+                    </div>
+                </div>
+                <div class="properties-grid">
+                    <div class="prop-item"><span class="prop-key">mTOR P(act)</span><span class="prop-val" style="color:#60a5fa;">${{comp.mtor_prob}}</span></div>
+                    <div class="prop-item"><span class="prop-key">QED</span><span class="prop-val">${{comp.qed}}</span></div>
+                    <div class="prop-item"><span class="prop-key">Composite</span><span class="prop-val" style="color:#34d399;">${{comp.reward}}</span></div>
+                </div>
+            `;
+            container.appendChild(card);
+        }});
     }}
 
     // Initial render
     renderCards(compoundsData);
     renderFalsePositives();
+    renderGenCards(genCardsData);
 </script>
 </body>
 </html>

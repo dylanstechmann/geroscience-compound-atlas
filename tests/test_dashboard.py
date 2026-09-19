@@ -45,6 +45,7 @@ def test_build_dashboard_html(tmp_path: Path):
     assert 'id="tab-holes"' in content
     assert 'id="tab-bench"' in content
     assert 'id="tab-errors"' in content
+    assert 'id="tab-generator"' in content
 
     # Assert specific seed compounds are present
     assert "Rapamycin" in content or "rapamycin" in content

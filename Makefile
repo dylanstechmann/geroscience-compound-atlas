@@ -1,4 +1,4 @@
-.PHONY: setup data train report serve test lint format clean
+.PHONY: setup data train generate report serve test lint format clean
 
 PYTHON ?= python
 
@@ -12,6 +12,9 @@ data:
 
 train:
 	$(PYTHON) -m bench.train
+
+generate:
+	$(PYTHON) -m gen.pipeline
 
 report:
 	$(PYTHON) -m viz.dashboard
