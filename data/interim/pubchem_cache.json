@@ -1,0 +1,197 @@
+{
+  "rapamycin": {
+    "raw_name": "Rapamycin",
+    "cid": 5284616,
+    "title": "Sirolimus",
+    "iupac_name": "(1R,9S,12S,15R,16E,18R,19R,21R,23S,24E,26E,28E,30S,32S,35R)-1,18-dihydroxy-12-[(2R)-1-[(1S,3R,4R)-4-hydroxy-3-methoxycyclohexyl]propan-2-yl]-19,30-dimethoxy-15,17,21,23,29,35-hexamethyl-11,36-dioxa-4-azatricyclo[30.3.1.04,9]hexatriaconta-16,24,26,28-tetraene-2,3,10,14,20-pentone",
+    "inchikey": "QFJCIRLUMZQUOT-HPLJOQBZSA-N",
+    "canonical_smiles": "C[C@@H]1CC[C@H]2C[C@@H](/C(=C/C=C/C=C/[C@H](C[C@H](C(=O)[C@@H]([C@@H](/C(=C/[C@H](C(=O)C[C@H](OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@@]1(O2)O)[C@H](C)C[C@@H]4CC[C@H]([C@@H](C4)OC)O)C)/C)O)OC)C)C)/C)OC",
+    "molecular_weight": "914.2",
+    "resolved": true
+  },
+  "dasatinib": {
+    "raw_name": "Dasatinib",
+    "cid": 3062316,
+    "title": "Dasatinib",
+    "iupac_name": "N-(2-chloro-6-methylphenyl)-2-[[6-[4-(2-hydroxyethyl)piperazin-1-yl]-2-methylpyrimidin-4-yl]amino]-1,3-thiazole-5-carboxamide",
+    "inchikey": "ZBNZXTGUTAYRHI-UHFFFAOYSA-N",
+    "canonical_smiles": "CC1=C(C(=CC=C1)Cl)NC(=O)C2=CN=C(S2)NC3=CC(=NC(=N3)C)N4CCN(CC4)CCO",
+    "molecular_weight": "488.0",
+    "resolved": true
+  },
+  "quercetin": {
+    "raw_name": "Quercetin",
+    "cid": 5280343,
+    "title": "Quercetin",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-3,5,7-trihydroxychromen-4-one",
+    "inchikey": "REFJWTPEDVJJIY-UHFFFAOYSA-N",
+    "canonical_smiles": "C1=CC(=C(C=C1C2=C(C(=O)C3=C(C=C(C=C3O2)O)O)O)O)O",
+    "molecular_weight": "302.23",
+    "resolved": true
+  },
+  "fisetin": {
+    "raw_name": "Fisetin",
+    "cid": 5281614,
+    "title": "Fisetin",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-3,7-dihydroxychromen-4-one",
+    "inchikey": "XHEFDIBZLJXQHF-UHFFFAOYSA-N",
+    "canonical_smiles": "C1=CC(=C(C=C1C2=C(C(=O)C3=C(O2)C=C(C=C3)O)O)O)O",
+    "molecular_weight": "286.24",
+    "resolved": true
+  },
+  "metformin": {
+    "raw_name": "Metformin",
+    "cid": 4091,
+    "title": "Metformin",
+    "iupac_name": "3-(diaminomethylidene)-1,1-dimethylguanidine",
+    "inchikey": "XZWYZXLIPXDOLR-UHFFFAOYSA-N",
+    "canonical_smiles": "CN(C)C(=N)N=C(N)N",
+    "molecular_weight": "129.16",
+    "resolved": true
+  },
+  "spermidine": {
+    "raw_name": "Spermidine",
+    "cid": 1102,
+    "title": "Spermidine",
+    "iupac_name": "N'-(3-aminopropyl)butane-1,4-diamine",
+    "inchikey": "ATHGHQPFGPMSJY-UHFFFAOYSA-N",
+    "canonical_smiles": "C(CCNCCCN)CN",
+    "molecular_weight": "145.25",
+    "resolved": true
+  },
+  "17alpha-estradiol": {
+    "raw_name": "17alpha-estradiol",
+    "cid": 68570,
+    "title": "alpha-Estradiol",
+    "iupac_name": "(8R,9S,13S,14S,17R)-13-methyl-6,7,8,9,11,12,14,15,16,17-decahydrocyclopenta[a]phenanthrene-3,17-diol",
+    "inchikey": "VOXZDWNPVJITMN-SFFUCWETSA-N",
+    "canonical_smiles": "C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@H]2O)CCC4=C3C=CC(=C4)O",
+    "molecular_weight": "272.4",
+    "resolved": true
+  },
+  "navitoclax": {
+    "raw_name": "Navitoclax",
+    "cid": 24978538,
+    "title": "Abt 263",
+    "iupac_name": "4-[4-[[2-(4-chlorophenyl)-5,5-dimethylcyclohexen-1-yl]methyl]piperazin-1-yl]-N-[4-[[(2R)-4-morpholin-4-yl-1-phenylsulfanylbutan-2-yl]amino]-3-(trifluoromethylsulfonyl)phenyl]sulfonylbenzamide",
+    "inchikey": "JLYAXFNOILIKPP-KXQOOQHDSA-N",
+    "canonical_smiles": "CC1(CCC(=C(C1)CN2CCN(CC2)C3=CC=C(C=C3)C(=O)NS(=O)(=O)C4=CC(=C(C=C4)N[C@H](CCN5CCOCC5)CSC6=CC=CC=C6)S(=O)(=O)C(F)(F)F)C7=CC=C(C=C7)Cl)C",
+    "molecular_weight": "974.6",
+    "resolved": true
+  },
+  "resveratrol": {
+    "raw_name": "Resveratrol",
+    "cid": 445154,
+    "title": "Resveratrol",
+    "iupac_name": "5-[(E)-2-(4-hydroxyphenyl)ethenyl]benzene-1,3-diol",
+    "inchikey": "LUKBXSAWLPMMSZ-OWOJBTEDSA-N",
+    "canonical_smiles": "C1=CC(=CC=C1/C=C/C2=CC(=CC(=C2)O)O)O",
+    "molecular_weight": "228.24",
+    "resolved": true
+  },
+  "nicotinamide mononucleotide": {
+    "raw_name": "Nicotinamide mononucleotide",
+    "cid": 14180,
+    "title": "Nicotinamide Mononucleotide",
+    "iupac_name": "[(2R,3S,4R,5R)-5-(3-carbamoylpyridin-1-ium-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl hydrogen phosphate",
+    "inchikey": "DAYLJWODMCOQEW-TURQNECASA-N",
+    "canonical_smiles": "C1=CC(=C[N+](=C1)[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)[O-])O)O)C(=O)N",
+    "molecular_weight": "334.22",
+    "resolved": true
+  },
+  "nicotinamide riboside": {
+    "raw_name": "Nicotinamide riboside",
+    "cid": 439924,
+    "title": "Nicotinamide Riboside",
+    "iupac_name": "1-[(2R,3R,4S,5R)-3,4-dihydroxy-5-(hydroxymethyl)oxolan-2-yl]pyridin-1-ium-3-carboxamide",
+    "inchikey": "JLEBZPBDRKPWTD-TURQNECASA-O",
+    "canonical_smiles": "C1=CC(=C[N+](=C1)[C@H]2[C@@H]([C@@H]([C@H](O2)CO)O)O)C(=O)N",
+    "molecular_weight": "255.25",
+    "resolved": true
+  },
+  "acarbose": {
+    "raw_name": "Acarbose",
+    "cid": 9811704,
+    "title": "Acarbose",
+    "iupac_name": "(2R,3R,4R,5R)-4-[(2R,3R,4R,5S,6R)-5-[(2R,3R,4S,5S,6R)-3,4-dihydroxy-6-methyl-5-[[(1S,4R,5S,6S)-4,5,6-trihydroxy-3-(hydroxymethyl)cyclohex-2-en-1-yl]amino]oxan-2-yl]oxy-3,4-dihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-2,3,5,6-tetrahydroxyhexanal",
+    "inchikey": "CEMXHAPUFJOOSV-XGWNLRGSSA-N",
+    "canonical_smiles": "C[C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O[C@@H]2[C@H](O[C@@H]([C@@H]([C@H]2O)O)O[C@H]([C@@H](CO)O)[C@@H]([C@H](C=O)O)O)CO)O)O)N[C@H]3C=C([C@H]([C@@H]([C@H]3O)O)O)CO",
+    "molecular_weight": "645.6",
+    "resolved": true
+  },
+  "urolithin a": {
+    "raw_name": "Urolithin A",
+    "cid": 5488186,
+    "title": "Urolithin A",
+    "iupac_name": "3,8-dihydroxybenzo[c]chromen-6-one",
+    "inchikey": "RIUPLDUFZCXCHM-UHFFFAOYSA-N",
+    "canonical_smiles": "C1=CC2=C(C=C1O)C(=O)OC3=C2C=CC(=C3)O",
+    "molecular_weight": "228.20",
+    "resolved": true
+  },
+  "berberine": {
+    "raw_name": "Berberine",
+    "cid": 2353,
+    "title": "Berberine",
+    "iupac_name": "16,17-dimethoxy-5,7-dioxa-13-azoniapentacyclo[11.8.0.02,10.04,8.015,20]henicosa-1(13),2,4(8),9,14,16,18,20-octaene",
+    "inchikey": "YBHILYKTIRIUTE-UHFFFAOYSA-N",
+    "canonical_smiles": "COC1=C(C2=C[N+]3=C(C=C2C=C1)C4=CC5=C(C=C4CC3)OCO5)OC",
+    "molecular_weight": "336.4",
+    "resolved": true
+  },
+  "curcumin": {
+    "raw_name": "Curcumin",
+    "cid": 969516,
+    "title": "Curcumin",
+    "iupac_name": "(1E,6E)-1,7-bis(4-hydroxy-3-methoxyphenyl)hepta-1,6-diene-3,5-dione",
+    "inchikey": "VFLDPWHFBUODDF-FCXRPNKRSA-N",
+    "canonical_smiles": "COC1=C(C=CC(=C1)/C=C/C(=O)CC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O",
+    "molecular_weight": "368.4",
+    "resolved": true
+  },
+  "trametinib": {
+    "raw_name": "Trametinib",
+    "cid": 11707110,
+    "title": "Trametinib",
+    "iupac_name": "N-[3-[3-cyclopropyl-5-(2-fluoro-4-iodoanilino)-6,8-dimethyl-2,4,7-trioxopyrido[4,3-d]pyrimidin-1-yl]phenyl]acetamide",
+    "inchikey": "LIRYPHYGHXZJBZ-UHFFFAOYSA-N",
+    "canonical_smiles": "CC1=C2C(=C(N(C1=O)C)NC3=C(C=C(C=C3)I)F)C(=O)N(C(=O)N2C4=CC=CC(=C4)NC(=O)C)C5CC5",
+    "molecular_weight": "615.4",
+    "resolved": true
+  },
+  "canagliflozin": {
+    "raw_name": "Canagliflozin",
+    "cid": 24812758,
+    "title": "Canagliflozin",
+    "iupac_name": "(2S,3R,4R,5S,6R)-2-[3-[[5-(4-fluorophenyl)thiophen-2-yl]methyl]-4-methylphenyl]-6-(hydroxymethyl)oxane-3,4,5-triol",
+    "inchikey": "XTNGUQKDFGDXSJ-ZXGKGEBGSA-N",
+    "canonical_smiles": "CC1=C(C=C(C=C1)[C@H]2[C@@H]([C@H]([C@@H]([C@H](O2)CO)O)O)O)CC3=CC=C(S3)C4=CC=C(C=C4)F",
+    "molecular_weight": "444.5",
+    "resolved": true
+  },
+  "bpc-157": {
+    "raw_name": "BPC-157",
+    "cid": 9941957,
+    "title": "Bpc-157",
+    "iupac_name": "(4S)-4-[(2-aminoacetyl)amino]-5-[(2S)-2-[(2S)-2-[(2S)-2-[[2-[[(2S)-6-amino-1-[(2S)-2-[[(2S)-1-[[(2S)-3-carboxy-1-[[(2S)-3-carboxy-1-[[(2S)-1-[[2-[[(2S)-1-[[(1S)-1-carboxy-2-methylpropyl]amino]-4-methyl-1-oxopentan-2-yl]amino]-2-oxoethyl]amino]-1-oxopropan-2-yl]amino]-1-oxopropan-2-yl]amino]-1-oxopropan-2-yl]amino]-1-oxopropan-2-yl]carbamoyl]pyrrolidin-1-yl]-1-oxohexan-2-yl]amino]-2-oxoethyl]carbamoyl]pyrrolidine-1-carbonyl]pyrrolidine-1-carbonyl]pyrrolidin-1-yl]-5-oxopentanoic acid",
+    "inchikey": "HEEWEZGQMLZMFE-RKGINYAYSA-N",
+    "canonical_smiles": "C[C@@H](C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](C)C(=O)NCC(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](C(C)C)C(=O)O)NC(=O)[C@@H]1CCCN1C(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@@H]2CCCN2C(=O)[C@@H]3CCCN3C(=O)[C@@H]4CCCN4C(=O)[C@H](CCC(=O)O)NC(=O)CN",
+    "molecular_weight": "1419.5",
+    "resolved": true
+  },
+  "epitalon": {
+    "raw_name": "Epitalon",
+    "cid": 219042,
+    "title": "Epitalon",
+    "iupac_name": "(4S)-4-[[(2S)-2-aminopropanoyl]amino]-5-[[(2S)-3-carboxy-1-(carboxymethylamino)-1-oxopropan-2-yl]amino]-5-oxopentanoic acid",
+    "inchikey": "HGHOBRRUMWJWCU-FXQIFTODSA-N",
+    "canonical_smiles": "C[C@@H](C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)NCC(=O)O)N",
+    "molecular_weight": "390.35",
+    "resolved": true
+  },
+  "fakegerocompoundx99": {
+    "raw_name": "FakeGeroCompoundX99",
+    "resolved": false,
+    "error": "PubChem compound not found (404)"
+  }
+}

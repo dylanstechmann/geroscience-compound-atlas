@@ -1,0 +1,21 @@
+raw_name,modality,notes
+Rapamycin,small_molecule,mTOR inhibitor; validated mammalian lifespan hit (ITP)
+Dasatinib,small_molecule,Tyrosine kinase inhibitor; D+Q senolytic cocktail
+Quercetin,small_molecule,Flavonoid; D+Q senolytic cocktail
+Fisetin,small_molecule,Flavonoid senolytic with murine healthspan data
+Metformin,small_molecule,Biguanide; complex I inhibitor and AMPK activator
+Spermidine,small_molecule,Natural polyamine; macroautophagy inducer
+17alpha-estradiol,small_molecule,Non-feminizing estrogen; male mouse lifespan hit (ITP)
+Navitoclax,small_molecule,ABT-263; BCL-2 and BCL-xL inhibitor senolytic
+Resveratrol,small_molecule,Polyphenolic stilbenoid; SIRT1 activator
+Nicotinamide mononucleotide,small_molecule,NMN; NAD+ salvage pathway intermediate
+Nicotinamide riboside,small_molecule,NR; NAD+ precursor
+Acarbose,small_molecule,Alpha-glucosidase inhibitor; male mouse lifespan hit (ITP)
+Urolithin A,small_molecule,Gut microbiome metabolite; mitophagy inducer
+Berberine,small_molecule,Isoquinoline alkaloid; AMPK activator
+Curcumin,small_molecule,Polyphenolic curcuminoid; SASP / anti-inflammatory
+Trametinib,small_molecule,MEK1/2 inhibitor; low-dose Drosophila/murine longevity
+Canagliflozin,small_molecule,SGLT2 inhibitor; male mouse lifespan hit (ITP)
+BPC-157,peptide,Synthetic pentadecapeptide; tissue repair research peptide
+Epitalon,peptide,Synthetic tetrapeptide (Ala-Glu-Asp-Gly); telomerase modulation claims
+FakeGeroCompoundX99,other,Negative control name to verify failure tracking in coverage plot

@@ -1,0 +1,24 @@
+# Evidence grading scheme for Geroscience Compound Atlas
+# Edges without an evidence grade must be rejected.
+
+evidence_grades:
+  E0:
+    name: "Name only / unstructured"
+    description: "Name only / vendor copy / no structured assay."
+    criteria: "Unverified literature mention or gray-market/vendor claim without peer-reviewed assay data."
+  E1:
+    name: "In vitro assay (single)"
+    description: "In vitro assay, single paper or ChEMBL row."
+    criteria: "Single structured biochemical/cell-based assay or single ChEMBL activity entry with reported IC50/Ki/EC50."
+  E2:
+    name: "Target engagement / multiple assays"
+    description: "Multiple consistent assays or clear target engagement."
+    criteria: "Confirmed target engagement across multiple assays/laboratories. Senolytics require senescent-vs-proliferating selectivity data."
+  E3:
+    name: "In vivo functional endpoint"
+    description: "In vivo functional endpoint (not just a clock) in a model organism."
+    criteria: "Demonstrated functional efficacy, physiological rescue, or pathology reversal in a model organism (C. elegans, Drosophila, rodent)."
+  E4:
+    name: "Mammalian lifespan / human trial"
+    description: "Mammalian lifespan / healthspan or registered human outcome trial."
+    criteria: "Statistically robust mammalian lifespan extension (e.g. ITP replicate) or registered human clinical trial endpoint."

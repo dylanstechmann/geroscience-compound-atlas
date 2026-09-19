@@ -1,0 +1,43 @@
+# Controlled hallmark vocabulary for Geroscience Compound Atlas
+# Stable slugs mapped to mechanistic definitions.
+
+hallmarks:
+  genomic_instability:
+    name: "Genomic Instability"
+    description: "Accumulation of somatic mutations, DNA repair defects, chromosomal aneuploidy."
+  epigenetic_alteration:
+    name: "Epigenetic Alterations"
+    description: "Drift in DNA methylation patterns, loss of heterochromatin, altered histone marks."
+  telomere_attrition:
+    name: "Telomere Attrition"
+    description: "Shortening of telomeric repeat sequences leading to replicative arrest."
+  proteostasis:
+    name: "Loss of Proteostasis"
+    description: "Impaired chaperone function, protein aggregation, unfolded protein response failure."
+  autophagy:
+    name: "Disabled Macroautophagy"
+    description: "Decline in autophagic flux and lysosomal clearance of damaged macromolecules/organelles."
+  nutrient_sensing:
+    name: "Deregulated Nutrient Sensing"
+    description: "Aberrant signaling in mTOR, AMPK, sirtuin, and IGF-1/insulin pathways."
+  mitochondrial_dysfunction:
+    name: "Mitochondrial Dysfunction"
+    description: "Impaired OXPHOS, increased ROS production, loss of mitochondrial membrane potential."
+  cellular_senescence:
+    name: "Cellular Senescence"
+    description: "Permanent cell cycle exit accompanied by senescence-associated secretory phenotype (SASP)."
+  stem_cell_exhaustion:
+    name: "Stem Cell Exhaustion"
+    description: "Depletion and functional decline of somatic stem/progenitor cell pools."
+  intercellular_communication:
+    name: "Altered Intercellular Communication"
+    description: "Defective endocrine, paracrine, and neural signaling coordinating systemic homeostasis."
+  chronic_inflammation:
+    name: "Chronic Inflammation (Inflammaging)"
+    description: "Sterile, low-grade systemic inflammation (e.g. IL-11, IL-6, TNF, cGAS-STING activation)."
+  ecm_fibrosis:
+    name: "Extracellular Matrix / Fibrosis"
+    description: "Pathological matrix cross-linking, tissue stiffening, and fibrotic remodeling."
+  dysbiosis:
+    name: "Dysbiosis"
+    description: "Disruption of gut microbiome homeostasis and intestinal barrier integrity."

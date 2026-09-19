@@ -1,0 +1,32 @@
+# Benchmark configuration and hyperparameters for Geroscience Compound Atlas
+# No magic numbers in code; all knobs belong here.
+
+benchmark:
+  primary_task: "senolytic_selectivity"
+  fallback_task: "chembl_mtor_activity"
+  split:
+    type: "bemis_murcko"
+    train_ratio: 0.80
+    val_ratio: 0.10
+    test_ratio: 0.10
+    seeds: [42, 123, 456]
+  features:
+    fingerprint: "morgan"
+    radius: 2
+    n_bits: 2048
+    include_descriptors: true
+  model:
+    baseline: "logistic_regression"
+    contender: "hist_gradient_boosting"
+    hgb_params:
+      max_iter: 200
+      learning_rate: 0.05
+      min_samples_leaf: 10
+  thresholds:
+    pchembl_active: 6.0  # ~1 uM
+    senolytic_selectivity_ratio: 2.0
+  metrics:
+    - "auroc"
+    - "auprc"
+    - "recall_at_fpr_0.05"
+    - "brier_score"

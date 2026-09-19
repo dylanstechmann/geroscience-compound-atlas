@@ -1,0 +1,210 @@
+target_chembl_id,pref_name,target_type,organism,uniprot_accession
+CHEMBL613589,Plasma,TISSUE,Mus musculus,
+CHEMBL613508,DU-145,CELL-LINE,Homo sapiens,
+CHEMBL614818,HEK293,CELL-LINE,Homo sapiens,
+CHEMBL1867,Alpha-2A adrenergic receptor,SINGLE PROTEIN,Homo sapiens,P08913
+CHEMBL2366149,NCI-H1417,CELL-LINE,Homo sapiens,
+CHEMBL2366276,NCI-H187,CELL-LINE,Homo sapiens,
+CHEMBL234,D(3) dopamine receptor,SINGLE PROTEIN,Homo sapiens,P35462
+CHEMBL2094134,Tubulin,PROTEIN FAMILY,Bos taurus,Q6B856
+CHEMBL4102,Prostaglandin G/H synthase 2,SINGLE PROTEIN,Ovis aries,P79208
+CHEMBL353,Staphylococcus epidermidis,ORGANISM,Staphylococcus epidermidis,
+CHEMBL614941,SV3T3,CELL-LINE,Mus musculus,
+CHEMBL614361,T47D,CELL-LINE,Homo sapiens,
+CHEMBL2275,Sorbitol dehydrogenase,SINGLE PROTEIN,Homo sapiens,Q00796
+CHEMBL2424,Lactoylglutathione lyase,SINGLE PROTEIN,Homo sapiens,Q04760
+CHEMBL3871,Aldo-keto reductase family 1 member A1,SINGLE PROTEIN,Rattus norvegicus,P51635
+CHEMBL2590,Aminopeptidase N,SINGLE PROTEIN,Sus scrofa,P15145
+CHEMBL4513,3-oxoacyl-acyl-carrier protein reductase,SINGLE PROTEIN,Plasmodium falciparum,Q965D6
+CHEMBL238,Sodium-dependent dopamine transporter,SINGLE PROTEIN,Homo sapiens,Q01959
+CHEMBL5365,DNA polymerase kappa,SINGLE PROTEIN,Homo sapiens,Q9UBT6
+CHEMBL2093861,Menin/Histone-lysine N-methyltransferase MLL,PROTEIN-PROTEIN INTERACTION,Homo sapiens,O00255
+CHEMBL2094127,Cyclin-dependent kinase 1/cyclin B,PROTEIN COMPLEX GROUP,Homo sapiens,P06493
+CHEMBL2094114,Estrogen receptor,PROTEIN FAMILY,Rattus norvegicus,P06211
+CHEMBL242,Estrogen receptor beta,SINGLE PROTEIN,Homo sapiens,Q92731
+CHEMBL386,L1210,CELL-LINE,Mus musculus,
+CHEMBL1907600,Cyclin-dependent kinase 5/CDK5 activator 1,PROTEIN COMPLEX,Homo sapiens,Q00535
+CHEMBL233,Mu-type opioid receptor,SINGLE PROTEIN,Homo sapiens,P35372
+CHEMBL241,"cGMP-inhibited 3',5'-cyclic phosphodiesterase 3A",SINGLE PROTEIN,Homo sapiens,Q14432
+CHEMBL3879801,NON-PROTEIN TARGET,NON-MOLECULAR,,
+CHEMBL1902,Peptidyl-prolyl cis-trans isomerase FKBP1A,SINGLE PROTEIN,Homo sapiens,P62942
+CHEMBL613712,Radical scavenging activity,UNKNOWN,,
+CHEMBL614421,Micrococcus luteus,ORGANISM,Micrococcus luteus,
+CHEMBL614348,NCI-H1975,CELL-LINE,Homo sapiens,
+CHEMBL614430,Neisseria gonorrhoeae,ORGANISM,Neisseria gonorrhoeae,
+CHEMBL614071,HFF,CELL-LINE,Homo sapiens,
+CHEMBL614647,WiDr,CELL-LINE,Homo sapiens,
+CHEMBL4523582,Replicase polyprotein 1ab,SINGLE PROTEIN,Severe acute respiratory syndrome coronavirus 2,P0DTD1
+CHEMBL222,Sodium-dependent noradrenaline transporter,SINGLE PROTEIN,Homo sapiens,P23975
+CHEMBL221,Prostaglandin G/H synthase 1,SINGLE PROTEIN,Homo sapiens,P23219
+CHEMBL400,MDA-MB-231,CELL-LINE,Homo sapiens,
+CHEMBL6020,Bile salt export pump,SINGLE PROTEIN,Homo sapiens,O95342
+CHEMBL220,Acetylcholinesterase,SINGLE PROTEIN,Homo sapiens,P22303
+CHEMBL3181,17-beta-hydroxysteroid dehydrogenase type 1,SINGLE PROTEIN,Homo sapiens,P14061
+CHEMBL614309,T-cell,CELL-LINE,,
+CHEMBL6032,Histone-lysine N-methyltransferase EHMT2,SINGLE PROTEIN,Homo sapiens,Q96KQ7
+CHEMBL3356,Cytochrome P450 1A2,SINGLE PROTEIN,Homo sapiens,P05177
+CHEMBL284,Dipeptidyl peptidase 4,SINGLE PROTEIN,Homo sapiens,P27487
+CHEMBL2056,D(1A) dopamine receptor,SINGLE PROTEIN,Homo sapiens,P21728
+CHEMBL2147,Serine/threonine-protein kinase pim-1,SINGLE PROTEIN,Homo sapiens,P11309
+CHEMBL613424,Plasma,TISSUE,Homo sapiens,
+CHEMBL614194,Panel NCI-60 (60 carcinoma cell lines),CELL-LINE,Homo sapiens,
+CHEMBL1075069,RmtA,SINGLE PROTEIN,Emericella nidulans,Q5VLE3
+CHEMBL390,PC-3,CELL-LINE,Homo sapiens,
+CHEMBL2095157,Cyclooxygenase,PROTEIN FAMILY,Rattus norvegicus,P35355
+CHEMBL1293234,Fructose-bisphosphate aldolase,SINGLE PROTEIN,Giardia intestinalis,A8B2U2
+CHEMBL4625,Bcl-2-like protein 1,SINGLE PROTEIN,Homo sapiens,Q07817
+CHEMBL612657,CWR22R,CELL-LINE,Homo sapiens,
+CHEMBL1075138,Tyrosyl-DNA phosphodiesterase 1,SINGLE PROTEIN,Homo sapiens,Q9NUW8
+CHEMBL2903,Polyunsaturated fatty acid lipoxygenase ALOX15,SINGLE PROTEIN,Homo sapiens,P16050
+CHEMBL613711,SUD4,CELL-LINE,Homo sapiens,
+CHEMBL612407,FG2,CELL-LINE,Homo sapiens,
+CHEMBL613109,Gallus gallus,ORGANISM,Gallus gallus,
+CHEMBL381,B16,CELL-LINE,Mus musculus,
+CHEMBL3587,Dual specificity mitogen-activated protein kinase kinase 1,SINGLE PROTEIN,Homo sapiens,Q02750
+CHEMBL1865,Protein deacetylase HDAC6,SINGLE PROTEIN,Homo sapiens,Q9UBN7
+CHEMBL2949,Prostaglandin G/H synthase 1,SINGLE PROTEIN,Ovis aries,P05979
+CHEMBL4303835,SARS-CoV-2,ORGANISM,Severe acute respiratory syndrome coronavirus 2,
+CHEMBL1293258,Mothers against decapentaplegic homolog 3,SINGLE PROTEIN,Homo sapiens,P84022
+CHEMBL3823,L-lactate dehydrogenase B chain,SINGLE PROTEIN,Sus scrofa,P00336
+CHEMBL240,Voltage-gated inwardly rectifying potassium channel KCNH2,SINGLE PROTEIN,Homo sapiens,Q12809
+CHEMBL3884,Sodium/glucose cotransporter 2,SINGLE PROTEIN,Homo sapiens,P31639
+CHEMBL258,Tyrosine-protein kinase Lck,SINGLE PROTEIN,Homo sapiens,P06239
+CHEMBL2111372,Alcohol dehydrogenase,PROTEIN FAMILY,Equus caballus,P00327
+CHEMBL2007624,Peripheral myelin protein 22,SINGLE PROTEIN,Rattus norvegicus,P25094
+CHEMBL612556,PC-12,CELL-LINE,Rattus norvegicus,
+CHEMBL398,KB,CELL-LINE,Homo sapiens,
+CHEMBL349,Enterobacter cloacae,ORGANISM,Enterobacter cloacae,
+CHEMBL211,Muscarinic acetylcholine receptor M2,SINGLE PROTEIN,Homo sapiens,P08172
+CHEMBL5872,G-protein coupled estrogen receptor 1,SINGLE PROTEIN,Homo sapiens,Q99527
+CHEMBL5999,3-keto-steroid reductase/17-beta-hydroxysteroid dehydrogenase 7,SINGLE PROTEIN,Homo sapiens,P56937
+CHEMBL614875,Rhesus monkey,ORGANISM,Macaca mulatta,
+CHEMBL3081,Aldo-keto reductase family 1 member B1,SINGLE PROTEIN,Bos taurus,P16116
+CHEMBL372,Homo sapiens,ORGANISM,Homo sapiens,
+CHEMBL2362975,No relevant target,NO TARGET,,
+CHEMBL206,Estrogen receptor,SINGLE PROTEIN,Homo sapiens,P03372
+CHEMBL1293238,Inositol monophosphatase 1,SINGLE PROTEIN,Rattus norvegicus,P97697
+CHEMBL267,Proto-oncogene tyrosine-protein kinase Src,SINGLE PROTEIN,Homo sapiens,P12931
+CHEMBL362,Enterococcus faecalis,ORGANISM,Enterococcus faecalis,
+CHEMBL4261,Hypoxia-inducible factor 1-alpha,SINGLE PROTEIN,Homo sapiens,Q16665
+CHEMBL3396,DNA topoisomerase 2-beta,SINGLE PROTEIN,Homo sapiens,Q02880
+CHEMBL2457,Polyunsaturated fatty acid lipoxygenase ALOX15B,SINGLE PROTEIN,Homo sapiens,O15296
+CHEMBL301,Cyclin-dependent kinase 2,SINGLE PROTEIN,Homo sapiens,P24941
+CHEMBL2916,Telomerase reverse transcriptase,SINGLE PROTEIN,Homo sapiens,O14746
+CHEMBL3471,Human immunodeficiency virus type 1 integrase,SINGLE PROTEIN,Human immunodeficiency virus 1,Q7ZJM1
+CHEMBL4855,2-dehydropantoate 2-reductase,SINGLE PROTEIN,Escherichia coli K-12,P0A9J4
+CHEMBL5391,DNA polymerase iota,SINGLE PROTEIN,Homo sapiens,Q9UNA4
+CHEMBL613979,HUVEC,CELL-LINE,Homo sapiens,
+CHEMBL5027,Flap endonuclease 1,SINGLE PROTEIN,Homo sapiens,P39748
+CHEMBL613977,SF-268,CELL-LINE,Homo sapiens,
+CHEMBL358,Aspergillus niger,ORGANISM,Aspergillus niger,
+CHEMBL3608,Epidermal growth factor receptor,SINGLE PROTEIN,Mus musculus,Q01279
+CHEMBL387,MCF7,CELL-LINE,Homo sapiens,
+CHEMBL2096907,"AMP-activated protein kinase, AMPK",PROTEIN COMPLEX GROUP,Homo sapiens,P54646
+CHEMBL612518,LNCaP,CELL-LINE,Homo sapiens,
+CHEMBL614632,RBL-2H3,CELL-LINE,Rattus norvegicus,
+CHEMBL214,5-hydroxytryptamine receptor 1A,SINGLE PROTEIN,Homo sapiens,P08908
+CHEMBL375,Mus musculus,ORGANISM,Mus musculus,
+CHEMBL612888,Toxoplasma gondii,ORGANISM,Toxoplasma gondii,
+CHEMBL612545,Unchecked,UNCHECKED,,
+CHEMBL613847,Cynomolgus monkey,ORGANISM,Macaca fascicularis,
+CHEMBL279,Vascular endothelial growth factor receptor 2,SINGLE PROTEIN,Homo sapiens,P35968
+CHEMBL2755,"Glutathione reductase, mitochondrial",SINGLE PROTEIN,Homo sapiens,P00390
+CHEMBL4828,Synaptic vesicular amine transporter,SINGLE PROTEIN,Rattus norvegicus,Q01827
+CHEMBL1293224,Microtubule-associated protein tau,SINGLE PROTEIN,Homo sapiens,P10636
+CHEMBL2093866,Estrogen receptor,PROTEIN FAMILY,Homo sapiens,Q92731
+CHEMBL256,Adenosine receptor A3,SINGLE PROTEIN,Homo sapiens,P0DMS8
+CHEMBL614530,BXPC-3,CELL-LINE,Homo sapiens,
+CHEMBL5524,Protein arginine N-methyltransferase 1,SINGLE PROTEIN,Homo sapiens,Q99873
+CHEMBL614791,KM-20L2,CELL-LINE,Homo sapiens,
+CHEMBL228,Sodium-dependent serotonin transporter,SINGLE PROTEIN,Homo sapiens,P31645
+CHEMBL2366169,NCI-H889,CELL-LINE,Homo sapiens,
+CHEMBL365,Cryptococcus neoformans,ORGANISM,Cryptococcus neoformans,
+CHEMBL4860,Apoptosis regulator Bcl-2,SINGLE PROTEIN,Homo sapiens,P10415
+CHEMBL3784,Histone acetyltransferase p300,SINGLE PROTEIN,Homo sapiens,Q09472
+CHEMBL4483252,KOPTK1,CELL-LINE,Homo sapiens,
+CHEMBL612588,ASPC1,CELL-LINE,Homo sapiens,
+CHEMBL389,P388,CELL-LINE,Mus musculus,
+CHEMBL3622,Cytochrome P450 2C19,SINGLE PROTEIN,Homo sapiens,P33261
+CHEMBL614910,SH-SY5Y,CELL-LINE,Homo sapiens,
+CHEMBL4078,Acetylcholinesterase,SINGLE PROTEIN,Electrophorus electricus,O42275
+CHEMBL1980,Sodium channel protein type 5 subunit alpha,SINGLE PROTEIN,Homo sapiens,Q14524
+CHEMBL366,Candida albicans,ORGANISM,Candida albicans,
+CHEMBL614822,NIH3T3,CELL-LINE,Mus musculus,
+CHEMBL203,Epidermal growth factor receptor,SINGLE PROTEIN,Homo sapiens,P00533
+CHEMBL373,Canis familiaris,ORGANISM,Canis lupus familiaris,
+CHEMBL395,HepG2,CELL-LINE,Homo sapiens,
+CHEMBL2096618,Bcr/Abl fusion protein,CHIMERIC PROTEIN,Homo sapiens,P00519
+CHEMBL351,Salmonella typhimurium,ORGANISM,Salmonella enterica subsp. enterica serovar Typhimurium,
+CHEMBL1951,Amine oxidase [flavin-containing] A,SINGLE PROTEIN,Homo sapiens,P21397
+CHEMBL1075585,SNU-449,CELL-LINE,Homo sapiens,
+CHEMBL394,HCT-116,CELL-LINE,Homo sapiens,
+CHEMBL383,HL-60,CELL-LINE,Homo sapiens,
+CHEMBL3817,Bcl2-associated agonist of cell death,SINGLE PROTEIN,Homo sapiens,Q92934
+CHEMBL2622,Aldo-keto reductase family 1 member B1,SINGLE PROTEIN,Rattus norvegicus,P07943
+CHEMBL4628,"Glutamate dehydrogenase 1, mitochondrial",SINGLE PROTEIN,Bos taurus,P00366
+CHEMBL612794,U-937,CELL-LINE,Homo sapiens,
+CHEMBL392,A549,CELL-LINE,Homo sapiens,
+CHEMBL612558,ADMET,ADMET,,
+CHEMBL3577,Aldehyde dehydrogenase 1A1,SINGLE PROTEIN,Homo sapiens,P00352
+CHEMBL326,Alpha-1D adrenergic receptor,SINGLE PROTEIN,Rattus norvegicus,P23944
+CHEMBL6066797,Osimertinib-resistant NCI-H1975 cell,CELL-LINE,Homo sapiens,
+CHEMBL230,Prostaglandin G/H synthase 2,SINGLE PROTEIN,Homo sapiens,P35354
+CHEMBL204,Prothrombin,SINGLE PROTEIN,Homo sapiens,P00734
+CHEMBL5763,Cholinesterase,SINGLE PROTEIN,Equus caballus,P81908
+CHEMBL5122,Discoidin domain-containing receptor 2,SINGLE PROTEIN,Homo sapiens,Q16832
+CHEMBL614520,ANN-1,CELL-LINE,Mus musculus,
+CHEMBL3687,Polyunsaturated fatty acid lipoxygenase ALOX12,SINGLE PROTEIN,Homo sapiens,P18054
+CHEMBL614697,MDA-MB-435,CELL-LINE,Homo sapiens,
+CHEMBL4512,Fatty acid synthase,SINGLE PROTEIN,Plasmodium falciparum,Q965D7
+CHEMBL2487,Amyloid-beta precursor protein,SINGLE PROTEIN,Homo sapiens,P05067
+CHEMBL1781865,Endoplasmic reticulum chaperone BiP,SINGLE PROTEIN,Homo sapiens,P11021
+CHEMBL384,HT-29,CELL-LINE,Homo sapiens,
+CHEMBL312,Polyunsaturated fatty acid 5-lipoxygenase,SINGLE PROTEIN,Rattus norvegicus,P12527
+CHEMBL612557,RAW264.7,CELL-LINE,Mus musculus,
+CHEMBL2977,Prostaglandin G/H synthase 2,SINGLE PROTEIN,Rattus norvegicus,P35355
+CHEMBL4048,"Malate dehydrogenase, cytoplasmic",SINGLE PROTEIN,Sus scrofa,P11708
+CHEMBL289,Cytochrome P450 2D6,SINGLE PROTEIN,Homo sapiens,P10635
+CHEMBL345,Nucleic Acid,NUCLEIC-ACID,,
+CHEMBL340,Cytochrome P450 3A4,SINGLE PROTEIN,Homo sapiens,P08684
+CHEMBL2111353,Serine/threonine-protein kinase AKT,PROTEIN FAMILY,Homo sapiens,P31751
+CHEMBL2366075,NCI-H1963,CELL-LINE,Homo sapiens,
+CHEMBL2093862,Runt-related transcription factor 1/Core-binding factor subunit beta,PROTEIN-PROTEIN INTERACTION,Homo sapiens,Q01196
+CHEMBL2331044,Myelin transcription factor 1,SINGLE PROTEIN,Homo sapiens,Q01538
+CHEMBL3369,Neprilysin,SINGLE PROTEIN,Rattus norvegicus,P07861
+CHEMBL2095188,Glycogen synthase kinase-3,PROTEIN FAMILY,Homo sapiens,P49840
+CHEMBL1075435,DOK,CELL-LINE,Homo sapiens,
+CHEMBL4119,Glutathione reductase,SINGLE PROTEIN,Saccharomyces cerevisiae S288c,P41921
+CHEMBL2094139,DNA gyrase,PROTEIN COMPLEX,Escherichia coli,P0AES6
+CHEMBL4725,Aryl hydrocarbon receptor,SINGLE PROTEIN,Oryctolagus cuniculus,O02747
+CHEMBL376,Rattus norvegicus,ORGANISM,Rattus norvegicus,
+CHEMBL2842,Serine/threonine-protein kinase mTOR,SINGLE PROTEIN,Homo sapiens,P42345
+CHEMBL4302,ATP-dependent translocase ABCB1,SINGLE PROTEIN,Homo sapiens,P08183
+CHEMBL612647,Nakaseomyces glabratus,ORGANISM,Nakaseomyces glabratus,
+CHEMBL1963,Thyrotropin receptor,SINGLE PROTEIN,Homo sapiens,P16473
+CHEMBL612546,Molecular identity unknown,UNKNOWN,,
+CHEMBL354,Escherichia coli,ORGANISM,Escherichia coli,
+CHEMBL1287617,UDP-glucuronosyltransferase 1A1,SINGLE PROTEIN,Homo sapiens,P22309
+CHEMBL2508,Cyclin-dependent kinase 6,SINGLE PROTEIN,Homo sapiens,Q00534
+CHEMBL612841,Pichia kudriavzevii,ORGANISM,Pichia kudriavzevii,
+CHEMBL2034,Glucocorticoid receptor,SINGLE PROTEIN,Homo sapiens,P04150
+CHEMBL4979,Sodium/glucose cotransporter 1,SINGLE PROTEIN,Homo sapiens,P13866
+CHEMBL2697,Aldo-keto reductase family 7 member A3,SINGLE PROTEIN,Rattus norvegicus,P38918
+CHEMBL388,MT4,CELL-LINE,Homo sapiens,
+CHEMBL2964,Dual specificity mitogen-activated protein kinase kinase 2,SINGLE PROTEIN,Homo sapiens,P36507
+CHEMBL378,Human immunodeficiency virus 1,ORGANISM,Human immunodeficiency virus 1,
+CHEMBL612366,Stenotrophomonas maltophilia,ORGANISM,Stenotrophomonas maltophilia,
+CHEMBL4523572,NCI-H146,CELL-LINE,Homo sapiens,
+CHEMBL347,Streptococcus pneumoniae,ORGANISM,Streptococcus pneumoniae,
+CHEMBL364,Plasmodium falciparum,ORGANISM,Plasmodium falciparum,
+CHEMBL4150,Enoyl-acyl-carrier protein reductase,SINGLE PROTEIN,Plasmodium falciparum,Q965D5
+CHEMBL2146315,Nuclear receptor subfamily 1 group I member 2,SINGLE PROTEIN,Rattus norvegicus,Q9R1A7
+CHEMBL3072,Androgen receptor,SINGLE PROTEIN,Rattus norvegicus,P15207
+CHEMBL1293232,Survival motor neuron protein,SINGLE PROTEIN,Homo sapiens,Q16637
+CHEMBL2652,"cGMP-dependent 3',5'-cyclic phosphodiesterase",SINGLE PROTEIN,Homo sapiens,O00408
+CHEMBL614585,IMR-32,CELL-LINE,Homo sapiens,
+CHEMBL352,Staphylococcus aureus,ORGANISM,Staphylococcus aureus,
+CHEMBL4296578,Middle East respiratory syndrome-related coronavirus,ORGANISM,Middle East respiratory syndrome-related coronavirus,
+CHEMBL5319,Epithelial discoidin domain-containing receptor 1,SINGLE PROTEIN,Homo sapiens,Q08345
+CHEMBL3397,Cytochrome P450 2C9,SINGLE PROTEIN,Homo sapiens,P11712
+CHEMBL2069,Thromboxane A2 receptor,SINGLE PROTEIN,Homo sapiens,P21731
