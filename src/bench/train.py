@@ -7,7 +7,9 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import pandas as pd
 
+from bench.config import load_bench_config
 from bench.data import prepare_benchmark_dataset
 from bench.models import (
     extract_top_false_positives,
@@ -33,13 +35,15 @@ def run_benchmark_pipeline(
 ) -> dict[str, Any]:
     """Execute complete multi-seed benchmark bake-off comparing Baseline vs Contender under Scaffold vs Random splits."""
     data_file = Path(dataset_parquet)
-    if not data_file.exists():
-        logger.info("Dataset parquet not found at %s. Generating from ChEMBL...", data_file)
-        df = prepare_benchmark_dataset(
-            output_parquet=data_file, pchembl_threshold=pchembl_threshold
-        )
-    else:
+    fp_sidecar = data_file.with_suffix(".fingerprints.npy")
+
+    if data_file.exists() and fp_sidecar.exists():
         logger.info("Loading existing benchmark dataset from %s...", data_file)
+        df = pd.read_parquet(data_file)
+        fp_array = np.load(fp_sidecar)
+        df["fingerprint"] = list(fp_array)
+    else:
+        logger.info("Dataset not found at %s. Generating from ChEMBL...", data_file)
         df = prepare_benchmark_dataset(
             output_parquet=data_file, pchembl_threshold=pchembl_threshold
         )
@@ -228,7 +232,10 @@ if __name__ == "__main__":
     parser.add_argument("--metrics", default="artifacts/metrics.json")
     parser.add_argument("--roc-fig", default="figures/benchmark_roc_pr_curves.png")
     parser.add_argument("--scaffold-fig", default="figures/scaffold_size_distribution.png")
+    parser.add_argument("--config", default=None, help="Path to bench.yaml config file")
     args = parser.parse_args()
+
+    cfg = load_bench_config(args.config)
 
     run_benchmark_pipeline(
         dataset_parquet=args.parquet,
@@ -236,4 +243,6 @@ if __name__ == "__main__":
         metrics_json=args.metrics,
         roc_figure=args.roc_fig,
         scaffold_figure=args.scaffold_fig,
+        seeds=list(cfg.split.seeds),
+        pchembl_threshold=cfg.thresholds.pchembl_active,
     )

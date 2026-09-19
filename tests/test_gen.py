@@ -14,13 +14,14 @@ from gen.scorer import CompositeSurrogateScorer
 
 
 def test_sanitize_molecule():
-    valid = sanitize_molecule(Chem.MolFromSmiles("CCO"))
+    valid = sanitize_molecule(Chem.MolFromSmiles("CCCO"))
     assert valid is not None
-    assert valid.GetNumHeavyAtoms() == 3
+    assert valid.GetNumHeavyAtoms() == 4
 
     assert sanitize_molecule(None) is None
-    # Molecule with < 3 heavy atoms should be rejected
+    # Molecule with < 4 heavy atoms should be rejected
     assert sanitize_molecule(Chem.MolFromSmiles("CC")) is None
+    assert sanitize_molecule(Chem.MolFromSmiles("CCO")) is None
 
 
 def test_mutation_operators():
@@ -41,7 +42,7 @@ def test_mutation_operators():
 
     random_mutant = apply_random_mutation(mol)
     assert isinstance(random_mutant, Chem.Mol)
-    assert random_mutant.GetNumHeavyAtoms() >= 3
+    assert random_mutant.GetNumHeavyAtoms() >= 4
 
 
 def test_crossover():

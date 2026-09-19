@@ -104,10 +104,16 @@ def train_and_eval_contender(
     X_test: np.ndarray,
     y_test: np.ndarray,
     seed: int = 42,
+    max_iter: int = 200,
+    learning_rate: float = 0.05,
+    min_samples_leaf: int = 10,
 ) -> tuple[dict[str, float], np.ndarray]:
     """Train HistGradientBoostingClassifier contender and return metrics + test predictions."""
     model = HistGradientBoostingClassifier(
-        max_iter=200, learning_rate=0.05, min_samples_leaf=10, random_state=seed
+        max_iter=max_iter,
+        learning_rate=learning_rate,
+        min_samples_leaf=min_samples_leaf,
+        random_state=seed,
     )
     model.fit(X_train, y_train)
     y_prob = model.predict_proba(X_test)[:, 1]

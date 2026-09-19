@@ -166,9 +166,16 @@ def prepare_benchmark_dataset(
     # Save to parquet
     out_file = Path(output_parquet)
     out_file.parent.mkdir(parents=True, exist_ok=True)
-    # Exclude list column from parquet directly or convert to numpy for storage
     parquet_df = final_df.drop(columns=["fingerprint"])
     parquet_df.to_parquet(out_file, index=False)
+
+    # Save fingerprints as a numpy sidecar so train.py can load without re-featurizing
+    import numpy as np
+
+    fp_array = np.array(final_df["fingerprint"].tolist(), dtype=np.float32)
+    fp_path = out_file.with_suffix(".fingerprints.npy")
+    np.save(fp_path, fp_array)
+    logger.info("Saved fingerprint matrix (%s) to %s", fp_array.shape, fp_path)
 
     # Also save CSV copy
     csv_file = Path("data/processed/benchmark_dataset.csv")

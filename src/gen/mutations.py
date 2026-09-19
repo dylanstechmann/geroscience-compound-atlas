@@ -35,7 +35,7 @@ def sanitize_molecule(mol: Chem.Mol | None) -> Chem.Mol | None:
         if len(frags) != 1:
             # Pick largest fragment
             mol_copy = max(frags, key=lambda m: m.GetNumHeavyAtoms())
-        if mol_copy.GetNumHeavyAtoms() < 3:
+        if mol_copy.GetNumHeavyAtoms() < 4:
             return None
         # Check that it converts to valid SMILES and back
         smi = Chem.MolToSmiles(mol_copy)
