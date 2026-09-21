@@ -16,22 +16,22 @@ This project is not a personalized protocol generator, supplement stack advisor,
 - Curated evidence edges: **62 edges** hand-curated with explicit E0–E4 grading across 12 hallmarks.
 - Benchmark dataset: **561 unique molecules** across 279 Murcko scaffolds for ChEMBL mTOR kinase (`CHEMBL2842`).
 - Primary exit artifacts:
-  - [artifacts/compounds.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/compounds.parquet) (20 compounds with 2048-bit Morgan fingerprints + 9 RDKit descriptors)
-  - [artifacts/chembl_activities.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/chembl_activities.parquet) (662 bioactivity rows)
-  - [artifacts/targets.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/targets.parquet) (209 biological targets)
-  - [artifacts/evidence_edges.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/evidence_edges.parquet) (62 validated evidence edges)
-  - [artifacts/chembl_coverage.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/chembl_coverage.parquet) (compound-level ChEMBL binding assay breakdown)
-  - [artifacts/benchmark_dataset.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/benchmark_dataset.parquet) (561 mTOR molecules with binary active labels)
-  - [artifacts/splits.json](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/splits.json) (scaffold and random split partitions across seeds 42, 123, 456)
-  - [artifacts/metrics.json](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/metrics.json) (AUROC, AUPRC, Recall@5%FPR, Brier, and top-10 false positives)
-  - [artifacts/generated_molecules.parquet](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/generated_molecules.parquet) (200 GA-generated candidate structures)
-  - [artifacts/generator_metrics.json](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/generator_metrics.json) (validity, uniqueness, diversity, QED bias sensitivity)
-  - [artifacts/dashboard.html](file:///c:/Users/AyeBayBay/Projects/other4/workspace/artifacts/dashboard.html) (standalone interactive HTML dashboard with inline 2D SVGs)
-  - [figures/resolution_coverage.png](file:///c:/Users/AyeBayBay/Projects/other4/workspace/figures/resolution_coverage.png)
-  - [figures/chembl_and_hallmark_coverage.png](file:///c:/Users/AyeBayBay/Projects/other4/workspace/figures/chembl_and_hallmark_coverage.png)
-  - [figures/scaffold_size_distribution.png](file:///c:/Users/AyeBayBay/Projects/other4/workspace/figures/scaffold_size_distribution.png)
-  - [figures/benchmark_roc_pr_curves.png](file:///c:/Users/AyeBayBay/Projects/other4/workspace/figures/benchmark_roc_pr_curves.png)
-  - [figures/generator_chemical_space.png](file:///c:/Users/AyeBayBay/Projects/other4/workspace/figures/generator_chemical_space.png)
+  - [artifacts/compounds.parquet](artifacts/compounds.parquet) (20 compounds with 2048-bit Morgan fingerprints + 9 RDKit descriptors)
+  - [artifacts/chembl_activities.parquet](artifacts/chembl_activities.parquet) (662 bioactivity rows)
+  - [artifacts/targets.parquet](artifacts/targets.parquet) (209 biological targets)
+  - [artifacts/evidence_edges.parquet](artifacts/evidence_edges.parquet) (62 validated evidence edges)
+  - [artifacts/chembl_coverage.parquet](artifacts/chembl_coverage.parquet) (compound-level ChEMBL binding assay breakdown)
+  - [artifacts/benchmark_dataset.parquet](artifacts/benchmark_dataset.parquet) (561 mTOR molecules with binary active labels)
+  - [artifacts/splits.json](artifacts/splits.json) (scaffold and random split partitions across seeds 42, 123, 456)
+  - [artifacts/metrics.json](artifacts/metrics.json) (AUROC, AUPRC, Recall@5%FPR, Brier, and top-10 false positives)
+  - [artifacts/generated_molecules.parquet](artifacts/generated_molecules.parquet) (200 GA-generated candidate structures)
+  - [artifacts/generator_metrics.json](artifacts/generator_metrics.json) (validity, uniqueness, diversity, QED bias sensitivity)
+  - [artifacts/dashboard.html](artifacts/dashboard.html) (standalone interactive HTML dashboard with inline 2D SVGs)
+  - [figures/resolution_coverage.png](figures/resolution_coverage.png)
+  - [figures/chembl_and_hallmark_coverage.png](figures/chembl_and_hallmark_coverage.png)
+  - [figures/scaffold_size_distribution.png](figures/scaffold_size_distribution.png)
+  - [figures/benchmark_roc_pr_curves.png](figures/benchmark_roc_pr_curves.png)
+  - [figures/generator_chemical_space.png](figures/generator_chemical_space.png)
 
 ## Labels and leakage
 - **Task**: ChEMBL mTOR longevity kinase activity classification (`target_chembl_id = CHEMBL2842`), selected per §15 default decision fork (clean literature senolytics with selectivity ratios <80; ChEMBL mTOR provides a dense, well-characterized 561-compound set).

@@ -129,7 +129,7 @@ def random_split(
 
 def generate_and_save_splits(
     df: pd.DataFrame,
-    seeds: list[int] = (42, 123, 456),
+    seeds: list[int] | tuple[int, ...] = (42, 123, 456),
     output_path: str | Path = "artifacts/splits.json",
 ) -> dict[str, dict[str, dict[str, list[int]]]]:
     """Generate and save both scaffold and random splits across multiple seeds."""

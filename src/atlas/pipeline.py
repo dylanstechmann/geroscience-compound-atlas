@@ -10,7 +10,6 @@ from atlas.features import compute_rdkit_descriptors
 from atlas.models import Compound, Modality
 from atlas.normalize import canonicalize_smiles
 from atlas.pubchem import PubChemClient
-from viz.coverage import plot_resolution_coverage
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("atlas.pipeline")
@@ -20,7 +19,6 @@ def run_phase1_pipeline(
     watchlist_path: str | Path = "data/watchlist/seed_compounds.csv",
     cache_path: str | Path = "data/interim/pubchem_cache.json",
     parquet_output: str | Path = "artifacts/compounds.parquet",
-    figure_output: str | Path = "figures/resolution_coverage.png",
 ) -> pd.DataFrame:
     """Execute Phase 1 resolution and featurization pipeline.
 
@@ -28,7 +26,6 @@ def run_phase1_pipeline(
         watchlist_path: Path to input watchlist CSV.
         cache_path: Path to PubChem cache JSON.
         parquet_output: Destination path for frozen compounds parquet file.
-        figure_output: Destination path for coverage diagnostic figure.
 
     Returns:
         Processed DataFrame containing resolved records and descriptors.
@@ -131,10 +128,6 @@ def run_phase1_pipeline(
     csv_copy.parent.mkdir(parents=True, exist_ok=True)
     df_out.to_csv(csv_copy, index=False)
 
-    # Generate coverage plot
-    fig_path = plot_resolution_coverage(df_out, output_path=figure_output)
-    logger.info("Saved coverage plot to %s", fig_path)
-
     # Log summary
     resolved_count = df_out["resolved"].sum()
     total_count = len(df_out)
@@ -156,9 +149,14 @@ if __name__ == "__main__":
     parser.add_argument("--figure", default="figures/resolution_coverage.png")
     args = parser.parse_args()
 
-    run_phase1_pipeline(
+    result_df = run_phase1_pipeline(
         watchlist_path=args.watchlist,
         cache_path=args.cache,
         parquet_output=args.output,
-        figure_output=args.figure,
     )
+
+    # Generate coverage visualization (kept out of the data pipeline to avoid viz dependency)
+    from viz.coverage import plot_resolution_coverage
+
+    fig_path = plot_resolution_coverage(result_df, output_path=args.figure)
+    logger.info("Saved coverage plot to %s", fig_path)

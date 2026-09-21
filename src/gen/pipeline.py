@@ -50,7 +50,6 @@ def run_generator_pipeline(
     output_figure: str | Path = "figures/generator_chemical_space.png",
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Execute molecular GA under variable QED bias, compute metrics, and project PCA chemical space."""
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
     logger.info("Initializing CompositeSurrogateScorer...")
     scorer = CompositeSurrogateScorer(benchmark_parquet=benchmark_parquet, splits_json=splits_json)
 

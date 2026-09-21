@@ -35,15 +35,19 @@ class CompositeSurrogateScorer:
         train_idx = np.array(train_indices, dtype=int)
 
         # Assemble training matrices
-        mfpgen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
-        fps_list = []
-        for smi in self.benchmark_df["canonical_smiles"]:
-            m = Chem.MolFromSmiles(str(smi)) if pd.notna(smi) else None
-            if m:
-                fps_list.append(np.array(mfpgen.GetFingerprint(m), dtype=np.float32))
-            else:
-                fps_list.append(np.zeros(2048, dtype=np.float32))
-        fps = np.array(fps_list, dtype=np.float32)
+        fp_sidecar = Path(benchmark_parquet).with_suffix(".fingerprints.npy")
+        if fp_sidecar.exists():
+            fps = np.load(fp_sidecar)
+        else:
+            mfpgen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+            fps_list = []
+            for smi in self.benchmark_df["canonical_smiles"]:
+                m = Chem.MolFromSmiles(str(smi)) if pd.notna(smi) else None
+                if m:
+                    fps_list.append(np.array(mfpgen.GetFingerprint(m), dtype=np.float32))
+                else:
+                    fps_list.append(np.zeros(2048, dtype=np.float32))
+            fps = np.array(fps_list, dtype=np.float32)
         desc_raw = self.benchmark_df[DESCRIPTOR_COLS].to_numpy(dtype=np.float32)
 
         # Fit scaler on training descriptors only

@@ -30,7 +30,7 @@ def sanitize_molecule(mol: Chem.Mol | None) -> Chem.Mol | None:
     try:
         mol_copy = copy.deepcopy(mol)
         Chem.SanitizeMol(mol_copy)
-        # Ensure it has at least 3 heavy atoms and no disconnects
+        # Ensure it has at least 4 heavy atoms and no disconnects
         frags = Chem.GetMolFrags(mol_copy, asMols=True)
         if len(frags) != 1:
             # Pick largest fragment

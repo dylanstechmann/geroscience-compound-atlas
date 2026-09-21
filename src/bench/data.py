@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import httpx
+import numpy as np
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem.Scaffolds import MurckoScaffold
@@ -169,8 +170,6 @@ def prepare_benchmark_dataset(
     parquet_df = final_df.drop(columns=["fingerprint"])
     parquet_df.to_parquet(out_file, index=False)
 
-    # Save fingerprints as a numpy sidecar so train.py can load without re-featurizing
-    import numpy as np
 
     fp_array = np.array(final_df["fingerprint"].tolist(), dtype=np.float32)
     fp_path = out_file.with_suffix(".fingerprints.npy")

@@ -10,7 +10,6 @@ import pandas as pd
 from atlas.chembl import ChEMBLClient
 from atlas.graph import EvidenceGraph
 from atlas.models import EvidenceEdge, EvidenceGrade, HallmarkSlug
-from viz.hallmarks import plot_chembl_and_hallmark_coverage
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("atlas.chembl_join")
@@ -184,10 +183,6 @@ def run_phase2_pipeline(
     targets_df.to_csv("data/processed/targets.csv", index=False)
     edges_df.to_csv("data/processed/evidence_edges.csv", index=False)
 
-    # Generate visualization
-    fig_path = plot_chembl_and_hallmark_coverage(coverage_df, edges_df, output_path=figure_out)
-    logger.info("Saved ChEMBL and hallmark coverage figure to %s", fig_path)
-
     # Headline metric
     total_compounds = len(coverage_df)
     has_binding_count = coverage_df["has_binding"].sum()
@@ -213,10 +208,17 @@ if __name__ == "__main__":
     parser.add_argument("--compounds", default="artifacts/compounds.parquet")
     parser.add_argument("--curated", default="data/curated/curated_evidence.csv")
     parser.add_argument("--cache", default="data/interim/chembl_cache.json")
+    parser.add_argument("--figure", default="figures/chembl_and_hallmark_coverage.png")
     args = parser.parse_args()
 
-    run_phase2_pipeline(
+    cov_df, acts_df, tgts_df, edg_df = run_phase2_pipeline(
         compounds_parquet=args.compounds,
         curated_edges_csv=args.curated,
         cache_path=args.cache,
     )
+
+    # Generate visualization (kept out of the data pipeline to avoid viz dependency)
+    from viz.hallmarks import plot_chembl_and_hallmark_coverage
+
+    fig_path = plot_chembl_and_hallmark_coverage(cov_df, edg_df, output_path=args.figure)
+    logger.info("Saved ChEMBL and hallmark coverage figure to %s", fig_path)

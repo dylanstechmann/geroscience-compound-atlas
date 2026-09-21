@@ -21,6 +21,8 @@ data/raw/*
 data/interim/*
 !data/interim/.gitkeep
 !data/interim/*.json
+data/processed/*
+!data/processed/.gitkeep
 
 # IDE / OS
 .vscode/

@@ -30,8 +30,11 @@ def run_benchmark_pipeline(
     metrics_json: str | Path = "artifacts/metrics.json",
     roc_figure: str | Path = "figures/benchmark_roc_pr_curves.png",
     scaffold_figure: str | Path = "figures/scaffold_size_distribution.png",
-    seeds: list[int] = (42, 123, 456),
+    seeds: list[int] | tuple[int, ...] = (42, 123, 456),
     pchembl_threshold: float = 6.0,
+    hgb_max_iter: int = 200,
+    hgb_learning_rate: float = 0.05,
+    hgb_min_samples_leaf: int = 10,
 ) -> dict[str, Any]:
     """Execute complete multi-seed benchmark bake-off comparing Baseline vs Contender under Scaffold vs Random splits."""
     data_file = Path(dataset_parquet)
@@ -85,7 +88,10 @@ def run_benchmark_pipeline(
 
             # 2. Contender: HistGradientBoosting
             cont_metrics, cont_probs = train_and_eval_contender(
-                X_train, y_train, X_test, y_test, seed=seed
+                X_train, y_train, X_test, y_test, seed=seed,
+                max_iter=hgb_max_iter,
+                learning_rate=hgb_learning_rate,
+                min_samples_leaf=hgb_min_samples_leaf,
             )
             results_by_setting[split_type]["contender"].append(cont_metrics)
 
@@ -245,4 +251,7 @@ if __name__ == "__main__":
         scaffold_figure=args.scaffold_fig,
         seeds=list(cfg.split.seeds),
         pchembl_threshold=cfg.thresholds.pchembl_active,
+        hgb_max_iter=cfg.model.hgb_params.max_iter,
+        hgb_learning_rate=cfg.model.hgb_params.learning_rate,
+        hgb_min_samples_leaf=cfg.model.hgb_params.min_samples_leaf,
     )

@@ -28,6 +28,11 @@ class PubChemClient:
         self.timeout_sec = timeout_sec
         self._last_request_time: float = 0.0
         self._cache: dict[str, Any] = self._load_cache()
+        self._client = httpx.Client(timeout=self.timeout_sec)
+
+    def close(self) -> None:
+        """Close the underlying HTTP client."""
+        self._client.close()
 
     def _load_cache(self) -> dict[str, Any]:
         """Load cache from disk if it exists."""
@@ -82,8 +87,7 @@ class PubChemClient:
         for attempt in range(retries):
             self._wait_for_rate_limit()
             try:
-                with httpx.Client(timeout=self.timeout_sec) as client:
-                    response = client.get(url, headers=headers)
+                response = self._client.get(url, headers=headers)
 
                 if response.status_code == 200:
                     data = response.json()
