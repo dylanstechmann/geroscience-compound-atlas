@@ -36,7 +36,8 @@ def prepare_feature_matrices(
     fps = np.array(df["fingerprint"].tolist(), dtype=np.float32)
 
     if include_descriptors:
-        desc_raw = df[DESCRIPTOR_COLS].to_numpy(dtype=np.float32)
+        # Imputation writes into this array; pandas may otherwise return a read-only view.
+        desc_raw = df[DESCRIPTOR_COLS].to_numpy(dtype=np.float32, copy=True)
         # Impute any missing values with median of training set
         train_desc = desc_raw[train_idx]
         col_medians = np.nanmedian(train_desc, axis=0)

@@ -19,6 +19,48 @@ logger = logging.getLogger(__name__)
 CHEMBL_ACTIVITY_URL = "https://www.ebi.ac.uk/chembl/api/data/activity"
 
 
+def validate_activity_threshold(threshold: float) -> float:
+    """Reject invalid thresholds before reading caches or contacting ChEMBL."""
+    try:
+        value = float(threshold)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("pchembl_threshold must be a finite number") from exc
+    if isinstance(threshold, bool) or not np.isfinite(value):
+        raise ValueError("pchembl_threshold must be a finite number")
+    return value
+
+
+def activity_labels(values: pd.Series, threshold: float) -> pd.Series:
+    """Derive labels from the stored measurements, never from cached labels."""
+    threshold = validate_activity_threshold(threshold)
+    try:
+        numeric = pd.to_numeric(values, errors="raise")
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Benchmark pchembl_value measurements must be finite numbers") from exc
+    if not np.isfinite(numeric.to_numpy(dtype=float)).all():
+        raise ValueError("Benchmark pchembl_value measurements must be finite numbers")
+    return (numeric >= threshold).astype(int)
+
+
+def save_benchmark_tables(
+    df: pd.DataFrame, output_parquet: str | Path, *, save_fingerprints: bool = False
+) -> None:
+    """Save cache artifacts before exporting CSV; cached relabeling reuses fingerprints."""
+    out_file = Path(output_parquet)
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    table = df.drop(columns=["fingerprint"])
+    table.to_parquet(out_file, index=False)
+    if save_fingerprints:
+        # A failed CSV export must leave the new rows paired with their new fingerprints.
+        fp_array = np.array(df["fingerprint"].tolist(), dtype=np.float32)
+        fp_path = out_file.with_suffix(".fingerprints.npy")
+        np.save(fp_path, fp_array)
+        logger.info("Saved fingerprint matrix (%s) to %s", fp_array.shape, fp_path)
+    csv_file = Path("data/processed/benchmark_dataset.csv")
+    csv_file.parent.mkdir(parents=True, exist_ok=True)
+    table.to_csv(csv_file, index=False)
+
+
 def fetch_chembl_mtor_records(
     cache_path: str | Path = "data/interim/chembl_bench_raw.json",
     target_chembl_id: str = "CHEMBL2842",
@@ -96,12 +138,13 @@ def prepare_benchmark_dataset(
     Args:
         cache_path: Path to cached raw records.
         output_parquet: Destination path for frozen dataset parquet file.
-        pchembl_threshold: Cutoff for active label (pchembl >= 6.0 -> 1, else 0).
+        pchembl_threshold: Inclusive cutoff for the active label.
         target_count: Number of records to curate.
 
     Returns:
         Curated benchmark DataFrame.
     """
+    pchembl_threshold = validate_activity_threshold(pchembl_threshold)
     raw_records = fetch_chembl_mtor_records(cache_path=cache_path, target_count=target_count)
     clean_rows = []
 
@@ -156,30 +199,15 @@ def prepare_benchmark_dataset(
     dedup_rows = []
     for inchikey, group in df.groupby("inchikey"):
         mean_pchembl = float(group["pchembl_value"].mean())
-        active_label = int(mean_pchembl >= pchembl_threshold)
         first_row = group.iloc[0].to_dict()
-        first_row["pchembl_value"] = round(mean_pchembl, 3)
-        first_row["active"] = active_label
+        # Preserve precision so a reload cannot move a measurement across the cutoff.
+        first_row["pchembl_value"] = mean_pchembl
         dedup_rows.append(first_row)
 
     final_df = pd.DataFrame(dedup_rows)
+    final_df["active"] = activity_labels(final_df["pchembl_value"], pchembl_threshold)
 
-    # Save to parquet
-    out_file = Path(output_parquet)
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    parquet_df = final_df.drop(columns=["fingerprint"])
-    parquet_df.to_parquet(out_file, index=False)
-
-
-    fp_array = np.array(final_df["fingerprint"].tolist(), dtype=np.float32)
-    fp_path = out_file.with_suffix(".fingerprints.npy")
-    np.save(fp_path, fp_array)
-    logger.info("Saved fingerprint matrix (%s) to %s", fp_array.shape, fp_path)
-
-    # Also save CSV copy
-    csv_file = Path("data/processed/benchmark_dataset.csv")
-    csv_file.parent.mkdir(parents=True, exist_ok=True)
-    parquet_df.to_csv(csv_file, index=False)
+    save_benchmark_tables(final_df, output_parquet, save_fingerprints=True)
 
     logger.info(
         "Benchmark dataset ready: %d unique molecules (%d active, %d inactive). Scaffolds: %d unique.",
