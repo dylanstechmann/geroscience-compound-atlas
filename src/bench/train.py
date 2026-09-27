@@ -10,7 +10,12 @@ import numpy as np
 import pandas as pd
 
 from bench.config import load_bench_config
-from bench.data import prepare_benchmark_dataset
+from bench.data import (
+    activity_labels,
+    prepare_benchmark_dataset,
+    save_benchmark_tables,
+    validate_activity_threshold,
+)
 from bench.models import (
     extract_top_false_positives,
     prepare_feature_matrices,
@@ -37,6 +42,7 @@ def run_benchmark_pipeline(
     hgb_min_samples_leaf: int = 10,
 ) -> dict[str, Any]:
     """Execute complete multi-seed benchmark bake-off comparing Baseline vs Contender under Scaffold vs Random splits."""
+    pchembl_threshold = validate_activity_threshold(pchembl_threshold)
     data_file = Path(dataset_parquet)
     fp_sidecar = data_file.with_suffix(".fingerprints.npy")
 
@@ -45,6 +51,14 @@ def run_benchmark_pipeline(
         df = pd.read_parquet(data_file)
         fp_array = np.load(fp_sidecar)
         df["fingerprint"] = list(fp_array)
+        if "pchembl_value" not in df:
+            raise ValueError("Cached benchmark is missing pchembl_value; rebuild the dataset")
+        labels = activity_labels(df["pchembl_value"], pchembl_threshold)
+        if "active" not in df or not df["active"].equals(labels):
+            logger.info("Updated cached labels for pchembl_threshold=%s", pchembl_threshold)
+        df["active"] = labels
+        # Always refresh both tables, including retries after a failed CSV write.
+        save_benchmark_tables(df, data_file)
     else:
         logger.info("Dataset not found at %s. Generating from ChEMBL...", data_file)
         df = prepare_benchmark_dataset(
@@ -168,7 +182,8 @@ def run_benchmark_pipeline(
 
     metrics_payload = {
         "task": "chembl_mtor_activity_classification",
-        "label_definition": "active = 1 if pchembl_value >= 6.0 else 0",
+        "label_definition": f"active = 1 if pchembl_value >= {pchembl_threshold} else 0",
+        "pchembl_threshold": pchembl_threshold,
         "dataset_size": len(df),
         "num_active": int(df["active"].sum()),
         "num_inactive": int(len(df) - df["active"].sum()),

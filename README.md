@@ -55,3 +55,22 @@ start artifacts/dashboard.html
 # Linux
 xdg-open artifacts/dashboard.html
 ```
+
+## Changing the benchmark activity threshold
+
+Set `benchmark.thresholds.pchembl_active` in `configs/bench.yaml`, or pass a
+custom YAML file with `python -m bench.train --config path/to/bench.yaml`.
+The cutoff is inclusive: measurements equal to it are labeled active.
+
+Training recalculates labels from cached `pchembl_value` measurements before
+splitting or fitting. On cached runs, it refreshes the benchmark parquet and
+`data/processed/benchmark_dataset.csv`; it reuses the fingerprint sidecar and
+does not contact ChEMBL when both cached files exist. Metrics record the numeric
+`pchembl_threshold` and the matching `label_definition`. Regenerate downstream
+reports and generator outputs after changing the threshold.
+
+New datasets preserve the full precision of averaged activity measurements.
+Older caches can only be relabeled at their stored precision; rebuild them from
+the raw activity records if measurements near the cutoff were rounded. Invalid
+thresholds or non-finite cached measurements fail explicitly instead of silently
+changing the labels.
