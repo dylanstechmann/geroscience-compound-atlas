@@ -42,12 +42,20 @@ def activity_labels(values: pd.Series, threshold: float) -> pd.Series:
     return (numeric >= threshold).astype(int)
 
 
-def save_benchmark_tables(df: pd.DataFrame, output_parquet: str | Path) -> None:
-    """Keep the authoritative parquet and its CSV export on the same labels."""
+def save_benchmark_tables(
+    df: pd.DataFrame, output_parquet: str | Path, *, save_fingerprints: bool = False
+) -> None:
+    """Save cache artifacts before exporting CSV; cached relabeling reuses fingerprints."""
     out_file = Path(output_parquet)
     out_file.parent.mkdir(parents=True, exist_ok=True)
     table = df.drop(columns=["fingerprint"])
     table.to_parquet(out_file, index=False)
+    if save_fingerprints:
+        # A failed CSV export must leave the new rows paired with their new fingerprints.
+        fp_array = np.array(df["fingerprint"].tolist(), dtype=np.float32)
+        fp_path = out_file.with_suffix(".fingerprints.npy")
+        np.save(fp_path, fp_array)
+        logger.info("Saved fingerprint matrix (%s) to %s", fp_array.shape, fp_path)
     csv_file = Path("data/processed/benchmark_dataset.csv")
     csv_file.parent.mkdir(parents=True, exist_ok=True)
     table.to_csv(csv_file, index=False)
@@ -199,13 +207,7 @@ def prepare_benchmark_dataset(
     final_df = pd.DataFrame(dedup_rows)
     final_df["active"] = activity_labels(final_df["pchembl_value"], pchembl_threshold)
 
-    save_benchmark_tables(final_df, output_parquet)
-    out_file = Path(output_parquet)
-
-    fp_array = np.array(final_df["fingerprint"].tolist(), dtype=np.float32)
-    fp_path = out_file.with_suffix(".fingerprints.npy")
-    np.save(fp_path, fp_array)
-    logger.info("Saved fingerprint matrix (%s) to %s", fp_array.shape, fp_path)
+    save_benchmark_tables(final_df, output_parquet, save_fingerprints=True)
 
     logger.info(
         "Benchmark dataset ready: %d unique molecules (%d active, %d inactive). Scaffolds: %d unique.",

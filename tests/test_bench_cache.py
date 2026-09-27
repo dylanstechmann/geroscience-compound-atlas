@@ -6,6 +6,7 @@ from unittest.mock import Mock
 import numpy as np
 import pandas as pd
 import pytest
+from rdkit import Chem
 
 from bench import data, train
 from bench.config import load_bench_config
@@ -90,6 +91,59 @@ def test_cache_hit_recreates_csv_export_even_when_labels_already_match(tmp_path,
     assert not csv_path.exists()
     train.run_benchmark_pipeline(dataset_parquet=path, seeds=[42], pchembl_threshold=6.0)
     np.testing.assert_array_equal(pd.read_csv(csv_path)["active"], original["active"])
+    fetch.assert_not_called()
+
+
+def test_failed_csv_rebuild_retries_with_matching_fingerprints(
+    tmp_path, offline_pipeline, monkeypatch
+):
+    fetch, _ = offline_pipeline
+    fetch.side_effect = None
+    fetch.return_value = [
+        {"canonical_smiles": "CCO", "pchembl_value": "5.5", "molecule_chembl_id": "A"},
+        {"canonical_smiles": "CCN", "pchembl_value": "6.5", "molecule_chembl_id": "B"},
+        {"canonical_smiles": "CCCl", "pchembl_value": "7.0", "molecule_chembl_id": "C"},
+    ]
+    path = tmp_path / "benchmark.parquet"
+    fingerprint_path = path.with_suffix(".fingerprints.npy")
+    # A rebuild may leave a sidecar from an older dataset with the same row count.
+    np.save(fingerprint_path, np.zeros((3, 2048), dtype=np.float32))
+
+    with monkeypatch.context() as failing_export:
+        failing_export.setattr(
+            pd.DataFrame, "to_csv", Mock(side_effect=OSError("CSV export unavailable"))
+        )
+        with pytest.raises(OSError, match="CSV export unavailable"):
+            train.run_benchmark_pipeline(dataset_parquet=path, seeds=[42])
+
+    cached = pd.read_parquet(path)
+    expected_fingerprints = np.array([
+        data.compute_morgan_fingerprint(Chem.MolFromSmiles(smiles), radius=2, n_bits=2048)
+        for smiles in cached["canonical_smiles"]
+    ], dtype=np.float32)
+    np.testing.assert_array_equal(np.load(fingerprint_path), expected_fingerprints)
+
+    fetch.reset_mock()
+    fetch.side_effect = AssertionError("Retry must use the completed cache")
+    # Keep the three-molecule fixture independent of scaffold split feasibility.
+    split = {"42": {"train": [0], "val": [1], "test": [2]}}
+    monkeypatch.setattr(
+        train, "generate_and_save_splits",
+        lambda *args, **kwargs: {"scaffold": split, "random": split},
+    )
+    prepare_features = Mock(wraps=train.prepare_feature_matrices)
+    monkeypatch.setattr(train, "prepare_feature_matrices", prepare_features)
+    result = train.run_benchmark_pipeline(dataset_parquet=path, seeds=[42])
+
+    assert result["dataset_size"] == 3
+    assert prepare_features.call_count == 2
+    for call in prepare_features.call_args_list:
+        np.testing.assert_array_equal(
+            np.array(call.args[0]["fingerprint"].tolist()), expected_fingerprints
+        )
+    exported = pd.read_csv("data/processed/benchmark_dataset.csv")
+    np.testing.assert_array_equal(exported["molecule_chembl_id"], cached["molecule_chembl_id"])
+    np.testing.assert_array_equal(exported["active"], cached["active"])
     fetch.assert_not_called()
 
 
