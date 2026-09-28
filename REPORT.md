@@ -6,6 +6,26 @@ Can we map public compounds to aging-related biological mechanisms with rigorous
 ## What this is not
 This project is not a personalized protocol generator, supplement stack advisor, dose guide, or medical recommender. It does not compute a scalar "biological age" score, nor does it treat epigenetic clock shifts as functional proof of organismal rejuvenation. All outputs are computational research artifacts.
 
+## Continuous mTOR activity check (2026-09-28)
+
+`make regression` fits one fixed Ridge model (`alpha=1.0`) to the recorded
+pChEMBL values. It uses the 561-row frozen mTOR table and the existing
+Bemis-Murcko scaffold partitions for seeds 42, 123, and 456. Morgan fingerprints
+and nine descriptors match the binary benchmark; descriptor scaling uses only
+each training partition. Validation and test rows are never used for fitting,
+and the stored splits are checked for full row coverage and scaffold overlap.
+The comparator predicts the training partition's mean pChEMBL on every test row.
+
+Across the three 56-molecule test partitions, Ridge mean MAE was **0.4661**
+pChEMBL units (per seed: 0.5523, 0.4542, 0.3919), versus **1.2983** for the
+training-mean comparator. Mean RMSE was 0.6277 versus 1.4963; mean R² was
+0.8082 versus -0.0319. Full per-seed metrics are in
+[`artifacts/regression_metrics.json`](artifacts/regression_metrics.json).
+These are correlated internal splits of one ChEMBL target table, not external
+validation or a measurement of any generated structure. Assay heterogeneity,
+record curation, and scaffold composition can affect these errors. The
+classifier's 1 µM cutoff remains a task definition, not a biological boundary.
+
 ## Generator split correction (2026-09-28)
 
 The mTOR surrogate was already fit on the seed-42 scaffold training partition, but both generator modes formerly selected starting structures from the full benchmark. Hypothesis mode also measured nearest-active similarity against the full benchmark. This let validation and test structures influence generation despite the model fit being restricted to training rows. Both modes now take seeds from the scorer's 449 training rows (393 actives); hypothesis mode computes its similarity cap against those training actives and rejects exact matches to any training row. Play-mode novelty and its PCA reference also use the training partition. The scaffold split and both YAML configurations are unchanged.

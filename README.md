@@ -67,6 +67,14 @@ start artifacts/dashboard.html
 xdg-open artifacts/dashboard.html
 ```
 
+## Continuous mTOR activity check
+
+For a continuous check on the existing mTOR data, run `make regression` after
+installing dependencies. It reads `artifacts/splits.json` without regenerating
+the scaffold partitions and writes `artifacts/regression_metrics.json`. Its
+pChEMBL predictions describe the frozen ChEMBL table; they are not measured
+activity for generated hypothesis cards.
+
 ## Changing the benchmark activity threshold
 
 Set `benchmark.thresholds.pchembl_active` in `configs/bench.yaml`, or pass a
