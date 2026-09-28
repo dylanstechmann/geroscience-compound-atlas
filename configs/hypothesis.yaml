@@ -1,0 +1,54 @@
+# Hypothesis-mode generation rails.
+# These are optimizer constraints, not a moral filter and not a consumption rule.
+# Play mode (python -m gen.pipeline) is unchanged.
+
+objective: |
+  Propose valid small molecules that the frozen ChEMBL mTOR logistic
+  surrogate scores as active, after rejecting property-space spam and
+  near-duplicates of the training actives.
+
+not_claimed:
+  - human or animal use
+  - dose, route, source, or stack
+  - that a high surrogate score is a real IC50
+  - that QED is biological goodness
+
+# Hard rejects. A molecule failing any gate never enters the hypothesis archive.
+gates:
+  min_heavy_atoms: 12
+  max_heavy_atoms: 38
+  min_mol_wt: 180
+  max_mol_wt: 520
+  min_rings: 1
+  max_rings: 5
+  max_ring_size: 8
+  max_rotatable_bonds: 10
+  min_tpsa: 20
+  max_tpsa: 140
+  min_logp: -1.0
+  max_logp: 5.0
+  min_fraction_csp3: 0.15
+  max_aliphatic_carbon_chain: 6
+  allowed_atomic_nums: [1, 6, 7, 8, 9, 15, 16, 17, 35]
+  reject_pains: true
+  require_single_fragment: true
+
+# Soft term in the GA reward plus a hard archive cap.
+anti_clone:
+  max_tanimoto_to_training_active: 0.55
+  penalty_start: 0.40
+  penalty_weight: 1.25
+
+scoring:
+  qed_weight: 0.25
+  mtor_weight: 1.0
+  pains_penalty: 1.0
+
+ga:
+  pop_size: 40
+  n_generations: 20
+  mutation_rate: 0.7
+  crossover_rate: 0.3
+  elite_size: 5
+  seed: 42
+  max_cards: 25
