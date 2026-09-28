@@ -13,10 +13,9 @@ from typing import Any
 
 import pandas as pd
 import yaml
-from rdkit import Chem, DataStructs
+from rdkit import Chem, DataStructs, RDLogger
 from rdkit.Chem import rdFingerprintGenerator
 
-from atlas.normalize import smiles_to_inchikey
 from gen.filters import HypothesisGates, evaluate_gates
 from gen.ga import MolecularGA
 from gen.scorer import CompositeSurrogateScorer
@@ -119,6 +118,7 @@ def run_hypothesis_pipeline(
     output_dir: str | Path = "hypotheses",
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     cfg = load_hypothesis_config(config_path)
+    RDLogger.DisableLog("rdApp.*")
     gates = HypothesisGates.from_mapping(cfg.get("gates", {}))
     anti = cfg.get("anti_clone", {})
     scoring = cfg.get("scoring", {})
