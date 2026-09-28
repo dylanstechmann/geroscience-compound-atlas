@@ -29,6 +29,15 @@ The project is structured into four core modules:
 
 See the full [SPEC.md](SPEC.md) for the detailed design document and [REPORT.md](REPORT.md) for the experimental write-up and metrics.
 
+## Generation modes
+
+| Command | Mode | What it keeps |
+|---|---|---|
+| `make generate` | Play | QED weight sweep + PAINS penalty. High-score motif copies can survive. Gallery in `artifacts/generated_molecules.parquet`. |
+| `make hypothesis` | Hypothesis | Hard property gates, PAINS reject, Tanimoto cap vs training actives. Dated cards in `hypotheses/YYYY-MM-DD-mtor-hypothesis/`. |
+
+Hypothesis cards are in-silico artifacts with a written way to be wrong. They are not a stack.
+
 ## Quickstart
 ```bash
 # 1. Setup virtual environment and install dependencies
@@ -41,6 +50,7 @@ make test
 make data
 make train
 make generate
+make hypothesis
 make report
 ```
 
