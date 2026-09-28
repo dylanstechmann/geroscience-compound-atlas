@@ -1,4 +1,4 @@
-.PHONY: setup data train generate report serve test lint format clean
+.PHONY: setup data train generate hypothesis report serve test lint format clean
 
 PYTHON ?= python
 
@@ -15,6 +15,9 @@ train:
 
 generate:
 	$(PYTHON) -m gen.pipeline
+
+hypothesis:
+	$(PYTHON) -m gen.hypothesis
 
 report:
 	$(PYTHON) -m viz.dashboard
