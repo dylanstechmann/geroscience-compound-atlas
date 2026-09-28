@@ -33,6 +33,9 @@ class CompositeSurrogateScorer:
         seed_key = str(seed)
         train_indices = splits_data["scaffold"][seed_key]["train"]
         train_idx = np.array(train_indices, dtype=int)
+        self.split_seed = seed
+        # Generation must use the same positional partition as model fitting.
+        self.training_df = self.benchmark_df.iloc[train_idx].copy()
 
         # Assemble training matrices
         fp_sidecar = Path(benchmark_parquet).with_suffix(".fingerprints.npy")

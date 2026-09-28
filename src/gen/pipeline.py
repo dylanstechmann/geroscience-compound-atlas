@@ -53,11 +53,13 @@ def run_generator_pipeline(
     logger.info("Initializing CompositeSurrogateScorer...")
     scorer = CompositeSurrogateScorer(benchmark_parquet=benchmark_parquet, splits_json=splits_json)
 
-    bench_df = pd.read_parquet(benchmark_parquet)
-    training_inchikeys = set(bench_df["inchikey"].dropna())
+    training_df = scorer.training_df
+    training_inchikeys = set(training_df["inchikey"].dropna())
 
-    # Select top 25 active molecules as seeds
-    actives_df = bench_df[bench_df["active"] == 1].sort_values(by="pchembl_value", ascending=False)
+    # Select seeds exclusively from the partition used to fit the surrogate.
+    actives_df = training_df[training_df["active"] == 1].sort_values(
+        by="pchembl_value", ascending=False
+    )
     seed_smiles = actives_df["canonical_smiles"].dropna().head(25).tolist()
 
     # 1. Evaluate QED Bias Sensitivity across lambda_qed in [0.0, 0.2, 0.5]
@@ -131,7 +133,7 @@ def run_generator_pipeline(
             gen_smiles_valid.append(s)
 
     # B. ChEMBL mTOR actives
-    active_mols = bench_df[bench_df["active"] == 1]
+    active_mols = actives_df
     active_fps_list = []
     for s in active_mols["canonical_smiles"]:
         m = Chem.MolFromSmiles(str(s)) if pd.notna(s) else None

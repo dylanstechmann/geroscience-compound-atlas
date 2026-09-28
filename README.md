@@ -37,6 +37,7 @@ See the full [SPEC.md](SPEC.md) for the detailed design document and [REPORT.md]
 | `make hypothesis` | Hypothesis | Hard property gates, PAINS reject, Tanimoto cap vs training actives. Dated cards in `hypotheses/YYYY-MM-DD-mtor-hypothesis/`. |
 
 Hypothesis cards are in-silico artifacts with a written way to be wrong. They are not a stack.
+The original [2026-09-28 hypothesis archive](hypotheses/2026-09-28-mtor-hypothesis/README.md) used full-benchmark generation seeds. The [corrected training-only archive](hypotheses/training-only/2026-09-28-mtor-hypothesis/README.md) uses only the frozen scaffold training partition. Both archives contain surrogate scores, not measured mTOR activity or validated leads. See [REPORT.md](REPORT.md) for the split correction and rejection counts.
 
 ## Quickstart
 ```bash

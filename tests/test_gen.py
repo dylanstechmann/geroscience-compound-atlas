@@ -1,7 +1,11 @@
 """Unit tests for molecular genetic algorithm, mutations, and surrogate scorer."""
 
+import random
+
+import pandas as pd
 from rdkit import Chem
 
+from gen.ga import MolecularGA
 from gen.mutations import (
     apply_random_mutation,
     crossover,
@@ -11,6 +15,47 @@ from gen.mutations import (
     sanitize_molecule,
 )
 from gen.scorer import CompositeSurrogateScorer
+
+
+def test_ga_seed_repeats_independently_of_global_random_state():
+    class FixedScorer:
+        def score_molecule(self, mol, qed_weight):
+            return {
+                "valid": True,
+                "reward": 1.0,
+                "mtor_prob": 0.5,
+                "qed": 0.5,
+                "has_pains": False,
+            }
+
+    def run():
+        ga = MolecularGA(
+            scorer=FixedScorer(),
+            pop_size=8,
+            n_generations=3,
+            mutation_rate=0.8,
+            crossover_rate=0.5,
+            elite_size=2,
+            seed=42,
+        )
+        return ga.run(["c1ccccc1CCO", "c1ccncc1CCCO"], max_archive_size=30)
+
+    saved_state = random.getstate()
+    try:
+        random.seed(1)
+        before_first = random.getstate()
+        first, first_stats = run()
+        assert random.getstate() == before_first
+
+        random.seed(999)
+        before_second = random.getstate()
+        second, second_stats = run()
+        assert random.getstate() == before_second
+    finally:
+        random.setstate(saved_state)
+
+    assert first_stats == second_stats
+    pd.testing.assert_frame_equal(first, second)
 
 
 def test_sanitize_molecule():

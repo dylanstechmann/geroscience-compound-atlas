@@ -6,6 +6,14 @@ Can we map public compounds to aging-related biological mechanisms with rigorous
 ## What this is not
 This project is not a personalized protocol generator, supplement stack advisor, dose guide, or medical recommender. It does not compute a scalar "biological age" score, nor does it treat epigenetic clock shifts as functional proof of organismal rejuvenation. All outputs are computational research artifacts.
 
+## Generator split correction (2026-09-28)
+
+The mTOR surrogate was already fit on the seed-42 scaffold training partition, but both generator modes formerly selected starting structures from the full benchmark. Hypothesis mode also measured nearest-active similarity against the full benchmark. This let validation and test structures influence generation despite the model fit being restricted to training rows. Both modes now take seeds from the scorer's 449 training rows (393 actives); hypothesis mode computes its similarity cap against those training actives and rejects exact matches to any training row. Play-mode novelty and its PCA reference also use the training partition. The scaffold split and both YAML configurations are unchanged.
+
+The earlier [hypothesis archive](hypotheses/2026-09-28-mtor-hypothesis/README.md) remains a historical output with the old reference scope. The [corrected run](hypotheses/training-only/2026-09-28-mtor-hypothesis/README.md) used the same 0.55 Tanimoto cap and saved 25 cards from a 400-structure GA archive. Reject counts were 347 for too many rings, 122 for similarity to a training active, 97 for molecular weight, 77 for heavy-atom count, 66 for TPSA, and 19 exact training matches; reasons can overlap. Two clean Linux runs produced identical output files after routing all GA mutations through the recorded seed. These counts are computational filter outcomes, not measured activity, IC50, or validated leads. Old and corrected counts should not be read as a change in biological quality because the starting pool and random sequence changed.
+
+The earlier play-mode gallery and numerical results below predate this split correction. They describe that archived run; its novelty-vs-training value and PCA legend should be regenerated before being used as current results. A fresh temporary play-mode run completed all three QED weights and produced 200 structures at the primary weight; 198/200 were absent from the training partition, while the QED=0 sensitivity run remained available. High classifier probability and QED remain surrogate artifacts, not evidence of efficacy or rejuvenation.
+
 ## Data
 *Status (Phases 0–4 Complete; Full Benchmark & Interactive Atlas Deployed)*:
 - Watchlist compounds: **N = 20** candidate names.
@@ -109,16 +117,16 @@ Implemented a molecular Genetic Algorithm (GA) optimizing the frozen Phase 3 ChE
 
 ### QED Weight Sensitivity: Exposing Bias Control
 - When unconstrained ($\lambda_{\text{QED}} = 0.0$), the optimizer achieves a maximal predicted mTOR probability ($1.000$), but generated molecules drift into high molecular weight polycyclic structures with near-zero drug-likeness ($\text{mean QED} = 0.059$).
-- Introducing a balanced penalty ($\lambda_{\text{QED}} = 0.2$) drives the population toward drug-like oral chemical space ($\text{mean QED} = 0.754$) while maintaining near-perfect target affinity ($0.991$).
+- In this archived play run, a QED weight of 0.2 increased mean QED to 0.754 while the classifier's mean predicted probability was 0.991. Neither value measures target affinity.
 - This confirms that QED is an artificial prior from historical oral small-molecule libraries: it penalizes macrocyclic geroprotectors (like rapamycin, $\text{QED} = 0.179$) that achieve potent, lifespan-extending target engagement.
 
 ### Chemical Space Exploration (PCA Embedding)
 - Computed 2D PCA projection on 2048-bit Morgan circular fingerprints comparing:
   1. GA-generated candidates ($N = 200$, blue circles)
-  2. ChEMBL mTOR training actives ($N = 477$, gray dots)
+  2. ChEMBL mTOR dataset actives ($N = 477$, gray dots; this archived plot predates the split correction)
   3. Curated landmark geroprotectors (red triangles: rapamycin, metformin, dasatinib, canagliflozin, acarbose, navitoclax)
 - **Variance Explained**: PC1 accounts for 13.3%, PC2 accounts for 9.1%.
-- **Core Finding**: Generated candidate molecules populate the active mTOR chemotype manifold immediately adjacent to known kinase binders and cluster near canonical geroprotectors (e.g. adjacent to dasatinib and rapamycin), **avoiding unphysical junk space**.
+- **Interpretation limit**: This PCA shows where the generated fingerprints project relative to archived ChEMBL and atlas structures. Nearby points in two dimensions do not establish potency, synthesizability, or biological effect; play mode can still emit high-scoring junk.
 
 ## Claims we refuse
 - No human dosing or administration protocols.
@@ -135,7 +143,7 @@ Implemented a molecular Genetic Algorithm (GA) optimizing the frozen Phase 3 ChE
 
 - **Built a reproducible computational geroscience atlas** resolving 20 candidate compounds (95.0% PubChem resolution, 85.0% ChEMBL mapping) and hand-curated 62 mechanistic evidence edges across 12 aging hallmarks with structured E0–E4 grading (4 mammalian lifespan interventions; 75% binding assay coverage).
 - **Trained fingerprint ML baselines under strict Bemis-Murcko scaffold disjoint splits** (80/10/10 across 3 seeds; 279 unique scaffolds) for ChEMBL mTOR kinase activity (N=561); achieved AUROC 0.9735 ± 0.0203 and AUPRC 0.9929 ± 0.0057 with regularized L2 Logistic Regression, outperforming tree ensembles and characterizing 10 false positive near-misses (IC50 1.7–3.6 µM) driven by canonical ATP-hinge pharmacophores.
-- **Engineered a constrained molecular generator (Genetic Algorithm)** optimizing the frozen mTOR surrogate with explicit QED-bias control and PAINS filtering; generated 200 diverse valid molecules (100% unique, 99.5% novel, internal diversity 0.655) and mapped PCA chemical space demonstrating convergence adjacent to known geroprotectors without junk-space drift.
+- **Engineered a molecular generator (Genetic Algorithm)** optimizing the frozen mTOR surrogate with explicit QED-bias control and PAINS filtering; its archived play run generated 200 RDKit-valid unique molecules (99.5% novel against the full dataset, internal diversity 0.655). The PCA is descriptive and does not validate the molecules.
 - **Architected a zero-dependency, self-contained interactive static dashboard** (HTML/SVG/JS) displaying inline RDKit vector structures, dynamic multi-attribute filtering, coverage hole diagnostics for non-small-molecule modalities, and reproducible split audit metrics.
 
 

@@ -108,7 +108,7 @@ class MolecularGA:
 
                 if self.rng.random() < self.crossover_rate:
                     parent2 = self.tournament_selection(scored_pop)
-                    child = crossover(parent1, parent2)
+                    child = crossover(parent1, parent2, rng=self.rng)
                 else:
                     child = parent1
 
@@ -116,7 +116,7 @@ class MolecularGA:
                     child = parent1
 
                 if self.rng.random() < self.mutation_rate:
-                    child = apply_random_mutation(child)
+                    child = apply_random_mutation(child, rng=self.rng)
 
                 child = sanitize_molecule(child)
                 if child is not None:

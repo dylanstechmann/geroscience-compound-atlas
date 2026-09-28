@@ -47,25 +47,27 @@ def sanitize_molecule(mol: Chem.Mol | None) -> Chem.Mol | None:
         return None
 
 
-def mutate_atom_type(mol: Chem.Mol) -> Chem.Mol | None:
+def mutate_atom_type(mol: Chem.Mol, rng: random.Random | None = None) -> Chem.Mol | None:
     """Randomly mutate the element of an allowable atom (e.g. C -> N, O, S, F)."""
+    rng = rng or random
     mol_copy = copy.deepcopy(mol)
     atoms = [a for a in mol_copy.GetAtoms() if a.GetAtomicNum() in {6, 7, 8, 16}]  # C, N, O, S
     if not atoms:
         return None
 
-    target_atom = random.choice(atoms)
+    target_atom = rng.choice(atoms)
     current_z = target_atom.GetAtomicNum()
     candidates = [6, 7, 8, 9, 16, 17]  # C, N, O, F, S, Cl
     candidates = [z for z in candidates if z != current_z]
-    new_z = random.choice(candidates)
+    new_z = rng.choice(candidates)
 
     target_atom.SetAtomicNum(new_z)
     return sanitize_molecule(mol_copy)
 
 
-def mutate_add_atom_or_fragment(mol: Chem.Mol) -> Chem.Mol | None:
+def mutate_add_atom_or_fragment(mol: Chem.Mol, rng: random.Random | None = None) -> Chem.Mol | None:
     """Attach a small functional group to a hydrogen-bearing heavy atom."""
+    rng = rng or random
     mol_copy = copy.deepcopy(mol)
     eligible_atoms = [
         a.GetIdx()
@@ -75,8 +77,8 @@ def mutate_add_atom_or_fragment(mol: Chem.Mol) -> Chem.Mol | None:
     if not eligible_atoms:
         return None
 
-    attach_idx = random.choice(eligible_atoms)
-    frag_smi = random.choice(COMMON_FRAGMENTS)
+    attach_idx = rng.choice(eligible_atoms)
+    frag_smi = rng.choice(COMMON_FRAGMENTS)
     frag = Chem.MolFromSmiles(frag_smi)
     if frag is None:
         return None
@@ -92,8 +94,9 @@ def mutate_add_atom_or_fragment(mol: Chem.Mol) -> Chem.Mol | None:
     return sanitize_molecule(rw_mol.GetMol())
 
 
-def mutate_remove_atom(mol: Chem.Mol) -> Chem.Mol | None:
+def mutate_remove_atom(mol: Chem.Mol, rng: random.Random | None = None) -> Chem.Mol | None:
     """Remove a peripheral/terminal atom if the molecule is large enough."""
+    rng = rng or random
     if mol.GetNumHeavyAtoms() <= 5:
         return None
 
@@ -104,14 +107,15 @@ def mutate_remove_atom(mol: Chem.Mol) -> Chem.Mol | None:
     if not terminal_atoms:
         return None
 
-    del_idx = random.choice(terminal_atoms)
+    del_idx = rng.choice(terminal_atoms)
     rw_mol = Chem.RWMol(mol_copy)
     rw_mol.RemoveAtom(del_idx)
     return sanitize_molecule(rw_mol.GetMol())
 
 
-def mutate_bond_order(mol: Chem.Mol) -> Chem.Mol | None:
+def mutate_bond_order(mol: Chem.Mol, rng: random.Random | None = None) -> Chem.Mol | None:
     """Modify acyclic bond order between single and double where chemically valid."""
+    rng = rng or random
     mol_copy = copy.deepcopy(mol)
     bonds = [
         b
@@ -121,7 +125,7 @@ def mutate_bond_order(mol: Chem.Mol) -> Chem.Mol | None:
     if not bonds:
         return None
 
-    bond = random.choice(bonds)
+    bond = rng.choice(bonds)
     if bond.GetBondType() == Chem.BondType.SINGLE:
         bond.SetBondType(Chem.BondType.DOUBLE)
     else:
@@ -130,8 +134,11 @@ def mutate_bond_order(mol: Chem.Mol) -> Chem.Mol | None:
     return sanitize_molecule(mol_copy)
 
 
-def crossover(parent1: Chem.Mol, parent2: Chem.Mol) -> Chem.Mol | None:
+def crossover(
+    parent1: Chem.Mol, parent2: Chem.Mol, rng: random.Random | None = None
+) -> Chem.Mol | None:
     """Single-cut crossover between two parent molecules at acyclic single bonds."""
+    rng = rng or random
     try:
         bonds1 = [
             b.GetIdx()
@@ -148,22 +155,22 @@ def crossover(parent1: Chem.Mol, parent2: Chem.Mol) -> Chem.Mol | None:
             return None
 
         # Fragment parent 1
-        b1 = random.choice(bonds1)
+        b1 = rng.choice(bonds1)
         broken1 = Chem.FragmentOnBonds(parent1, [b1], dummyLabels=[(1, 1)])
         frags1 = Chem.GetMolFrags(broken1, asMols=True)
         if len(frags1) != 2:
             return None
 
         # Fragment parent 2
-        b2 = random.choice(bonds2)
+        b2 = rng.choice(bonds2)
         broken2 = Chem.FragmentOnBonds(parent2, [b2], dummyLabels=[(2, 2)])
         frags2 = Chem.GetMolFrags(broken2, asMols=True)
         if len(frags2) != 2:
             return None
 
         # Pick one fragment from parent 1 and one from parent 2
-        f1 = random.choice(frags1)
-        f2 = random.choice(frags2)
+        f1 = rng.choice(frags1)
+        f2 = rng.choice(frags2)
 
         # Replace dummy atoms with single bond
         combined = Chem.CombineMols(f1, f2)
@@ -189,17 +196,18 @@ def crossover(parent1: Chem.Mol, parent2: Chem.Mol) -> Chem.Mol | None:
         return None
 
 
-def apply_random_mutation(mol: Chem.Mol) -> Chem.Mol:
+def apply_random_mutation(mol: Chem.Mol, rng: random.Random | None = None) -> Chem.Mol:
     """Apply one or more random mutation operators, falling back to original if all fail."""
+    rng = rng or random
     mutators = [
         mutate_atom_type,
         mutate_add_atom_or_fragment,
         mutate_remove_atom,
         mutate_bond_order,
     ]
-    random.shuffle(mutators)
+    rng.shuffle(mutators)
     for mutator in mutators:
-        mutant = mutator(mol)
+        mutant = mutator(mol, rng=rng)
         if mutant is not None and mutant.GetNumHeavyAtoms() >= 4:
             return mutant
     return mol

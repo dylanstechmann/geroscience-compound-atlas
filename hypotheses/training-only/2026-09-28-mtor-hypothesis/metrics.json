@@ -1,0 +1,29 @@
+{
+  "mode": "hypothesis",
+  "date": "2026-09-28",
+  "ga_archive_size": 400,
+  "accepted_cards": 25,
+  "max_tanimoto_to_training_active": 0.55,
+  "training_reference": {
+    "split": "scaffold",
+    "seed": 42,
+    "rows": 449,
+    "active_rows": 393
+  },
+  "reject_counts": {
+    "too_many_rings": 347,
+    "too_close_to_training_active": 122,
+    "tpsa_high": 66,
+    "mol_wt_high": 97,
+    "seen_in_training": 19,
+    "too_many_heavy_atoms": 77
+  },
+  "ga_stats": {
+    "total_proposals": 700,
+    "valid_proposals": 700,
+    "validity_rate": 1.0,
+    "unique_molecules_generated": 485,
+    "archive_size": 400
+  },
+  "nonclaim": "Research artifact only. Not a drug, supplement, dose, or protocol. A high mTOR surrogate score is not an IC50. QED is a historical oral-drug prior."
+}

@@ -7,7 +7,7 @@ ingestion, synthesis, or a personal stack.
 from __future__ import annotations
 
 import json
-from datetime import date
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -45,10 +45,11 @@ def nearest_tanimoto(mol: Chem.Mol, reference_fps: list) -> float:
     return float(max(DataStructs.TanimotoSimilarity(fp, ref) for ref in reference_fps))
 
 
-def training_active_fingerprints(bench_df: pd.DataFrame) -> tuple[list, set[str]]:
+def training_active_fingerprints(training_df: pd.DataFrame) -> tuple[list, set[str]]:
+    """Build active similarity references and exact keys from training rows only."""
     fps = []
-    keys: set[str] = set()
-    actives = bench_df[bench_df["active"] == 1]
+    keys = set(training_df["inchikey"].dropna())
+    actives = training_df[training_df["active"] == 1]
     for _, row in actives.iterrows():
         smi = row.get("canonical_smiles")
         if not isinstance(smi, str):
@@ -57,9 +58,6 @@ def training_active_fingerprints(bench_df: pd.DataFrame) -> tuple[list, set[str]
         if mol is None:
             continue
         fps.append(fingerprint(mol))
-        key = row.get("inchikey")
-        if isinstance(key, str) and key:
-            keys.add(key)
     return fps, keys
 
 
@@ -128,13 +126,11 @@ def run_hypothesis_pipeline(
     penalty_weight = float(anti.get("penalty_weight", 1.25))
     max_cards = int(ga_cfg.get("max_cards", 25))
 
-    scorer = CompositeSurrogateScorer(
-        benchmark_parquet=benchmark_parquet, splits_json=splits_json
-    )
-    bench_df = pd.read_parquet(benchmark_parquet)
-    ref_fps, train_keys = training_active_fingerprints(bench_df)
+    scorer = CompositeSurrogateScorer(benchmark_parquet=benchmark_parquet, splits_json=splits_json)
+    training_df = scorer.training_df
+    ref_fps, train_keys = training_active_fingerprints(training_df)
 
-    actives = bench_df[bench_df["active"] == 1].sort_values(
+    actives = training_df[training_df["active"] == 1].sort_values(
         by="pchembl_value", ascending=False
     )
     seed_smiles = actives["canonical_smiles"].dropna().head(25).tolist()
@@ -161,10 +157,8 @@ def run_hypothesis_pipeline(
         if nearest > max_tanimoto:
             ok = False
             reasons = list(reasons) + ["too_close_to_training_active"]
-        try:
-            ikey = str(row["inchikey"])
-        except Exception:
-            ikey = ""
+        ikey = row.get("inchikey")
+        ikey = ikey if isinstance(ikey, str) else ""
         if ikey in train_keys:
             ok = False
             reasons = list(reasons) + ["seen_in_training"]
@@ -194,7 +188,7 @@ def run_hypothesis_pipeline(
             subset=["inchikey"]
         )
         accepted = accepted.head(max_cards).reset_index(drop=True)
-        accepted.insert(0, "card_id", [f"HYP-{i+1:03d}" for i in range(len(accepted))])
+        accepted.insert(0, "card_id", [f"HYP-{i + 1:03d}" for i in range(len(accepted))])
     else:
         accepted = pd.DataFrame(
             columns=[
@@ -213,7 +207,7 @@ def run_hypothesis_pipeline(
         )
 
     out = Path(output_dir)
-    stamp = date.today().isoformat()
+    stamp = datetime.now(UTC).date().isoformat()
     run_dir = out / f"{stamp}-mtor-hypothesis"
     cards_dir = run_dir / "cards"
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -247,9 +241,15 @@ def run_hypothesis_pipeline(
     metrics = {
         "mode": "hypothesis",
         "date": stamp,
-        "ga_archive_size": int(len(raw_df)),
-        "accepted_cards": int(len(accepted)),
+        "ga_archive_size": len(raw_df),
+        "accepted_cards": len(accepted),
         "max_tanimoto_to_training_active": max_tanimoto,
+        "training_reference": {
+            "split": "scaffold",
+            "seed": scorer.split_seed,
+            "rows": len(training_df),
+            "active_rows": len(actives),
+        },
         "reject_counts": reject_counts,
         "ga_stats": ga_stats,
         "nonclaim": NONCLAIM,
@@ -260,7 +260,12 @@ def run_hypothesis_pipeline(
 
 def main() -> None:
     accepted, metrics = run_hypothesis_pipeline()
-    print(json.dumps({"accepted_cards": metrics["accepted_cards"], "rejects": metrics["reject_counts"]}, indent=2))
+    print(
+        json.dumps(
+            {"accepted_cards": metrics["accepted_cards"], "rejects": metrics["reject_counts"]},
+            indent=2,
+        )
+    )
     print(f"wrote {len(accepted)} cards")
 
 
