@@ -67,6 +67,30 @@ start artifacts/dashboard.html
 xdg-open artifacts/dashboard.html
 ```
 
+## Single-Compound Evidence & Benchmark Lookup CLI
+
+Look up any watchlist compound (or arbitrary SMILES string) from the command line to inspect identifiers, physicochemical descriptors, curated aging hallmark evidence edges (E0–E4), ChEMBL bioactivities, and predictive benchmark inference:
+
+```bash
+# Look up by compound common or ingested name
+geroatlas lookup rapamycin
+# or via python module
+python -m atlas lookup metformin
+
+# Output formatted JSON instead of human-readable report
+geroatlas lookup dasatinib --json
+
+# Run inference on an arbitrary candidate SMILES string
+geroatlas lookup "COc1ccc2c(c1)c(CC(=O)O)c(C)n2C(=O)c1ccc(Cl)cc1" --out candidate_card.txt
+```
+
+### Dashboard Search & Filter Capabilities
+The interactive dashboard (`site/index.html` and `artifacts/dashboard.html`) includes:
+- **Multi-Field Real-Time Search**: Matches compound names, synonyms, PubChem CID, SMILES, InChIKey, target symbols, hallmark categories, citations (PMIDs), and mechanistic notes.
+- **ChEMBL Assay Filters**: Filter by verified binding assays, general bioactivity records, or historical coverage holes.
+- **Quick Preset Buttons**: 1-click filtering for `mTOR Pathway`, `Senolytics`, `AMPK / Metformin`, `Peptides Only`, and `E4 Lifespan Gold Standard`.
+- **Candidate Gallery Explorer**: Filter and sort the 200 GA-generated candidate molecules by PAINS status (pass/flagged) and sort by composite reward, mTOR probability, or QED drug-likeness.
+
 ## Continuous mTOR activity check
 
 For a continuous check on the existing mTOR data, run `make regression` after

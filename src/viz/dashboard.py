@@ -735,7 +735,7 @@ def build_dashboard_html(
         <!-- Filter Controls -->
         <div class="filter-panel">
             <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search by compound name, InChIKey, or SMILES..." onkeyup="filterCards()">
+                <input type="text" id="search-input" placeholder="Search by name, InChIKey, SMILES, target, or hallmark..." onkeyup="filterCards()">
             </div>
             <select class="filter-select" id="hallmark-filter" onchange="filterCards()">
                 <option value="">All Hallmarks</option>
@@ -765,6 +765,22 @@ def build_dashboard_html(
                 <option value="peptide">Peptide</option>
                 <option value="other">Other</option>
             </select>
+            <select class="filter-select" id="chembl-filter" onchange="filterCards()">
+                <option value="">All ChEMBL Data</option>
+                <option value="binding">Has Binding Assays</option>
+                <option value="has_chembl">Any ChEMBL Activity</option>
+                <option value="none">No ChEMBL Activity (Holes)</option>
+            </select>
+            <button class="filter-preset-btn" onclick="resetFilters()" style="padding:0.4rem 0.8rem;background:#334155;color:#f8fafc;border:1px solid #475569;border-radius:6px;cursor:pointer;font-size:0.8rem;">Reset Filters</button>
+        </div>
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;font-size:0.8rem;color:#94a3b8;">
+            <span>Quick Filters:</span>
+            <button onclick="applyPreset('mtor')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">mTOR Pathway</button>
+            <button onclick="applyPreset('senolyt')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">Senolytics</button>
+            <button onclick="applyPreset('ampk')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">AMPK / Metformin</button>
+            <button onclick="applyPreset('peptide')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">Peptides Only</button>
+            <button onclick="applyPreset('E4')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">E4 Lifespan Gold Standard</button>
+            <span id="filter-status-text" style="font-size:0.8rem;color:#60a5fa;margin-left:auto;">Showing <span id="visible-count">20</span> of 20 compounds</span>
         </div>
 
         <div class="cards-grid" id="cards-container">
@@ -971,7 +987,25 @@ def build_dashboard_html(
                 </p>
             </div>
 
-            <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: #93c5fd;">Top Generated Candidate Molecules (Inline 2D Vectors)</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+                <h3 style="font-size: 1.1rem; color: #93c5fd; margin: 0;">Top Generated Candidate Molecules (Inline 2D Vectors)</h3>
+                <span id="gen-count-text" style="font-size:0.8rem;color:#60a5fa;">Showing <span id="gen-visible-count">200</span> candidates</span>
+            </div>
+            <div class="filter-panel" style="margin-bottom: 1.5rem;">
+                <div class="search-box">
+                    <input type="text" id="gen-search-input" placeholder="Search generated candidates by InChIKey or generation..." onkeyup="filterGenCards()">
+                </div>
+                <select class="filter-select" id="gen-pains-filter" onchange="filterGenCards()">
+                    <option value="">All PAINS Status</option>
+                    <option value="pass">Pass Only (Zero Motifs)</option>
+                    <option value="flagged">Flagged Only</option>
+                </select>
+                <select class="filter-select" id="gen-sort-select" onchange="filterGenCards()">
+                    <option value="reward">Sort: Composite Reward</option>
+                    <option value="mtor">Sort: mTOR Probability</option>
+                    <option value="qed">Sort: QED Drug-Likeness</option>
+                </select>
+            </div>
             <div class="cards-grid" id="gen-cards-container">
                 <!-- Rendered by JS -->
             </div>
@@ -1098,21 +1132,30 @@ def build_dashboard_html(
     }}
 
     function filterCards() {{
-        const searchVal = document.getElementById('search-input').value.toLowerCase();
+        const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
         const hallmarkVal = document.getElementById('hallmark-filter').value.toLowerCase();
         const gradeVal = document.getElementById('grade-filter').value;
         const modalityVal = document.getElementById('modality-filter').value;
+        const chemblVal = document.getElementById('chembl-filter') ? document.getElementById('chembl-filter').value : '';
 
         const gradeRank = {{ "E0": 0, "E1": 1, "E2": 2, "E3": 3, "E4": 4 }};
         const minGrade = gradeVal ? gradeRank[gradeVal] : 0;
 
         const filtered = compoundsData.filter(comp => {{
-            // Search text
+            // Multi-field search text matching
             const matchesSearch = !searchVal || 
-                comp.raw_name.toLowerCase().includes(searchVal) ||
+                (comp.raw_name && comp.raw_name.toLowerCase().includes(searchVal)) ||
                 (comp.resolved_name && comp.resolved_name.toLowerCase().includes(searchVal)) ||
-                comp.inchikey.toLowerCase().includes(searchVal) ||
-                comp.canonical_smiles.toLowerCase().includes(searchVal);
+                (comp.inchikey && comp.inchikey.toLowerCase().includes(searchVal)) ||
+                (comp.canonical_smiles && comp.canonical_smiles.toLowerCase().includes(searchVal)) ||
+                (comp.cid && String(comp.cid).includes(searchVal)) ||
+                (comp.synonyms && comp.synonyms.some(s => s.toLowerCase().includes(searchVal))) ||
+                (comp.edges && comp.edges.some(e => 
+                    (e.target_symbol && e.target_symbol.toLowerCase().includes(searchVal)) ||
+                    (e.hallmark && e.hallmark.toLowerCase().includes(searchVal)) ||
+                    (e.notes && e.notes.toLowerCase().includes(searchVal)) ||
+                    (e.document_ids && e.document_ids.toLowerCase().includes(searchVal))
+                ));
 
             // Modality
             const matchesModality = !modalityVal || comp.modality === modalityVal;
@@ -1123,10 +1166,72 @@ def build_dashboard_html(
             // Grade
             const matchesGrade = !gradeVal || comp.edges.some(e => gradeRank[e.grade] >= minGrade);
 
-            return matchesSearch && matchesModality && matchesHallmark && matchesGrade;
+            // ChEMBL status
+            let matchesChembl = true;
+            if (chemblVal === 'binding') {{
+                matchesChembl = comp.has_binding && comp.num_binding_assays > 0;
+            }} else if (chemblVal === 'has_chembl') {{
+                matchesChembl = comp.has_chembl;
+            }} else if (chemblVal === 'none') {{
+                matchesChembl = !comp.has_chembl;
+            }}
+
+            return matchesSearch && matchesModality && matchesHallmark && matchesGrade && matchesChembl;
         }});
 
         renderCards(filtered);
+    }}
+
+    function resetFilters() {{
+        document.getElementById('search-input').value = '';
+        document.getElementById('hallmark-filter').value = '';
+        document.getElementById('grade-filter').value = '';
+        document.getElementById('modality-filter').value = '';
+        if (document.getElementById('chembl-filter')) document.getElementById('chembl-filter').value = '';
+        filterCards();
+    }}
+
+    function applyPreset(preset) {{
+        resetFilters();
+        if (preset === 'E4') {{
+            document.getElementById('grade-filter').value = 'E4';
+        }} else if (preset === 'peptide') {{
+            document.getElementById('modality-filter').value = 'peptide';
+        }} else if (preset) {{
+            document.getElementById('search-input').value = preset;
+        }}
+        filterCards();
+    }}
+
+    function filterGenCards() {{
+        const searchInput = document.getElementById('gen-search-input');
+        const searchVal = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const painsFilter = document.getElementById('gen-pains-filter');
+        const painsVal = painsFilter ? painsFilter.value : '';
+        const sortSelect = document.getElementById('gen-sort-select');
+        const sortVal = sortSelect ? sortSelect.value : 'reward';
+
+        let filtered = genCardsData.filter(comp => {{
+            const matchesSearch = !searchVal ||
+                (comp.inchikey && comp.inchikey.toLowerCase().includes(searchVal)) ||
+                String(comp.generation).includes(searchVal);
+            const matchesPains = !painsVal ||
+                (painsVal === 'pass' && !comp.has_pains) ||
+                (painsVal === 'flagged' && comp.has_pains);
+            return matchesSearch && matchesPains;
+        }});
+
+        if (sortVal === 'mtor') {{
+            filtered.sort((a, b) => b.mtor_prob - a.mtor_prob);
+        }} else if (sortVal === 'qed') {{
+            filtered.sort((a, b) => b.qed - a.qed);
+        }} else {{
+            filtered.sort((a, b) => b.reward - a.reward);
+        }}
+
+        const countEl = document.getElementById('gen-visible-count');
+        if (countEl) countEl.innerText = filtered.length;
+        renderGenCards(filtered);
     }}
 
     function switchTab(tabId) {{
@@ -1160,7 +1265,7 @@ def build_dashboard_html(
         if (!container) return;
         container.innerHTML = '';
         if (!data || data.length === 0) {{
-            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">No generated candidates available.</div>';
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">No generated candidates match criteria.</div>';
             return;
         }}
         data.forEach((comp, idx) => {{
