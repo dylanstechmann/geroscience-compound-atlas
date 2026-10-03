@@ -12,7 +12,8 @@ class EvidenceGrade(str, Enum):
     E1: In vitro assay, single paper or ChEMBL row.
     E2: Multiple consistent assays or clear target engagement.
     E3: In vivo functional endpoint (not just a clock) in a model organism.
-    E4: Mammalian lifespan / healthspan or registered human outcome trial.
+    E4: Reported mammalian lifespan effect or a reported positive human intervention outcome.
+    Trial registration alone is not an outcome and does not qualify for E4.
     """
 
     E0 = "E0"

@@ -581,6 +581,13 @@ def build_dashboard_html(
         .grade-E1 {{ background: #475569; color: #f8fafc; }}
         .grade-E0 {{ background: #334155; color: #94a3b8; border: 1px dashed #64748b; }}
 
+        .review-status {{
+            margin-top: 0.25rem;
+            color: #fbbf24;
+            font-size: 0.68rem;
+            line-height: 1.35;
+        }}
+
         .edge-notes {{
             font-size: 0.75rem;
             color: var(--text-secondary);
@@ -779,7 +786,7 @@ def build_dashboard_html(
             <button onclick="applyPreset('senolyt')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">Senolytics</button>
             <button onclick="applyPreset('ampk')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">AMPK / Metformin</button>
             <button onclick="applyPreset('peptide')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">Peptides Only</button>
-            <button onclick="applyPreset('E4')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">E4 Lifespan Gold Standard</button>
+                <button onclick="applyPreset('E4')" style="padding:0.25rem 0.5rem;background:#1e293b;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:0.75rem;">E4 Reported Lifespan / Human Outcome</button>
             <span id="filter-status-text" style="font-size:0.8rem;color:#60a5fa;margin-left:auto;">Showing <span id="visible-count">20</span> of 20 compounds</span>
         </div>
 
@@ -1025,6 +1032,19 @@ def build_dashboard_html(
     const topFPsData = {top_fps_json};
     const genCardsData = {gen_cards_json};
 
+    function edgeReviewLabel(edge) {{
+        if (edge.source_review_status === 'source_reviewed_with_claim_limits') {{
+            return 'Source reviewed; claim limits recorded.';
+        }}
+        if (edge.source_review_status === 'claim_support_unreviewed') {{
+            return 'Claim support unreviewed; curator grade ' + (edge.curator_grade || 'unknown') + ' withheld, shown as E0.';
+        }}
+        if (edge.source_review_status === 'unverified_vendor_or_gray_market_claim') {{
+            return 'Unverified vendor/gray-market claim; shown as E0.';
+        }}
+        return 'Source status unverified; shown as E0.';
+    }}
+
     function renderCards(data) {{
         const container = document.getElementById('cards-container');
         container.innerHTML = '';
@@ -1048,6 +1068,7 @@ def build_dashboard_html(
                     </div>
                     <div class="edge-notes">
                         <strong>${{e.target_symbol || e.target_id || ''}}</strong> ${{e.relation}} &bull; ${{e.notes || ''}}
+                        <div class="review-status">${{edgeReviewLabel(e)}}</div>
                         ${{e.document_ids ? `<div style="margin-top: 2px; color: #60a5fa;">${{e.document_ids}}</div>` : ''}}
                     </div>
                 </div>
@@ -1093,7 +1114,7 @@ def build_dashboard_html(
 
                 <div class="evidence-section">
                     <div class="evidence-header">
-                        <span>Mechanistic Evidence</span>
+                        <span>Curated Assertions · unreviewed support is E0</span>
                         <span>${{comp.edges.length}} Edges</span>
                     </div>
                     ${{edgesHtml || '<div style="font-size:0.75rem; color:#64748b;">No curated edges</div>'}}

@@ -12,6 +12,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
 from atlas.features import compute_morgan_fingerprint, compute_rdkit_descriptors
+from bench.config import load_bench_config
+from bench.data import activity_labels
 from bench.models import DESCRIPTOR_COLS
 
 
@@ -25,6 +27,22 @@ class CompositeSurrogateScorer:
         seed: int = 42,
     ):
         self.benchmark_df = pd.read_parquet(benchmark_parquet)
+        config = load_bench_config()
+        self.pchembl_threshold = float(config.thresholds.pchembl_active)
+        self.label_definition = (
+            f"active = 1 if pchembl_value >= {self.pchembl_threshold:g} else 0"
+        )
+        if "pchembl_value" not in self.benchmark_df or "active" not in self.benchmark_df:
+            raise ValueError("Benchmark requires pchembl_value and active columns")
+        expected_labels = activity_labels(
+            self.benchmark_df["pchembl_value"], self.pchembl_threshold
+        ).to_numpy(dtype=int)
+        actual_labels = pd.to_numeric(self.benchmark_df["active"], errors="raise").to_numpy(dtype=int)
+        if not np.array_equal(actual_labels, expected_labels):
+            raise ValueError(
+                "Benchmark active labels do not match configured threshold: "
+                f"{self.label_definition}"
+            )
 
         with open(splits_json, "r", encoding="utf-8") as f:
             splits_data = json.load(f)
@@ -51,6 +69,9 @@ class CompositeSurrogateScorer:
                 else:
                     fps_list.append(np.zeros(2048, dtype=np.float32))
             fps = np.array(fps_list, dtype=np.float32)
+        if fps.ndim != 2 or fps.shape[0] != len(self.benchmark_df) or fps.shape[1] != 2048:
+            raise ValueError("Fingerprint matrix must have one 2048-bit row per benchmark compound")
+        self.training_fingerprints = fps[train_idx].astype(bool)
         desc_raw = self.benchmark_df[DESCRIPTOR_COLS].to_numpy(dtype=np.float32)
 
         # Fit scaler on training descriptors only
@@ -90,12 +111,24 @@ class CompositeSurrogateScorer:
                 "qed": 0.0,
                 "has_pains": False,
                 "valid": False,
+                "nearest_training_tanimoto": None,
+                "applicability_domain_status": "not_validated",
             }
 
         try:
             # 1. Compute 2048-bit Morgan Fingerprint
             fp = compute_morgan_fingerprint(mol, n_bits=2048, radius=2)
             fp_arr = np.array([float(bit) for bit in fp], dtype=np.float32).reshape(1, -1)
+            query_bits = fp_arr.astype(bool)
+            intersections = np.logical_and(self.training_fingerprints, query_bits).sum(axis=1)
+            unions = np.logical_or(self.training_fingerprints, query_bits).sum(axis=1)
+            similarities = np.divide(
+                intersections,
+                unions,
+                out=np.zeros_like(intersections, dtype=np.float64),
+                where=unions > 0,
+            )
+            nearest_training_tanimoto = float(similarities.max())
 
             # 2. Compute 9 RDKit 2D Descriptors
             desc_dict = compute_rdkit_descriptors(mol)
@@ -127,6 +160,8 @@ class CompositeSurrogateScorer:
                 "qed": qed_score,
                 "has_pains": is_pains,
                 "valid": True,
+                "nearest_training_tanimoto": nearest_training_tanimoto,
+                "applicability_domain_status": "not_validated",
             }
         except (ValueError, RuntimeError, KeyError):
             return {
@@ -135,4 +170,6 @@ class CompositeSurrogateScorer:
                 "qed": 0.0,
                 "has_pains": False,
                 "valid": False,
+                "nearest_training_tanimoto": None,
+                "applicability_domain_status": "not_validated",
             }

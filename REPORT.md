@@ -32,6 +32,22 @@ The mTOR surrogate was already fit on the seed-42 scaffold training partition, b
 
 The earlier [hypothesis archive](hypotheses/2026-09-28-mtor-hypothesis/README.md) remains a historical output with the old reference scope. The [corrected run](hypotheses/training-only/2026-09-28-mtor-hypothesis/README.md) used the same 0.55 Tanimoto cap and saved 25 cards from a 400-structure GA archive. Reject counts were 347 for too many rings, 122 for similarity to a training active, 97 for molecular weight, 77 for heavy-atom count, 66 for TPSA, and 19 exact training matches; reasons can overlap. Two clean Linux runs produced identical output files after routing all GA mutations through the recorded seed. These counts are computational filter outcomes, not measured activity, IC50, or validated leads. Old and corrected counts should not be read as a change in biological quality because the starting pool and random sequence changed.
 
+A 2026-10-02 repeat used Python 3.11.16, RDKit 2026.03.6, pandas 3.0.6,
+NumPy 2.4.6, scikit-learn 1.9.1 and PyArrow 25.0.1. It reproduced all 25
+structures, their order and card Markdown, and the same reject counts in the
+[dated run](hypotheses/2026-10-02-mtor-hypothesis/README.md). Three unrounded
+QED values in the CSV differed from the earlier archive by at most
+1.11e-16; displayed card values were identical. This is a software
+reproducibility check, not evidence about chemical activity or biological
+benefit.
+
+The [2026-10-02 frozen-split regression rerun](artifacts/regression_metrics_2026-10-02.json)
+exactly matches the prior artifact across all three scaffold seeds: mean
+Ridge MAE/RMSE/R2 are 0.4661/0.6277/0.8082, versus 1.2983/1.4963/-0.0319 for
+the train-mean baseline. This predicts recorded ChEMBL pChEMBL values only; it
+does not validate generated cards or establish an aging or rejuvenation
+effect.
+
 The earlier play-mode gallery and numerical results below predate this split correction. They describe that archived run; its novelty-vs-training value and PCA legend should be regenerated before being used as current results. A fresh temporary play-mode run completed all three QED weights and produced 200 structures at the primary weight; 198/200 were absent from the training partition, while the QED=0 sensitivity run remained available. High classifier probability and QED remain surrogate artifacts, not evidence of efficacy or rejuvenation.
 
 ## Data
@@ -166,4 +182,10 @@ Implemented a molecular Genetic Algorithm (GA) optimizing the frozen Phase 3 ChE
 - **Engineered a molecular generator (Genetic Algorithm)** optimizing the frozen mTOR surrogate with explicit QED-bias control and PAINS filtering; its archived play run generated 200 RDKit-valid unique molecules (99.5% novel against the full dataset, internal diversity 0.655). The PCA is descriptive and does not validate the molecules.
 - **Architected a zero-dependency, self-contained interactive static dashboard** (HTML/SVG/JS) displaying inline RDKit vector structures, dynamic multi-attribute filtering, coverage hole diagnostics for non-small-molecule modalities, and reproducible split audit metrics.
 
+## Implementation follow-up — 2026-10-03
 
+The evidence-integrity corrections identified in the longevity tooling review are now reflected in the active curated graph. Curated evidence joins use stable PubChem compound IDs and exact structure-key checks; contradictory target mappings and invalid citations are rejected or retained in dated quarantine with reasons. The active curated table contains 57 rows: six have source-to-claim review with limits recorded, 49 are explicitly marked as having unreviewed claim support, and two are unverified vendor/gray-market claims. Five invalid rows were quarantined. Materialization preserves the curator-assigned grade as `curator_grade`, but displays unreviewed and vendor claims as E0; only source-reviewed rows retain their evidence grade. E4 is restricted to mammalian lifespan evidence or a reported positive human outcome, so trial registration alone does not qualify.
+
+`--curated-only` rebuilds the evidence-edge artifact offline from curated records without calling ChEMBL. The dashboard and static site were regenerated from that artifact and distinguish source-reviewed evidence from unreviewed assertions. Acarbose lookup now returns hallmark records with their review status, while the mTOR surrogate abstains because its applicability domain is not validated. The frozen scaffold split and configured activity threshold were not changed, and no retraining or new generator run was performed.
+
+The historical resume bullets and archived benchmark metrics above describe earlier artifacts; use the current graph and dated artifacts for present evidence counts. The October 2 regression metrics, hypothesis archive and prior report content were preserved. Atlas tests: **87 passed**. A manual Acarbose lookup returned two source-reviewed hallmark records, including the mouse-lifespan record with its species and claim limits; any unreviewed claim remains E0 in the output.

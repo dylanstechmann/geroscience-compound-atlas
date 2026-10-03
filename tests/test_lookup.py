@@ -17,7 +17,9 @@ def test_lookup_watchlist_compound_rapamycin():
     assert len(res["hallmark_edges"]) > 0
     assert any("nutrient_sensing" in e["hallmark"] for e in res["hallmark_edges"])
     assert res["benchmark_prediction"]["available"] is True
-    assert res["benchmark_prediction"]["prediction"] == "ACTIVE"
+    assert res["benchmark_prediction"]["prediction"] == "ABSTAIN"
+    assert res["benchmark_prediction"]["prediction_status"] == "unvalidated_surrogate"
+    assert res["benchmark_prediction"]["applicability_domain_status"] == "not_validated"
     assert res["benchmark_prediction"]["mtor_prob"] > 0.9
 
 
@@ -29,7 +31,7 @@ def test_lookup_watchlist_compound_case_insensitive_and_cid():
     res_cid = lookup_compound("4091")
     assert res_cid["in_atlas"] is True
     assert res_cid["inchikey"] == res_lower["inchikey"]
-    assert res_cid["benchmark_prediction"]["prediction"] == "INACTIVE"
+    assert res_cid["benchmark_prediction"]["prediction"] == "ABSTAIN"
 
 
 def test_lookup_by_inchikey():
@@ -44,6 +46,7 @@ def test_lookup_custom_smiles():
     assert res["in_atlas"] is False
     assert "CCO" in res["canonical_smiles"]
     assert res["benchmark_prediction"]["available"] is True
+    assert res["benchmark_prediction"]["prediction"] == "ABSTAIN"
 
 
 def test_lookup_invalid_compound_raises():
@@ -60,7 +63,33 @@ def test_format_lookup_report():
     assert "[AGING HALLMARK ASSOCIATIONS" in report
     assert "[CHEMBL EXPERIMENTAL BIOACTIVITIES]" in report
     assert "[PREDICTIVE BENCHMARK INFERENCE (mTOR Kinase)]" in report
-    assert "Surrogate in-silico prediction" in report
+    assert "Uncalibrated surrogate score" in report
+    assert "ABSTAIN" in report
+    assert "does not establish binding" in report
+
+
+def test_lookup_distinguishes_source_reviewed_edges_from_unreviewed_claims():
+    result = lookup_compound("Rapamycin")
+    unreviewed = [edge for edge in result["hallmark_edges"] if edge["source_review_status"] == "claim_support_unreviewed"]
+    assert unreviewed
+    assert all(edge["grade"] == "E0" for edge in unreviewed)
+    assert all(edge["curator_grade"] in {"E1", "E2", "E3"} for edge in unreviewed)
+    report = format_lookup_report(result)
+    assert "Claim support unreviewed" in report
+    assert "withheld and displayed as E0" in report
+
+
+def test_invalid_surrogate_score_is_not_reported_as_available():
+    class InvalidScorer:
+        label_definition = "active = 1 if pChEMBL >= configured threshold"
+
+        def score_molecule(self, mol):
+            return {"valid": False, "mtor_prob": 0.0, "qed": 0.0, "has_pains": False, "reward": 0.0}
+
+    result = lookup_compound("CCO", scorer=InvalidScorer())
+    assert result["benchmark_prediction"]["available"] is False
+    assert result["benchmark_prediction"]["prediction"] == "ABSTAIN"
+    assert result["benchmark_prediction"]["prediction_status"] == "invalid_structure_or_score"
 
 
 def test_lookup_cli_main_stdout_and_json(capsys):

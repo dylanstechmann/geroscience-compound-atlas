@@ -1,0 +1,72 @@
+{
+  "task": "chembl_mtor_pchembl_regression",
+  "split": "frozen_bemis_murcko_scaffold",
+  "model": "Ridge(alpha=1.0); Morgan radius 2, 2048 bits plus train-scaled descriptors",
+  "note": "Computational prediction of recorded ChEMBL values, not measured activity for generated cards or evidence of rejuvenation.",
+  "n_molecules": 561,
+  "per_seed": {
+    "42": {
+      "n_train": 449,
+      "n_val": 56,
+      "n_test": 56,
+      "train_pchembl_mean": 7.8661,
+      "test_pchembl_mean": 7.4514,
+      "ridge": {
+        "mae": 0.5523,
+        "rmse": 0.753,
+        "r2": 0.7453
+      },
+      "train_mean": {
+        "mae": 1.3318,
+        "rmse": 1.5485,
+        "r2": -0.0772
+      }
+    },
+    "123": {
+      "n_train": 449,
+      "n_val": 56,
+      "n_test": 56,
+      "train_pchembl_mean": 7.7221,
+      "test_pchembl_mean": 7.9001,
+      "ridge": {
+        "mae": 0.4542,
+        "rmse": 0.6197,
+        "r2": 0.7802
+      },
+      "train_mean": {
+        "mae": 1.1128,
+        "rmse": 1.3338,
+        "r2": -0.0181
+      }
+    },
+    "456": {
+      "n_train": 449,
+      "n_val": 56,
+      "n_test": 56,
+      "train_pchembl_mean": 7.7159,
+      "test_pchembl_mean": 7.6901,
+      "ridge": {
+        "mae": 0.3919,
+        "rmse": 0.5103,
+        "r2": 0.8991
+      },
+      "train_mean": {
+        "mae": 1.4504,
+        "rmse": 1.6065,
+        "r2": -0.0003
+      }
+    }
+  },
+  "mean_over_seeds": {
+    "ridge": {
+      "mae": 0.4661,
+      "rmse": 0.6277,
+      "r2": 0.8082
+    },
+    "train_mean": {
+      "mae": 1.2983,
+      "rmse": 1.4963,
+      "r2": -0.0319
+    }
+  }
+}

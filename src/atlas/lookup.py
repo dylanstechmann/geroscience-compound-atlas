@@ -133,10 +133,20 @@ def lookup_compound(
             hallmark_edges.append({
                 "hallmark": str(e.get("hallmark", "unspecified")),
                 "grade": str(e.get("grade", "E0")),
+                "curator_grade": str(e.get("curator_grade", e.get("grade", "E0"))),
                 "target_symbol": str(e.get("target_symbol") or e.get("target_id") or "N/A"),
                 "relation": str(e.get("relation", "modulates")),
                 "notes": str(e.get("notes", "")),
                 "document_ids": str(e.get("document_ids", "")),
+                "source_url": str(e.get("source_url", "")),
+                "source_title": str(e.get("source_title") or ""),
+                "species": str(e.get("species") or ""),
+                "sex": str(e.get("sex") or ""),
+                "endpoint": str(e.get("endpoint") or ""),
+                "evidence_basis": str(e.get("evidence_basis", "")),
+                "source_review_status": str(e.get("source_review_status", "")),
+                "intervention_components": str(e.get("intervention_components", "")),
+                "attribution_scope": str(e.get("attribution_scope", "")),
             })
 
     # ChEMBL coverage & measured activities
@@ -173,7 +183,9 @@ def lookup_compound(
     prediction_info: dict[str, Any] = {
         "available": False,
         "model": "LogisticRegression (Bemis-Murcko scaffold trained baseline)",
-        "task": "mTOR kinase inhibition (pChEMBL >= 6.0)",
+        "task": "Configured ChEMBL activity label",
+        "prediction": "ABSTAIN",
+        "prediction_status": "unvalidated_surrogate",
     }
     if mol:
         try:
@@ -182,18 +194,32 @@ def lookup_compound(
                     benchmark_parquet=benchmark_parquet,
                     splits_json=splits_json,
                 )
-            score_res = scorer.score_molecule(mol)
-            prediction_info["available"] = True
-            prediction_info["mtor_prob"] = round(float(score_res["mtor_prob"]), 4)
-            prediction_info["prediction"] = "ACTIVE" if score_res["mtor_prob"] >= 0.5 else "INACTIVE"
-            prediction_info["qed"] = round(float(score_res["qed"]), 3)
-            prediction_info["has_pains"] = bool(score_res["has_pains"])
-            prediction_info["pains_status"] = "FLAGGED" if score_res["has_pains"] else "PASS (Zero PAINS motifs)"
-            prediction_info["composite_reward"] = round(float(score_res["reward"]), 4)
-            prediction_info["disclaimer"] = (
-                "Surrogate in-silico prediction from frozen scaffold benchmark. "
-                "Not experimental confirmation, medical guidance, or a protocol recommendation."
+            prediction_info["task"] = getattr(
+                scorer, "label_definition", "Configured ChEMBL activity label"
             )
+            score_res = scorer.score_molecule(mol)
+            if not score_res.get("valid", False):
+                prediction_info["prediction_status"] = "invalid_structure_or_score"
+            else:
+                prediction_info["available"] = True
+                prediction_info["mtor_prob"] = round(float(score_res["mtor_prob"]), 4)
+                prediction_info["prediction"] = "ABSTAIN"
+                prediction_info["prediction_status"] = "unvalidated_surrogate"
+                prediction_info["nearest_training_tanimoto"] = score_res.get(
+                    "nearest_training_tanimoto"
+                )
+                prediction_info["applicability_domain_status"] = score_res.get(
+                    "applicability_domain_status", "not_validated"
+                )
+                prediction_info["qed"] = round(float(score_res["qed"]), 3)
+                prediction_info["has_pains"] = bool(score_res["has_pains"])
+                prediction_info["pains_status"] = "FLAGGED" if score_res["has_pains"] else "NO PAINS MATCH"
+                prediction_info["composite_reward"] = round(float(score_res["reward"]), 4)
+                prediction_info["disclaimer"] = (
+                    "Uncalibrated surrogate score from a frozen scaffold benchmark. "
+                    "Applicability domain and decision threshold are not validated; the lookup abstains. "
+                    "This score does not establish binding, efficacy, safety, or rejuvenation."
+                )
         except Exception as exc:
             logger.debug("Benchmark prediction failed: %s", exc)
             prediction_info["error"] = str(exc)
@@ -256,10 +282,26 @@ def format_lookup_report(data: dict[str, Any]) -> str:
             h_clean = e['hallmark'].replace('_', ' ').title()
             lines.append(f"  • [{e['grade']}] {h_clean}")
             lines.append(f"    Target    : {e['target_symbol']} ({e['relation']})")
+            review_status = e.get("source_review_status", "")
+            if review_status == "source_reviewed_with_claim_limits":
+                lines.append("    Review    : Source reviewed; claim limits recorded")
+            elif review_status == "claim_support_unreviewed":
+                lines.append(
+                    f"    Review    : Claim support unreviewed; curator grade {e.get('curator_grade', 'unknown')} "
+                    "withheld and displayed as E0"
+                )
+            elif review_status == "unverified_vendor_or_gray_market_claim":
+                lines.append("    Review    : Unverified vendor/gray-market claim; displayed as E0")
+            else:
+                lines.append("    Review    : Source status unverified; displayed as E0")
             if e.get("notes"):
                 lines.append(f"    Evidence  : {e['notes']}")
             if e.get("document_ids"):
                 lines.append(f"    Citations : {e['document_ids']}")
+            if e.get("source_url"):
+                lines.append(f"    Source    : {e['source_url']}")
+            if e.get("attribution_scope") == "combination":
+                lines.append(f"    Context   : Combination evidence ({e.get('intervention_components', '')})")
     else:
         lines.append("  (No curated evidence edges in current atlas catalog)")
 
@@ -280,7 +322,10 @@ def format_lookup_report(data: dict[str, Any]) -> str:
     lines.append("\n[PREDICTIVE BENCHMARK INFERENCE (mTOR Kinase)]")
     if pred.get("available"):
         lines.append(f"  Model Architecture  : {pred['model']}")
-        lines.append(f"  Predicted Activity  : {pred['prediction']} (P(Active) = {pred['mtor_prob']:.4f})")
+        lines.append(f"  Prediction Status   : {pred['prediction']} ({pred.get('prediction_status', 'unvalidated')})")
+        lines.append(f"  Uncalibrated Score  : {pred['mtor_prob']:.4f} ({pred.get('task', '')})")
+        if pred.get("nearest_training_tanimoto") is not None:
+            lines.append(f"  Nearest Training Tanimoto: {pred['nearest_training_tanimoto']:.3f} (domain not validated)")
         lines.append(f"  PAINS Filter Status : {pred['pains_status']}")
         lines.append(f"  Composite GA Score  : {pred.get('composite_reward', 'N/A')}")
         lines.append(f"  Cautionary Note     : {pred['disclaimer']}")
