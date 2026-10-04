@@ -189,3 +189,50 @@ The evidence-integrity corrections identified in the longevity tooling review ar
 `--curated-only` rebuilds the evidence-edge artifact offline from curated records without calling ChEMBL. The dashboard and static site were regenerated from that artifact and distinguish source-reviewed evidence from unreviewed assertions. Acarbose lookup now returns hallmark records with their review status, while the mTOR surrogate abstains because its applicability domain is not validated. The frozen scaffold split and configured activity threshold were not changed, and no retraining or new generator run was performed.
 
 The historical resume bullets and archived benchmark metrics above describe earlier artifacts; use the current graph and dated artifacts for present evidence counts. The October 2 regression metrics, hypothesis archive and prior report content were preserved. Atlas tests: **87 passed**. A manual Acarbose lookup returned two source-reviewed hallmark records, including the mouse-lifespan record with its species and claim limits; any unreviewed claim remains E0 in the output.
+
+## Audit and reliability follow-up — 2026-10-04
+
+The unfinished neighborhood diagnostic is now executable from the frozen
+benchmark even when its fingerprint sidecar is absent. It reconstructs Morgan
+radius-2, 2048-bit fingerprints from the saved structures without writing a
+cache. A supplied sidecar must exactly match those structures in row order;
+equal row counts alone are insufficient. Invalid indexes, incomplete or
+overlapping partitions, scaffold leakage and inconsistent activity labels
+fail closed. The Tanimoto computation uses matrix intersections rather than
+allocating a test-by-train-by-bit cube.
+
+The [dated reliability artifact](artifacts/neighborhood_reliability_2026-10-04.json)
+retains the existing 561-row dataset and scaffold seeds 42/123/456 and uses the
+unchanged `configs/bench.yaml` model settings and pChEMBL cutoff 6.0. It records
+source hashes, runtime versions, exact held-out predictions and fixed
+similarity-band summaries for both models. Empty bands, class counts, Brier
+scores and descriptive Wilson intervals prevent small bands from appearing
+to provide strong calibration evidence. Only 4/3/0 test molecules respectively
+have maximum training Tanimoto at most 0.50; this internal benchmark has little
+coverage of chemically remote predictions. No calibrator or applicability
+threshold was selected and no external assay validation was performed.
+
+`make hypothesis PYTHON=.venv/bin/python` was rerun with unchanged
+`configs/hypothesis.yaml`. The [October 4 archive](hypotheses/2026-10-04-mtor-hypothesis/)
+contains 25 accepted surrogate cards after gating an archive of 400 molecules.
+Reject counts are overlapping: 347 too-many-rings, 122
+too-close-to-training-active, 97 molecular-weight, 77 heavy-atom, 66 TPSA and
+19 seen-in-training. The frozen seed-42 reference contains 449 training rows
+and 393 actives. This is a constrained generator result, not evidence of
+measured activity, synthesis feasibility or longevity benefit. The older
+hypothesis archives and QED=0 play sensitivity artifacts remain intact.
+
+Validation: the atlas suite passed **115 tests**, including invalid/leaking
+splits, fingerprint row-order corruption, snapshot hashing, interval
+uncertainty and report-output protection. Ruff passed for the three new
+diagnostic files. The dated reliability and hypothesis jobs both completed in
+the Linux development container. Frozen dataset/split/config bytes were
+verified unchanged against their saved SHA-256 values; hypothesis provenance
+also retains configuration snapshots.
+
+A dashboard builder defect was also corrected: creating an HTML preview or
+temporary test output silently rewrote `site/index.html`. Hosted output now
+requires explicit `site_html=`; the existing `make report` CLI still writes
+both the artifact and hosted copy. Regression tests verify preview isolation
+and identical explicit copies. The test-regenerated tracked page was restored
+to its initially clean contents.

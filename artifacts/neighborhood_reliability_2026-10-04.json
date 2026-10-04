@@ -1,0 +1,2544 @@
+{
+  "schema_version": 1,
+  "task": "chembl_mtor_activity_classification",
+  "split": "existing_frozen_bemis_murcko_scaffold_partitions",
+  "status": "internal_split_diagnostic_not_external_validation_or_calibration",
+  "fit_calibrator": false,
+  "decision_threshold_changed": false,
+  "split_file_unchanged": true,
+  "pchembl_threshold": 6.0,
+  "model_settings": {
+    "baseline": "LogisticRegression(C=1, max_iter=1000, solver=lbfgs)",
+    "contender": {
+      "max_iter": 200,
+      "learning_rate": 0.05,
+      "min_samples_leaf": 10
+    },
+    "include_descriptors": true
+  },
+  "fingerprint_width": 2048,
+  "similarity_metric": "maximum binary-fingerprint Tanimoto to the corresponding training partition",
+  "interpretation": "Describes probability error by chemical-neighborhood proximity on fixed internal test predictions; does not establish external calibration or applicability domain.",
+  "per_seed": {
+    "42": {
+      "n_train": 449,
+      "n_validation": 56,
+      "n_test": 56,
+      "models": {
+        "baseline": {
+          "metrics": {
+            "auroc": 0.9508,
+            "auprc": 0.9861,
+            "recall_at_fpr_0.05": 0.7045,
+            "brier_score": 0.0745
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 4,
+                "mean_probability": 0.230068888515234,
+                "observed_active_rate": 0.0,
+                "n_active": 0,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.0,
+                  0.4898908364545973
+                ],
+                "absolute_calibration_gap": 0.230068888515234,
+                "brier_score": 0.06061737336949974
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 15,
+                "mean_probability": 0.7107517004013062,
+                "observed_active_rate": 0.7333333333333333,
+                "n_active": 11,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.4804956594401943,
+                  0.8910254667430761
+                ],
+                "absolute_calibration_gap": 0.022581632932027085,
+                "brier_score": 0.0710874541661797
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 37,
+                "mean_probability": 0.8958602330169162,
+                "observed_active_rate": 0.8918918918918919,
+                "n_active": 33,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.7529146845587398,
+                  0.9571481005958853
+                ],
+                "absolute_calibration_gap": 0.003968341125024311,
+                "brier_score": 0.07738931108212374
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 296,
+              "active": 1,
+              "probability": 0.992399275302887,
+              "nearest_training_tanimoto": 0.8125
+            },
+            {
+              "dataset_row": 366,
+              "active": 1,
+              "probability": 0.9768849611282349,
+              "nearest_training_tanimoto": 0.8192771084337349
+            },
+            {
+              "dataset_row": 13,
+              "active": 1,
+              "probability": 0.9644595980644226,
+              "nearest_training_tanimoto": 0.7592592592592593
+            },
+            {
+              "dataset_row": 315,
+              "active": 1,
+              "probability": 0.9593387842178345,
+              "nearest_training_tanimoto": 0.7222222222222222
+            },
+            {
+              "dataset_row": 178,
+              "active": 1,
+              "probability": 0.8312389850616455,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 533,
+              "active": 1,
+              "probability": 0.9967983365058899,
+              "nearest_training_tanimoto": 0.803921568627451
+            },
+            {
+              "dataset_row": 85,
+              "active": 1,
+              "probability": 0.9993757605552673,
+              "nearest_training_tanimoto": 0.7288135593220338
+            },
+            {
+              "dataset_row": 431,
+              "active": 0,
+              "probability": 0.10016144812107086,
+              "nearest_training_tanimoto": 0.6612903225806451
+            },
+            {
+              "dataset_row": 165,
+              "active": 1,
+              "probability": 0.9955723285675049,
+              "nearest_training_tanimoto": 0.7551020408163265
+            },
+            {
+              "dataset_row": 270,
+              "active": 1,
+              "probability": 0.9995439648628235,
+              "nearest_training_tanimoto": 0.8602150537634409
+            },
+            {
+              "dataset_row": 529,
+              "active": 1,
+              "probability": 0.9997782111167908,
+              "nearest_training_tanimoto": 0.8169014084507042
+            },
+            {
+              "dataset_row": 26,
+              "active": 0,
+              "probability": 0.1963624507188797,
+              "nearest_training_tanimoto": 0.7384615384615385
+            },
+            {
+              "dataset_row": 117,
+              "active": 0,
+              "probability": 0.12375673651695251,
+              "nearest_training_tanimoto": 0.7058823529411765
+            },
+            {
+              "dataset_row": 485,
+              "active": 1,
+              "probability": 0.9994950294494629,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 50,
+              "active": 1,
+              "probability": 0.6061272025108337,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 187,
+              "active": 0,
+              "probability": 0.40288349986076355,
+              "nearest_training_tanimoto": 0.7671232876712328
+            },
+            {
+              "dataset_row": 298,
+              "active": 1,
+              "probability": 0.5521138310432434,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 327,
+              "active": 1,
+              "probability": 0.376556932926178,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 210,
+              "active": 0,
+              "probability": 0.19447588920593262,
+              "nearest_training_tanimoto": 0.4339622641509434
+            },
+            {
+              "dataset_row": 381,
+              "active": 0,
+              "probability": 0.2406151443719864,
+              "nearest_training_tanimoto": 0.3225806451612903
+            },
+            {
+              "dataset_row": 160,
+              "active": 1,
+              "probability": 0.99912029504776,
+              "nearest_training_tanimoto": 0.7432432432432432
+            },
+            {
+              "dataset_row": 527,
+              "active": 1,
+              "probability": 0.9966064691543579,
+              "nearest_training_tanimoto": 0.7246376811594203
+            },
+            {
+              "dataset_row": 185,
+              "active": 0,
+              "probability": 0.36311396956443787,
+              "nearest_training_tanimoto": 0.3076923076923077
+            },
+            {
+              "dataset_row": 180,
+              "active": 0,
+              "probability": 0.5410643815994263,
+              "nearest_training_tanimoto": 0.7419354838709677
+            },
+            {
+              "dataset_row": 492,
+              "active": 0,
+              "probability": 0.985072672367096,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 2,
+              "active": 0,
+              "probability": 0.14151525497436523,
+              "nearest_training_tanimoto": 0.891566265060241
+            },
+            {
+              "dataset_row": 64,
+              "active": 1,
+              "probability": 0.9996874332427979,
+              "nearest_training_tanimoto": 0.7
+            },
+            {
+              "dataset_row": 321,
+              "active": 1,
+              "probability": 0.9995960593223572,
+              "nearest_training_tanimoto": 0.828125
+            },
+            {
+              "dataset_row": 7,
+              "active": 1,
+              "probability": 0.9945841431617737,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 290,
+              "active": 1,
+              "probability": 0.9938324689865112,
+              "nearest_training_tanimoto": 0.8260869565217391
+            },
+            {
+              "dataset_row": 230,
+              "active": 1,
+              "probability": 0.8676918745040894,
+              "nearest_training_tanimoto": 0.7027027027027027
+            },
+            {
+              "dataset_row": 449,
+              "active": 1,
+              "probability": 0.999894380569458,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 1,
+              "active": 1,
+              "probability": 0.9341186881065369,
+              "nearest_training_tanimoto": 0.8961038961038961
+            },
+            {
+              "dataset_row": 235,
+              "active": 1,
+              "probability": 0.9907337427139282,
+              "nearest_training_tanimoto": 0.6575342465753424
+            },
+            {
+              "dataset_row": 58,
+              "active": 1,
+              "probability": 0.6809288263320923,
+              "nearest_training_tanimoto": 0.7285714285714285
+            },
+            {
+              "dataset_row": 343,
+              "active": 1,
+              "probability": 0.5735088586807251,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 262,
+              "active": 1,
+              "probability": 0.9903500080108643,
+              "nearest_training_tanimoto": 0.8524590163934426
+            },
+            {
+              "dataset_row": 409,
+              "active": 1,
+              "probability": 0.9787464737892151,
+              "nearest_training_tanimoto": 0.6842105263157895
+            },
+            {
+              "dataset_row": 264,
+              "active": 1,
+              "probability": 0.9917422533035278,
+              "nearest_training_tanimoto": 0.9090909090909091
+            },
+            {
+              "dataset_row": 388,
+              "active": 1,
+              "probability": 0.9900418519973755,
+              "nearest_training_tanimoto": 0.8840579710144928
+            },
+            {
+              "dataset_row": 519,
+              "active": 0,
+              "probability": 0.8656477332115173,
+              "nearest_training_tanimoto": 0.8955223880597015
+            },
+            {
+              "dataset_row": 116,
+              "active": 1,
+              "probability": 0.9998058676719666,
+              "nearest_training_tanimoto": 0.7790697674418605
+            },
+            {
+              "dataset_row": 460,
+              "active": 1,
+              "probability": 0.9969018697738647,
+              "nearest_training_tanimoto": 0.8596491228070176
+            },
+            {
+              "dataset_row": 479,
+              "active": 1,
+              "probability": 0.9996730089187622,
+              "nearest_training_tanimoto": 0.8701298701298701
+            },
+            {
+              "dataset_row": 145,
+              "active": 1,
+              "probability": 0.9998557567596436,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 295,
+              "active": 1,
+              "probability": 0.23311668634414673,
+              "nearest_training_tanimoto": 0.5573770491803278
+            },
+            {
+              "dataset_row": 184,
+              "active": 1,
+              "probability": 0.9998874664306641,
+              "nearest_training_tanimoto": 0.7916666666666666
+            },
+            {
+              "dataset_row": 226,
+              "active": 1,
+              "probability": 0.9998440742492676,
+              "nearest_training_tanimoto": 0.8805970149253731
+            },
+            {
+              "dataset_row": 281,
+              "active": 1,
+              "probability": 0.9993083477020264,
+              "nearest_training_tanimoto": 0.7777777777777778
+            },
+            {
+              "dataset_row": 62,
+              "active": 0,
+              "probability": 0.1220705509185791,
+              "nearest_training_tanimoto": 0.3448275862068966
+            },
+            {
+              "dataset_row": 340,
+              "active": 1,
+              "probability": 0.9997939467430115,
+              "nearest_training_tanimoto": 0.7671232876712328
+            },
+            {
+              "dataset_row": 438,
+              "active": 1,
+              "probability": 0.9965518712997437,
+              "nearest_training_tanimoto": 0.9431818181818182
+            },
+            {
+              "dataset_row": 97,
+              "active": 1,
+              "probability": 0.9973316192626953,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 163,
+              "active": 1,
+              "probability": 0.9996069073677063,
+              "nearest_training_tanimoto": 0.8222222222222222
+            },
+            {
+              "dataset_row": 353,
+              "active": 1,
+              "probability": 0.9998045563697815,
+              "nearest_training_tanimoto": 0.8222222222222222
+            },
+            {
+              "dataset_row": 508,
+              "active": 1,
+              "probability": 0.999290943145752,
+              "nearest_training_tanimoto": 0.9873417721518988
+            }
+          ]
+        },
+        "contender": {
+          "metrics": {
+            "auroc": 0.9167,
+            "auprc": 0.9757,
+            "recall_at_fpr_0.05": 0.5455,
+            "brier_score": 0.1126
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 4,
+                "mean_probability": 0.3192064624473604,
+                "observed_active_rate": 0.0,
+                "n_active": 0,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.0,
+                  0.4898908364545973
+                ],
+                "absolute_calibration_gap": 0.3192064624473604,
+                "brier_score": 0.17835985177107228
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 15,
+                "mean_probability": 0.8072733297572494,
+                "observed_active_rate": 0.7333333333333333,
+                "n_active": 11,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.4804956594401943,
+                  0.8910254667430761
+                ],
+                "absolute_calibration_gap": 0.07393999642391613,
+                "brier_score": 0.1474464673874617
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 37,
+                "mean_probability": 0.9632259676022049,
+                "observed_active_rate": 0.8918918918918919,
+                "n_active": 33,
+                "n_inactive": 4,
+                "observed_active_rate_ci95": [
+                  0.7529146845587398,
+                  0.9571481005958853
+                ],
+                "absolute_calibration_gap": 0.07133407571031303,
+                "brier_score": 0.09131214234191252
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 296,
+              "active": 1,
+              "probability": 0.9999397306920217,
+              "nearest_training_tanimoto": 0.8125
+            },
+            {
+              "dataset_row": 366,
+              "active": 1,
+              "probability": 0.9999380732957106,
+              "nearest_training_tanimoto": 0.8192771084337349
+            },
+            {
+              "dataset_row": 13,
+              "active": 1,
+              "probability": 0.9972750729246554,
+              "nearest_training_tanimoto": 0.7592592592592593
+            },
+            {
+              "dataset_row": 315,
+              "active": 1,
+              "probability": 0.99651296832429,
+              "nearest_training_tanimoto": 0.7222222222222222
+            },
+            {
+              "dataset_row": 178,
+              "active": 1,
+              "probability": 0.9742808424379698,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 533,
+              "active": 1,
+              "probability": 0.9981475744004988,
+              "nearest_training_tanimoto": 0.803921568627451
+            },
+            {
+              "dataset_row": 85,
+              "active": 1,
+              "probability": 0.9999889200814246,
+              "nearest_training_tanimoto": 0.7288135593220338
+            },
+            {
+              "dataset_row": 431,
+              "active": 0,
+              "probability": 0.10622965660546299,
+              "nearest_training_tanimoto": 0.6612903225806451
+            },
+            {
+              "dataset_row": 165,
+              "active": 1,
+              "probability": 0.9999581885493823,
+              "nearest_training_tanimoto": 0.7551020408163265
+            },
+            {
+              "dataset_row": 270,
+              "active": 1,
+              "probability": 0.9999042307381947,
+              "nearest_training_tanimoto": 0.8602150537634409
+            },
+            {
+              "dataset_row": 529,
+              "active": 1,
+              "probability": 0.999991843174044,
+              "nearest_training_tanimoto": 0.8169014084507042
+            },
+            {
+              "dataset_row": 26,
+              "active": 0,
+              "probability": 0.6154240954737028,
+              "nearest_training_tanimoto": 0.7384615384615385
+            },
+            {
+              "dataset_row": 117,
+              "active": 0,
+              "probability": 0.4158957117263033,
+              "nearest_training_tanimoto": 0.7058823529411765
+            },
+            {
+              "dataset_row": 485,
+              "active": 1,
+              "probability": 0.9999868811733559,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 50,
+              "active": 1,
+              "probability": 0.8850906655570419,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 187,
+              "active": 0,
+              "probability": 0.43514077652410404,
+              "nearest_training_tanimoto": 0.7671232876712328
+            },
+            {
+              "dataset_row": 298,
+              "active": 1,
+              "probability": 0.9008363814555581,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 327,
+              "active": 1,
+              "probability": 0.5049043653378446,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 210,
+              "active": 0,
+              "probability": 0.037836936825839024,
+              "nearest_training_tanimoto": 0.4339622641509434
+            },
+            {
+              "dataset_row": 381,
+              "active": 0,
+              "probability": 0.11085622862940757,
+              "nearest_training_tanimoto": 0.3225806451612903
+            },
+            {
+              "dataset_row": 160,
+              "active": 1,
+              "probability": 0.999952093054221,
+              "nearest_training_tanimoto": 0.7432432432432432
+            },
+            {
+              "dataset_row": 527,
+              "active": 1,
+              "probability": 0.999875461730708,
+              "nearest_training_tanimoto": 0.7246376811594203
+            },
+            {
+              "dataset_row": 185,
+              "active": 0,
+              "probability": 0.3860537118027709,
+              "nearest_training_tanimoto": 0.3076923076923077
+            },
+            {
+              "dataset_row": 180,
+              "active": 0,
+              "probability": 0.9405973725790878,
+              "nearest_training_tanimoto": 0.7419354838709677
+            },
+            {
+              "dataset_row": 492,
+              "active": 0,
+              "probability": 0.9997321492811742,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 2,
+              "active": 0,
+              "probability": 0.975235140642671,
+              "nearest_training_tanimoto": 0.891566265060241
+            },
+            {
+              "dataset_row": 64,
+              "active": 1,
+              "probability": 0.9999904646670505,
+              "nearest_training_tanimoto": 0.7
+            },
+            {
+              "dataset_row": 321,
+              "active": 1,
+              "probability": 0.9999914149369795,
+              "nearest_training_tanimoto": 0.828125
+            },
+            {
+              "dataset_row": 7,
+              "active": 1,
+              "probability": 0.9996568149943896,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 290,
+              "active": 1,
+              "probability": 0.9994786883072267,
+              "nearest_training_tanimoto": 0.8260869565217391
+            },
+            {
+              "dataset_row": 230,
+              "active": 1,
+              "probability": 0.9927555831023145,
+              "nearest_training_tanimoto": 0.7027027027027027
+            },
+            {
+              "dataset_row": 449,
+              "active": 1,
+              "probability": 0.9999940961626061,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 1,
+              "active": 1,
+              "probability": 0.9909184162612384,
+              "nearest_training_tanimoto": 0.8961038961038961
+            },
+            {
+              "dataset_row": 235,
+              "active": 1,
+              "probability": 0.9995768929181045,
+              "nearest_training_tanimoto": 0.6575342465753424
+            },
+            {
+              "dataset_row": 58,
+              "active": 1,
+              "probability": 0.919315871053156,
+              "nearest_training_tanimoto": 0.7285714285714285
+            },
+            {
+              "dataset_row": 343,
+              "active": 1,
+              "probability": 0.9962880137369781,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 262,
+              "active": 1,
+              "probability": 0.9996515700806451,
+              "nearest_training_tanimoto": 0.8524590163934426
+            },
+            {
+              "dataset_row": 409,
+              "active": 1,
+              "probability": 0.9935905450942643,
+              "nearest_training_tanimoto": 0.6842105263157895
+            },
+            {
+              "dataset_row": 264,
+              "active": 1,
+              "probability": 0.9998675591217373,
+              "nearest_training_tanimoto": 0.9090909090909091
+            },
+            {
+              "dataset_row": 388,
+              "active": 1,
+              "probability": 0.9993944338200389,
+              "nearest_training_tanimoto": 0.8840579710144928
+            },
+            {
+              "dataset_row": 519,
+              "active": 0,
+              "probability": 0.9847470857458275,
+              "nearest_training_tanimoto": 0.8955223880597015
+            },
+            {
+              "dataset_row": 116,
+              "active": 1,
+              "probability": 0.9999429442942961,
+              "nearest_training_tanimoto": 0.7790697674418605
+            },
+            {
+              "dataset_row": 460,
+              "active": 1,
+              "probability": 0.9999563139174746,
+              "nearest_training_tanimoto": 0.8596491228070176
+            },
+            {
+              "dataset_row": 479,
+              "active": 1,
+              "probability": 0.9999735101171741,
+              "nearest_training_tanimoto": 0.8701298701298701
+            },
+            {
+              "dataset_row": 145,
+              "active": 1,
+              "probability": 0.9999543612893101,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 295,
+              "active": 1,
+              "probability": 0.12973749495426068,
+              "nearest_training_tanimoto": 0.5573770491803278
+            },
+            {
+              "dataset_row": 184,
+              "active": 1,
+              "probability": 0.9999780935862899,
+              "nearest_training_tanimoto": 0.7916666666666666
+            },
+            {
+              "dataset_row": 226,
+              "active": 1,
+              "probability": 0.9999940837739226,
+              "nearest_training_tanimoto": 0.8805970149253731
+            },
+            {
+              "dataset_row": 281,
+              "active": 1,
+              "probability": 0.9998956269034686,
+              "nearest_training_tanimoto": 0.7777777777777778
+            },
+            {
+              "dataset_row": 62,
+              "active": 0,
+              "probability": 0.7420789725314242,
+              "nearest_training_tanimoto": 0.3448275862068966
+            },
+            {
+              "dataset_row": 340,
+              "active": 1,
+              "probability": 0.9996112018473212,
+              "nearest_training_tanimoto": 0.7671232876712328
+            },
+            {
+              "dataset_row": 438,
+              "active": 1,
+              "probability": 0.9999048189247866,
+              "nearest_training_tanimoto": 0.9431818181818182
+            },
+            {
+              "dataset_row": 97,
+              "active": 1,
+              "probability": 0.9995944855796554,
+              "nearest_training_tanimoto": 0.7702702702702703
+            },
+            {
+              "dataset_row": 163,
+              "active": 1,
+              "probability": 0.9999507890988925,
+              "nearest_training_tanimoto": 0.8222222222222222
+            },
+            {
+              "dataset_row": 353,
+              "active": 1,
+              "probability": 0.9999420918182509,
+              "nearest_training_tanimoto": 0.8222222222222222
+            },
+            {
+              "dataset_row": 508,
+              "active": 1,
+              "probability": 0.9999692857732476,
+              "nearest_training_tanimoto": 0.9873417721518988
+            }
+          ]
+        }
+      }
+    },
+    "123": {
+      "n_train": 449,
+      "n_validation": 56,
+      "n_test": 56,
+      "models": {
+        "baseline": {
+          "metrics": {
+            "auroc": 1.0,
+            "auprc": 1.0,
+            "recall_at_fpr_0.05": 1.0,
+            "brier_score": 0.0171
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 1,
+                "mean_probability": 0.05341546982526779,
+                "observed_active_rate": 0.0,
+                "n_active": 0,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.0,
+                  0.7934506856227626
+                ],
+                "absolute_calibration_gap": 0.05341546982526779,
+                "brier_score": 0.002853212416654094
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 2,
+                "mean_probability": 0.5536003448069096,
+                "observed_active_rate": 0.5,
+                "n_active": 1,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.09453120573423074,
+                  0.9054687942657693
+                ],
+                "absolute_calibration_gap": 0.05360034480690956,
+                "brier_score": 0.005920255693665083
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 18,
+                "mean_probability": 0.9447835865947936,
+                "observed_active_rate": 0.9444444444444444,
+                "n_active": 17,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.7424269921812741,
+                  0.990124809021697
+                ],
+                "absolute_calibration_gap": 0.00033914215034913653,
+                "brier_score": 0.0003817297677525132
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 35,
+                "mean_probability": 0.9281273603439331,
+                "observed_active_rate": 0.9428571428571428,
+                "n_active": 33,
+                "n_inactive": 2,
+                "observed_active_rate_ci95": [
+                  0.8139294257983507,
+                  0.9841868381428913
+                ],
+                "absolute_calibration_gap": 0.014729782513209777,
+                "brier_score": 0.026672015496560522
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 61,
+              "active": 1,
+              "probability": 0.9996731281280518,
+              "nearest_training_tanimoto": 0.8928571428571429
+            },
+            {
+              "dataset_row": 174,
+              "active": 0,
+              "probability": 0.42184174060821533,
+              "nearest_training_tanimoto": 0.7857142857142857
+            },
+            {
+              "dataset_row": 179,
+              "active": 1,
+              "probability": 0.9997914433479309,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 210,
+              "active": 0,
+              "probability": 0.07844099402427673,
+              "nearest_training_tanimoto": 0.6521739130434783
+            },
+            {
+              "dataset_row": 381,
+              "active": 0,
+              "probability": 0.10880232602357864,
+              "nearest_training_tanimoto": 0.4642857142857143
+            },
+            {
+              "dataset_row": 139,
+              "active": 1,
+              "probability": 0.5101572871208191,
+              "nearest_training_tanimoto": 0.7681159420289855
+            },
+            {
+              "dataset_row": 311,
+              "active": 0,
+              "probability": 0.4663037657737732,
+              "nearest_training_tanimoto": 0.7681159420289855
+            },
+            {
+              "dataset_row": 533,
+              "active": 1,
+              "probability": 0.9944105744361877,
+              "nearest_training_tanimoto": 0.7647058823529411
+            },
+            {
+              "dataset_row": 56,
+              "active": 1,
+              "probability": 0.9901954531669617,
+              "nearest_training_tanimoto": 0.7241379310344828
+            },
+            {
+              "dataset_row": 110,
+              "active": 1,
+              "probability": 0.9994310736656189,
+              "nearest_training_tanimoto": 0.7384615384615385
+            },
+            {
+              "dataset_row": 192,
+              "active": 1,
+              "probability": 0.9979859590530396,
+              "nearest_training_tanimoto": 0.7966101694915254
+            },
+            {
+              "dataset_row": 199,
+              "active": 1,
+              "probability": 0.9985118508338928,
+              "nearest_training_tanimoto": 0.7049180327868853
+            },
+            {
+              "dataset_row": 357,
+              "active": 1,
+              "probability": 0.9972411394119263,
+              "nearest_training_tanimoto": 0.7166666666666667
+            },
+            {
+              "dataset_row": 541,
+              "active": 1,
+              "probability": 0.9998447895050049,
+              "nearest_training_tanimoto": 0.7761194029850746
+            },
+            {
+              "dataset_row": 0,
+              "active": 1,
+              "probability": 0.9964123368263245,
+              "nearest_training_tanimoto": 0.9041095890410958
+            },
+            {
+              "dataset_row": 135,
+              "active": 1,
+              "probability": 0.5120962262153625,
+              "nearest_training_tanimoto": 0.9183673469387755
+            },
+            {
+              "dataset_row": 399,
+              "active": 1,
+              "probability": 0.9998290538787842,
+              "nearest_training_tanimoto": 0.7288135593220338
+            },
+            {
+              "dataset_row": 33,
+              "active": 1,
+              "probability": 0.9995439648628235,
+              "nearest_training_tanimoto": 0.7945205479452054
+            },
+            {
+              "dataset_row": 334,
+              "active": 1,
+              "probability": 0.9990242719650269,
+              "nearest_training_tanimoto": 0.7857142857142857
+            },
+            {
+              "dataset_row": 510,
+              "active": 1,
+              "probability": 0.9797453284263611,
+              "nearest_training_tanimoto": 0.8169014084507042
+            },
+            {
+              "dataset_row": 324,
+              "active": 1,
+              "probability": 0.9711297154426575,
+              "nearest_training_tanimoto": 0.8955223880597015
+            },
+            {
+              "dataset_row": 468,
+              "active": 1,
+              "probability": 0.9990618824958801,
+              "nearest_training_tanimoto": 0.8314606741573034
+            },
+            {
+              "dataset_row": 526,
+              "active": 1,
+              "probability": 0.9993347525596619,
+              "nearest_training_tanimoto": 0.8823529411764706
+            },
+            {
+              "dataset_row": 44,
+              "active": 1,
+              "probability": 0.9934629201889038,
+              "nearest_training_tanimoto": 0.7924528301886793
+            },
+            {
+              "dataset_row": 84,
+              "active": 1,
+              "probability": 0.987602174282074,
+              "nearest_training_tanimoto": 0.7192982456140351
+            },
+            {
+              "dataset_row": 92,
+              "active": 1,
+              "probability": 0.9836253523826599,
+              "nearest_training_tanimoto": 0.625
+            },
+            {
+              "dataset_row": 156,
+              "active": 1,
+              "probability": 0.9879895448684692,
+              "nearest_training_tanimoto": 0.6349206349206349
+            },
+            {
+              "dataset_row": 229,
+              "active": 1,
+              "probability": 0.9986188411712646,
+              "nearest_training_tanimoto": 0.6712328767123288
+            },
+            {
+              "dataset_row": 131,
+              "active": 1,
+              "probability": 0.9991568326950073,
+              "nearest_training_tanimoto": 0.8135593220338984
+            },
+            {
+              "dataset_row": 369,
+              "active": 1,
+              "probability": 0.9998552799224854,
+              "nearest_training_tanimoto": 0.8028169014084507
+            },
+            {
+              "dataset_row": 43,
+              "active": 1,
+              "probability": 0.9985837936401367,
+              "nearest_training_tanimoto": 0.7794117647058824
+            },
+            {
+              "dataset_row": 497,
+              "active": 1,
+              "probability": 0.998429000377655,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 314,
+              "active": 0,
+              "probability": 0.05341546982526779,
+              "nearest_training_tanimoto": 0.21649484536082475
+            },
+            {
+              "dataset_row": 32,
+              "active": 1,
+              "probability": 0.9989913105964661,
+              "nearest_training_tanimoto": 0.8448275862068966
+            },
+            {
+              "dataset_row": 122,
+              "active": 1,
+              "probability": 0.9995285272598267,
+              "nearest_training_tanimoto": 0.5054945054945055
+            },
+            {
+              "dataset_row": 201,
+              "active": 1,
+              "probability": 0.9983983635902405,
+              "nearest_training_tanimoto": 0.4423076923076923
+            },
+            {
+              "dataset_row": 38,
+              "active": 1,
+              "probability": 0.9989915490150452,
+              "nearest_training_tanimoto": 0.88
+            },
+            {
+              "dataset_row": 66,
+              "active": 1,
+              "probability": 0.9950809478759766,
+              "nearest_training_tanimoto": 0.7439024390243902
+            },
+            {
+              "dataset_row": 136,
+              "active": 1,
+              "probability": 0.9687127470970154,
+              "nearest_training_tanimoto": 0.7922077922077922
+            },
+            {
+              "dataset_row": 437,
+              "active": 1,
+              "probability": 0.9304459095001221,
+              "nearest_training_tanimoto": 0.8507462686567164
+            },
+            {
+              "dataset_row": 441,
+              "active": 1,
+              "probability": 0.9963608384132385,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 531,
+              "active": 1,
+              "probability": 0.9969502091407776,
+              "nearest_training_tanimoto": 0.7037037037037037
+            },
+            {
+              "dataset_row": 536,
+              "active": 1,
+              "probability": 0.9959890246391296,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 479,
+              "active": 1,
+              "probability": 0.9987560510635376,
+              "nearest_training_tanimoto": 0.7037037037037037
+            },
+            {
+              "dataset_row": 86,
+              "active": 1,
+              "probability": 0.9998815059661865,
+              "nearest_training_tanimoto": 0.7936507936507936
+            },
+            {
+              "dataset_row": 554,
+              "active": 1,
+              "probability": 0.9997047781944275,
+              "nearest_training_tanimoto": 0.819672131147541
+            },
+            {
+              "dataset_row": 172,
+              "active": 1,
+              "probability": 0.9990357160568237,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 250,
+              "active": 1,
+              "probability": 0.9997285008430481,
+              "nearest_training_tanimoto": 0.864406779661017
+            },
+            {
+              "dataset_row": 454,
+              "active": 1,
+              "probability": 0.9992436170578003,
+              "nearest_training_tanimoto": 0.828125
+            },
+            {
+              "dataset_row": 438,
+              "active": 1,
+              "probability": 0.9963384866714478,
+              "nearest_training_tanimoto": 0.9431818181818182
+            },
+            {
+              "dataset_row": 82,
+              "active": 1,
+              "probability": 0.9987205862998962,
+              "nearest_training_tanimoto": 0.7066666666666667
+            },
+            {
+              "dataset_row": 407,
+              "active": 1,
+              "probability": 0.9981180429458618,
+              "nearest_training_tanimoto": 0.6842105263157895
+            },
+            {
+              "dataset_row": 216,
+              "active": 1,
+              "probability": 0.9965662956237793,
+              "nearest_training_tanimoto": 0.8333333333333334
+            },
+            {
+              "dataset_row": 217,
+              "active": 1,
+              "probability": 0.9965662956237793,
+              "nearest_training_tanimoto": 0.8333333333333334
+            },
+            {
+              "dataset_row": 100,
+              "active": 1,
+              "probability": 0.7699806690216064,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 255,
+              "active": 1,
+              "probability": 0.9995400905609131,
+              "nearest_training_tanimoto": 0.8701298701298701
+            }
+          ]
+        },
+        "contender": {
+          "metrics": {
+            "auroc": 0.9843,
+            "auprc": 0.9984,
+            "recall_at_fpr_0.05": 0.9216,
+            "brier_score": 0.0267
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 1,
+                "mean_probability": 0.34109187693677084,
+                "observed_active_rate": 0.0,
+                "n_active": 0,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.0,
+                  0.7934506856227626
+                ],
+                "absolute_calibration_gap": 0.34109187693677084,
+                "brier_score": 0.11634366851224923
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 2,
+                "mean_probability": 0.5122596831134666,
+                "observed_active_rate": 0.5,
+                "n_active": 1,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.09453120573423074,
+                  0.9054687942657693
+                ],
+                "absolute_calibration_gap": 0.01225968311346659,
+                "brier_score": 0.0003014915903245366
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 18,
+                "mean_probability": 0.9448478702491843,
+                "observed_active_rate": 0.9444444444444444,
+                "n_active": 17,
+                "n_inactive": 1,
+                "observed_active_rate_ci95": [
+                  0.7424269921812741,
+                  0.990124809021697
+                ],
+                "absolute_calibration_gap": 0.00040342580473984313,
+                "brier_score": 6.511505661857694e-06
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 35,
+                "mean_probability": 0.9645059331222234,
+                "observed_active_rate": 0.9428571428571428,
+                "n_active": 33,
+                "n_inactive": 2,
+                "observed_active_rate_ci95": [
+                  0.8139294257983507,
+                  0.9841868381428913
+                ],
+                "absolute_calibration_gap": 0.021648790265080597,
+                "brier_score": 0.039333049430255944
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 61,
+              "active": 1,
+              "probability": 0.9999486801925437,
+              "nearest_training_tanimoto": 0.8928571428571429
+            },
+            {
+              "dataset_row": 174,
+              "active": 0,
+              "probability": 0.3638438706353431,
+              "nearest_training_tanimoto": 0.7857142857142857
+            },
+            {
+              "dataset_row": 179,
+              "active": 1,
+              "probability": 0.9991706525537599,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 210,
+              "active": 0,
+              "probability": 0.010704393528912375,
+              "nearest_training_tanimoto": 0.6521739130434783
+            },
+            {
+              "dataset_row": 381,
+              "active": 0,
+              "probability": 0.024555688980491815,
+              "nearest_training_tanimoto": 0.4642857142857143
+            },
+            {
+              "dataset_row": 139,
+              "active": 1,
+              "probability": 0.9738509849938775,
+              "nearest_training_tanimoto": 0.7681159420289855
+            },
+            {
+              "dataset_row": 311,
+              "active": 0,
+              "probability": 0.9912150269829217,
+              "nearest_training_tanimoto": 0.7681159420289855
+            },
+            {
+              "dataset_row": 533,
+              "active": 1,
+              "probability": 0.9824947710190993,
+              "nearest_training_tanimoto": 0.7647058823529411
+            },
+            {
+              "dataset_row": 56,
+              "active": 1,
+              "probability": 0.9996175330860697,
+              "nearest_training_tanimoto": 0.7241379310344828
+            },
+            {
+              "dataset_row": 110,
+              "active": 1,
+              "probability": 0.9999794507321351,
+              "nearest_training_tanimoto": 0.7384615384615385
+            },
+            {
+              "dataset_row": 192,
+              "active": 1,
+              "probability": 0.999910672532181,
+              "nearest_training_tanimoto": 0.7966101694915254
+            },
+            {
+              "dataset_row": 199,
+              "active": 1,
+              "probability": 0.9999393231010336,
+              "nearest_training_tanimoto": 0.7049180327868853
+            },
+            {
+              "dataset_row": 357,
+              "active": 1,
+              "probability": 0.9999740988423924,
+              "nearest_training_tanimoto": 0.7166666666666667
+            },
+            {
+              "dataset_row": 541,
+              "active": 1,
+              "probability": 0.9999677726882793,
+              "nearest_training_tanimoto": 0.7761194029850746
+            },
+            {
+              "dataset_row": 0,
+              "active": 1,
+              "probability": 0.9999502771089901,
+              "nearest_training_tanimoto": 0.9041095890410958
+            },
+            {
+              "dataset_row": 135,
+              "active": 1,
+              "probability": 0.4907617479421889,
+              "nearest_training_tanimoto": 0.9183673469387755
+            },
+            {
+              "dataset_row": 399,
+              "active": 1,
+              "probability": 0.9999753653921292,
+              "nearest_training_tanimoto": 0.7288135593220338
+            },
+            {
+              "dataset_row": 33,
+              "active": 1,
+              "probability": 0.9999673436905423,
+              "nearest_training_tanimoto": 0.7945205479452054
+            },
+            {
+              "dataset_row": 334,
+              "active": 1,
+              "probability": 0.9999558670956834,
+              "nearest_training_tanimoto": 0.7857142857142857
+            },
+            {
+              "dataset_row": 510,
+              "active": 1,
+              "probability": 0.9619473514909626,
+              "nearest_training_tanimoto": 0.8169014084507042
+            },
+            {
+              "dataset_row": 324,
+              "active": 1,
+              "probability": 0.9987424679860295,
+              "nearest_training_tanimoto": 0.8955223880597015
+            },
+            {
+              "dataset_row": 468,
+              "active": 1,
+              "probability": 0.9999691677309609,
+              "nearest_training_tanimoto": 0.8314606741573034
+            },
+            {
+              "dataset_row": 526,
+              "active": 1,
+              "probability": 0.9999092278585641,
+              "nearest_training_tanimoto": 0.8823529411764706
+            },
+            {
+              "dataset_row": 44,
+              "active": 1,
+              "probability": 0.9998856470066484,
+              "nearest_training_tanimoto": 0.7924528301886793
+            },
+            {
+              "dataset_row": 84,
+              "active": 1,
+              "probability": 0.9987474760250871,
+              "nearest_training_tanimoto": 0.7192982456140351
+            },
+            {
+              "dataset_row": 92,
+              "active": 1,
+              "probability": 0.9991670775752475,
+              "nearest_training_tanimoto": 0.625
+            },
+            {
+              "dataset_row": 156,
+              "active": 1,
+              "probability": 0.9999529186210808,
+              "nearest_training_tanimoto": 0.6349206349206349
+            },
+            {
+              "dataset_row": 229,
+              "active": 1,
+              "probability": 0.9999743671101723,
+              "nearest_training_tanimoto": 0.6712328767123288
+            },
+            {
+              "dataset_row": 131,
+              "active": 1,
+              "probability": 0.9999659637632341,
+              "nearest_training_tanimoto": 0.8135593220338984
+            },
+            {
+              "dataset_row": 369,
+              "active": 1,
+              "probability": 0.9999852021277235,
+              "nearest_training_tanimoto": 0.8028169014084507
+            },
+            {
+              "dataset_row": 43,
+              "active": 1,
+              "probability": 0.9998120289754113,
+              "nearest_training_tanimoto": 0.7794117647058824
+            },
+            {
+              "dataset_row": 497,
+              "active": 1,
+              "probability": 0.9998326439023414,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 314,
+              "active": 0,
+              "probability": 0.34109187693677084,
+              "nearest_training_tanimoto": 0.21649484536082475
+            },
+            {
+              "dataset_row": 32,
+              "active": 1,
+              "probability": 0.9998477107765366,
+              "nearest_training_tanimoto": 0.8448275862068966
+            },
+            {
+              "dataset_row": 122,
+              "active": 1,
+              "probability": 0.9999700515987691,
+              "nearest_training_tanimoto": 0.5054945054945055
+            },
+            {
+              "dataset_row": 201,
+              "active": 1,
+              "probability": 0.9999636772464413,
+              "nearest_training_tanimoto": 0.4423076923076923
+            },
+            {
+              "dataset_row": 38,
+              "active": 1,
+              "probability": 0.9999752902717143,
+              "nearest_training_tanimoto": 0.88
+            },
+            {
+              "dataset_row": 66,
+              "active": 1,
+              "probability": 0.9995858805594253,
+              "nearest_training_tanimoto": 0.7439024390243902
+            },
+            {
+              "dataset_row": 136,
+              "active": 1,
+              "probability": 0.9999606573011414,
+              "nearest_training_tanimoto": 0.7922077922077922
+            },
+            {
+              "dataset_row": 437,
+              "active": 1,
+              "probability": 0.9988895634052876,
+              "nearest_training_tanimoto": 0.8507462686567164
+            },
+            {
+              "dataset_row": 441,
+              "active": 1,
+              "probability": 0.999972261473175,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 531,
+              "active": 1,
+              "probability": 0.9999724616890754,
+              "nearest_training_tanimoto": 0.7037037037037037
+            },
+            {
+              "dataset_row": 536,
+              "active": 1,
+              "probability": 0.9999626818785685,
+              "nearest_training_tanimoto": 0.863013698630137
+            },
+            {
+              "dataset_row": 479,
+              "active": 1,
+              "probability": 0.9999700360581203,
+              "nearest_training_tanimoto": 0.7037037037037037
+            },
+            {
+              "dataset_row": 86,
+              "active": 1,
+              "probability": 0.9999683667094,
+              "nearest_training_tanimoto": 0.7936507936507936
+            },
+            {
+              "dataset_row": 554,
+              "active": 1,
+              "probability": 0.9999771197936717,
+              "nearest_training_tanimoto": 0.819672131147541
+            },
+            {
+              "dataset_row": 172,
+              "active": 1,
+              "probability": 0.9999736925970827,
+              "nearest_training_tanimoto": 0.75
+            },
+            {
+              "dataset_row": 250,
+              "active": 1,
+              "probability": 0.9997956946113671,
+              "nearest_training_tanimoto": 0.864406779661017
+            },
+            {
+              "dataset_row": 454,
+              "active": 1,
+              "probability": 0.9996848399283808,
+              "nearest_training_tanimoto": 0.828125
+            },
+            {
+              "dataset_row": 438,
+              "active": 1,
+              "probability": 0.9998815476046972,
+              "nearest_training_tanimoto": 0.9431818181818182
+            },
+            {
+              "dataset_row": 82,
+              "active": 1,
+              "probability": 0.9999486615941698,
+              "nearest_training_tanimoto": 0.7066666666666667
+            },
+            {
+              "dataset_row": 407,
+              "active": 1,
+              "probability": 0.9999762324720713,
+              "nearest_training_tanimoto": 0.6842105263157895
+            },
+            {
+              "dataset_row": 216,
+              "active": 1,
+              "probability": 0.999938083353537,
+              "nearest_training_tanimoto": 0.8333333333333334
+            },
+            {
+              "dataset_row": 217,
+              "active": 1,
+              "probability": 0.999938083353537,
+              "nearest_training_tanimoto": 0.8333333333333334
+            },
+            {
+              "dataset_row": 100,
+              "active": 1,
+              "probability": 0.9987534152016324,
+              "nearest_training_tanimoto": 0.8382352941176471
+            },
+            {
+              "dataset_row": 255,
+              "active": 1,
+              "probability": 0.9999076192402224,
+              "nearest_training_tanimoto": 0.8701298701298701
+            }
+          ]
+        }
+      }
+    },
+    "456": {
+      "n_train": 449,
+      "n_validation": 56,
+      "n_test": 56,
+      "models": {
+        "baseline": {
+          "metrics": {
+            "auroc": 0.9697,
+            "auprc": 0.9925,
+            "recall_at_fpr_0.05": 0.8444,
+            "brier_score": 0.0542
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 21,
+                "mean_probability": 0.6705502782549176,
+                "observed_active_rate": 0.6190476190476191,
+                "n_active": 13,
+                "n_inactive": 8,
+                "observed_active_rate_ci95": [
+                  0.4087865377511576,
+                  0.7924898863143551
+                ],
+                "absolute_calibration_gap": 0.05150265920729857,
+                "brier_score": 0.12219857062336677
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 35,
+                "mean_probability": 0.9210729833160128,
+                "observed_active_rate": 0.9142857142857143,
+                "n_active": 32,
+                "n_inactive": 3,
+                "observed_active_rate_ci95": [
+                  0.7762072603410349,
+                  0.9704176317330301
+                ],
+                "absolute_calibration_gap": 0.006787269030298582,
+                "brier_score": 0.013340521242557005
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 13,
+              "active": 1,
+              "probability": 0.9571241140365601,
+              "nearest_training_tanimoto": 0.7592592592592593
+            },
+            {
+              "dataset_row": 315,
+              "active": 1,
+              "probability": 0.9561256766319275,
+              "nearest_training_tanimoto": 0.7222222222222222
+            },
+            {
+              "dataset_row": 230,
+              "active": 1,
+              "probability": 0.834428071975708,
+              "nearest_training_tanimoto": 0.7123287671232876
+            },
+            {
+              "dataset_row": 248,
+              "active": 1,
+              "probability": 0.9989919066429138,
+              "nearest_training_tanimoto": 0.8085106382978723
+            },
+            {
+              "dataset_row": 103,
+              "active": 0,
+              "probability": 0.3204573094844818,
+              "nearest_training_tanimoto": 0.6792452830188679
+            },
+            {
+              "dataset_row": 124,
+              "active": 0,
+              "probability": 0.16055427491664886,
+              "nearest_training_tanimoto": 0.6481481481481481
+            },
+            {
+              "dataset_row": 341,
+              "active": 1,
+              "probability": 0.6409997940063477,
+              "nearest_training_tanimoto": 0.6862745098039216
+            },
+            {
+              "dataset_row": 405,
+              "active": 0,
+              "probability": 0.1175205409526825,
+              "nearest_training_tanimoto": 0.6226415094339622
+            },
+            {
+              "dataset_row": 246,
+              "active": 1,
+              "probability": 0.6628753542900085,
+              "nearest_training_tanimoto": 0.8904109589041096
+            },
+            {
+              "dataset_row": 154,
+              "active": 1,
+              "probability": 0.7987268567085266,
+              "nearest_training_tanimoto": 0.9574468085106383
+            },
+            {
+              "dataset_row": 175,
+              "active": 0,
+              "probability": 0.2392667531967163,
+              "nearest_training_tanimoto": 0.6140350877192983
+            },
+            {
+              "dataset_row": 223,
+              "active": 0,
+              "probability": 0.18862727284431458,
+              "nearest_training_tanimoto": 0.9574468085106383
+            },
+            {
+              "dataset_row": 444,
+              "active": 1,
+              "probability": 0.6591807007789612,
+              "nearest_training_tanimoto": 0.7358490566037735
+            },
+            {
+              "dataset_row": 179,
+              "active": 1,
+              "probability": 0.9997701048851013,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 190,
+              "active": 1,
+              "probability": 0.9994553923606873,
+              "nearest_training_tanimoto": 0.8641975308641975
+            },
+            {
+              "dataset_row": 459,
+              "active": 1,
+              "probability": 0.9826579689979553,
+              "nearest_training_tanimoto": 0.7924528301886793
+            },
+            {
+              "dataset_row": 553,
+              "active": 1,
+              "probability": 0.9965928196907043,
+              "nearest_training_tanimoto": 0.9830508474576272
+            },
+            {
+              "dataset_row": 168,
+              "active": 1,
+              "probability": 0.9982588887214661,
+              "nearest_training_tanimoto": 0.7746478873239436
+            },
+            {
+              "dataset_row": 493,
+              "active": 1,
+              "probability": 0.9992812275886536,
+              "nearest_training_tanimoto": 0.7631578947368421
+            },
+            {
+              "dataset_row": 480,
+              "active": 1,
+              "probability": 0.9978141784667969,
+              "nearest_training_tanimoto": 0.7763157894736842
+            },
+            {
+              "dataset_row": 99,
+              "active": 1,
+              "probability": 0.9963369369506836,
+              "nearest_training_tanimoto": 0.7777777777777778
+            },
+            {
+              "dataset_row": 241,
+              "active": 1,
+              "probability": 0.9988466501235962,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 242,
+              "active": 1,
+              "probability": 0.9988466501235962,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 393,
+              "active": 1,
+              "probability": 0.9983856678009033,
+              "nearest_training_tanimoto": 0.8028169014084507
+            },
+            {
+              "dataset_row": 544,
+              "active": 1,
+              "probability": 0.999211311340332,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 545,
+              "active": 1,
+              "probability": 0.999211311340332,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 129,
+              "active": 1,
+              "probability": 0.9886512756347656,
+              "nearest_training_tanimoto": 0.76
+            },
+            {
+              "dataset_row": 469,
+              "active": 1,
+              "probability": 0.9917328357696533,
+              "nearest_training_tanimoto": 0.7916666666666666
+            },
+            {
+              "dataset_row": 377,
+              "active": 1,
+              "probability": 0.9997174143791199,
+              "nearest_training_tanimoto": 0.9146341463414634
+            },
+            {
+              "dataset_row": 56,
+              "active": 1,
+              "probability": 0.9939284324645996,
+              "nearest_training_tanimoto": 0.7241379310344828
+            },
+            {
+              "dataset_row": 110,
+              "active": 1,
+              "probability": 0.9994810223579407,
+              "nearest_training_tanimoto": 0.8461538461538461
+            },
+            {
+              "dataset_row": 192,
+              "active": 1,
+              "probability": 0.9973006844520569,
+              "nearest_training_tanimoto": 0.7966101694915254
+            },
+            {
+              "dataset_row": 199,
+              "active": 1,
+              "probability": 0.9990284442901611,
+              "nearest_training_tanimoto": 0.7049180327868853
+            },
+            {
+              "dataset_row": 357,
+              "active": 1,
+              "probability": 0.998621940612793,
+              "nearest_training_tanimoto": 0.7166666666666667
+            },
+            {
+              "dataset_row": 108,
+              "active": 1,
+              "probability": 0.9322555661201477,
+              "nearest_training_tanimoto": 0.609375
+            },
+            {
+              "dataset_row": 134,
+              "active": 1,
+              "probability": 0.9472872018814087,
+              "nearest_training_tanimoto": 0.7407407407407407
+            },
+            {
+              "dataset_row": 431,
+              "active": 0,
+              "probability": 0.1589721292257309,
+              "nearest_training_tanimoto": 0.6612903225806451
+            },
+            {
+              "dataset_row": 474,
+              "active": 1,
+              "probability": 0.8087719082832336,
+              "nearest_training_tanimoto": 0.6071428571428571
+            },
+            {
+              "dataset_row": 451,
+              "active": 0,
+              "probability": 0.4649636447429657,
+              "nearest_training_tanimoto": 0.7586206896551724
+            },
+            {
+              "dataset_row": 137,
+              "active": 1,
+              "probability": 0.9289472103118896,
+              "nearest_training_tanimoto": 0.5245901639344263
+            },
+            {
+              "dataset_row": 349,
+              "active": 0,
+              "probability": 0.8856872916221619,
+              "nearest_training_tanimoto": 0.5172413793103449
+            },
+            {
+              "dataset_row": 404,
+              "active": 1,
+              "probability": 0.9136765599250793,
+              "nearest_training_tanimoto": 0.6923076923076923
+            },
+            {
+              "dataset_row": 429,
+              "active": 0,
+              "probability": 0.8618276715278625,
+              "nearest_training_tanimoto": 0.7090909090909091
+            },
+            {
+              "dataset_row": 466,
+              "active": 1,
+              "probability": 0.3901820182800293,
+              "nearest_training_tanimoto": 0.7419354838709677
+            },
+            {
+              "dataset_row": 368,
+              "active": 1,
+              "probability": 0.999804675579071,
+              "nearest_training_tanimoto": 0.864406779661017
+            },
+            {
+              "dataset_row": 507,
+              "active": 1,
+              "probability": 0.9997186064720154,
+              "nearest_training_tanimoto": 0.8260869565217391
+            },
+            {
+              "dataset_row": 183,
+              "active": 0,
+              "probability": 0.3338363468647003,
+              "nearest_training_tanimoto": 0.6323529411764706
+            },
+            {
+              "dataset_row": 218,
+              "active": 1,
+              "probability": 0.9998801946640015,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 219,
+              "active": 1,
+              "probability": 0.9998801946640015,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 335,
+              "active": 1,
+              "probability": 0.9998371601104736,
+              "nearest_training_tanimoto": 0.8529411764705882
+            },
+            {
+              "dataset_row": 289,
+              "active": 1,
+              "probability": 0.9997933506965637,
+              "nearest_training_tanimoto": 0.8529411764705882
+            },
+            {
+              "dataset_row": 309,
+              "active": 1,
+              "probability": 0.9998127818107605,
+              "nearest_training_tanimoto": 0.8611111111111112
+            },
+            {
+              "dataset_row": 318,
+              "active": 1,
+              "probability": 0.9997193217277527,
+              "nearest_training_tanimoto": 0.8732394366197183
+            },
+            {
+              "dataset_row": 332,
+              "active": 1,
+              "probability": 0.984835684299469,
+              "nearest_training_tanimoto": 0.9
+            },
+            {
+              "dataset_row": 345,
+              "active": 0,
+              "probability": 0.2415936440229416,
+              "nearest_training_tanimoto": 0.8313253012048193
+            },
+            {
+              "dataset_row": 374,
+              "active": 1,
+              "probability": 0.9998173117637634,
+              "nearest_training_tanimoto": 0.8604651162790697
+            }
+          ]
+        },
+        "contender": {
+          "metrics": {
+            "auroc": 0.9293,
+            "auprc": 0.9825,
+            "recall_at_fpr_0.05": 0.6889,
+            "brier_score": 0.1067
+          },
+          "reliability_by_nearest_training_similarity": {
+            "status": "internal_frozen_split_diagnostic_not_external_calibration",
+            "similarity_metric": "maximum binary-fingerprint Tanimoto to split training partition",
+            "prediction_calibration_fit": false,
+            "interval_method": "95% Wilson binomial interval; descriptive only, does not account for within-scaffold dependence",
+            "bands": [
+              {
+                "similarity_band": "[0.00, 0.25]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.25, 0.50]",
+                "n": 0,
+                "mean_probability": null,
+                "observed_active_rate": null,
+                "absolute_calibration_gap": null,
+                "n_active": 0,
+                "n_inactive": 0,
+                "observed_active_rate_ci95": null,
+                "brier_score": null
+              },
+              {
+                "similarity_band": "(0.50, 0.75]",
+                "n": 21,
+                "mean_probability": 0.571327355753659,
+                "observed_active_rate": 0.6190476190476191,
+                "n_active": 13,
+                "n_inactive": 8,
+                "observed_active_rate_ci95": [
+                  0.4087865377511576,
+                  0.7924898863143551
+                ],
+                "absolute_calibration_gap": 0.047720263293960063,
+                "brier_score": 0.2242911222475757
+              },
+              {
+                "similarity_band": "(0.75, 1.00]",
+                "n": 35,
+                "mean_probability": 0.9592373294649188,
+                "observed_active_rate": 0.9142857142857143,
+                "n_active": 32,
+                "n_inactive": 3,
+                "observed_active_rate_ci95": [
+                  0.7762072603410349,
+                  0.9704176317330301
+                ],
+                "absolute_calibration_gap": 0.04495161517920454,
+                "brier_score": 0.036072270071289145
+              }
+            ]
+          },
+          "test_predictions": [
+            {
+              "dataset_row": 13,
+              "active": 1,
+              "probability": 0.9962209480034628,
+              "nearest_training_tanimoto": 0.7592592592592593
+            },
+            {
+              "dataset_row": 315,
+              "active": 1,
+              "probability": 0.9954333909138652,
+              "nearest_training_tanimoto": 0.7222222222222222
+            },
+            {
+              "dataset_row": 230,
+              "active": 1,
+              "probability": 0.2551641990724405,
+              "nearest_training_tanimoto": 0.7123287671232876
+            },
+            {
+              "dataset_row": 248,
+              "active": 1,
+              "probability": 0.9999861733070284,
+              "nearest_training_tanimoto": 0.8085106382978723
+            },
+            {
+              "dataset_row": 103,
+              "active": 0,
+              "probability": 0.00791952063859072,
+              "nearest_training_tanimoto": 0.6792452830188679
+            },
+            {
+              "dataset_row": 124,
+              "active": 0,
+              "probability": 0.021962409575265466,
+              "nearest_training_tanimoto": 0.6481481481481481
+            },
+            {
+              "dataset_row": 341,
+              "active": 1,
+              "probability": 0.04540802627427193,
+              "nearest_training_tanimoto": 0.6862745098039216
+            },
+            {
+              "dataset_row": 405,
+              "active": 0,
+              "probability": 0.014437024846981238,
+              "nearest_training_tanimoto": 0.6226415094339622
+            },
+            {
+              "dataset_row": 246,
+              "active": 1,
+              "probability": 0.9858136482742882,
+              "nearest_training_tanimoto": 0.8904109589041096
+            },
+            {
+              "dataset_row": 154,
+              "active": 1,
+              "probability": 0.9926261416810818,
+              "nearest_training_tanimoto": 0.9574468085106383
+            },
+            {
+              "dataset_row": 175,
+              "active": 0,
+              "probability": 0.043604676705412564,
+              "nearest_training_tanimoto": 0.6140350877192983
+            },
+            {
+              "dataset_row": 223,
+              "active": 0,
+              "probability": 0.06638312992920406,
+              "nearest_training_tanimoto": 0.9574468085106383
+            },
+            {
+              "dataset_row": 444,
+              "active": 1,
+              "probability": 0.42832991861717673,
+              "nearest_training_tanimoto": 0.7358490566037735
+            },
+            {
+              "dataset_row": 179,
+              "active": 1,
+              "probability": 0.9994612756909519,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 190,
+              "active": 1,
+              "probability": 0.9999238513475149,
+              "nearest_training_tanimoto": 0.8641975308641975
+            },
+            {
+              "dataset_row": 459,
+              "active": 1,
+              "probability": 0.9955335181228072,
+              "nearest_training_tanimoto": 0.7924528301886793
+            },
+            {
+              "dataset_row": 553,
+              "active": 1,
+              "probability": 0.9998819657755373,
+              "nearest_training_tanimoto": 0.9830508474576272
+            },
+            {
+              "dataset_row": 168,
+              "active": 1,
+              "probability": 0.9998857274127732,
+              "nearest_training_tanimoto": 0.7746478873239436
+            },
+            {
+              "dataset_row": 493,
+              "active": 1,
+              "probability": 0.9999654859941418,
+              "nearest_training_tanimoto": 0.7631578947368421
+            },
+            {
+              "dataset_row": 480,
+              "active": 1,
+              "probability": 0.9815551244696462,
+              "nearest_training_tanimoto": 0.7763157894736842
+            },
+            {
+              "dataset_row": 99,
+              "active": 1,
+              "probability": 0.9999706472250004,
+              "nearest_training_tanimoto": 0.7777777777777778
+            },
+            {
+              "dataset_row": 241,
+              "active": 1,
+              "probability": 0.9999754605620409,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 242,
+              "active": 1,
+              "probability": 0.9999754605620409,
+              "nearest_training_tanimoto": 0.8307692307692308
+            },
+            {
+              "dataset_row": 393,
+              "active": 1,
+              "probability": 0.9999704026357064,
+              "nearest_training_tanimoto": 0.8028169014084507
+            },
+            {
+              "dataset_row": 544,
+              "active": 1,
+              "probability": 0.9999818202993377,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 545,
+              "active": 1,
+              "probability": 0.9999818202993377,
+              "nearest_training_tanimoto": 0.8
+            },
+            {
+              "dataset_row": 129,
+              "active": 1,
+              "probability": 0.9998687838876315,
+              "nearest_training_tanimoto": 0.76
+            },
+            {
+              "dataset_row": 469,
+              "active": 1,
+              "probability": 0.9998997732372062,
+              "nearest_training_tanimoto": 0.7916666666666666
+            },
+            {
+              "dataset_row": 377,
+              "active": 1,
+              "probability": 0.9999726692861964,
+              "nearest_training_tanimoto": 0.9146341463414634
+            },
+            {
+              "dataset_row": 56,
+              "active": 1,
+              "probability": 0.9999072472931098,
+              "nearest_training_tanimoto": 0.7241379310344828
+            },
+            {
+              "dataset_row": 110,
+              "active": 1,
+              "probability": 0.9999925714325898,
+              "nearest_training_tanimoto": 0.8461538461538461
+            },
+            {
+              "dataset_row": 192,
+              "active": 1,
+              "probability": 0.9999893498164315,
+              "nearest_training_tanimoto": 0.7966101694915254
+            },
+            {
+              "dataset_row": 199,
+              "active": 1,
+              "probability": 0.9999713685264048,
+              "nearest_training_tanimoto": 0.7049180327868853
+            },
+            {
+              "dataset_row": 357,
+              "active": 1,
+              "probability": 0.9999517925498413,
+              "nearest_training_tanimoto": 0.7166666666666667
+            },
+            {
+              "dataset_row": 108,
+              "active": 1,
+              "probability": 0.9309828642776279,
+              "nearest_training_tanimoto": 0.609375
+            },
+            {
+              "dataset_row": 134,
+              "active": 1,
+              "probability": 0.999255611968105,
+              "nearest_training_tanimoto": 0.7407407407407407
+            },
+            {
+              "dataset_row": 431,
+              "active": 0,
+              "probability": 0.18030648997224358,
+              "nearest_training_tanimoto": 0.6612903225806451
+            },
+            {
+              "dataset_row": 474,
+              "active": 1,
+              "probability": 0.10871418922009406,
+              "nearest_training_tanimoto": 0.6071428571428571
+            },
+            {
+              "dataset_row": 451,
+              "active": 0,
+              "probability": 0.6289009224196167,
+              "nearest_training_tanimoto": 0.7586206896551724
+            },
+            {
+              "dataset_row": 137,
+              "active": 1,
+              "probability": 0.9895780537189214,
+              "nearest_training_tanimoto": 0.5245901639344263
+            },
+            {
+              "dataset_row": 349,
+              "active": 0,
+              "probability": 0.9848851310358424,
+              "nearest_training_tanimoto": 0.5172413793103449
+            },
+            {
+              "dataset_row": 404,
+              "active": 1,
+              "probability": 0.9966704031535477,
+              "nearest_training_tanimoto": 0.6923076923076923
+            },
+            {
+              "dataset_row": 429,
+              "active": 0,
+              "probability": 0.9978483725961058,
+              "nearest_training_tanimoto": 0.7090909090909091
+            },
+            {
+              "dataset_row": 466,
+              "active": 1,
+              "probability": 0.7567828514387448,
+              "nearest_training_tanimoto": 0.7419354838709677
+            },
+            {
+              "dataset_row": 368,
+              "active": 1,
+              "probability": 0.9999667209248176,
+              "nearest_training_tanimoto": 0.864406779661017
+            },
+            {
+              "dataset_row": 507,
+              "active": 1,
+              "probability": 0.9998994108621018,
+              "nearest_training_tanimoto": 0.8260869565217391
+            },
+            {
+              "dataset_row": 183,
+              "active": 0,
+              "probability": 0.24076092843224647,
+              "nearest_training_tanimoto": 0.6323529411764706
+            },
+            {
+              "dataset_row": 218,
+              "active": 1,
+              "probability": 0.9999702188018774,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 219,
+              "active": 1,
+              "probability": 0.9999702188018774,
+              "nearest_training_tanimoto": 0.8571428571428571
+            },
+            {
+              "dataset_row": 335,
+              "active": 1,
+              "probability": 0.9994171533808239,
+              "nearest_training_tanimoto": 0.8529411764705882
+            },
+            {
+              "dataset_row": 289,
+              "active": 1,
+              "probability": 0.9999904304976639,
+              "nearest_training_tanimoto": 0.8529411764705882
+            },
+            {
+              "dataset_row": 309,
+              "active": 1,
+              "probability": 0.9999894366903925,
+              "nearest_training_tanimoto": 0.8611111111111112
+            },
+            {
+              "dataset_row": 318,
+              "active": 1,
+              "probability": 0.9999888386139204,
+              "nearest_training_tanimoto": 0.8732394366197183
+            },
+            {
+              "dataset_row": 332,
+              "active": 1,
+              "probability": 0.9999894631049867,
+              "nearest_training_tanimoto": 0.9
+            },
+            {
+              "dataset_row": 345,
+              "active": 0,
+              "probability": 0.9284264010578128,
+              "nearest_training_tanimoto": 0.8313253012048193
+            },
+            {
+              "dataset_row": 374,
+              "active": 1,
+              "probability": 0.9999815668643081,
+              "nearest_training_tanimoto": 0.8604651162790697
+            }
+          ]
+        }
+      }
+    }
+  },
+  "inputs": {
+    "benchmark_parquet": "artifacts/benchmark_dataset.parquet",
+    "benchmark_sha256": "e9964539139d10253164713ac7bf2ab55f91668dc53fda548bdeb63ff862c650",
+    "split_json": "artifacts/splits.json",
+    "split_sha256": "456629fb74f33c45459548362b0198f5a66668204228e7b89598b2cbb93e3652",
+    "fingerprint_source": "reconstructed_from_frozen_smiles_no_cache_written",
+    "fingerprint_sidecar": null,
+    "fingerprint_sidecar_sha256": null,
+    "ordered_binary_fingerprints_sha256": "64fecf34374ea8e8b9e7fbf00c4a2537bb5561ce8182d8e6333f240aa2c1089f",
+    "configuration": {
+      "primary_task": "senolytic_selectivity",
+      "fallback_task": "chembl_mtor_activity",
+      "split": {
+        "type": "bemis_murcko",
+        "train_ratio": 0.8,
+        "val_ratio": 0.1,
+        "test_ratio": 0.1,
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "features": {
+        "fingerprint": "morgan",
+        "radius": 2,
+        "n_bits": 2048,
+        "include_descriptors": true
+      },
+      "model": {
+        "baseline": "logistic_regression",
+        "contender": "hist_gradient_boosting",
+        "hgb_params": {
+          "max_iter": 200,
+          "learning_rate": 0.05,
+          "min_samples_leaf": 10
+        }
+      },
+      "thresholds": {
+        "pchembl_active": 6.0,
+        "senolytic_selectivity_ratio": 2.0
+      },
+      "metrics": [
+        "auroc",
+        "auprc",
+        "recall_at_fpr_0.05",
+        "brier_score"
+      ]
+    }
+  },
+  "runtime": {
+    "python": "3.11.2",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1",
+    "rdkit": "2026.03.6"
+  }
+}

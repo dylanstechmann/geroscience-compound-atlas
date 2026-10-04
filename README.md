@@ -117,3 +117,15 @@ Older caches can only be relabeled at their stored precision; rebuild them from
 the raw activity records if measurements near the cutoff were rounded. Invalid
 thresholds or non-finite cached measurements fail explicitly instead of silently
 changing the labels.
+
+## Frozen chemical-neighborhood reliability
+
+`make neighborhood PYTHON=.venv/bin/python` audits both classifiers on the
+existing scaffold splits, including error by nearest training-fingerprint
+similarity, class counts, uncertainty summaries, row predictions, and exact
+input hashes. It verifies split isolation and fingerprint/structure alignment,
+and reconstructs missing fingerprints offline without rewriting the benchmark.
+See [the diagnostic and its limits](docs/neighborhood-reliability.md) and
+[the October 4 report](artifacts/neighborhood_reliability_2026-10-04.json).
+The existing test folds contain very few chemically remote compounds, so this
+does not establish reliability for novel optimized structures.

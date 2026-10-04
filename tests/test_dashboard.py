@@ -61,3 +61,16 @@ def test_build_dashboard_html(tmp_path: Path):
     # Assert scientific humility callouts
     assert "QED heuristic" in content
     assert "Coverage Holes" in content
+
+
+def test_custom_dashboard_output_preserves_hosted_page(tmp_path: Path):
+    hosted_page = Path("site/index.html")
+    before = hosted_page.read_bytes()
+    build_dashboard_html(output_html=tmp_path / "preview.html")
+    assert hosted_page.read_bytes() == before
+
+
+def test_explicit_dashboard_hosted_copy_matches_output(tmp_path: Path):
+    hosted_page = tmp_path / "site" / "index.html"
+    output = build_dashboard_html(output_html=tmp_path / "dashboard.html", site_html=hosted_page)
+    assert hosted_page.read_bytes() == output.read_bytes()

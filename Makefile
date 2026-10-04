@@ -1,4 +1,4 @@
-.PHONY: setup data train regression generate hypothesis report serve test lint format clean
+.PHONY: setup data train regression neighborhood generate hypothesis report serve test lint format clean
 
 PYTHON ?= python
 
@@ -15,6 +15,9 @@ train:
 
 regression:
 	$(PYTHON) -m bench.regression
+
+neighborhood:
+	$(PYTHON) -m bench.neighborhood_report
 
 generate:
 	$(PYTHON) -m gen.pipeline

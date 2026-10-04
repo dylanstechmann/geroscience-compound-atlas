@@ -1,0 +1,19 @@
+{
+  "audit_date": "2026-10-04",
+  "status": "unchanged_config_reproduction_surrogate_artifacts_only",
+  "input_sha256": {
+    "artifacts/benchmark_dataset.parquet": "e9964539139d10253164713ac7bf2ab55f91668dc53fda548bdeb63ff862c650",
+    "artifacts/splits.json": "456629fb74f33c45459548362b0198f5a66668204228e7b89598b2cbb93e3652",
+    "configs/hypothesis.yaml": "8dfe45dbacbb6cbfb21acee0689213affe50f652c97651b6bd1ec379e3e38d7f",
+    "configs/bench.yaml": "e4707f06bac0f0a4d39b1d5f7e3c71a5fe9c9f24d3ab5e7b519efa0f09cf28c8"
+  },
+  "fingerprint_source": "reconstructed_from_frozen_smiles_by_existing_scorer",
+  "configuration_snapshot": {
+    "configs/hypothesis.yaml": "# Hypothesis-mode generation rails.\n# These are optimizer constraints, not a moral filter and not a consumption rule.\n# Play mode (python -m gen.pipeline) is unchanged.\n\nobjective: |\n  Propose valid small molecules that the frozen ChEMBL mTOR logistic\n  surrogate scores as active, after rejecting property-space spam and\n  near-duplicates of the training actives.\n\nnot_claimed:\n  - human or animal use\n  - dose, route, source, or stack\n  - that a high surrogate score is a real IC50\n  - that QED is biological goodness\n\n# Hard rejects. A molecule failing any gate never enters the hypothesis archive.\ngates:\n  min_heavy_atoms: 12\n  max_heavy_atoms: 38\n  min_mol_wt: 180\n  max_mol_wt: 520\n  min_rings: 1\n  max_rings: 5\n  max_ring_size: 8\n  max_rotatable_bonds: 10\n  min_tpsa: 20\n  max_tpsa: 140\n  min_logp: -1.0\n  max_logp: 5.0\n  min_fraction_csp3: 0.15\n  max_aliphatic_carbon_chain: 6\n  allowed_atomic_nums: [1, 6, 7, 8, 9, 15, 16, 17, 35]\n  reject_pains: true\n  require_single_fragment: true\n\n# Soft term in the GA reward plus a hard archive cap.\nanti_clone:\n  max_tanimoto_to_training_active: 0.55\n  penalty_start: 0.40\n  penalty_weight: 1.25\n\nscoring:\n  qed_weight: 0.25\n  mtor_weight: 1.0\n  pains_penalty: 1.0\n\nga:\n  pop_size: 40\n  n_generations: 20\n  mutation_rate: 0.7\n  crossover_rate: 0.3\n  elite_size: 5\n  seed: 42\n  max_cards: 25\n",
+    "configs/bench.yaml": "# Benchmark configuration and hyperparameters for Geroscience Compound Atlas\n# No magic numbers in code; all knobs belong here.\n\nbenchmark:\n  primary_task: \"senolytic_selectivity\"\n  fallback_task: \"chembl_mtor_activity\"\n  split:\n    type: \"bemis_murcko\"\n    train_ratio: 0.80\n    val_ratio: 0.10\n    test_ratio: 0.10\n    seeds: [42, 123, 456]\n  features:\n    fingerprint: \"morgan\"\n    radius: 2\n    n_bits: 2048\n    include_descriptors: true\n  model:\n    baseline: \"logistic_regression\"\n    contender: \"hist_gradient_boosting\"\n    hgb_params:\n      max_iter: 200\n      learning_rate: 0.05\n      min_samples_leaf: 10\n  thresholds:\n    pchembl_active: 6.0  # ~1 uM\n    senolytic_selectivity_ratio: 2.0\n  metrics:\n    - \"auroc\"\n    - \"auprc\"\n    - \"recall_at_fpr_0.05\"\n    - \"brier_score\"\n"
+  },
+  "gate_change": false,
+  "activity_cutoff_change": false,
+  "split_change": false,
+  "interpretation": "Acceptance reflects software gates and surrogate optimization, not measured binding, synthesis feasibility or geroscience efficacy."
+}

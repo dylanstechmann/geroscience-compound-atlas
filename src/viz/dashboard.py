@@ -59,6 +59,7 @@ def build_dashboard_html(
     gen_parquet: str | Path = "artifacts/generated_molecules.parquet",
     gen_metrics_json: str | Path = "artifacts/generator_metrics.json",
     output_html: str | Path = "artifacts/dashboard.html",
+    *, site_html: str | Path | None = None,
 ) -> Path:
     """Compile processed atlas tables, benchmark metrics, and generated molecules into an interactive standalone HTML dashboard."""
     compounds_df = pd.read_parquet(compounds_parquet)
@@ -1371,15 +1372,16 @@ def build_dashboard_html(
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    # Also save to site/index.html for hosting
-    site_file = Path("site/index.html")
-    site_file.parent.mkdir(parents=True, exist_ok=True)
-    with open(site_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    # A custom preview/test output must not implicitly overwrite the hosted page.
+    if site_html is not None:
+        site_file = Path(site_html)
+        site_file.parent.mkdir(parents=True, exist_ok=True)
+        site_file.write_text(html_content, encoding="utf-8")
+        logger.info("Saved hosted dashboard copy to %s", site_file)
 
-    logger.info("Saved interactive dashboard to %s and %s", out_file, site_file)
+    logger.info("Saved interactive dashboard to %s", out_file)
     return out_file
 
 
 if __name__ == "__main__":
-    build_dashboard_html()
+    build_dashboard_html(site_html="site/index.html")
