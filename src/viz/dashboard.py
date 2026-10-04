@@ -1032,6 +1032,21 @@ def build_dashboard_html(
     const topFPsData = {top_fps_json};
     const genCardsData = {gen_cards_json};
 
+    function escapeHtml(value) {{
+        return String(value == null ? '' : value).replace(/[&<>"']/g, char => ({{
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }})[char]);
+    }}
+
+    function safeHttpUrl(value) {{
+        try {{
+            const url = new URL(String(value));
+            return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+        }} catch (_error) {{
+            return '';
+        }}
+    }}
+
     function edgeReviewLabel(edge) {{
         if (edge.source_review_status === 'source_reviewed_with_claim_limits') {{
             return 'Source reviewed; claim limits recorded.';
@@ -1060,19 +1075,38 @@ def build_dashboard_html(
             const card = document.createElement('div');
             card.className = 'compound-card';
 
-            const edgesHtml = comp.edges.map(e => `
+            const edgesHtml = comp.edges.map(e => {{
+                const grade = /^E[0-4]$/.test(String(e.grade || '')) ? String(e.grade) : 'E0';
+                const sourceUrl = safeHttpUrl(e.source_url);
+                const sourceLabel = e.source_title || e.source_url || '';
+                const sourceHtml = sourceUrl
+                    ? `<a href="${{escapeHtml(sourceUrl)}}" target="_blank" rel="noopener noreferrer">${{escapeHtml(sourceLabel || sourceUrl)}}</a>`
+                    : escapeHtml(sourceLabel);
+                const context = [e.study_design, e.species, e.sex].filter(value => value != null && String(value).trim());
+                const evidenceRows = [
+                    ['Endpoint', e.endpoint], ['Comparator', e.comparator],
+                    ['Effect estimate', e.effect_estimate], ['Uncertainty', e.uncertainty],
+                    ['Source location', e.source_locator], ['Evidence basis', e.evidence_basis]
+                ].filter(([, value]) => value != null && String(value).trim())
+                 .map(([label, value]) => `<div><strong>${{escapeHtml(label)}}:</strong> ${{escapeHtml(value)}}</div>`)
+                 .join('');
+                return `
                 <div class="edge-pill">
                     <div class="edge-top">
-                        <span class="hallmark-tag">${{e.hallmark ? e.hallmark.replace('_', ' ') : 'unspecified'}}</span>
-                        <span class="grade-badge grade-${{e.grade}}">${{e.grade}}</span>
+                        <span class="hallmark-tag">${{escapeHtml(e.hallmark ? String(e.hallmark).replace(/_/g, ' ') : 'unspecified')}}</span>
+                        <span class="grade-badge grade-${{grade}}">${{grade}}</span>
                     </div>
                     <div class="edge-notes">
-                        <strong>${{e.target_symbol || e.target_id || ''}}</strong> ${{e.relation}} &bull; ${{e.notes || ''}}
-                        <div class="review-status">${{edgeReviewLabel(e)}}</div>
-                        ${{e.document_ids ? `<div style="margin-top: 2px; color: #60a5fa;">${{e.document_ids}}</div>` : ''}}
+                        <strong>${{escapeHtml(e.target_symbol || e.target_id || '')}}</strong> ${{escapeHtml(e.relation)}} &bull; ${{escapeHtml(e.notes || '')}}
+                        <div class="review-status">${{escapeHtml(edgeReviewLabel(e))}}</div>
+                        ${{e.document_ids ? `<div style="margin-top: 2px; color: #60a5fa;">${{escapeHtml(e.document_ids)}}</div>` : ''}}
+                        ${{sourceHtml ? `<div style="margin-top: 2px;">Source: ${{sourceHtml}}</div>` : ''}}
+                        ${{context.length ? `<div style="margin-top: 2px;">Context: ${{context.map(escapeHtml).join(' · ')}}</div>` : ''}}
+                        ${{evidenceRows ? `<div style="margin-top: 4px;">${{evidenceRows}}</div>` : ''}}
                     </div>
                 </div>
-            `).join('');
+            `;
+            }}).join('');
 
             card.innerHTML = `
                 <div class="card-header">

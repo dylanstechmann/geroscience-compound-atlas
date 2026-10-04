@@ -23,6 +23,18 @@ from gen.scorer import CompositeSurrogateScorer
 logger = logging.getLogger("atlas.lookup")
 
 
+def _optional_text(value: Any) -> str:
+    """Render nullable table cells as empty strings instead of the literal 'nan'."""
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except (TypeError, ValueError):
+        pass
+    return str(value).strip()
+
+
 def lookup_compound(
     query: str,
     *,
@@ -120,6 +132,12 @@ def lookup_compound(
     # Hallmark evidence edges
     edges_file = Path(edges_parquet)
     hallmark_edges = []
+    hallmark_source = {
+        "status": "unavailable",
+        "path": str(edges_file),
+        "reason": "evidence catalog file is missing",
+        "matched_records": 0,
+    }
     if edges_file.exists():
         edges_df = pd.read_parquet(edges_file)
         if "compound_inchikey" in edges_df.columns:
@@ -128,56 +146,93 @@ def lookup_compound(
             matched_edges = edges_df[edges_df["inchikey"] == inchikey]
         else:
             matched_edges = pd.DataFrame()
+            hallmark_source.update({
+                "status": "schema_incompatible",
+                "reason": "evidence catalog has no compound InChIKey column",
+            })
+
+        if hallmark_source["status"] != "schema_incompatible":
+            hallmark_source.update({
+                "status": "loaded",
+                "reason": None,
+                "matched_records": int(len(matched_edges)),
+            })
 
         for _, e in matched_edges.iterrows():
             hallmark_edges.append({
-                "hallmark": str(e.get("hallmark", "unspecified")),
-                "grade": str(e.get("grade", "E0")),
-                "curator_grade": str(e.get("curator_grade", e.get("grade", "E0"))),
-                "target_symbol": str(e.get("target_symbol") or e.get("target_id") or "N/A"),
-                "relation": str(e.get("relation", "modulates")),
-                "notes": str(e.get("notes", "")),
-                "document_ids": str(e.get("document_ids", "")),
-                "source_url": str(e.get("source_url", "")),
-                "source_title": str(e.get("source_title") or ""),
-                "species": str(e.get("species") or ""),
-                "sex": str(e.get("sex") or ""),
-                "endpoint": str(e.get("endpoint") or ""),
-                "evidence_basis": str(e.get("evidence_basis", "")),
-                "source_review_status": str(e.get("source_review_status", "")),
-                "intervention_components": str(e.get("intervention_components", "")),
-                "attribution_scope": str(e.get("attribution_scope", "")),
+                "hallmark": _optional_text(e.get("hallmark")) or "unspecified",
+                "grade": _optional_text(e.get("grade")) or "E0",
+                "curator_grade": _optional_text(e.get("curator_grade")) or _optional_text(e.get("grade")) or "E0",
+                "target_symbol": _optional_text(e.get("target_symbol")) or _optional_text(e.get("target_id")) or "N/A",
+                "relation": _optional_text(e.get("relation")) or "modulates",
+                "notes": _optional_text(e.get("notes")),
+                "document_ids": _optional_text(e.get("document_ids")),
+                "source_url": _optional_text(e.get("source_url")),
+                "source_title": _optional_text(e.get("source_title")),
+                "species": _optional_text(e.get("species")),
+                "sex": _optional_text(e.get("sex")),
+                "study_design": _optional_text(e.get("study_design")),
+                "endpoint": _optional_text(e.get("endpoint")),
+                "comparator": _optional_text(e.get("comparator")),
+                "effect_estimate": _optional_text(e.get("effect_estimate")),
+                "uncertainty": _optional_text(e.get("uncertainty")),
+                "source_locator": _optional_text(e.get("source_locator")),
+                "evidence_basis": _optional_text(e.get("evidence_basis")),
+                "source_review_status": _optional_text(e.get("source_review_status")),
+                "intervention_components": _optional_text(e.get("intervention_components")),
+                "attribution_scope": _optional_text(e.get("attribution_scope")),
             })
 
     # ChEMBL coverage & measured activities
-    chembl_info: dict[str, Any] = {"has_chembl": False, "num_activities": 0, "activities": []}
+    chembl_info: dict[str, Any] = {
+        "has_chembl": False,
+        "num_activities": 0,
+        "activities": [],
+        "coverage_status": "unavailable",
+        "coverage_path": str(coverage_parquet),
+        "coverage_record_found": False,
+        "activities_status": "unavailable",
+        "activities_path": str(activities_parquet),
+        "activity_records_found": 0,
+    }
     cov_file = Path(coverage_parquet)
     if cov_file.exists():
         cov_df = pd.read_parquet(cov_file)
-        cov_match = cov_df[cov_df["inchikey"] == inchikey]
-        if not cov_match.empty:
+        if "inchikey" not in cov_df.columns:
+            chembl_info["coverage_status"] = "schema_incompatible"
+        else:
+            chembl_info["coverage_status"] = "loaded"
+            cov_match = cov_df[cov_df["inchikey"] == inchikey]
+        if "inchikey" in cov_df.columns and not cov_match.empty:
             c_row = cov_match.iloc[0]
-            chembl_info["has_chembl"] = bool(c_row.get("has_chembl", False))
-            chembl_info["num_activities"] = int(c_row.get("num_activities", 0))
-            chembl_info["has_binding"] = bool(c_row.get("has_binding", False))
-            chembl_info["num_binding_assays"] = int(c_row.get("num_binding_assays", 0))
+            chembl_info["coverage_record_found"] = True
+            has_chembl = c_row.get("has_chembl", False)
+            has_binding = c_row.get("has_binding", False)
+            chembl_info["has_chembl"] = bool(has_chembl) if pd.notna(has_chembl) else False
+            chembl_info["num_activities"] = int(c_row.get("num_activities", 0)) if pd.notna(c_row.get("num_activities", 0)) else 0
+            chembl_info["has_binding"] = bool(has_binding) if pd.notna(has_binding) else False
+            chembl_info["num_binding_assays"] = int(c_row.get("num_binding_assays", 0)) if pd.notna(c_row.get("num_binding_assays", 0)) else 0
 
     acts_file = Path(activities_parquet)
     if acts_file.exists():
         acts_df = pd.read_parquet(acts_file)
         if "inchikey" in acts_df.columns:
+            chembl_info["activities_status"] = "loaded"
             act_match = acts_df[acts_df["inchikey"] == inchikey]
+            chembl_info["activity_records_found"] = int(len(act_match))
             if not act_match.empty:
                 chembl_info["has_chembl"] = True
                 chembl_info["num_activities"] = len(act_match)
                 for _, a in act_match.head(10).iterrows():
                     chembl_info["activities"].append({
-                        "target_name": str(a.get("target_name") or a.get("pref_name") or "Target"),
-                        "standard_type": str(a.get("standard_type") or "IC50"),
+                        "target_name": _optional_text(a.get("target_name")) or _optional_text(a.get("pref_name")) or "Target",
+                        "standard_type": _optional_text(a.get("standard_type")) or "IC50",
                         "standard_value": float(a["standard_value"]) if pd.notna(a.get("standard_value")) else None,
-                        "standard_units": str(a.get("standard_units") or "nM"),
+                        "standard_units": _optional_text(a.get("standard_units")) or "nM",
                         "pchembl_value": float(a["pchembl_value"]) if pd.notna(a.get("pchembl_value")) else None,
                     })
+        else:
+            chembl_info["activities_status"] = "schema_incompatible"
 
     # Benchmark prediction (mTOR kinase surrogate)
     prediction_info: dict[str, Any] = {
@@ -235,6 +290,19 @@ def lookup_compound(
         "modality": modality,
         "properties": descriptors,
         "hallmark_edges": hallmark_edges,
+        "source_availability": {
+            "hallmark_evidence": hallmark_source,
+            "chembl_coverage": {
+                "status": chembl_info["coverage_status"],
+                "path": chembl_info["coverage_path"],
+                "record_found": chembl_info["coverage_record_found"],
+            },
+            "chembl_activities": {
+                "status": chembl_info["activities_status"],
+                "path": chembl_info["activities_path"],
+                "matched_records": chembl_info["activity_records_found"],
+            },
+        },
         "chembl_info": chembl_info,
         "benchmark_prediction": prediction_info,
     }
@@ -298,24 +366,55 @@ def format_lookup_report(data: dict[str, Any]) -> str:
                 lines.append(f"    Evidence  : {e['notes']}")
             if e.get("document_ids"):
                 lines.append(f"    Citations : {e['document_ids']}")
+            if e.get("source_title"):
+                lines.append(f"    Study     : {e['source_title']}")
+            design_details = [value for value in (e.get("study_design"), e.get("species"), e.get("sex")) if value]
+            if design_details:
+                lines.append(f"    Context   : {'; '.join(design_details)}")
+            for label, field in (
+                ("Endpoint", "endpoint"), ("Comparator", "comparator"),
+                ("Effect", "effect_estimate"), ("Uncertainty", "uncertainty"),
+                ("Source loc.", "source_locator"), ("Evidence basis", "evidence_basis"),
+            ):
+                if e.get(field):
+                    lines.append(f"    {label:<12}: {e[field]}")
             if e.get("source_url"):
                 lines.append(f"    Source    : {e['source_url']}")
             if e.get("attribution_scope") == "combination":
                 lines.append(f"    Context   : Combination evidence ({e.get('intervention_components', '')})")
     else:
-        lines.append("  (No curated evidence edges in current atlas catalog)")
+        availability = data.get("source_availability", {}).get("hallmark_evidence", {})
+        if availability.get("status") == "loaded":
+            lines.append("  No matching curated records in the loaded evidence catalog.")
+        else:
+            reason = availability.get("reason") or f"catalog status: {availability.get('status', 'unknown')}"
+            lines.append(f"  Evidence catalog unavailable: {reason} ({availability.get('path', 'path unknown')})")
 
     # ChEMBL Bioactivities
     c_info = data.get("chembl_info", {})
     lines.append("\n[CHEMBL EXPERIMENTAL BIOACTIVITIES]")
+    availability = data.get("source_availability", {})
+    coverage = availability.get("chembl_coverage", {})
+    activities = availability.get("chembl_activities", {})
+    lines.append(
+        f"  Source tables : coverage={coverage.get('status', 'unknown')} ({coverage.get('path', 'path unknown')}); "
+        f"activities={activities.get('status', 'unknown')} ({activities.get('path', 'path unknown')})"
+    )
     if c_info.get("has_chembl"):
         lines.append(f"  ChEMBL Coverage : {c_info.get('num_activities', 0)} recorded assays ({c_info.get('num_binding_assays', 0)} binding)")
         acts = c_info.get("activities", [])
         for a in acts[:5]:
             p_val = f", pChEMBL={a['pchembl_value']:.2f}" if a.get("pchembl_value") else ""
             lines.append(f"    - {a['target_name']}: {a['standard_type']} = {a.get('standard_value')} {a['standard_units']}{p_val}")
+        if any(source.get("status") != "loaded" for source in (coverage, activities)):
+            lines.append("  Some ChEMBL source detail is incomplete; see source-table statuses above.")
     else:
-        lines.append("  No matching structured ChEMBL bioactivities mapped.")
+        if any(source.get("status") != "loaded" for source in (coverage, activities)):
+            lines.append("  ChEMBL evidence is incomplete or unavailable; see source-table statuses above.")
+        elif c_info.get("coverage_record_found") and not c_info.get("has_chembl"):
+            lines.append("  Loaded coverage marks this compound as having no mapped ChEMBL activities.")
+        else:
+            lines.append("  No matching structured ChEMBL bioactivities in the loaded table(s).")
 
     # Benchmark Prediction
     pred = data.get("benchmark_prediction", {})

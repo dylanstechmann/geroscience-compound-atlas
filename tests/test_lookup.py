@@ -92,6 +92,69 @@ def test_invalid_surrogate_score_is_not_reported_as_available():
     assert result["benchmark_prediction"]["prediction_status"] == "invalid_structure_or_score"
 
 
+def test_lookup_reports_missing_and_schema_incompatible_evidence_sources(tmp_path: Path):
+    import pandas as pd
+
+    compounds = tmp_path / "compounds.parquet"
+    pd.DataFrame([{
+        "name": "ethanol", "resolved_name": "ethanol", "raw_name": "ethanol",
+        "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N", "cid": 702,
+        "canonical_smiles": "CCO", "modality": "small_molecule",
+    }]).to_parquet(compounds, index=False)
+    edges = tmp_path / "edges.parquet"
+    coverage = tmp_path / "coverage.parquet"
+    activities = tmp_path / "activities.parquet"
+    result = lookup_compound(
+        "ethanol", compounds_parquet=compounds, edges_parquet=edges,
+        coverage_parquet=coverage, activities_parquet=activities,
+        scorer=type("InvalidScorer", (), {"score_molecule": lambda self, mol: {"valid": False}})(),
+    )
+    assert result["source_availability"]["hallmark_evidence"]["status"] == "unavailable"
+    assert result["source_availability"]["chembl_coverage"]["status"] == "unavailable"
+    assert result["source_availability"]["chembl_activities"]["status"] == "unavailable"
+
+    pd.DataFrame([{"label": "no inchikey column"}]).to_parquet(edges, index=False)
+    pd.DataFrame([{"label": "no inchikey column"}]).to_parquet(coverage, index=False)
+    pd.DataFrame([{"label": "no inchikey column"}]).to_parquet(activities, index=False)
+    result = lookup_compound(
+        "ethanol", compounds_parquet=compounds, edges_parquet=edges,
+        coverage_parquet=coverage, activities_parquet=activities,
+        scorer=type("InvalidScorer", (), {"score_molecule": lambda self, mol: {"valid": False}})(),
+    )
+    assert result["source_availability"]["hallmark_evidence"]["status"] == "schema_incompatible"
+    assert result["source_availability"]["chembl_coverage"]["status"] == "schema_incompatible"
+    assert result["source_availability"]["chembl_activities"]["status"] == "schema_incompatible"
+
+
+def test_lookup_nullable_evidence_fields_render_as_blank_not_nan(tmp_path: Path):
+    import pandas as pd
+
+    compounds = tmp_path / "compounds.parquet"
+    edges = tmp_path / "edges.parquet"
+    pd.DataFrame([{
+        "name": "ethanol", "resolved_name": "ethanol", "raw_name": "ethanol",
+        "inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N", "cid": 702,
+        "canonical_smiles": "CCO", "modality": "small_molecule",
+    }]).to_parquet(compounds, index=False)
+    pd.DataFrame([{
+        "compound_inchikey": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N", "hallmark": None,
+        "grade": None, "curator_grade": None, "target_symbol": None, "relation": None,
+        "notes": None, "document_ids": None, "source_url": None,
+    }]).to_parquet(edges, index=False)
+    result = lookup_compound(
+        "ethanol", compounds_parquet=compounds, edges_parquet=edges,
+        coverage_parquet=tmp_path / "missing-coverage.parquet",
+        activities_parquet=tmp_path / "missing-activities.parquet",
+        scorer=type("InvalidScorer", (), {"score_molecule": lambda self, mol: {"valid": False}})(),
+    )
+    edge = result["hallmark_edges"][0]
+    assert edge["hallmark"] == "unspecified"
+    assert edge["grade"] == "E0"
+    assert edge["target_symbol"] == "N/A"
+    assert edge["notes"] == ""
+    assert "nan" not in edge.values()
+
+
 def test_lookup_cli_main_stdout_and_json(capsys):
     ret = lookup_main(["Metformin", "--json"])
     assert ret == 0
