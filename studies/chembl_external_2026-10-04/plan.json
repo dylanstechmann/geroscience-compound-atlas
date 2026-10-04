@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "frozen_before_external_predictions": true,
+  "date": "2026-10-04",
+  "purpose": "External study and structure holdout for the existing biochemical mTOR surrogate; no senolysis or rejuvenation inference.",
+  "sources": {
+    "api": "https://www.ebi.ac.uk/chembl/api/data",
+    "documentation": "https://chembl.gitbook.io/chembl-interface-documentation/frequently-asked-questions/chembl-data-questions"
+  },
+  "frozen_inputs": {
+    "artifacts/benchmark_dataset.parquet": "e9964539139d10253164713ac7bf2ab55f91668dc53fda548bdeb63ff862c650",
+    "artifacts/splits.json": "456629fb74f33c45459548362b0198f5a66668204228e7b89598b2cbb93e3652",
+    "configs/bench.yaml": "e4707f06bac0f0a4d39b1d5f7e3c71a5fe9c9f24d3ab5e7b519efa0f09cf28c8",
+    "data/interim/chembl_bench_raw.json": "4188b26531038069f097b4d720dfb3e511dcb6dec5d959e9f5efed3b5d5daed1"
+  },
+  "eligibility": {
+    "target": "CHEMBL2842",
+    "assay_type": "B",
+    "confidence_score": 9,
+    "relationship_type": "D",
+    "assay_organism": "Homo sapiens",
+    "standard_type": "IC50",
+    "standard_relation": "=",
+    "standard_units": "nM",
+    "standard_flag": 1,
+    "data_validity_comment": [
+      null,
+      "Manually validated"
+    ],
+    "potential_duplicate": 0,
+    "variant": "none",
+    "pchembl_consistency_tolerance": 0.03,
+    "exclude_documents": "all document IDs in original raw cache",
+    "exclude_structures": "connectivity block (first 14 characters) of every original frozen dataset InChIKey",
+    "exclude_molecules": "original molecule and parent molecule IDs",
+    "aggregation": "median pChEMBL within molecule connectivity and assay; preserve document and assay units; no averaging between assays",
+    "assay_description_check": "exclude explicit FKBP12-only or cell proliferation/viability descriptions; record exclusions"
+  },
+  "evaluation": {
+    "models": [
+      "frozen logistic regression",
+      "frozen HistGradientBoostingClassifier"
+    ],
+    "seeds": [
+      42,
+      123,
+      456
+    ],
+    "training": "original training split only; original validation split supplies existing feature helper but is not used for selection",
+    "threshold": 6.0,
+    "baseline": "constant original training prevalence",
+    "metrics": [
+      "AUROC when both classes present",
+      "average precision when both classes present",
+      "Brier",
+      "assay macro Brier",
+      "maximum training fingerprint similarity"
+    ],
+    "uncertainty": "1000 document-cluster bootstrap resamples of pooled Brier difference vs prevalence; fixed seed 20261004; no CI if fewer than 2 documents",
+    "subsets": "all eligible rows plus each source document; no model, source, threshold or similarity gate selection after results",
+    "empty_eligible_set": "report unavailable external validation, no relaxed gates"
+  },
+  "limitations": [
+    "Same database, external source documents and structures only; not independent database curation.",
+    "Assay formats, ATP concentrations and enzyme preparations differ.",
+    "Original training labels were not qualified to the new stricter assay contract.",
+    "No clinical, lifespan, senolytic selectivity or tissue regeneration endpoint."
+  ]
+}

@@ -236,3 +236,8 @@ requires explicit `site_html=`; the existing `make report` CLI still writes
 both the artifact and hosted copy. Regression tests verify preview isolation
 and identical explicit copies. The test-regenerated tracked page was restored
 to its initially clean contents.
+
+
+## Public-data external validation (2026-10-04)
+
+The fixed classifiers were tested against 2,910 qualified molecule–assay rows from 170 source documents and 2,731 connectivity structures excluded from the original dataset. Both models had worse pooled Brier error than the training-prevalence baseline in all three seeds; HGB AUROC was 0.467–0.478. Current assay metadata also shows that only 209/600 original raw records qualify as direct human single-protein target-assignment records under the new strict contract. The frozen benchmark and generator are unchanged; their scores are not qualified for compound prioritization. See the [prespecified study, all-source results and reproduction steps](studies/chembl_external_2026-10-04/README.md).
