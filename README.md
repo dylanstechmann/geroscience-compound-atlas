@@ -134,3 +134,7 @@ does not establish reliability for novel optimized structures.
 ## Public-data external validation (2026-10-04)
 
 The fixed classifiers were tested against 2,910 qualified molecule–assay rows from 170 source documents and 2,731 connectivity structures excluded from the original dataset. Both models had worse pooled Brier error than the training-prevalence baseline in all three seeds; HGB AUROC was 0.467–0.478. Current assay metadata also shows that only 209/600 original raw records qualify as direct human single-protein target-assignment records under the new strict contract. The frozen benchmark and generator are unchanged; their scores are not qualified for compound prioritization. See the [prespecified study, all-source results and reproduction steps](studies/chembl_external_2026-10-04/README.md).
+
+The interactive dashboard repeats this qualification result beside its internal
+split metrics and generated-molecule gallery so surrogate probabilities are
+not mistaken for externally validated activity or evidence of rejuvenation.

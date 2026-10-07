@@ -1,7 +1,9 @@
 """Interactive static HTML dashboard generator for Geroscience Compound Atlas + Predictive Bench."""
 
+import html
 import json
 import logging
+import math
 from pathlib import Path
 from typing import Any
 
@@ -51,6 +53,67 @@ def generate_molecule_svg(smiles: str | None, width: int = 280, height: int = 18
         )
 
 
+def external_validation_notice(results_path: str | Path) -> tuple[str, str]:
+    """Summarize the frozen external result without treating it as a biology outcome."""
+    fallback = (
+        "External model qualification is unestablished",
+        "The external evaluation result was missing or invalid when this dashboard was built. "
+        "Model probabilities and generated scores remain exploratory outputs, not compound-prioritization evidence.",
+    )
+    path = Path(results_path)
+    try:
+        if path.is_symlink() or not path.is_file() or path.stat().st_size > 2_000_000:
+            return fallback
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, TypeError):
+        return fallback
+    if not isinstance(data, dict) or data.get("status") != "external_target_assigned_mtor_assay_evaluation":
+        return fallback
+    results = data.get("results")
+    if not isinstance(results, dict):
+        return fallback
+
+    comparisons = []
+    for seed in ("42", "123", "456"):
+        row = results.get(seed)
+        baseline = row.get("training_prevalence_baseline") if isinstance(row, dict) else None
+        models = row.get("models") if isinstance(row, dict) else None
+        if not isinstance(baseline, dict) or not isinstance(models, dict):
+            return fallback
+        baseline_brier = baseline.get("brier")
+        n_rows = baseline.get("n")
+        logistic = models.get("logistic")
+        hgb = models.get("hgb")
+        if not isinstance(logistic, dict) or not isinstance(hgb, dict):
+            return fallback
+        values = (baseline_brier, logistic.get("brier"), hgb.get("brier"), hgb.get("auroc"))
+        if (any(isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) for value in values)
+                or isinstance(n_rows, bool) or not isinstance(n_rows, int) or n_rows < 1):
+            return fallback
+        comparisons.append((n_rows, baseline_brier, logistic["brier"], hgb["brier"], hgb["auroc"]))
+    if len({item[0] for item in comparisons}) != 1:
+        return fallback
+
+    if all(logistic_brier > baseline and hgb_brier > baseline
+           for _, baseline, logistic_brier, hgb_brier, _ in comparisons):
+        hgb_aurocs = [item[4] for item in comparisons]
+        return (
+            "External validation: classifiers are not qualified for compound prioritization",
+            f"Across {comparisons[0][0]:,} held-out molecule–assay rows, both classifiers had worse pooled "
+            f"Brier error than a training-prevalence baseline in all {len(comparisons)} seeds; "
+            f"HistGradientBoosting AUROC ranged from {min(hgb_aurocs):.3f} to {max(hgb_aurocs):.3f}. "
+            "This is a source-document and structure holdout within ChEMBL, not independent biological or "
+            "rejuvenation validation. Treat displayed probabilities and generated scores as exploratory artifacts.",
+        )
+    return (
+        "External validation is available; model qualification remains unestablished",
+        "This source-document and structure holdout within ChEMBL does not establish independent biological "
+        "validation or qualify model scores for compound prioritization. Treat displayed probabilities and "
+        "generated scores as exploratory artifacts.",
+    )
+
+
 def build_dashboard_html(
     compounds_parquet: str | Path = "artifacts/compounds.parquet",
     edges_parquet: str | Path = "artifacts/evidence_edges.parquet",
@@ -60,6 +123,7 @@ def build_dashboard_html(
     gen_metrics_json: str | Path = "artifacts/generator_metrics.json",
     output_html: str | Path = "artifacts/dashboard.html",
     *, site_html: str | Path | None = None,
+    external_results_json: str | Path = "studies/chembl_external_2026-10-04/results.json",
 ) -> Path:
     """Compile processed atlas tables, benchmark metrics, and generated molecules into an interactive standalone HTML dashboard."""
     compounds_df = pd.read_parquet(compounds_parquet)
@@ -68,6 +132,7 @@ def build_dashboard_html(
 
     with open(metrics_json, "r", encoding="utf-8") as f:
         metrics_data = json.load(f)
+    external_notice_title, external_notice_text = external_validation_notice(external_results_json)
 
     # Join coverage information with compounds
     merged_compounds = compounds_df.merge(
@@ -699,6 +764,12 @@ def build_dashboard_html(
     </div>
 </header>
 
+<section class="container" role="note" aria-label="External model evaluation" style="margin-top:1.25rem;padding:1rem 1.25rem;background:#251b23;border:1px solid #7f1d3c;border-left:5px solid #fb7185;border-radius:10px;">
+    <h2 style="margin:0 0 0.5rem;color:#fda4af;font-size:1rem;">{html.escape(external_notice_title)}</h2>
+    <p style="margin:0;color:#e2e8f0;line-height:1.6;">{html.escape(external_notice_text)}</p>
+    <a href="https://github.com/dylanstechmann/geroscience-compound-atlas/blob/main/studies/chembl_external_2026-10-04/README.md" style="display:inline-block;margin-top:0.5rem;color:#93c5fd;">Read the evaluation, protocol, and limitations</a>
+</section>
+
 <main class="container">
     <!-- Top Summary Metrics -->
     <div class="metrics-grid">
@@ -723,9 +794,9 @@ def build_dashboard_html(
             <div class="metric-sub">Across 12 hallmarks (E0–E4 graded)</div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Bench Scaffold AUROC</div>
+            <div class="metric-label">Internal Scaffold AUROC</div>
             <div class="metric-value" style="color: #60a5fa;">0.9735</div>
-            <div class="metric-sub">Baseline Logistic Reg on 2048-bit Morgan</div>
+            <div class="metric-sub">Original frozen split; external holdout underperformed baseline</div>
         </div>
     </div>
 
@@ -897,7 +968,7 @@ def build_dashboard_html(
         <div class="table-panel">
             <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Top Highest-Confidence False Positive Predictions</h2>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                Compounds with inactive ground truth (<span style="font-family: monospace;">pChEMBL &lt; 6.0</span>) predicted as active with highest confidence under scaffold split.
+                Compounds with inactive ground truth (<span style="font-family: monospace;">pChEMBL &lt; 6.0</span>) assigned the highest internal model scores under the frozen scaffold split; these scores are not externally qualified.
             </p>
             <table id="fps-table">
                 <thead>
@@ -919,7 +990,7 @@ def build_dashboard_html(
         <div class="table-panel">
             <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Constrained Molecular Generator (Genetic Algorithm)</h2>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                Optimizing the frozen Phase 3 ChEMBL mTOR surrogate model while evaluating QED as an adjustable bias control (&lambda;<sub>QED</sub>) and penalizing assay interference (PAINS).
+                Exploring the behavior of the frozen ChEMBL mTOR surrogate under QED-bias and PAINS constraints. External source-document and structure validation underperformed a prevalence baseline; displayed probabilities and generated scores are unqualified software artifacts.
             </p>
             
             <div class="metrics-grid" style="margin-bottom: 2rem;">
@@ -939,7 +1010,7 @@ def build_dashboard_html(
                     <div class="metric-sub">1 - mean pairwise Tanimoto</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Mean mTOR Prob</div>
+                    <div class="metric-label">Mean surrogate probability</div>
                     <div class="metric-value" style="color: #60a5fa;">0.991</div>
                     <div class="metric-sub">Surrogate active probability</div>
                 </div>
@@ -954,7 +1025,7 @@ def build_dashboard_html(
                     <tr>
                         <th>QED Weight (&lambda;<sub>QED</sub>)</th>
                         <th>Objective Character</th>
-                        <th>Mean mTOR Prob</th>
+                        <th>Mean surrogate probability</th>
                         <th>Mean QED</th>
                         <th>Internal Diversity</th>
                         <th>Novelty Rate</th>
@@ -1010,7 +1081,7 @@ def build_dashboard_html(
                 </select>
                 <select class="filter-select" id="gen-sort-select" onchange="filterGenCards()">
                     <option value="reward">Sort: Composite Reward</option>
-                    <option value="mtor">Sort: mTOR Probability</option>
+                    <option value="mtor">Sort: mTOR surrogate score</option>
                     <option value="qed">Sort: QED Drug-Likeness</option>
                 </select>
             </div>
