@@ -9,6 +9,7 @@ A new or edited row therefore fails here until it has been screened.
 import csv
 import importlib.util
 import json
+import sys
 import unittest
 from pathlib import Path
 
@@ -17,9 +18,15 @@ AUDIT = ROOT / "docs" / "citation-audit-2026-10-07"
 
 
 def load_builder():
-    spec = importlib.util.spec_from_file_location("build_triage", AUDIT / "build_triage.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    # Import without writing __pycache__ into the audit folder, as python -B would.
+    previous = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True
+    try:
+        spec = importlib.util.spec_from_file_location("build_triage", AUDIT / "build_triage.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    finally:
+        sys.dont_write_bytecode = previous
     return module
 
 

@@ -36,7 +36,7 @@ claim. The other 18 rows fit at title level only.
 
 1. **Unrelated titles (lines 3, 4, 6, 7, 8, 9, 11, 12, 13, 17, 21, 22, 24, 25, 26, 28, 30, 31, 32, 35, 36, 45, 47, 48, 50, 51, 52, 53).**
    Treat these citations as unsupported until a replacement is found, verified and read. Several rows share one
-   wrong identifier: PMID 28826136 (lines 7 and 11) and PMID 26711582 (lines 30 and 32).
+   identifier whose title is unrelated: PMID 28826136 (lines 7 and 11) and PMID 26711582 (lines 30 and 32).
 2. **Not found (lines 5, 20, 29).** The three PMIDs are absent from PubMed and Europe PMC. Find the intended
    papers or mark the claims unsupported.
 3. **ChEMBL document IDs not found (lines 10, 14).** Dasatinib and quercetin rows. Confirm in the ChEMBL web
