@@ -1,7 +1,9 @@
 # Geroscience Compound Atlas + Predictive Bench
 
-## Pitch
-> Build a reproducible atlas that maps public compounds onto aging-related mechanisms with graded evidence, then run one honest predictive bake-off (and optionally a constrained generator) so the repo proves I can handle chemical data, splits, baselines, and failure cases — not that I invented a youth pill.
+## About this project
+This atlas maps public compounds to aging-related mechanisms with graded evidence, compares predictive models on frozen chemical splits, and explores constrained molecule generation.
+
+This is a personal hobby and learning project, developed with substantial assistance from AI coding tools.
 
 ## Non-Goals (Hard Constraints)
 This repository does **not** implement or provide:

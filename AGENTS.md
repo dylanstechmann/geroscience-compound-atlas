@@ -4,6 +4,11 @@ Work only in this repository. This is a public evidence atlas plus a frozen
 ChEMBL mTOR fingerprint bake-off plus an optional generator. It is not a
 formulary.
 
+Keep the public framing as a personal hobby and learning project and preserve
+the disclosure of substantial AI coding assistance. Do not add employment
+pitches, claims of solo authorship, or claims that the repo proves the owner's
+skills unless the user explicitly requests that framing.
+
 ## Do not
 
 - Add doses, cycles, vendors, stacks, or “take this.”

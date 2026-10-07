@@ -175,12 +175,12 @@ Implemented a molecular Genetic Algorithm (GA) optimizing the frozen Phase 3 ChE
 - Ablation study comparing molecular graph encoders with and without edge/stereochemical features against the linear baseline.
 - Expand the curated evidence graph from N=20 seed compounds to 100+ NIA Interventions Testing Program (ITP) compounds.
 
-## Resume Bullets (§13)
+## Archived results summary (§13)
 
-- **Built a reproducible computational geroscience atlas** resolving 20 candidate compounds (95.0% PubChem resolution, 85.0% ChEMBL mapping) and hand-curated 62 mechanistic evidence edges across 12 aging hallmarks with structured E0–E4 grading (4 mammalian lifespan interventions; 75% binding assay coverage).
-- **Trained fingerprint ML baselines under strict Bemis-Murcko scaffold disjoint splits** (80/10/10 across 3 seeds; 279 unique scaffolds) for ChEMBL mTOR kinase activity (N=561); achieved AUROC 0.9735 ± 0.0203 and AUPRC 0.9929 ± 0.0057 with regularized L2 Logistic Regression, outperforming tree ensembles and characterizing 10 false positive near-misses (IC50 1.7–3.6 µM) driven by canonical ATP-hinge pharmacophores.
-- **Engineered a molecular generator (Genetic Algorithm)** optimizing the frozen mTOR surrogate with explicit QED-bias control and PAINS filtering; its archived play run generated 200 RDKit-valid unique molecules (99.5% novel against the full dataset, internal diversity 0.655). The PCA is descriptive and does not validate the molecules.
-- **Architected a zero-dependency, self-contained interactive static dashboard** (HTML/SVG/JS) displaying inline RDKit vector structures, dynamic multi-attribute filtering, coverage hole diagnostics for non-small-molecule modalities, and reproducible split audit metrics.
+- **Archived atlas:** 20 candidate compounds (95.0% PubChem resolution, 85.0% ChEMBL mapping) and 62 curated mechanistic evidence edges across 12 aging hallmarks with structured E0–E4 grading (4 mammalian lifespan interventions; 75% binding assay coverage).
+- **Internal fingerprint benchmark:** Strict Bemis-Murcko scaffold disjoint splits (80/10/10 across 3 seeds; 279 unique scaffolds) for ChEMBL mTOR kinase activity (N=561); regularized L2 Logistic Regression reported AUROC 0.9735 ± 0.0203 and AUPRC 0.9929 ± 0.0057, outperforming tree ensembles on these splits. The error analysis covers 10 false positive near-misses (IC50 1.7–3.6 µM) driven by canonical ATP-hinge pharmacophores.
+- **Archived play-mode generator:** A Genetic Algorithm optimizes the frozen mTOR surrogate with explicit QED-bias control and PAINS filtering; its archived play run generated 200 RDKit-valid unique molecules (99.5% novel against the full dataset, internal diversity 0.655). The PCA is descriptive and does not validate the molecules.
+- **Static dashboard:** Self-contained HTML/SVG/JS displays inline RDKit vector structures, dynamic multi-attribute filtering, coverage hole diagnostics for non-small-molecule modalities, and reproducible split audit metrics.
 
 ## Implementation follow-up — 2026-10-03
 
@@ -188,7 +188,7 @@ The evidence-integrity corrections identified in the longevity tooling review ar
 
 `--curated-only` rebuilds the evidence-edge artifact offline from curated records without calling ChEMBL. The dashboard and static site were regenerated from that artifact and distinguish source-reviewed evidence from unreviewed assertions. Acarbose lookup now returns hallmark records with their review status, while the mTOR surrogate abstains because its applicability domain is not validated. The frozen scaffold split and configured activity threshold were not changed, and no retraining or new generator run was performed.
 
-The historical resume bullets and archived benchmark metrics above describe earlier artifacts; use the current graph and dated artifacts for present evidence counts. The October 2 regression metrics, hypothesis archive and prior report content were preserved. Atlas tests: **87 passed**. A manual Acarbose lookup returned two source-reviewed hallmark records, including the mouse-lifespan record with its species and claim limits; any unreviewed claim remains E0 in the output.
+The historical results summary and archived benchmark metrics above describe earlier artifacts; use the current graph and dated artifacts for present evidence counts. The October 2 regression metrics, hypothesis archive and prior report content were preserved. Atlas tests: **87 passed**. A manual Acarbose lookup returned two source-reviewed hallmark records, including the mouse-lifespan record with its species and claim limits; any unreviewed claim remains E0 in the output.
 
 ## Audit and reliability follow-up — 2026-10-04
 
@@ -246,3 +246,16 @@ The dashboard now repeats this negative external result before its internal spli
 metrics and generated-molecule gallery. The generator remains available as an
 algorithmic exploration, with classifier outputs labeled as unqualified
 surrogate artifacts.
+
+## Documentation framing — 2026-10-07
+
+The README and specification now describe this as a personal hobby and learning
+project developed with substantial assistance from AI coding tools. Employment
+pitch language and résumé-style authorship claims were replaced with project
+purpose and artifact descriptions. The dashboard heading is now “Benchmark
+observations” in its generator and both existing HTML copies. The dashboard
+introduction also discloses the hobby purpose and substantial AI assistance.
+Existing scientific results, numerical metrics, and limitations are retained.
+Verification: diff checks passed; all three dashboard changes contain only the
+heading replacement and the same introduction note, and the two HTML copies
+remain byte-identical.

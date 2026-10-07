@@ -2,7 +2,8 @@
 ## Master specification for humans and AI agents
 
 **Owner:** Dylan Stechmann  
-**Stack context:** MS CS / AI (FAU), current course = Reinforcement Learning, spring = Deep Learning. Solo build. Portfolio + job applications ~Feb 2027.  
+**Project context:** Personal hobby and learning project, developed with substantial assistance from AI coding tools.
+
 **Domain:** computational geroscience — public compounds, public assays, named aging mechanisms.  
 **Not:** a protocol, a stack recommender, a “biological age” consumer app, or medical advice.
 
@@ -10,9 +11,9 @@ Paste this entire document at the start of implementation chats. If an agent pro
 
 ---
 
-## 1. One-sentence pitch
+## 1. Project purpose
 
-Build a reproducible atlas that maps public compounds onto aging-related mechanisms with graded evidence, then run one honest predictive bake-off (and optionally a constrained generator) so the repo proves I can handle chemical data, splits, baselines, and failure cases — not that I invented a youth pill.
+Explore public compounds and aging-related mechanisms through a reproducible evidence atlas, a predictive model comparison, and an optional constrained generator, documenting the methods, results, and limitations for personal learning.
 
 ---
 
@@ -68,7 +69,7 @@ A stranger can, in one evening:
    - one model comparison table
 3. Read `REPORT.md` that states the question, split, metric, what failed, and what we are *not* claiming.
 
-Resume test: three bullets, each with a number (e.g. “N compounds resolved, scaffold-split AUROC X vs Morgan+HGB baseline Y, Z% ChEMBL coverage on watchlist”).
+Results summary: three bullets, each with a number (e.g. “N compounds resolved, scaffold-split AUROC X vs Morgan+HGB baseline Y, Z% ChEMBL coverage on watchlist”).
 
 ---
 
@@ -127,7 +128,7 @@ gerosci-atlas/
 
 A senolytic claim without a senescent-vs-proliferating selectivity number is at most E2.
 
-### Module B — Bench (the job-market core)
+### Module B — Bench
 
 Pick **exactly one primary task** for v1. Do not train five models on five fantasies.
 
@@ -223,7 +224,7 @@ Agents: do not skip ahead. Each phase ends with a commit + a paragraph in REPORT
 - pyproject with `rdkit-pypi` or conda pin, pandas, numpy, scikit-learn, pyyaml, httpx
 - Makefile targets: `setup`, `test`, `lint`
 - Empty schemas as pydantic models or typed dicts
-- README with the pitch and non-goals
+- README with the project purpose, AI assistance disclosure, and non-goals
 
 ### Phase 1 — Resolve and featurize (week 1–2)
 
@@ -240,7 +241,7 @@ Agents: do not skip ahead. Each phase ends with a commit + a paragraph in REPORT
 - Evidence grades assigned by hand for the curated set; document rules in `configs/grading.yaml`
 - **Exit:** graph or relational tables + “% of watchlist with ≥1 binding assay”
 
-### Phase 3 — Bench v1 (week 4–8)  ★ portfolio critical path
+### Phase 3 — Bench v1 (week 4–8)
 
 - Freeze label definition in config
 - Scaffold split, three seeds
@@ -329,12 +330,12 @@ Spring graph encoder / more hand-curated edges / drop generator.
 
 ---
 
-## 13. Resume bullets (fill numbers when real)
+## 13. Results summary (fill numbers when real)
 
 Template:
 
-- Built a geroscience compound atlas resolving N names to PubChem/ChEMBL and grading mechanism evidence from in-vitro assays to in-vivo endpoints.
-- Trained fingerprint baselines under a Murcko scaffold split for [task]; reported AUROC/AUPRC vs random-split leakage and analyzed false positives.
+- The geroscience compound atlas resolves N names to PubChem/ChEMBL and grades mechanism evidence from in-vitro assays to in-vivo endpoints.
+- Fingerprint baselines for [task] use a Murcko scaffold split; results include AUROC/AUPRC, a random-split comparison, and false-positive analysis.
 - (Optional) Constrained generator (GA or RL) optimized for predicted [task] score with explicit QED-bias control; compared generated chemical space to curated geroprotective compounds.
 
 ---
@@ -353,9 +354,9 @@ Template:
 
 > Challenge any place we equated epigenetic clock movement with functional rejuvenation, or treated QED as goodness.
 
-**Session type: job-market cut**
+**Session type: usability review**
 
-> Cut the repo to what a hiring manager will run in 20 minutes. Propose deletions.
+> Check whether a curious reader can reproduce the main example in 20 minutes. Propose simplifications.
 
 ---
 
@@ -392,7 +393,7 @@ Template:
 ## 17. First command block for an implementation agent
 
 ```text
-Create the repo skeleton exactly as §6. Add pydantic schemas for Compound, EvidenceEdge, and EvidenceGrade. Add tests that (1) canonicalize two equivalent SMILES to one InChIKey and (2) refuse an EvidenceEdge without a grade. Do not download ChEMBL yet. Write a 20-line README that quotes the pitch and non-goals.
+Create the repo skeleton exactly as §6. Add pydantic schemas for Compound, EvidenceEdge, and EvidenceGrade. Add tests that (1) canonicalize two equivalent SMILES to one InChIKey and (2) refuse an EvidenceEdge without a grade. Do not download ChEMBL yet. Write a 20-line README that explains the project purpose, discloses AI coding assistance, and states the non-goals.
 ```
 
 When that merges, start Phase 1 with a CSV of seed names (known gerontology + any resolved watchlist names) and PubChem identifier exchange.
