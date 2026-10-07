@@ -259,3 +259,9 @@ Existing scientific results, numerical metrics, and limitations are retained.
 Verification: diff checks passed; all three dashboard changes contain only the
 heading replacement and the same introduction note, and the two HTML copies
 remain byte-identical.
+
+## Citation identifier audit — 2026-10-07
+
+An identifier audit of `data/curated/curated_evidence.csv` (57 rows; 51 unique PubMed IDs; 2 ChEMBL document IDs) found that 37 rows cite an identifier that does not resolve, resolves to a paper with an unrelated title, or resolves to a title that does not show the recorded claim. Three PubMed IDs are absent from both PubMed and Europe PMC. Twenty-six PubMed IDs resolve to titles on unrelated subjects. Two ChEMBL document IDs return HTTP 404. Four rows need the paper read before their titles can be judged. Eighteen rows fit at title level only, and no row has been verified as supporting its claim.
+
+No curated value, grade or claim was changed. The audit, its receipts (refcheck results and second-source checks), the row-level screen and the owner decision list are in [docs/citation-audit-2026-10-07](docs/citation-audit-2026-10-07/README.md). The README carries a short status note that points there.

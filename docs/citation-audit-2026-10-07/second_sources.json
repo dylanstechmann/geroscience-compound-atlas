@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-10-07",
+  "purpose": "Second sources for the three PMIDs that refcheck reported NOT_FOUND, and a direct check of two ChEMBL document IDs that refcheck does not cover.",
+  "not_found_pmids": ["21303889", "24095454", "26760636"],
+  "pubmed_efetch": {
+    "request": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=21303889,24095454,26760636&retmode=xml",
+    "response_bytes": 205,
+    "pubmed_article_records": 0,
+    "error_elements": 0,
+    "positive_control": null,
+    "note": "No positive control was run with this request; the Europe PMC control below covers the same identifier check."
+  },
+  "europe_pmc": {
+    "request_pattern": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:<PMID>%20AND%20SRC:MED&format=json&pageSize=3",
+    "results": {
+      "21303889": {"hit_count": 0},
+      "24095454": {"hit_count": 0},
+      "26760636": {"hit_count": 0}
+    },
+    "positive_control": {"pmid": "19587680", "hit_count": 1}
+  },
+  "chembl_document": {
+    "request_pattern": "https://www.ebi.ac.uk/chembl/api/data/document/<CHEMBL_ID>.json",
+    "results": {
+      "CHEMBL768913": {"http_status": 404, "response_bytes": 0},
+      "CHEMBL1768407": {"http_status": 404, "response_bytes": 0}
+    },
+    "positive_control": {"id": "CHEMBL1132865", "http_status": 200, "response_bytes": 1204}
+  }
+}

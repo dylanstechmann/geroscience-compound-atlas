@@ -1,0 +1,223 @@
+{
+  "audit_date": "2026-10-07",
+  "decisions": [
+    {
+      "action": "Treat the citation as unsupported for this row until the intended paper is found. Search by compound and claim, verify any replacement identifier with refcheck, read the paper, and make the change only with the owner's approval. Do not guess identifiers.",
+      "category": "title_unrelated",
+      "identifiers": [
+        "16443825",
+        "16551579",
+        "18698246",
+        "19864835",
+        "20542383",
+        "20543254",
+        "22086884",
+        "23708518",
+        "25439502",
+        "25732152",
+        "25754376",
+        "26113653",
+        "26140592",
+        "26711582",
+        "27038166",
+        "27797883",
+        "28599427",
+        "28826136",
+        "29352236",
+        "29704257",
+        "30139981",
+        "30472097",
+        "30953051",
+        "31190014",
+        "32130836",
+        "33005886"
+      ],
+      "row_lines": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        17,
+        21,
+        22,
+        24,
+        25,
+        26,
+        28,
+        30,
+        31,
+        32,
+        35,
+        36,
+        45,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53
+      ]
+    },
+    {
+      "action": "The identifier is absent from PubMed and Europe PMC. Search for the intended paper or mark the claim unsupported. Keep the row visibly unresolved meanwhile.",
+      "category": "not_found",
+      "identifiers": [
+        "21303889",
+        "24095454",
+        "26760636"
+      ],
+      "row_lines": [
+        5,
+        20,
+        29
+      ]
+    },
+    {
+      "action": "The ChEMBL document ID returns HTTP 404 while a known document returns 200. Confirm in the ChEMBL web interface, or replace the ID after a search and the owner's approval.",
+      "category": "chembl_not_found",
+      "identifiers": [
+        "CHEMBL1768407",
+        "CHEMBL768913"
+      ],
+      "row_lines": [
+        10,
+        14
+      ]
+    },
+    {
+      "action": "The title does not show the recorded claim. Read the abstract or full text. Keep the row unverified unless the paper supports the claim.",
+      "category": "needs_reading",
+      "identifiers": [
+        "14501183",
+        "15545992",
+        "19149749",
+        "24360282"
+      ],
+      "row_lines": [
+        37,
+        46,
+        49,
+        57
+      ]
+    },
+    {
+      "action": "Decide which is wrong, the identifier or the recorded title, and record the decision. Correct the table only with the owner's approval.",
+      "category": "on_topic_label_differs",
+      "identifiers": [
+        "25041462",
+        "28802803",
+        "30688027",
+        "33788371"
+      ],
+      "row_lines": [
+        18,
+        27,
+        41
+      ]
+    },
+    {
+      "action": "No identifier action. The title fits the claim's subject only; claim support still needs a reading of the paper before the row is treated as supported.",
+      "category": "on_topic",
+      "identifiers": [
+        "10839993",
+        "17086191",
+        "17112576",
+        "19587680",
+        "21030672",
+        "24245565",
+        "27127236",
+        "27400265",
+        "27841876",
+        "29599478",
+        "30279143",
+        "30728281",
+        "31195972",
+        "32990681"
+      ],
+      "row_lines": [
+        2,
+        15,
+        16,
+        19,
+        23,
+        33,
+        34,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44,
+        54,
+        55
+      ]
+    },
+    {
+      "action": "Nothing to verify. Keep the unverified vendor or gray-market status visible.",
+      "category": "no_identifier",
+      "identifiers": [],
+      "row_lines": [
+        56,
+        58
+      ]
+    }
+  ],
+  "identifiers_by_screen": {
+    "chembl_not_found": 2,
+    "needs_reading": 4,
+    "no_identifier": 0,
+    "not_found": 3,
+    "on_topic": 14,
+    "on_topic_label_differs": 4,
+    "title_unrelated": 26
+  },
+  "inputs": {
+    "refcheck": {
+      "identifiers": 51,
+      "path": "docs/citation-audit-2026-10-07/refcheck_results.json",
+      "sha256_lf": "208bd5f87ad980d1dd9398de161ca4ef6ce11a163aaf9ab2ac7aa56544669814"
+    },
+    "second_sources": {
+      "path": "docs/citation-audit-2026-10-07/second_sources.json",
+      "sha256_lf": "b7c1f04e3d4f81b45922860f367c244fd80ea5b57c79920c8fb5f246c9986d9c"
+    },
+    "table": {
+      "path": "data/curated/curated_evidence.csv",
+      "rows": 57,
+      "sha256_lf": "1dbdc80c47d138bbc41b89872346dbdb7961ecc4f41fb54d7352e0118c6fecad"
+    }
+  },
+  "limits": [
+    "Titles only. The screen reads registry titles as retrieved on the audit date; no abstract or full text was read.",
+    "A resolved identifier shows that a record exists and how it is titled. It does not show that the paper supports the row's claim.",
+    "Registry records and service responses are dated 2026-10-07 and can change; the receipts here are the record of what was seen.",
+    "The curated table was not edited. No replacement identifiers were proposed or applied.",
+    "'Not found' means absent from PubMed and Europe PMC on the audit date (ChEMBL: HTTP 404 from its document endpoint, with a positive control passing).",
+    "The screen was written by an AI coding assistant. A person with the papers should check each category before any change."
+  ],
+  "pmid_occurrences": 57,
+  "refcheck_status_counts_pmids": {
+    "NOT_FOUND": 3,
+    "OK": 48
+  },
+  "rows_by_category": {
+    "chembl_not_found": 2,
+    "needs_reading": 4,
+    "no_identifier": 2,
+    "not_found": 3,
+    "on_topic": 15,
+    "on_topic_label_differs": 3,
+    "title_unrelated": 28
+  },
+  "schema_version": 1,
+  "scope": "Every row of data/curated/curated_evidence.csv. Identifiers are read from document_ids (PubMed IDs and ChEMBL document IDs). The repository's prose documents were scanned with the same tool and contain no citation list.",
+  "screen_rules_version": 1,
+  "unique_chembl_ids": 2,
+  "unique_identifiers": 53,
+  "unique_pmids": 51
+}

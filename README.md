@@ -21,6 +21,8 @@ All outputs are strictly research and educational computational biology artifact
 Explore the compound cards, evidence grades, benchmark bake-off, and generated candidate gallery:  
 👉 **[https://dylanstechmann.github.io/geroscience-compound-atlas/](https://dylanstechmann.github.io/geroscience-compound-atlas/)**
 
+**Evidence-table status (2026-10-07):** an identifier audit found that 37 of the 57 curated evidence rows cite an identifier that does not resolve, resolves to an unrelated paper, or resolves to a title that does not show the recorded claim. No row is yet verified as supporting its claim. The counts, the row-by-row screen and the owner decision list are in [docs/citation-audit-2026-10-07](docs/citation-audit-2026-10-07/README.md).
+
 ## Architecture
 
 The project is structured into four core modules:

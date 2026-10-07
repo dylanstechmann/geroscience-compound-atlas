@@ -1,0 +1,1378 @@
+[
+  {
+    "kind": "PMID",
+    "ident": "21303889",
+    "status": "NOT_FOUND",
+    "title": "",
+    "authors": "",
+    "venue": "",
+    "date": "",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21303889/",
+    "detail": {},
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row20"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "24095454",
+    "status": "NOT_FOUND",
+    "title": "",
+    "authors": "",
+    "venue": "",
+    "date": "",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24095454/",
+    "detail": {},
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row5"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "25041462",
+    "status": "OK",
+    "title": "Can people with type 2 diabetes live longer than those without? A comparison of mortality in people initiated with metformin or sulphonylurea monotherapy and matched, non-diabetic controls.",
+    "authors": "Bannister CA, Holden SE, Jenkins-Jones S et al.",
+    "venue": "Diabetes, obesity & metabolism",
+    "date": "2014 Nov",
+    "doi": "10.1111/dom.12354",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25041462/",
+    "detail": {
+      "pubtype": [
+        "Comparative Study",
+        "Journal Article",
+        "Observational Study",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Bannister CA",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "Human observational evidence and meta-analysis of metformin-associated mortality",
+    "title_match": "MISMATCH",
+    "title_score": 0.263,
+    "where": [
+      "data/curated/curated_evidence.csv:row18"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "26760636",
+    "status": "NOT_FOUND",
+    "title": "",
+    "authors": "",
+    "venue": "",
+    "date": "",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26760636/",
+    "detail": {},
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row29"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "28802803",
+    "status": "OK",
+    "title": "Metformin reduces all-cause mortality and diseases of ageing independent of its effect on diabetes control: A systematic review and meta-analysis.",
+    "authors": "Campbell JM, Bellman SM, Stephenson MD et al.",
+    "venue": "Ageing research reviews",
+    "date": "2017 Nov",
+    "doi": "10.1016/j.arr.2017.08.003",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28802803/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "first_author": "Campbell JM",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "Human observational evidence and meta-analysis of metformin-associated mortality",
+    "title_match": "MISMATCH",
+    "title_score": 0.312,
+    "where": [
+      "data/curated/curated_evidence.csv:row18"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30688027",
+    "status": "OK",
+    "title": "Acarbose improves health and lifespan in aging HET3 mice.",
+    "authors": "Harrison DE, Strong R, Alavez S et al.",
+    "venue": "Aging cell",
+    "date": "2019 Apr",
+    "doi": "10.1111/acel.12898",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30688027/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, U.S. Gov't, Non-P.H.S."
+      ],
+      "first_author": "Harrison DE",
+      "pmcid": "PMC6413665"
+    },
+    "flags": [],
+    "expect_title": "Acarbose, 17-\u03b1-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males; Acarbose improves health and lifespan in genetically heterogeneous mice",
+    "title_match": "PARTIAL",
+    "title_score": 0.819,
+    "where": [
+      "data/curated/curated_evidence.csv:row41"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30728281",
+    "status": "OK",
+    "title": "The Glucoamylase Inhibitor Acarbose Has a Diet-Dependent and Reversible Effect on the Murine Gut Microbiome.",
+    "authors": "Baxter NT, Lesniak NA, Sinani H et al.",
+    "venue": "mSphere",
+    "date": "2019 Feb 6",
+    "doi": "10.1128/mSphere.00528-18",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30728281/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Baxter NT",
+      "pmcid": "PMC6365613"
+    },
+    "flags": [],
+    "expect_title": "Changes in gut microbiome and fermentation products concurrent with enhanced longevity in acarbose-treated mice",
+    "title_match": "MISMATCH",
+    "title_score": 0.193,
+    "where": [
+      "data/curated/curated_evidence.csv:row42"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "33788371",
+    "status": "OK",
+    "title": "17-a-estradiol late in life extends lifespan in aging UM-HET3 male mice; nicotinamide riboside and three other drugs do not affect lifespan in either sex.",
+    "authors": "Harrison DE, Strong R, Reifsnyder P et al.",
+    "venue": "Aging cell",
+    "date": "2021 May",
+    "doi": "10.1111/acel.13328",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33788371/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "first_author": "Harrison DE",
+      "pmcid": "PMC8135004"
+    },
+    "flags": [],
+    "expect_title": "Acarbose, 17-\u03b1-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males; late-start 17\u03b1-estradiol intervention",
+    "title_match": "MISMATCH",
+    "title_score": 0.413,
+    "where": [
+      "data/curated/curated_evidence.csv:row27"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "10839993",
+    "status": "OK",
+    "title": "Evidence that metformin exerts its anti-diabetic effects through inhibition of complex 1 of the mitochondrial respiratory chain.",
+    "authors": "Owen MR, Doran E, Halestrap AP",
+    "venue": "The Biochemical journal",
+    "date": "2000 Jun 15",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/10839993/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Owen MR",
+      "pmcid": "PMC1221104"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row19"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "14501183",
+    "status": "OK",
+    "title": "Effect of Epitalon on biomarkers of aging, life span and spontaneous tumor incidence in female Swiss-derived SHR mice.",
+    "authors": "Anisimov VN, Khavinson VKh, Popovich IG et al.",
+    "venue": "Biogerontology",
+    "date": "2003",
+    "doi": "10.1023/a:1025114230714",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/14501183/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Anisimov VN",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row57"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "15545992",
+    "status": "OK",
+    "title": "Genes and pathophysiology of type 2 diabetes: more than just the Randle cycle all over again.",
+    "authors": "Shuldiner AR, McLenithan JC",
+    "venue": "The Journal of clinical investigation",
+    "date": "2004 Nov",
+    "doi": "10.1172/JCI23586",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/15545992/",
+    "detail": {
+      "pubtype": [
+        "Comment",
+        "Journal Article"
+      ],
+      "first_author": "Shuldiner AR",
+      "pmcid": "PMC525752"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row46"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "16443825",
+    "status": "OK",
+    "title": "Identification of mouse palmitoyl-coenzyme A Delta9-desaturase.",
+    "authors": "Miyazaki M, Bruggink SM, Ntambi JM",
+    "venue": "Journal of lipid research",
+    "date": "2006 Apr",
+    "doi": "10.1194/jlr.C500025-JLR200",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16443825/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "first_author": "Miyazaki M",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row13"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "16551579",
+    "status": "OK",
+    "title": "Nordihydroguaiaretic acid is a potent in vitro scavenger of peroxynitrite, singlet oxygen, hydroxyl radical, superoxide anion and hypochlorous acid and prevents in vivo ozone-induced tyrosine nitration in lungs.",
+    "authors": "Floriano-S\u00e1nchez E, Villanueva C, Medina-Campos ON et al.",
+    "venue": "Free radical research",
+    "date": "2006 May",
+    "doi": "10.1080/10715760500419365",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16551579/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Floriano-S\u00e1nchez E",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row51"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "17086191",
+    "status": "OK",
+    "title": "Resveratrol improves health and survival of mice on a high-calorie diet.",
+    "authors": "Baur JA, Pearson KJ, Price NL et al.",
+    "venue": "Nature",
+    "date": "2006 Nov 16",
+    "doi": "10.1038/nature05354",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17086191/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Baur JA",
+      "pmcid": "PMC4990206"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row33"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "17112576",
+    "status": "OK",
+    "title": "Resveratrol improves mitochondrial function and protects against metabolic disease by activating SIRT1 and PGC-1alpha.",
+    "authors": "Lagouge M, Argmann C, Gerhart-Hines Z et al.",
+    "venue": "Cell",
+    "date": "2006 Dec 15",
+    "doi": "10.1016/j.cell.2006.11.013",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17112576/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Lagouge M",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row34"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "18698246",
+    "status": "OK",
+    "title": "Photodynamic therapy with methyl aminolevulinate for prevention of new skin lesions in transplant recipients: a randomized study.",
+    "authors": "Wennberg AM, Stenquist B, Stockfleth E et al.",
+    "venue": "Transplantation",
+    "date": "2008 Aug 15",
+    "doi": "10.1097/TP.0b013e318180731e",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18698246/",
+    "detail": {
+      "pubtype": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Wennberg AM",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row31"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "19149749",
+    "status": "OK",
+    "title": "Chronic inflammation and oxidative stress as a major cause of age-related diseases and cancer.",
+    "authors": "Khansari N, Shakiba Y, Mahmoudi M",
+    "venue": "Recent patents on inflammation & allergy drug discovery",
+    "date": "2009 Jan",
+    "doi": "10.2174/187221309787158371",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19149749/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "first_author": "Khansari N",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row49"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "19587680",
+    "status": "OK",
+    "title": "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice.",
+    "authors": "Harrison DE, Strong R, Sharp ZD et al.",
+    "venue": "Nature",
+    "date": "2009 Jul 16",
+    "doi": "10.1038/nature08221",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19587680/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, U.S. Gov't, Non-P.H.S."
+      ],
+      "first_author": "Harrison DE",
+      "pmcid": "PMC2786175"
+    },
+    "flags": [],
+    "expect_title": "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice",
+    "title_match": "MATCH",
+    "title_score": 1.0,
+    "where": [
+      "data/curated/curated_evidence.csv:row2"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "19864835",
+    "status": "OK",
+    "title": "Iron nutrition in infancy.",
+    "authors": "MacLean WC",
+    "venue": "Saudi journal of gastroenterology : official journal of the Saudi Gastroenterology Association",
+    "date": "1996 Jan",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19864835/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "MacLean WC",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row6"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "20542383",
+    "status": "OK",
+    "title": "Temporal changes of smoking status and motivation among Chinese heroin-dependent, methadone-maintained smokers.",
+    "authors": "Li L, Liu Y, Zhang Y et al.",
+    "venue": "Addictive behaviors",
+    "date": "2010 Oct",
+    "doi": "10.1016/j.addbeh.2010.05.003",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/20542383/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Li L",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row3"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "20543254",
+    "status": "OK",
+    "title": "Integrated health systems.",
+    "authors": "Shortell SM, McCurdy RK",
+    "venue": "Studies in health technology and informatics",
+    "date": "2010",
+    "doi": "",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/20543254/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Shortell SM",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row35"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "21030672",
+    "status": "OK",
+    "title": "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration.",
+    "authors": "Chang CH, Tsai WC, Lin MS et al.",
+    "venue": "Journal of applied physiology (Bethesda, Md. : 1985)",
+    "date": "2011 Mar",
+    "doi": "10.1152/japplphysiol.00945.2010",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21030672/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Chang CH",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row55"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "22086884",
+    "status": "OK",
+    "title": "Lead, calcium uptake, and related genetic variants in association with renal cell carcinoma risk in a cohort of male Finnish smokers.",
+    "authors": "Southard EB, Roff A, Fortugno T et al.",
+    "venue": "Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology",
+    "date": "2012 Jan",
+    "doi": "10.1158/1055-9965.EPI-11-0670",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22086884/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Southard EB",
+      "pmcid": "PMC3601826"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row47"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "23708518",
+    "status": "OK",
+    "title": "The deubiquitylase USP15 stabilizes newly synthesized REST and rescues its expression at mitotic exit.",
+    "authors": "Faronato M, Patel V, Darling S et al.",
+    "venue": "Cell cycle (Georgetown, Tex.)",
+    "date": "2013 Jun 15",
+    "doi": "10.4161/cc.25035",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/23708518/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Faronato M",
+      "pmcid": "PMC3735711"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row21"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "24245565",
+    "status": "OK",
+    "title": "Acarbose, 17-\u03b1-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males.",
+    "authors": "Harrison DE, Strong R, Allison DB et al.",
+    "venue": "Aging cell",
+    "date": "2014 Apr",
+    "doi": "10.1111/acel.12170",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24245565/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, U.S. Gov't, Non-P.H.S."
+      ],
+      "first_author": "Harrison DE",
+      "pmcid": "PMC3954939"
+    },
+    "flags": [],
+    "expect_title": "Acarbose, 17-\u03b1-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males; late-start 17\u03b1-estradiol intervention",
+    "title_match": "MATCH",
+    "title_score": 1.0,
+    "where": [
+      "data/curated/curated_evidence.csv:row27",
+      "data/curated/curated_evidence.csv:row41"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "24360282",
+    "status": "OK",
+    "title": "Declining NAD(+) induces a pseudohypoxic state disrupting nuclear-mitochondrial communication during aging.",
+    "authors": "Gomes AP, Price NL, Ling AJ et al.",
+    "venue": "Cell",
+    "date": "2013 Dec 19",
+    "doi": "10.1016/j.cell.2013.11.037",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24360282/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Gomes AP",
+      "pmcid": "PMC4076149"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row37"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "25439502",
+    "status": "OK",
+    "title": "Assessing intentions to eat low-glycemic index foods by adults with diabetes using a new questionnaire based on the theory of planned behaviour.",
+    "authors": "Watanabe T, Berry TR, Willows ND et al.",
+    "venue": "Canadian journal of diabetes",
+    "date": "2015 Apr",
+    "doi": "10.1016/j.jcjd.2014.09.001",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25439502/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Watanabe T",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row26"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "25732152",
+    "status": "OK",
+    "title": "How does pain induce negative emotion? Role of the bed nucleus of the stria terminalis in pain-induced place aversion.",
+    "authors": "Minami M, Ide S",
+    "venue": "Current molecular medicine",
+    "date": "2015",
+    "doi": "10.2174/1566524015666150303002336",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25732152/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Review"
+      ],
+      "first_author": "Minami M",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row48"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "25754376",
+    "status": "OK",
+    "title": "Synthesis of oxazolidine-2,4-diones by a tandem phosphorus-mediated carboxylative condensation-cyclization reaction using atmospheric carbon dioxide.",
+    "authors": "Zhang WZ, Xia T, Yang XT et al.",
+    "venue": "Chemical communications (Cambridge, England)",
+    "date": "2015 Apr 11",
+    "doi": "10.1039/c5cc01530h",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25754376/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Zhang WZ",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row9"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "26113653",
+    "status": "OK",
+    "title": "Aspergillus Polymerase Chain Reaction: Systematic Review of Evidence for Clinical Use in Comparison With Antigen Testing.",
+    "authors": "White PL, Wingard JR, Bretagne S et al.",
+    "venue": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+    "date": "2015 Oct 15",
+    "doi": "10.1093/cid/civ507",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26113653/",
+    "detail": {
+      "pubtype": [
+        "Comparative Study",
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "first_author": "White PL",
+      "pmcid": "PMC4583581"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row52"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "26140592",
+    "status": "OK",
+    "title": "Single-Molecule Imaging Reveals that Argonaute Reshapes the Binding Properties of Its Nucleic Acid Guides.",
+    "authors": "Salomon WE, Jolly SM, Moore MJ et al.",
+    "venue": "Cell",
+    "date": "2015 Jul 2",
+    "doi": "10.1016/j.cell.2015.06.029",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26140592/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Salomon WE",
+      "pmcid": "PMC4503223"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row4"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "26711582",
+    "status": "OK",
+    "title": "High occurrence of Pacearchaeota and Woesearchaeota (Archaea superphylum DPANN) in the surface waters of oligotrophic high-altitude lakes.",
+    "authors": "Ortiz-Alvarez R, Casamayor EO",
+    "venue": "Environmental microbiology reports",
+    "date": "2016 Apr",
+    "doi": "10.1111/1758-2229.12370",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26711582/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Ortiz-Alvarez R",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row30",
+      "data/curated/curated_evidence.csv:row32"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "27038166",
+    "status": "OK",
+    "title": "Antiepileptic drugs with histone deacetylase inhibition activity and prostate cancer risk: a population-based case-control study.",
+    "authors": "Salminen JK, Tammela TL, Auvinen A et al.",
+    "venue": "Cancer causes & control : CCC",
+    "date": "2016 May",
+    "doi": "10.1007/s10552-016-0737-2",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27038166/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Salminen JK",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row12"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "27127236",
+    "status": "OK",
+    "title": "NAD\u207a repletion improves mitochondrial and stem cell function and enhances life span in mice.",
+    "authors": "Zhang H, Ryu D, Wu Y et al.",
+    "venue": "Science (New York, N.Y.)",
+    "date": "2016 Jun 17",
+    "doi": "10.1126/science.aaf2693",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27127236/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Zhang H",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row38",
+      "data/curated/curated_evidence.csv:row39"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "27400265",
+    "status": "OK",
+    "title": "Urolithin A induces mitophagy and prolongs lifespan in C. elegans and increases muscle function in rodents.",
+    "authors": "Ryu D, Mouchiroud L, Andreux PA et al.",
+    "venue": "Nature medicine",
+    "date": "2016 Aug",
+    "doi": "10.1038/nm.4132",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27400265/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Ryu D",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row43",
+      "data/curated/curated_evidence.csv:row44"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "27797883",
+    "status": "OK",
+    "title": "Coronary artery bypass grafting with internal thoracic arteries may cause bilateral brachiocephalic vein occlusion, complicating pacemaker implantation.",
+    "authors": "Nakabayashi K, Kato H, Sugiura R et al.",
+    "venue": "BMJ case reports",
+    "date": "2016 Oct 25",
+    "doi": "10.1136/bcr-2016-217291",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27797883/",
+    "detail": {
+      "pubtype": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "first_author": "Nakabayashi K",
+      "pmcid": "PMC5093751"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row36"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "27841876",
+    "status": "OK",
+    "title": "Cardioprotection and lifespan extension by the natural polyamine spermidine.",
+    "authors": "Eisenberg T, Abdellatif M, Schroeder S et al.",
+    "venue": "Nature medicine",
+    "date": "2016 Dec",
+    "doi": "10.1038/nm.4222",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27841876/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Eisenberg T",
+      "pmcid": "PMC5806691"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row23"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "28599427",
+    "status": "OK",
+    "title": "Periostin suppresses in vivo invasiveness via PDK1/Akt/mTOR signaling pathway in a mouse orthotopic model of bladder cancer.",
+    "authors": "Kim CJ, Tambe Y, Mukaisho KI et al.",
+    "venue": "Oncology letters",
+    "date": "2017 Jun",
+    "doi": "10.3892/ol.2017.6004",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28599427/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Kim CJ",
+      "pmcid": "PMC5452989"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row50"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "28826136",
+    "status": "OK",
+    "title": "Polychlorinated biphenyl concentrations, accumulation rates in soil from atmospheric deposition and analysis of their affecting landscape variables along an urban-rural gradient in Shanghai, China.",
+    "authors": "Fang S, Cui Q, Matherne B et al.",
+    "venue": "Chemosphere",
+    "date": "2017 Nov",
+    "doi": "10.1016/j.chemosphere.2017.08.059",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28826136/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Fang S",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row7",
+      "data/curated/curated_evidence.csv:row11"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "29352236",
+    "status": "OK",
+    "title": "Control of neural crest induction by MarvelD3-mediated attenuation of JNK signalling.",
+    "authors": "Vacca B, Sanchez-Heras E, Steed E et al.",
+    "venue": "Scientific reports",
+    "date": "2018 Jan 19",
+    "doi": "10.1038/s41598-018-19579-5",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29352236/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Vacca B",
+      "pmcid": "PMC5775312"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row53"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "29599478",
+    "status": "OK",
+    "title": "Chronic\u00a0nicotinamide riboside supplementation is well-tolerated and elevates NAD(+) in healthy middle-aged and older adults.",
+    "authors": "Martens CR, Denman BA, Mazzo MR et al.",
+    "venue": "Nature communications",
+    "date": "2018 Mar 29",
+    "doi": "10.1038/s41467-018-03421-7",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29599478/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "first_author": "Martens CR",
+      "pmcid": "PMC5876407"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row40"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "29704257",
+    "status": "OK",
+    "title": "Fibroblast Growth Factor Receptor Inhibition for Cholangiocarcinoma: Looking Through a Door Half-Opened.",
+    "authors": "Ilyas SI, Gores GJ",
+    "venue": "Hepatology (Baltimore, Md.)",
+    "date": "2018 Dec",
+    "doi": "10.1002/hep.30069",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29704257/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't",
+        "Comment"
+      ],
+      "first_author": "Ilyas SI",
+      "pmcid": "PMC6204118"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row17"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30139981",
+    "status": "OK",
+    "title": "Ferromagnetism in a topological semimetal.",
+    "authors": "Pesin DA",
+    "venue": "Nature materials",
+    "date": "2018 Sep",
+    "doi": "10.1038/s41563-018-0161-y",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30139981/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Comment"
+      ],
+      "first_author": "Pesin DA",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row28"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30279143",
+    "status": "OK",
+    "title": "Fisetin is a senotherapeutic that extends health and lifespan.",
+    "authors": "Yousefzadeh MJ, Zhu Y, McGowan SJ et al.",
+    "venue": "EBioMedicine",
+    "date": "2018 Oct",
+    "doi": "10.1016/j.ebiom.2018.09.015",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30279143/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Yousefzadeh MJ",
+      "pmcid": "PMC6197652"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row15",
+      "data/curated/curated_evidence.csv:row16"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30472097",
+    "status": "OK",
+    "title": "VANGL2 protein stability is regulated by integrin \u03b1v and the extracellular matrix.",
+    "authors": "Jessen TN, Jessen JR",
+    "venue": "Experimental cell research",
+    "date": "2019 Jan 1",
+    "doi": "10.1016/j.yexcr.2018.11.017",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30472097/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "first_author": "Jessen TN",
+      "pmcid": "PMC6295236"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row25"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "30953051",
+    "status": "OK",
+    "title": "Left Ventricular Remodeling and Masked Hypertension: Don't Forget Nighttime Diastolic Blood Pressure.",
+    "authors": "Tadic M, Cuspidi C",
+    "venue": "American journal of hypertension",
+    "date": "2019 May 9",
+    "doi": "10.1093/ajh/hpz047",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30953051/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Comment"
+      ],
+      "first_author": "Tadic M",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row8"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "31190014",
+    "status": "OK",
+    "title": "Isotopic constraint on the twentieth-century increase in tropospheric ozone.",
+    "authors": "Yeung LY, Murray LT, Martinerie P et al.",
+    "venue": "Nature",
+    "date": "2019 Jun",
+    "doi": "10.1038/s41586-019-1277-1",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31190014/",
+    "detail": {
+      "pubtype": [
+        "Historical Article",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Yeung LY",
+      "pmcid": ""
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row45"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "31195972",
+    "status": "OK",
+    "title": "Changes in the gut microbiome and fermentation products concurrent with enhanced longevity in acarbose-treated mice.",
+    "authors": "Smith BJ, Miller RA, Ericsson AC et al.",
+    "venue": "BMC microbiology",
+    "date": "2019 Jun 13",
+    "doi": "10.1186/s12866-019-1494-7",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31195972/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Smith BJ",
+      "pmcid": "PMC6567620"
+    },
+    "flags": [],
+    "expect_title": "Changes in gut microbiome and fermentation products concurrent with enhanced longevity in acarbose-treated mice",
+    "title_match": "MATCH",
+    "title_score": 0.982,
+    "where": [
+      "data/curated/curated_evidence.csv:row42"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "32130836",
+    "status": "OK",
+    "title": "Suggested Assessments for Sarcopenia in Patients With Stroke Who Can Walk Independently.",
+    "authors": "Jung HJ, Lee YM, Kim M et al.",
+    "venue": "Annals of rehabilitation medicine",
+    "date": "2020 Feb",
+    "doi": "10.5535/arm.2020.44.1.20",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/32130836/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Jung HJ",
+      "pmcid": "PMC7056329"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row22"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "32990681",
+    "status": "OK",
+    "title": "Canagliflozin extends life span in genetically heterogeneous male but not female mice.",
+    "authors": "Miller RA, Harrison DE, Allison DB et al.",
+    "venue": "JCI insight",
+    "date": "2020 Nov 5",
+    "doi": "10.1172/jci.insight.140019",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/32990681/",
+    "detail": {
+      "pubtype": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "first_author": "Miller RA",
+      "pmcid": "PMC7710304"
+    },
+    "flags": [],
+    "expect_title": "Canagliflozin extends life span in genetically heterogeneous male but not female mice",
+    "title_match": "MATCH",
+    "title_score": 1.0,
+    "where": [
+      "data/curated/curated_evidence.csv:row54"
+    ],
+    "retrieved": "2026-10-07"
+  },
+  {
+    "kind": "PMID",
+    "ident": "33005886",
+    "status": "OK",
+    "title": "RNA-seq with RNase H-based ribosomal RNA depletion specifically designed for C. elegans.",
+    "authors": "Duan Y, Sun Y, Ambros V",
+    "venue": "microPublication biology",
+    "date": "2020 Sep 22",
+    "doi": "10.17912/micropub.biology.000312",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33005886/",
+    "detail": {
+      "pubtype": [
+        "Journal Article"
+      ],
+      "first_author": "Duan Y",
+      "pmcid": "PMC7520128"
+    },
+    "flags": [],
+    "expect_title": "",
+    "title_match": "",
+    "title_score": null,
+    "where": [
+      "data/curated/curated_evidence.csv:row24"
+    ],
+    "retrieved": "2026-10-07"
+  }
+]
