@@ -393,3 +393,30 @@ checks passed with `EXE002` excluded for Windows bind-mount executable flags.
 These checks concern chemical definitions and calculations, not drug efficacy.
 Curated evidence tables/grades, frozen benchmark inputs, splits, thresholds
 and generator configurations were retained.
+
+## Rapamycin tissue selectivity and reproductive evidence — 2026-10-09
+
+The AI coding assistant added a [focused rapamycin review](studies/rapamycin-selectivity-2026-10-09/README.md)
+covering complex selectivity, adult-animal reproductive findings, cell-specific
+genetic results and local/tissue-restricted delivery. Nine source-access
+receipts include five verified primary full-text downloads. The review does
+not infer fertility protection from improved metabolic outcomes or brain
+restriction, and it distinguishes blood non-detection from zero exposure.
+Three targeting hypotheses have explicit retained-function, active-parent
+distribution and reproductive requirements. No molecule was biologically
+validated and no owner research or source review is claimed.
+
+A standard-library Hill-1 model produces six synthetic comparisons at matched
+target pathway inhibition, twelve arbitrary response-bound pairs and a
+compartment-aggregation counterexample. Its inputs are not measured rapalog
+parameters or human safety limits. It demonstrates that global exposure or
+potency changes do not create tissue selectivity after target-response
+matching; lower total testis partition can be offset by higher free fraction;
+and an aggregate signal can hide a larger compartment-specific response.
+It does not predict fertility, aging benefit, oral PK or an exposure regimen.
+
+All **8 mathematical checks** and **9 prescribed hypothesis-filter/split tests**
+passed in Docker `dev`. New-code Ruff passed with the Windows-mount `EXE002`
+excluded. The standalone scientific figure was rendered and visually checked.
+Curated evidence grades/tables and frozen benchmark, split and generator
+configuration were retained. These checks validate calculations, not biology.

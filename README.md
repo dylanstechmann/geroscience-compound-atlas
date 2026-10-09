@@ -52,6 +52,11 @@ published comparators, nine exact molecular definitions in JSON/SDF, and 2D
 depictions. It corrects the earlier Tyr comparator to published SPN4 evidence
 and distinguishes a patent's oral-delivery predictions from measured PK.
 
+The [rapamycin selectivity review](studies/rapamycin-selectivity-2026-10-09/README.md)
+separates complex selectivity, organ distribution and reproductive outcomes,
+with primary-source access receipts and synthetic examples at matched target
+pathway response. It establishes no fertility-sparing oral rapalog.
+
 ## Architecture
 
 The project is structured into four core modules:

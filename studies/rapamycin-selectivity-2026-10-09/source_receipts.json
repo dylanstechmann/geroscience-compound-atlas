@@ -1,0 +1,160 @@
+{
+  "retrieved_at_utc": "2026-10-09T16:19:53.599072+00:00",
+  "sources": [
+    {
+      "id": "dl001",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1038%2Fs41467-019-11174-0&format=json&resultType=core&pageSize=3",
+      "title": "A novel rapamycin analog is highly selective for mTORC1 in vivo.",
+      "pmid": "31324799",
+      "doi": "10.1038/s41467-019-11174-0",
+      "pmcid": "PMC6642166",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6642166/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "4f4c0d3ff0d5dade0353ed270f868ab2727b0111bc8751f4905a1def650bd87c",
+      "bytes": 151132,
+      "limits": [
+        "Complex-selectivity and metabolic/immune endpoints; no reproductive protection established.",
+        "Testis is absent from the reported eleven-tissue panel."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/31324799/"
+    },
+    {
+      "id": "everolimus",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC7609841&format=json&resultType=core&pageSize=3",
+      "title": "The rapamycin analog Everolimus reversibly impairs male germ cell differentiation and fertility in the mouse\u2020.",
+      "pmid": "32716476",
+      "doi": "10.1093/biolre/ioaa130",
+      "pmcid": "PMC7609841",
+      "fulltext_error": "HTTP Error 500: ",
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract only; fullTextXML returned HTTP 500.",
+        "Recovery varies by endpoint; mouse findings are not a healthy-human risk estimate."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/32716476/"
+    },
+    {
+      "id": "adult_meiosis",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC6339782&format=json&resultType=core&pageSize=3",
+      "title": "Rapamycin-mediated mTOR inhibition impairs silencing of sex chromosomes and the pachytene piRNA pathway in the mouse testis.",
+      "pmid": "30636722",
+      "doi": "10.18632/aging.101740",
+      "pmcid": "PMC6339782",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6339782/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "7a22d66141f9a310a43208634f7a255948d5be12b75bd7dd51d8bcfb3ad4a222",
+      "bytes": 167841,
+      "limits": [
+        "Adult-mouse study with both complex responses; not a human analog safety result."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/30636722/"
+    },
+    {
+      "id": "barrier_primary",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC6689739&format=json&resultType=core&pageSize=3",
+      "title": "mTORC1/rpS6 signaling complex modifies BTB transport function: an in vivo study using the adjudin model.",
+      "pmid": "31112404",
+      "doi": "10.1152/ajpendo.00553.2018",
+      "pmcid": "PMC6689739",
+      "fulltext_error": "HTTP Error 500: ",
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract only; fullTextXML returned HTTP 500.",
+        "Main anatomical argument instead uses the successfully read Sertoli-study Figure 1."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/31112404/"
+    },
+    {
+      "id": "brain_binary",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1038%2Fs41586-022-05213-y&format=json&resultType=core&pageSize=3",
+      "title": "Brain-restricted mTOR inhibition with binary pharmacology.",
+      "pmid": "36104566",
+      "doi": "10.1038/s41586-022-05213-y",
+      "pmcid": "PMC9492542",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9492542/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "3b2b28d9163a7ea4228bf7db8abbf452c7125c19347bd45d37af9cd18927abf0",
+      "bytes": 140667,
+      "limits": [
+        "Brain-restricted mouse pharmacology; not systemic geroprotection or testicular protection.",
+        "Reviewed body contains no testis, testes, sperm or fertility term."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/36104566/"
+    },
+    {
+      "id": "liver_prodrug",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A41674289&format=json&resultType=core&pageSize=3",
+      "title": "Cholesterolated Rapamycin Prodrug Liposomes Induce Antigen-Specific Tolerance and Enable AAV Redosing.",
+      "pmid": "41674289",
+      "doi": "10.1021/acs.molpharmaceut.5c01748",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract only; no testicular free-drug or reproductive result supplied there.",
+        "IV liver-accumulating formulation is not oral systemic delivery."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/41674289/"
+    },
+    {
+      "id": "aging_sertoli",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.7554%2FeLife.90992&format=json&resultType=core&pageSize=3",
+      "title": "Mechanistic target of rapamycin (mTOR) pathway in Sertoli cells regulates age-dependent changes in sperm DNA methylation.",
+      "pmid": "39283662",
+      "doi": "10.7554/elife.90992",
+      "pmcid": "PMC11405012",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11405012/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "870c23427b52ec191f3790e286f9dd5ce7d38c15d12bb0c5b565d3f581060c2b",
+      "bytes": 200751,
+      "limits": [
+        "Cell-specific genetic knockout, not a rapalog treatment trial.",
+        "Testis weight and measured sperm endpoints diverge; sperm motility was not assessed."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/39283662/"
+    },
+    {
+      "id": "skin_local",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A31761958&format=json&resultType=core&pageSize=3",
+      "title": "Topical rapamycin reduces markers of senescence and aging in human skin: an exploratory, prospective, randomized trial.",
+      "pmid": "31761958",
+      "doi": "10.1007/s11357-019-00113-y",
+      "pmcid": "PMC6925069",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6925069/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "40d4ba1cee08ecf16c1adf9a2d4bbd814c0bec9c6b7fc6aada8ef02bf58e5d21",
+      "bytes": 81224,
+      "limits": [
+        "High attrition and small analyzed subsets.",
+        "Blood non-detection at one sampled visit is not zero exposure or a complete PK profile.",
+        "No reproductive or systemic aging result established."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/31761958/"
+    },
+    {
+      "id": "human_transplant",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A18510638&format=json&resultType=core&pageSize=3",
+      "title": "Sirolimus may reduce fertility in male renal transplant recipients.",
+      "pmid": "18510638",
+      "doi": "10.1111/j.1600-6143.2008.02267.x",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Observational transplant population, not otherwise healthy users.",
+        "Recovery is not guaranteed by the six-person interruption subgroup."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/18510638/"
+    }
+  ],
+  "prepared_at_utc": "2026-10-09T16:26:39.732059+00:00",
+  "status": "agent_primary_source_review_not_owner_review_or_evidence_grade",
+  "prior_review_reference": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4641790/",
+    "context": "Germ-cell mTORC1 requirement cited in the earlier oral-targeting feasibility review.",
+    "access_scope": "Previously reviewed source, not a new full-text retrieval in this continuation."
+  },
+  "limits": [
+    "Metadata and access receipts do not distribute full copyrighted text.",
+    "Synthetic model parameters do not come from these sources.",
+    "No clinical regimen or biological-age reversal claim."
+  ]
+}

@@ -307,6 +307,11 @@ testicular structure and reversibility. A blood–tissue barrier assumption or
 unrelated acute toxicity screen cannot replace those endpoints. No particular
 new rapalog is established as reproductively safer in this analysis.
 
+The [subsequent rapamycin selectivity review](../rapamycin-selectivity-2026-10-09/README.md)
+adds adult-animal, cell-type and local-delivery evidence; audits DL001 and
+binary-pharmacology reproductive claims; and illustrates free-versus-total
+exposure and compartment aggregation at matched target pathway inhibition.
+
 ## Calculated results and their boundaries
 
 [Peptide specifications](peptide_hypotheses.json) record eight reference or

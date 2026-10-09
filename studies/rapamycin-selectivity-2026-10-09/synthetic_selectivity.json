@@ -1,0 +1,218 @@
+{
+  "status": "synthetic_counterexamples_no_rapalog_or_fertility_prediction",
+  "limits": [
+    "No measured compound PK, tissue partition, free fractions or pathway potency.",
+    "Target pathway inhibition is not aging benefit or functional efficacy.",
+    "All response bounds and compartment weights are arbitrary mathematical examples.",
+    "No mTORC2, FKBP12 kinetics, prodrug activation, clearance or reproductive model.",
+    "The input scale supplies no human concentration, dose or treatment instruction."
+  ],
+  "matched_target_scenarios": [
+    {
+      "scenario": "reference",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.5,
+      "relative_other_to_target_normalized_activity": 1.0,
+      "total_partition_ratio_other_to_target": 1.0,
+      "unbound_partition_ratio_other_to_target": 1.0
+    },
+    {
+      "scenario": "less_exposure_everywhere",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 0.1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 0.1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.5,
+      "relative_other_to_target_normalized_activity": 1.0,
+      "total_partition_ratio_other_to_target": 1.0,
+      "unbound_partition_ratio_other_to_target": 1.0
+    },
+    {
+      "scenario": "more_potent_everywhere",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 0.1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 0.1
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.5,
+      "relative_other_to_target_normalized_activity": 1.0,
+      "total_partition_ratio_other_to_target": 1.0,
+      "unbound_partition_ratio_other_to_target": 1.0
+    },
+    {
+      "scenario": "lower_testis_unbound_partition",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 0.1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.09090909090909091,
+      "relative_other_to_target_normalized_activity": 0.1,
+      "total_partition_ratio_other_to_target": 0.1,
+      "unbound_partition_ratio_other_to_target": 0.1
+    },
+    {
+      "scenario": "lower_testis_pathway_sensitivity",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 1,
+        "free_fraction": 1,
+        "ic50": 10
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.09090909090909091,
+      "relative_other_to_target_normalized_activity": 0.1,
+      "total_partition_ratio_other_to_target": 1.0,
+      "unbound_partition_ratio_other_to_target": 1.0
+    },
+    {
+      "scenario": "lower_total_testis_but_same_unbound",
+      "assumed_target": {
+        "name": "target",
+        "total_partition": 1,
+        "free_fraction": 0.1,
+        "ic50": 1
+      },
+      "assumed_other": {
+        "name": "testis_proxy",
+        "total_partition": 0.1,
+        "free_fraction": 1,
+        "ic50": 1
+      },
+      "target_inhibition": 0.5,
+      "other_tissue_inhibition": 0.5,
+      "relative_other_to_target_normalized_activity": 1.0,
+      "total_partition_ratio_other_to_target": 0.1,
+      "unbound_partition_ratio_other_to_target": 1.0
+    }
+  ],
+  "synthetic_response_bound_grid": [
+    {
+      "assumed_target_inhibition": 0.2,
+      "assumed_other_bound": 0.05,
+      "largest_relative_other_to_target_activity": 0.2105263157894737
+    },
+    {
+      "assumed_target_inhibition": 0.2,
+      "assumed_other_bound": 0.1,
+      "largest_relative_other_to_target_activity": 0.4444444444444445
+    },
+    {
+      "assumed_target_inhibition": 0.2,
+      "assumed_other_bound": 0.2,
+      "largest_relative_other_to_target_activity": 1.0
+    },
+    {
+      "assumed_target_inhibition": 0.5,
+      "assumed_other_bound": 0.05,
+      "largest_relative_other_to_target_activity": 0.052631578947368425
+    },
+    {
+      "assumed_target_inhibition": 0.5,
+      "assumed_other_bound": 0.1,
+      "largest_relative_other_to_target_activity": 0.11111111111111112
+    },
+    {
+      "assumed_target_inhibition": 0.5,
+      "assumed_other_bound": 0.2,
+      "largest_relative_other_to_target_activity": 0.25
+    },
+    {
+      "assumed_target_inhibition": 0.8,
+      "assumed_other_bound": 0.05,
+      "largest_relative_other_to_target_activity": 0.013157894736842103
+    },
+    {
+      "assumed_target_inhibition": 0.8,
+      "assumed_other_bound": 0.1,
+      "largest_relative_other_to_target_activity": 0.027777777777777773
+    },
+    {
+      "assumed_target_inhibition": 0.8,
+      "assumed_other_bound": 0.2,
+      "largest_relative_other_to_target_activity": 0.062499999999999986
+    },
+    {
+      "assumed_target_inhibition": 0.9,
+      "assumed_other_bound": 0.05,
+      "largest_relative_other_to_target_activity": 0.005847953216374269
+    },
+    {
+      "assumed_target_inhibition": 0.9,
+      "assumed_other_bound": 0.1,
+      "largest_relative_other_to_target_activity": 0.012345679012345677
+    },
+    {
+      "assumed_target_inhibition": 0.9,
+      "assumed_other_bound": 0.2,
+      "largest_relative_other_to_target_activity": 0.027777777777777773
+    }
+  ],
+  "synthetic_aggregation_counterexample": {
+    "compartments": [
+      {
+        "name": "basal_proxy",
+        "assumed_weight": 0.1,
+        "target_inhibition": 0.5,
+        "other_tissue_inhibition": 0.5,
+        "relative_other_to_target_normalized_activity": 1.0,
+        "total_partition_ratio_other_to_target": 1.0,
+        "unbound_partition_ratio_other_to_target": 1.0
+      },
+      {
+        "name": "adluminal_proxy",
+        "assumed_weight": 0.9,
+        "target_inhibition": 0.5,
+        "other_tissue_inhibition": 0.009900990099009901,
+        "relative_other_to_target_normalized_activity": 0.01,
+        "total_partition_ratio_other_to_target": 0.01,
+        "unbound_partition_ratio_other_to_target": 0.01
+      }
+    ],
+    "weighted_mean_inhibition": 0.058910891089108915,
+    "maximum_compartment_inhibition": 0.5
+  }
+}
