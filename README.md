@@ -57,6 +57,12 @@ separates complex selectivity, organ distribution and reproductive outcomes,
 with primary-source access receipts and synthetic examples at matched target
 pathway response. It establishes no fertility-sparing oral rapalog.
 
+The [caffeine reversal audit](studies/caffeine-reversal-2026-10-09/README.md)
+adds measured aqueous binders, DNA/RNA aptamer and catalytic-conversion
+evidence, source-access receipts and a reconstruction of published binding
+equilibria. It distinguishes aggregate affinity from a one-site Kd and
+defines the missing oral exposure, metabolite and sleep evidence.
+
 ## Architecture
 
 The project is structured into four core modules:

@@ -420,3 +420,37 @@ passed in Docker `dev`. New-code Ruff passed with the Windows-mount `EXE002`
 excluded. The standalone scientific figure was rendered and visually checked.
 Curated evidence grades/tables and frozen benchmark, split and generator
 configuration were retained. These checks validate calculations, not biology.
+
+## Caffeine reversal: source equilibria and oral-development requirements — 2026-10-09
+
+The AI coding assistant added a [caffeine reversal audit](studies/caffeine-reversal-2026-10-09/README.md)
+with seven primary-source access receipts, including three hashed official
+full-text XML downloads. It identifies aqueous small-molecule recognition,
+DNA/RNA aptamer measurements and bacterial catalytic conversion, distinguishing
+sensor output and substrate disappearance from systemic pharmacological
+reversal. The 2026 RNA study's undetected paraxanthine binding is retained as
+an assay limitation, not an infinite-Kd estimate. No owner laboratory work or
+source review is claimed.
+
+A standard-library solver reconstructs the tweezer paper's NMR equilibria,
+including host self-association and multi-unit host/guest species. Source
+constants, uncertainties, medium and units are recorded separately from
+arbitrarily chosen total concentrations. Ninety-six illustrative calculations
+and a visually inspected scientific figure compare source models with two
+explicitly incomplete/incorrect shortcuts. Aggregate BC500 is not treated as
+a one-site Kd in either source reconstruction. Guest dimers are not assumed
+inactive. These outputs do not predict plasma binding, kinetics, oral PK,
+brain response or sleep restoration. Uncertainties are not propagated.
+
+The review specifies an unvalidated oral prohost concept and its missing
+physiological recognition, metabolite, endogenous-ligand, active-host PK,
+clearance/rebound, brain-response and clinical-endpoint evidence. No exact
+improved drug, safe precursor, administration regimen or rejuvenation claim
+is established. Copyrighted full text remains in ignored local storage.
+
+All **9 new mathematical checks** and **9 prescribed hypothesis-filter/split
+tests** passed in Docker `dev`. Ruff passed for new Python with `EXE002`
+excluded for Windows bind-mount executable flags. Calculation checks include
+independent analytic references, a constructed multimer state, mass conservation
+and two-guests-per-host accounting. Curated evidence grades/tables, frozen
+inputs, splits, thresholds and generator configurations were unchanged.

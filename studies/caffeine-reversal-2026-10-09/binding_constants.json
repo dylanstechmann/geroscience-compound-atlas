@@ -1,0 +1,65 @@
+{
+  "source_id": "water_tweezer",
+  "source_doi": "10.1021/acs.joc.1c02620",
+  "source_location": "Table 1, caffeine columns, NMR central estimates and footnote c; receptor tetramer from Results and Discussion",
+  "concentration_unit": "mol/L",
+  "formation_constant_definition": "[R_n G_m] = beta_nm * [R]^n * [G]^m; beta units M^(1-n-m)",
+  "source_medium": "D2O, pD 7.4, 298 K; not plasma",
+  "interpretation_limits": [
+    "Source uncertainties are archived but not propagated; no confidence bands.",
+    "Receptor 2 BC500 is an aggregate intrinsic-median binding metric, not a 1:1 dissociation constant.",
+    "Receptor 6 NMR also includes a 1:2 host:guest species; it is not exactly a pure 1:1 system.",
+    "Only caffeine is modeled; competitors, protein binding, membrane transport and kinetics are absent."
+  ],
+  "reported_affinity_metrics": [
+    {"receptor": "2", "method": "NMR", "metric": "BC500", "value_uM": 4.2, "reported_uncertainty_uM": 1.1},
+    {"receptor": "2", "method": "ITC", "metric": "BC500", "value_uM": 5.8, "reported_uncertainty_uM": 3.3},
+    {"receptor": "6", "method": "NMR", "metric": "BC500", "value_uM": 11.5, "reported_uncertainty_uM": 0.8},
+    {"receptor": "6", "method": "ITC", "metric": "BC500", "value_uM": 15.0, "reported_uncertainty_uM": 2.0}
+  ],
+  "reported_log10_beta_uncertainties": {
+    "R2_dimer": 0.13,
+    "R2_tetramer": 0.3,
+    "caffeine_dimer": 0.01,
+    "R2_C11": 0.09,
+    "R2_C21": 0.2,
+    "R6_C11": 0.03,
+    "R6_C12": 0.04
+  },
+  "models": [
+    {
+      "id": "receptor2_published_NMR",
+      "kind": "source_equilibrium_reconstruction",
+      "species": [
+        {"name": "R2_dimer", "host_count": 2, "guest_count": 0, "log10_beta": 4.68},
+        {"name": "R2_tetramer", "host_count": 4, "guest_count": 0, "log10_beta": 12.1},
+        {"name": "caffeine_dimer", "host_count": 0, "guest_count": 2, "log10_beta": 0.78},
+        {"name": "R2_C11", "host_count": 1, "guest_count": 1, "log10_beta": 4.74},
+        {"name": "R2_C21", "host_count": 2, "guest_count": 1, "log10_beta": 10.9}
+      ]
+    },
+    {
+      "id": "receptor6_published_NMR",
+      "kind": "source_equilibrium_reconstruction",
+      "species": [
+        {"name": "caffeine_dimer", "host_count": 0, "guest_count": 2, "log10_beta": 0.78},
+        {"name": "R6_C11", "host_count": 1, "guest_count": 1, "log10_beta": 4.94},
+        {"name": "R6_C12", "host_count": 1, "guest_count": 2, "log10_beta": 7.10}
+      ]
+    },
+    {
+      "id": "receptor2_11_species_only",
+      "kind": "deliberately_incomplete_comparison",
+      "species": [
+        {"name": "R2_C11", "host_count": 1, "guest_count": 1, "log10_beta": 4.74}
+      ]
+    },
+    {
+      "id": "incorrect_BC500_as_Kd",
+      "kind": "deliberately_incorrect_comparison_do_not_use_as_measured_model",
+      "species": [
+        {"name": "incorrect_C11", "host_count": 1, "guest_count": 1, "log10_beta": 5.376750709602099}
+      ]
+    }
+  ]
+}

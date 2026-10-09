@@ -15,6 +15,11 @@ supersedes the initial abstract-only metabolism limitation below. The
 [SS-31 analog audit](../ss31-analog-audit-2026-10-09/README.md) subsequently
 identifies the Tyr comparator as published SPN4 and adds exact molecular graphs.
 
+The [caffeine reversal audit](../caffeine-reversal-2026-10-09/README.md)
+adds measured aqueous caffeine hosts, DNA/RNA aptamers, bacterial conversion
+evidence and a source-equilibrium reconstruction. Its measured constants
+are separate from the wholly synthetic models in this initial analysis.
+
 ## Biological age is a collection of measurements
 
 Human plasma-proteomic research estimated distinct aging signatures for eleven

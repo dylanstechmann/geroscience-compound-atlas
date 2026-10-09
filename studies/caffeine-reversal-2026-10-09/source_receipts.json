@@ -1,0 +1,114 @@
+{
+  "retrieved_at_utc": "2026-10-09T16:39:04.423404+00:00",
+  "sources": [
+    {
+      "id": "water_tweezer",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC8902752&format=json&resultType=core&pageSize=3",
+      "title": "A Sulfonated Tweezer-Shaped Receptor Selectively Recognizes Caffeine in Water.",
+      "pmid": "35107278",
+      "doi": "10.1021/acs.joc.1c02620",
+      "pmcid": "PMC8902752",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8902752/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "7a82d6d3b8688e60cfe50125f8df9d7b77da38fb916fb9bfc07bf3901706ec4a",
+      "bytes": 71039,
+      "limits": [
+        "Water/D2O equilibria, not serum binding, human PK or sleep reversal.",
+        "Table 1 BC500 must not be substituted for a one-to-one Kd; paraxanthine is absent from that ligand panel."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/35107278/"
+    },
+    {
+      "id": "dna_aptamer",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1021%2Facs.analchem.1c04349&format=json&resultType=core&pageSize=3",
+      "title": "Selection of Aptamers for Sensing Caffeine and Discrimination of Its Three Single Demethylated Analogues.",
+      "pmid": "35143165",
+      "doi": "10.1021/acs.analchem.1c04349",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract plus author-repository metadata; full manuscript not downloaded.",
+        "Detection limit in diluted serum is neither Kd nor circulating drug neutralization."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/35143165/",
+      "author_repository_url": "https://uwspace.uwaterloo.ca/items/f648d4c1-43a3-4679-8b34-949a643dacdb"
+    },
+    {
+      "id": "rna_aptamer",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC13254537&format=json&resultType=core&pageSize=3",
+      "title": "Exploiting conformational changes in a caffeine aptamer to engineer synthetic RNA devices.",
+      "pmid": "42273912",
+      "doi": "10.1093/nar/gkag584",
+      "pmcid": "PMC13254537",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13254537/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "cbc2f38ff75a30e8dad24854055972e87ac56bc17205df1b6f9a93fec8553b59",
+      "bytes": 146246,
+      "limits": [
+        "Cellular gene regulation and biochemical binding, not human pharmacological reversal.",
+        "Paraxanthine binding was not detected in the tested conditions; this is not an infinite-Kd estimate."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/42273912/"
+    },
+    {
+      "id": "fluorescence_aptamer",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC9692703&format=json&resultType=core&pageSize=3",
+      "title": "Using the Intrinsic Fluorescence of DNA to Characterize Aptamer Binding.",
+      "pmid": "36431910",
+      "doi": "10.3390/molecules27227809",
+      "pmcid": "PMC9692703",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9692703/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "fa90629e87a75df4dddb7daea5d38d392b13a43395cfe1f2b8454055c929674d",
+      "bytes": 81874,
+      "limits": [
+        "Failure of an intrinsic-fluorescence reporter is not evidence that the aptamer cannot bind caffeine."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/36431910/"
+    },
+    {
+      "id": "dehydrogenase",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC2223706&format=json&resultType=core&pageSize=3",
+      "title": "A novel caffeine dehydrogenase in Pseudomonas sp. strain CBB1 oxidizes caffeine to trimethyluric acid.",
+      "pmid": "17981969",
+      "doi": "10.1128/jb.01390-07",
+      "pmcid": "PMC2223706",
+      "fulltext_error": "HTTP Error 500: ",
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Primary abstract only; Europe PMC fullTextXML returned HTTP 500.",
+        "Caffeine-to-trimethyluric-acid conversion requires electron-acceptor chemistry; no oral human application established."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/17981969/"
+    },
+    {
+      "id": "oxidation_pathway",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC3416557&format=json&resultType=core&pageSize=3",
+      "title": "Delineation of the caffeine C-8 oxidation pathway in Pseudomonas sp. strain CBB1 via characterization of a new trimethyluric acid monooxygenase and genes involved in trimethyluric acid metabolism.",
+      "pmid": "22609920",
+      "doi": "10.1128/jb.00597-12",
+      "pmcid": "PMC3416557",
+      "fulltext_error": "HTTP Error 500: ",
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Primary abstract only; Europe PMC fullTextXML returned HTTP 500.",
+        "Bacterial substrate conversion does not establish inactive or safe products in humans."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/22609920/"
+    },
+    {
+      "id": "detection",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A25019418&format=json&resultType=core&pageSize=3",
+      "title": "Validation of caffeine dehydrogenase from Pseudomonas sp. strain CBB1 as a suitable enzyme for a rapid caffeine detection and potential diagnostic test.",
+      "pmid": "25019418",
+      "doi": "10.1021/jf501598c",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Primary abstract only.",
+        "Beverage/milk diagnostic performance is ex vivo; it is not activity after administering an enzyme."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/25019418/"
+    }
+  ]
+}
