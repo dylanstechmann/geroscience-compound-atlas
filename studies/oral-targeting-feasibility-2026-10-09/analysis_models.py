@@ -66,7 +66,7 @@ def main():
         ("SS31_terminal_D_Phe_hypothesis", "D-Arg-Dmt-Lys-D-Phe-NH2", {"C": 32, "H": 49, "N": 9, "O": 5}, 3,
          "Unvalidated C-terminal stereochemistry comparator; degradation, cardiolipin binding and renal clearance unknown"),
         ("SS_Tyr_hypothesis", "D-Arg-Tyr-Lys-Phe-NH2", {"C": 30, "H": 45, "N": 9, "O": 5}, 3,
-         "Unvalidated simpler-residue comparator; efficacy and cost equivalence unknown"),
+         "Published SPN4 membrane/cell comparator; endpoint-specific activity reported, human oral PK and cost equivalence unknown"),
         ("SS20_reference", "Phe-D-Arg-Phe-Lys-NH2", {"C": 30, "H": 45, "N": 9, "O": 4}, 3,
          "Published related scaffold; lacks the phenolic side chain; not interchangeable with SS31"),
         ("Epitalon_reference", "Ala-Glu-Asp-Gly-OH", {"C": 14, "H": 22, "N": 4, "O": 9}, -2,
@@ -81,6 +81,11 @@ def main():
                    "nominal_charge_near_physiological_ph": charge, "status": status,
                    "human_oral_bioavailability": "unknown", "improved_human_pk": "not_established"}
                   for key, sequence, formula, charge, status in specifications]
+    for candidate in candidates:
+        if candidate["id"] == "SS_Tyr_hypothesis":
+            candidate["published_alias"] = "SPN4"
+            candidate["source_url"] = "https://elifesciences.org/articles/75531"
+            candidate["legacy_id_note"] = "Identifier retained; published comparator identified in follow-up source review"
     metadata = {
         "status": "chemistry_bookkeeping_and_unvalidated_hypotheses",
         "limits": ["Mass and nominal charge are not measured permeability, potency or half-life.",

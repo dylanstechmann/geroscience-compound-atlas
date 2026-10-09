@@ -62,9 +62,12 @@
       },
       "neutral_average_mass_da": 611.748,
       "nominal_charge_near_physiological_ph": 3,
-      "status": "Unvalidated simpler-residue comparator; efficacy and cost equivalence unknown",
+      "status": "Published SPN4 membrane/cell comparator; endpoint-specific activity reported, human oral PK and cost equivalence unknown",
       "human_oral_bioavailability": "unknown",
-      "improved_human_pk": "not_established"
+      "improved_human_pk": "not_established",
+      "published_alias": "SPN4",
+      "source_url": "https://elifesciences.org/articles/75531",
+      "legacy_id_note": "Identifier retained; published comparator identified in follow-up source review"
     },
     {
       "id": "SS20_reference",

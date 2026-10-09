@@ -1,0 +1,275 @@
+{
+  "status": "exact_graph_bookkeeping_not_a_drug_optimization_result",
+  "rdkit_version": "2026.03.6",
+  "representation": "neutral_covalent_molecules_no_salts_or_physiological_protonation_model",
+  "limits": [
+    "Published membrane and cell results do not demonstrate human oral exposure.",
+    "Hypotheses have no novelty, synthesis, biological activity or PK claim.",
+    "Neutral descriptors are not logD, permeability or mitochondrial-access measurements.",
+    "A valid molecular graph is not an analytical certificate for a physical sample.",
+    "SDF coordinates are a 2D depiction, not a modeled bioactive conformation."
+  ],
+  "records": [
+    {
+      "id": "SS31",
+      "sequence_specification": "H-D-Arg-L-Dmt-L-Lys-L-Phe-NH2",
+      "evidence_status": "published_reference",
+      "research_question": "Reference for every matched comparison",
+      "source_url": "https://elifesciences.org/articles/75531",
+      "isomeric_smiles": "Cc1cc(O)cc(C)c1C[C@H](NC(=O)[C@H](N)CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](Cc1ccccc1)C(N)=O",
+      "standard_inchi_key": "SFVLTCAESLKEHH-WKAQUBQDSA-N",
+      "neutral_formula": "C32H49N9O5",
+      "neutral_average_mass_da": 639.802,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "R",
+        "S",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 264.56,
+        "crippen_logp": -0.546,
+        "h_bond_donors": 10,
+        "h_bond_acceptors": 8,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SPN4",
+      "sequence_specification": "H-D-Arg-L-Tyr-L-Lys-L-Phe-NH2",
+      "evidence_status": "published_cell_and_membrane_comparator",
+      "research_question": "Specialty-residue substitution with endpoint-specific measured tradeoffs",
+      "source_url": "https://elifesciences.org/articles/75531",
+      "isomeric_smiles": "N=C(N)NCCC[C@@H](N)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](Cc1ccccc1)C(N)=O",
+      "standard_inchi_key": "DRTZGQCOQKCMHI-ROHNOIKCSA-N",
+      "neutral_formula": "C30H45N9O5",
+      "neutral_average_mass_da": 611.748,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "R",
+        "S",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 264.56,
+        "crippen_logp": -1.163,
+        "h_bond_donors": 10,
+        "h_bond_acceptors": 8,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SS20",
+      "sequence_specification": "H-L-Phe-D-Arg-L-Phe-L-Lys-NH2",
+      "evidence_status": "published_cell_and_membrane_comparator",
+      "research_question": "Different register and aromatic chemistry; not an SS31 substitute",
+      "source_url": "https://elifesciences.org/articles/75531",
+      "isomeric_smiles": "N=C(N)NCCC[C@@H](NC(=O)[C@@H](N)Cc1ccccc1)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](CCCCN)C(N)=O",
+      "standard_inchi_key": "UEADSLOWOVCODN-JBXUNAHCSA-N",
+      "neutral_formula": "C30H45N9O4",
+      "neutral_average_mass_da": 595.749,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "S",
+        "R",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 244.33,
+        "crippen_logp": -0.869,
+        "h_bond_donors": 9,
+        "h_bond_acceptors": 7,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SPN10",
+      "sequence_specification": "H-L-Trp-L-Arg-L-Trp-L-Lys-NH2",
+      "evidence_status": "published_cell_and_membrane_comparator",
+      "research_question": "Published functional comparator; human oral PK unknown here",
+      "source_url": "https://elifesciences.org/articles/75531",
+      "isomeric_smiles": "N=C(N)NCCC[C@H](NC(=O)[C@@H](N)Cc1c[nH]c2ccccc12)C(=O)N[C@@H](Cc1c[nH]c2ccccc12)C(=O)N[C@@H](CCCCN)C(N)=O",
+      "standard_inchi_key": "YUOWFEWUBKFWPD-JSRHHAARSA-N",
+      "neutral_formula": "C34H47N11O4",
+      "neutral_average_mass_da": 673.823,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "S",
+        "S",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 275.91,
+        "crippen_logp": 0.094,
+        "h_bond_donors": 11,
+        "h_bond_acceptors": 7,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SS31_terminal_D_Phe",
+      "sequence_specification": "H-D-Arg-L-Dmt-L-Lys-D-Phe-NH2",
+      "evidence_status": "research_hypothesis_unvalidated_here",
+      "research_question": "C-terminal stereochemistry versus retained function and parent clearance",
+      "source_url": null,
+      "isomeric_smiles": "Cc1cc(O)cc(C)c1C[C@H](NC(=O)[C@H](N)CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@H](Cc1ccccc1)C(N)=O",
+      "standard_inchi_key": "SFVLTCAESLKEHH-RAVGUYNFSA-N",
+      "neutral_formula": "C32H49N9O5",
+      "neutral_average_mass_da": 639.802,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "R",
+        "S",
+        "S",
+        "R"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 264.56,
+        "crippen_logp": -0.546,
+        "h_bond_donors": 10,
+        "h_bond_acceptors": 8,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SS31_N_acetyl",
+      "sequence_specification": "Ac-D-Arg-L-Dmt-L-Lys-L-Phe-NH2",
+      "evidence_status": "research_hypothesis_unvalidated_here",
+      "research_question": "Terminal cap versus nominal charge and mitochondrial activity",
+      "source_url": null,
+      "isomeric_smiles": "CC(=O)N[C@H](CCCNC(=N)N)C(=O)N[C@@H](Cc1c(C)cc(O)cc1C)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](Cc1ccccc1)C(N)=O",
+      "standard_inchi_key": "HIAWBYHLCJOMMP-VVZGZWEYSA-N",
+      "neutral_formula": "C34H51N9O6",
+      "neutral_average_mass_da": 681.839,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 2,
+      "alpha_cip_in_sequence_order": [
+        "R",
+        "S",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 267.64,
+        "crippen_logp": -0.369,
+        "h_bond_donors": 10,
+        "h_bond_acceptors": 8,
+        "rotatable_bonds_rdkit": 20
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SPN10_D_Arg",
+      "sequence_specification": "H-L-Trp-D-Arg-L-Trp-L-Lys-NH2",
+      "evidence_status": "research_hypothesis_unvalidated_here",
+      "research_question": "One internal stereocenter inversion; proteolysis and activity both unknown",
+      "source_url": null,
+      "isomeric_smiles": "N=C(N)NCCC[C@@H](NC(=O)[C@@H](N)Cc1c[nH]c2ccccc12)C(=O)N[C@@H](Cc1c[nH]c2ccccc12)C(=O)N[C@@H](CCCCN)C(N)=O",
+      "standard_inchi_key": "YUOWFEWUBKFWPD-IMYHUDGHSA-N",
+      "neutral_formula": "C34H47N11O4",
+      "neutral_average_mass_da": 673.823,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "S",
+        "R",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 275.91,
+        "crippen_logp": 0.094,
+        "h_bond_donors": 11,
+        "h_bond_acceptors": 7,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SPN10_terminal_D_Lys",
+      "sequence_specification": "H-L-Trp-L-Arg-L-Trp-D-Lys-NH2",
+      "evidence_status": "research_hypothesis_unvalidated_here",
+      "research_question": "One terminal stereocenter inversion; degradation and activity both unknown",
+      "source_url": null,
+      "isomeric_smiles": "N=C(N)NCCC[C@H](NC(=O)[C@@H](N)Cc1c[nH]c2ccccc12)C(=O)N[C@@H](Cc1c[nH]c2ccccc12)C(=O)N[C@H](CCCCN)C(N)=O",
+      "standard_inchi_key": "YUOWFEWUBKFWPD-LQBCTSRJSA-N",
+      "neutral_formula": "C34H47N11O4",
+      "neutral_average_mass_da": 673.823,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "S",
+        "S",
+        "S",
+        "R"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 275.91,
+        "crippen_logp": 0.094,
+        "h_bond_donors": 11,
+        "h_bond_acceptors": 7,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    },
+    {
+      "id": "SS31_Phe_backbone_N_methyl",
+      "sequence_specification": "H-D-Arg-L-Dmt-L-Lys-NalphaMe-L-Phe-NH2",
+      "evidence_status": "patent_described_hypothesis_unvalidated_here",
+      "research_question": "One backbone donor removed while preserving nominal +3 charge; oral PK unknown",
+      "source_url": "https://patents.google.com/patent/US20240108740A1/en",
+      "isomeric_smiles": "Cc1cc(O)cc(C)c1C[C@H](NC(=O)[C@H](N)CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N(C)[C@@H](Cc1ccccc1)C(N)=O",
+      "standard_inchi_key": "FLRASSIYTVXXGZ-UNFRKHOWSA-N",
+      "neutral_formula": "C33H51N9O5",
+      "neutral_average_mass_da": 653.829,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_ph": 3,
+      "alpha_cip_in_sequence_order": [
+        "R",
+        "S",
+        "S",
+        "S"
+      ],
+      "neutral_graph_descriptors": {
+        "tpsa_angstrom_squared": 255.77,
+        "crippen_logp": -0.204,
+        "h_bond_donors": 9,
+        "h_bond_acceptors": 8,
+        "rotatable_bonds_rdkit": 19
+      },
+      "human_oral_bioavailability": "not_established_in_this_review",
+      "improved_human_half_life": "not_established",
+      "manufacturing_cost": "not_measured"
+    }
+  ]
+}

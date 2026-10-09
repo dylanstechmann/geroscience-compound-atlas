@@ -43,9 +43,14 @@ The [October 9 research analysis](studies/oral-targeting-feasibility-2026-10-09/
 examines organ-specific aging endpoints, oral SLU-PP-915 and peptide delivery,
 SS-31 duration/manufacturing hypotheses, caffeine sequestration and
 reproductive-sparing mTOR targeting. It includes primary-source links,
-registry/search receipts, explicitly unvalidated peptide specifications and
+registry/search receipts, reference and unvalidated hypothesis specifications and
 synthetic sensitivity calculations. It establishes no improved human-use drug,
 oral formulation or aging-reversal effect.
+
+The [SS-31 analog audit](studies/ss31-analog-audit-2026-10-09/README.md) adds
+published comparators, nine exact molecular definitions in JSON/SDF, and 2D
+depictions. It corrects the earlier Tyr comparator to published SPN4 evidence
+and distinguishes a patent's oral-delivery predictions from measured PK.
 
 ## Architecture
 

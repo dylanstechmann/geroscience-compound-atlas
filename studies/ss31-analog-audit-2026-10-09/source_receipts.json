@@ -1,0 +1,66 @@
+{
+  "prepared_at_utc": "2026-10-09T16:13:11.501314+00:00",
+  "status": "agent_source_review_and_graph_bookkeeping_not_owner_review",
+  "sources": [
+    {
+      "retrieved_at_utc": "2026-10-09T16:02:31.087712+00:00",
+      "pmcid": "PMC9342957",
+      "title": "Structure-activity relationships of mitochondria-targeted tetrapeptide pharmacological compounds",
+      "doi": "10.7554/eLife.75531",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9342957/fullTextXML",
+      "sha256": "6d81bf36a4a69f1ab637a915cd4767e20d2550c0d520a6114347ac437244e24f",
+      "bytes": 337811,
+      "access_mode": "official_full_text_xml_read_locally",
+      "sections_read": [
+        "test set and Figure 1",
+        "membrane binding and Figure 2",
+        "cell endpoints and Figure 6",
+        "Materials and Methods"
+      ],
+      "limits": [
+        "Membrane/cell study, not administered-human or oral-PK evidence.",
+        "Biotinylated localization variants are distinct from unmodified peptides."
+      ]
+    },
+    {
+      "id": "pubchem_ss31",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/11764719/property/MolecularFormula,MolecularWeight,InChIKey/JSON",
+      "access_mode": "official_rest_response_read_locally",
+      "sha256": "c041bd1c997c3f0ad3847c4c824e2ef4e4ea3520b88cc11cf2cf3ee9bcdebcd7",
+      "bytes": 224,
+      "retrieved_properties": {
+        "CID": 11764719,
+        "MolecularFormula": "C32H49N9O5",
+        "MolecularWeight": "639.8",
+        "InChIKey": "SFVLTCAESLKEHH-WKAQUBQDSA-N"
+      },
+      "limits": [
+        "Registry structure identity, not evidence of physical sample purity or oral activity."
+      ]
+    },
+    {
+      "id": "spn10_patent",
+      "url": "https://patents.google.com/patent/US20240108740A1/en",
+      "title": "Therapeutic compositions including SPN10 and uses thereof",
+      "access_mode": "primary_patent_html_read_via_browser_tool",
+      "sections_read": [
+        "SPN10 definition",
+        "Therapeutic Peptide Analogues",
+        "oral formulation and prediction language"
+      ],
+      "limits": [
+        "Oral improvement is described as predicted in the reviewed section.",
+        "No legal-status, novelty or freedom-to-operate conclusion."
+      ]
+    }
+  ],
+  "review_correction": {
+    "legacy_id": "SS_Tyr_hypothesis",
+    "published_alias": "SPN4",
+    "effect": "Status corrected to published membrane/cell comparator; no cost or human oral equivalence inferred."
+  },
+  "limits": [
+    "Source receipts do not distribute full copyrighted paper text.",
+    "No hypothesis is biologically validated in this project."
+  ]
+}

@@ -366,3 +366,30 @@ single-guest reference. The prescribed hypothesis-filter/split tests passed
 executable flags. These checks validate calculation behavior, not biology.
 Frozen datasets, splits, configurations and generated hypothesis archives
 were unchanged.
+
+## SS-31 analog audit and molecular definitions — 2026-10-09
+
+An AI coding assistant added an [SS-31 analog audit](studies/ss31-analog-audit-2026-10-09/README.md)
+and nine explicit molecular graphs. Published SPN4/SPN10 comparators are
+separated from five unvalidated modification proposals, including one
+patent-described Phe-backbone N-methyl comparator. The earlier Tyr-comparator
+status was corrected to published SPN4 evidence, retaining the legacy ID and
+adding a source/alias. No claim of human oral efficacy, better half-life,
+manufacturing savings, novelty or biological validation was added.
+
+JSON and SDF outputs record exact stereochemical identity, formula, nominal
+charge and neutral-graph descriptors. SDF coordinates and PNG depictions are
+2D representations. SS31 matches an independently retrieved official PubChem
+formula, mass and stereochemical InChIKey. Sources and downloaded-file hashes
+are archived in receipts; copyrighted full text remains in ignored storage.
+The diagrams were visually inspected. No owner source review or laboratory
+work is claimed.
+
+All **9 structural checks**, **15 previous study checks**, and **9 prescribed
+hypothesis-filter/split tests** passed in Docker `dev`. The structural checks
+include independent reference identity, exact stereochemistry, donor and
+composition accounting, and SDF/SMILES round trips. New/changed Python Ruff
+checks passed with `EXE002` excluded for Windows bind-mount executable flags.
+These checks concern chemical definitions and calculations, not drug efficacy.
+Curated evidence tables/grades, frozen benchmark inputs, splits, thresholds
+and generator configurations were retained.

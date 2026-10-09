@@ -11,7 +11,9 @@ The [continuation and prioritized research decisions](RESEARCH_DECISIONS.md)
 add full-text SLU metabolism findings, FDA human PK context, a negative oral
 SBT-272 development disclosure, parent manufacturing precedents, SS-31 clock
 versus function evidence, and a competitive binding calculation. That review
-supersedes the initial abstract-only metabolism limitation below.
+supersedes the initial abstract-only metabolism limitation below. The
+[SS-31 analog audit](../ss31-analog-audit-2026-10-09/README.md) subsequently
+identifies the Tyr comparator as published SPN4 and adds exact molecular graphs.
 
 ## Biological age is a collection of measurements
 
@@ -150,22 +152,24 @@ interchangeable. [SS-family primary experiment](https://pubmed.ncbi.nlm.nih.gov/
 
 The chemistry bookkeeping below uses neutral covalent peptides, excluding salts.
 Charges are nominal estimates near physiological pH, not measured pKa values.
-All modification rows are unvalidated comparators; no novelty claim is made.
+Hypothesis rows remain unvalidated here; SPN4 is a published comparator with
+endpoint-specific membrane/cell evidence. No novelty claim is made.
 
 | Specification | Nominal charge | Research rationale and uncertainty |
 |---|---:|---|
 | D-Arg-Dmt-Lys-Phe-NH2 (SS-31 reference) | +3 | Reference structure for retained activity comparisons |
 | Ac-D-Arg-Dmt-Lys-Phe-NH2 | +2 | N-terminal protection hypothesis; removes one positive charge and may impair targeting |
 | D-Arg-Dmt-Lys-D-Phe-NH2 | +3 | C-terminal stereochemical protection hypothesis; activity and degradation response unknown |
-| D-Arg-Tyr-Lys-Phe-NH2 | +3 | Simpler-residue comparator; oxidative behavior and cardiolipin activity may change |
+| D-Arg-Tyr-Lys-Phe-NH2 (SPN4) | +3 | Published simpler-residue comparator; activity differs by endpoint, cost/oral equivalence unknown |
 | Phe-D-Arg-Phe-Lys-NH2 (SS-20 reference) | +3 | Published comparator; not an established cheaper SS-31 equivalent |
 
 The D-Phe comparator preserves formula, nominal charge and mass while changing
 one stereocenter. That makes it a useful discriminating hypothesis for
 C-terminal degradation, but provides no evidence of better half-life or oral
-absorption. Renal clearance could still dominate. The Tyr comparator reduces
-specialty-residue requirements in principle; actual manufacturing cost requires
-yield, purification, stability and quality-control data.
+absorption. Renal clearance could still dominate. The Tyr comparator is
+published as SPN4; see the linked analog audit for measured endpoint tradeoffs.
+It reduces specialty-residue requirements in principle; actual manufacturing
+cost requires yield, purification, stability and quality-control data.
 
 A second duration hypothesis is a reversible albumin-binding conjugate that
 releases active parent. Fatty-acid conjugation and albumin-affinity optimization
