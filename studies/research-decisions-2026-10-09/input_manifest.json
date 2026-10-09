@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "scope": "snapshot of the existing agent-reviewed October 9 studies; not a new literature search",
+  "role_definitions": {
+    "published_biological_reference": "Published biological endpoint in the linked review; not necessarily favorable or clinically useful.",
+    "confirmed_transformation_product": "Analytically confirmed product; biological activity and human abundance remain separate.",
+    "identity_reference_only": "Public exact-structure reference without demonstrated biological improvement in this review.",
+    "unvalidated_comparison": "Defined modification hypothesis; no demonstrated improvement in the linked review."
+  },
+  "datasets": [
+    {
+      "id": "ss31",
+      "path": "studies/ss31-analog-audit-2026-10-09/structural_comparators.json",
+      "sha256": "1993452252bf58de3c2962756735d9adb4dfd2994c62f83b71026b7886a1701f",
+      "smiles_field": "isomeric_smiles",
+      "average_mass_field": "neutral_average_mass_da",
+      "qualification_field": "human_oral_bioavailability",
+      "review_path": "studies/ss31-analog-audit-2026-10-09/README.md",
+      "roles": {
+        "SS31": "published_biological_reference",
+        "SPN4": "published_biological_reference",
+        "SS20": "published_biological_reference",
+        "SPN10": "published_biological_reference",
+        "SS31_terminal_D_Phe": "unvalidated_comparison",
+        "SS31_N_acetyl": "unvalidated_comparison",
+        "SPN10_D_Arg": "unvalidated_comparison",
+        "SPN10_terminal_D_Lys": "unvalidated_comparison",
+        "SS31_Phe_backbone_N_methyl": "unvalidated_comparison"
+      }
+    },
+    {
+      "id": "slu915",
+      "path": "studies/slu915-oral-comparators-2026-10-09/structural_comparators.json",
+      "sha256": "90bb7fea5faed11460077d639ea3c1d6d1a855e8eb6fce57ac2a9abdce4af0b4",
+      "smiles_field": "canonical_smiles",
+      "average_mass_field": "neutral_average_mass_Da",
+      "qualification_field": "better_oral_exposure",
+      "review_path": "studies/slu915-oral-comparators-2026-10-09/README.md",
+      "roles": {
+        "SLU_PP_915": "published_biological_reference",
+        "published_10q": "published_biological_reference",
+        "published_10r": "published_biological_reference",
+        "product_M1": "confirmed_transformation_product",
+        "product_M3": "confirmed_transformation_product",
+        "product_M4": "confirmed_transformation_product",
+        "hypothesis_aniline_2_4_difluoro": "unvalidated_comparison",
+        "hypothesis_aniline_2_5_difluoro": "unvalidated_comparison",
+        "hypothesis_amide_N_methyl": "unvalidated_comparison",
+        "hypothesis_boronic_pinacol_ester": "unvalidated_comparison"
+      }
+    },
+    {
+      "id": "peptides",
+      "path": "studies/peptide-delivery-transfer-2026-10-09/structural_comparators.json",
+      "sha256": "a7a467d9181fea6d2020060e2dd6daeb5f13cc8a9c3f218ddb2257028b744c1a",
+      "smiles_field": "canonical_isomeric_smiles",
+      "average_mass_field": "neutral_average_mass_Da",
+      "qualification_field": "improved_human_oral_exposure",
+      "review_path": "studies/peptide-delivery-transfer-2026-10-09/README.md",
+      "roles": {
+        "MOTS_c": "published_biological_reference",
+        "MOTS_c_N_acetyl": "unvalidated_comparison",
+        "MOTS_c_C_amide": "unvalidated_comparison",
+        "MOTS_c_both_caps": "unvalidated_comparison",
+        "MOTS_c_K14Q": "published_biological_reference",
+        "Epitalon": "published_biological_reference",
+        "N_acetyl_Epitalon": "identity_reference_only",
+        "Epitalon_C_amide": "unvalidated_comparison",
+        "Epitalon_both_caps": "unvalidated_comparison"
+      }
+    }
+  ]
+}

@@ -529,3 +529,33 @@ independent graph identity, stereochemistry, terminal-site specificity,
 composition, charge accounting and representation round trips. They validate
 chemical definitions, not biology. Curated grades, frozen inputs, splits,
 thresholds and model/generator configurations were unchanged.
+
+## Integrated research decisions and molecular catalog — 2026-10-09
+
+The AI coding assistant added an [integrated decision guide](studies/research-decisions-2026-10-09/README.md)
+with 28 molecular graph records and ten research programs. It connects existing
+reviews to explicit first questions, supported/unsupported branches and required
+measurements. This is an integration of the earlier analyses, not a new
+literature search, experiment, efficacy ranking or owner source review.
+
+Explicit graph roles distinguish ten published biological references, three
+confirmed transformation products, one public identity-only reference and
+fourteen unvalidated comparisons. Original archive status and oral-exposure
+qualifications remain verbatim and retain their field names. Average mass and
+identity fields are copied; incompatible exact-mass, charge and descriptor
+conventions remain in the originating studies. No graph panel is manufactured
+for the caffeine, other-stimulant, biological-age or rapamycin programs.
+
+The three source graph archives are SHA-256-pinned. Rebuilds reject changed
+archives, missing/unmapped or duplicate graph records, stale role maps,
+invalid required fields and invalid program references. Review documents and
+external sources remain navigation references rather than frozen source copies.
+The generated CSV, JSON and Markdown guide provide a reviewable snapshot.
+
+All **8 integration checks** and **9 prescribed hypothesis-filter/split tests**
+passed in Docker `dev`; new-code Ruff passed with Windows bind-mount `EXE002`
+excluded. Generated-file consistency and local Markdown links were checked.
+These checks validate the catalog, not biological improvement or human use.
+No improved oral drug, stimulant reversal agent, reproductive protection or
+rejuvenation effect is established. Curated grades, frozen inputs, splits,
+thresholds and model/generator configurations were unchanged.

@@ -39,6 +39,12 @@ recorded claims or grades in the curated CSV are changed by that command.
 
 ## Oral delivery and tissue-targeting feasibility
 
+The [integrated research decision guide](studies/research-decisions-2026-10-09/README.md)
+connects 28 defined molecular comparisons to ten programs, with explicit
+evidence roles, preserved source qualifications and decision branches.
+Hash-pinned graph inputs make changed or unmapped records fail a rebuild.
+The guide organizes the existing reviews; it assigns no efficacy ranking.
+
 The [October 9 research analysis](studies/oral-targeting-feasibility-2026-10-09/README.md)
 examines organ-specific aging endpoints, oral SLU-PP-915 and peptide delivery,
 SS-31 duration/manufacturing hypotheses, caffeine sequestration and

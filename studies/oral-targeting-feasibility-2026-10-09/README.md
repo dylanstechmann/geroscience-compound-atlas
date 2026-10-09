@@ -7,6 +7,11 @@ No new molecule has been synthesized, tested or shown to improve human oral
 exposure, sleep, fertility or biological age. This is a focused feasibility
 review, not a systematic review or a prescribing document.
 
+The [integrated decision guide](../research-decisions-2026-10-09/README.md)
+now connects the focused reviews to 28 molecular comparisons and ten research
+programs. It preserves original evidence qualifications and defines both
+supported and unsupported branches for the next unresolved question.
+
 The [continuation and prioritized research decisions](RESEARCH_DECISIONS.md)
 add full-text SLU metabolism findings, FDA human PK context, a negative oral
 SBT-272 development disclosure, parent manufacturing precedents, SS-31 clock
