@@ -1,0 +1,195 @@
+{
+  "status": "exact_graph_and_charge_bookkeeping_not_drug_validation",
+  "rdkit_version": "2026.03.6",
+  "representation": "all-L neutral covalent peptides; no salts, pH-speciation or conformational ensemble",
+  "limits": [
+    "Acetylation is a covalent cap, not an acetate counterion.",
+    "Nominal charge is a residue-state convention, not a measured pKa or permeability.",
+    "MOTS-c K14Q free-acid graph is defined here; original study preparation terminal identity is not independently verified.",
+    "Only graph identity, not efficacy, is verified against PubChem references.",
+    "SDF coordinates and images are two-dimensional depictions, not structures at a target.",
+    "Caps preserve residue stereochemistry but need independent functional and exposure tests."
+  ],
+  "records": [
+    {
+      "id": "MOTS_c",
+      "sequence_specification": "H-MRWQEMGYIFYPRKLR-OH",
+      "evidence_status": "published_parent_identity_reference",
+      "canonical_isomeric_smiles": "CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(=O)CNC(=O)[C@H](CCSC)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(N)=O)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@@H](N)CCSC)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(=O)O",
+      "standard_inchi_key": "WYTHCOXVWRKRAH-LOKRTKBUSA-N",
+      "neutral_formula": "C101H152N28O22S2",
+      "neutral_average_mass_Da": 2174.635,
+      "neutral_monoisotopic_mass_Da": 2173.1077405,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": 3,
+      "stereocenter_count": 16,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 839.39,
+        "HBD": 31,
+        "HBA": 27
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "MOTS_c_N_acetyl",
+      "sequence_specification": "Ac-MRWQEMGYIFYPRKLR-OH",
+      "evidence_status": "defined_terminal_comparison_unvalidated",
+      "canonical_isomeric_smiles": "CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(=O)CNC(=O)[C@H](CCSC)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(N)=O)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCSC)NC(C)=O)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(=O)O",
+      "standard_inchi_key": "LKYWBWUGPPYYRD-PUQOYJDVSA-N",
+      "neutral_formula": "C103H154N28O23S2",
+      "neutral_average_mass_Da": 2216.672,
+      "neutral_monoisotopic_mass_Da": 2215.11830519,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": 2,
+      "stereocenter_count": 16,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 842.47,
+        "HBD": 31,
+        "HBA": 27
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "MOTS_c_C_amide",
+      "sequence_specification": "H-MRWQEMGYIFYPRKLR-NH2",
+      "evidence_status": "defined_terminal_comparison_unvalidated",
+      "canonical_isomeric_smiles": "CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(=O)CNC(=O)[C@H](CCSC)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(N)=O)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@@H](N)CCSC)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(N)=O",
+      "standard_inchi_key": "MTBHTUMSJYLHGR-LOKRTKBUSA-N",
+      "neutral_formula": "C101H153N29O21S2",
+      "neutral_average_mass_Da": 2173.651,
+      "neutral_monoisotopic_mass_Da": 2172.12372492,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": 4,
+      "stereocenter_count": 16,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 845.18,
+        "HBD": 31,
+        "HBA": 27
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "MOTS_c_both_caps",
+      "sequence_specification": "Ac-MRWQEMGYIFYPRKLR-NH2",
+      "evidence_status": "defined_terminal_comparison_unvalidated",
+      "canonical_isomeric_smiles": "CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(=O)CNC(=O)[C@H](CCSC)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(N)=O)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCSC)NC(C)=O)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(N)=O",
+      "standard_inchi_key": "UQHIUIPXSPOSNO-PUQOYJDVSA-N",
+      "neutral_formula": "C103H155N29O22S2",
+      "neutral_average_mass_Da": 2215.688,
+      "neutral_monoisotopic_mass_Da": 2214.1342896,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": 3,
+      "stereocenter_count": 16,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 848.26,
+        "HBD": 31,
+        "HBA": 27
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "MOTS_c_K14Q",
+      "sequence_specification": "H-MRWQEMGYIFYPRQLR-OH",
+      "evidence_status": "published_sequence_variant_defined_free_acid_graph",
+      "canonical_isomeric_smiles": "CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(=O)CNC(=O)[C@H](CCSC)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(N)=O)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@@H](N)CCSC)C(=O)N[C@@H](Cc1ccccc1)C(=O)N[C@@H](Cc1ccc(O)cc1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCC(N)=O)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(=O)O",
+      "standard_inchi_key": "CKLHPYLEHKNRGW-KNYORAAISA-N",
+      "neutral_formula": "C100H148N28O23S2",
+      "neutral_average_mass_Da": 2174.591,
+      "neutral_monoisotopic_mass_Da": 2173.071355,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": 2,
+      "stereocenter_count": 16,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 856.46,
+        "HBD": 31,
+        "HBA": 27
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "Epitalon",
+      "sequence_specification": "H-AEDG-OH",
+      "evidence_status": "published_parent_identity_reference",
+      "canonical_isomeric_smiles": "C[C@H](N)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)NCC(=O)O",
+      "standard_inchi_key": "HGHOBRRUMWJWCU-FXQIFTODSA-N",
+      "neutral_formula": "C14H22N4O9",
+      "neutral_average_mass_Da": 390.349,
+      "neutral_monoisotopic_mass_Da": 390.13867828,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": -2,
+      "stereocenter_count": 3,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 225.22,
+        "HBD": 7,
+        "HBA": 7
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "N_acetyl_Epitalon",
+      "sequence_specification": "Ac-AEDG-OH",
+      "evidence_status": "public_identity_reference_biological_improvement_unvalidated",
+      "canonical_isomeric_smiles": "CC(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)NCC(=O)O",
+      "standard_inchi_key": "QXYAPAXZRKPASL-HGNGGELXSA-N",
+      "neutral_formula": "C16H24N4O10",
+      "neutral_average_mass_Da": 432.386,
+      "neutral_monoisotopic_mass_Da": 432.14924297,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": -3,
+      "stereocenter_count": 3,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 228.3,
+        "HBD": 7,
+        "HBA": 7
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "Epitalon_C_amide",
+      "sequence_specification": "H-AEDG-NH2",
+      "evidence_status": "defined_terminal_comparison_unvalidated",
+      "canonical_isomeric_smiles": "C[C@H](N)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)NCC(N)=O",
+      "standard_inchi_key": "XRMNZZDHCPGWAO-FXQIFTODSA-N",
+      "neutral_formula": "C14H23N5O8",
+      "neutral_average_mass_Da": 389.365,
+      "neutral_monoisotopic_mass_Da": 389.1546627,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": -1,
+      "stereocenter_count": 3,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 231.01,
+        "HBD": 7,
+        "HBA": 7
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    },
+    {
+      "id": "Epitalon_both_caps",
+      "sequence_specification": "Ac-AEDG-NH2",
+      "evidence_status": "defined_terminal_comparison_unvalidated",
+      "canonical_isomeric_smiles": "CC(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)NCC(N)=O",
+      "standard_inchi_key": "RJZLNKXYDBCQEE-HGNGGELXSA-N",
+      "neutral_formula": "C16H25N5O9",
+      "neutral_average_mass_Da": 431.402,
+      "neutral_monoisotopic_mass_Da": 431.16522738,
+      "neutral_graph_formal_charge": 0,
+      "nominal_charge_near_physiological_pH": -2,
+      "stereocenter_count": 3,
+      "neutral_graph_descriptors": {
+        "TPSA_A2": 234.09,
+        "HBD": 7,
+        "HBA": 7
+      },
+      "improved_human_oral_exposure": "not_established",
+      "novelty": "not_assessed"
+    }
+  ]
+}

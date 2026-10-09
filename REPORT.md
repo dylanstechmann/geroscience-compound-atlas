@@ -490,3 +490,42 @@ formula accounting, substitution distances, donor/connectivity changes and
 SDF/SMILES round trips. They validate molecular definitions, not biology.
 Curated evidence grades, frozen inputs, splits, thresholds and model/generator
 configurations were unchanged.
+
+## MOTS-c / Epitalon terminal chemistry and evidence transfer — 2026-10-09
+
+The AI coding assistant added a [peptide-delivery transfer audit](studies/peptide-delivery-transfer-2026-10-09/README.md)
+covering CK2 binding, mouse tissue responses, K14Q functional/clearance
+comparisons, nuclear-trafficking mutants and Semax/P021 modification
+precedents. It distinguishes a published slower-clearance calculation from
+human terminal half-life, immobilized binding from cellular target access,
+and a specific lost Semax cell-protection endpoint from generalized efficacy.
+An indexed acetyl-Semax stability report has no retrieved abstract; no
+quantitative result is invented from its title. No owner laboratory work
+or source review is claimed.
+
+Nine exact graphs define parent/single-cap/double-cap matrices for MOTS-c and
+Epitalon plus the K14Q sequence comparator. The K14Q free-acid graph is defined
+here; original preparation terminal identity is not independently verified.
+Three graphs match official PubChem formula, stereochemical identity and
+explicit monoisotopic mass. The retrieved MOTS-c ExactMass and MonoisotopicMass
+fields differ by about one carbon-isotope increment; the comparison uses the
+matching mass convention rather than relaxing identity tolerance. Side-chain
+acids and Lys amine remain intact; nominal charge is separate from neutral
+graph charge and is not a measured permeability/pKa model.
+
+Thirteen source receipts include eight primary papers, two registry records
+and three official property retrievals; five full texts were accessed through
+official APIs. Fresh bounded searches do not establish an absolute absence
+of Adamax or acetyl-Epitalon research. The native-name subcutaneous MOTS-c
+record reports Recruiting without posted results and is separated from the
+completed CB4211 record and oral claims. Public receipts omit regimens and
+copyrighted full text; complete downloads remain ignored. No improved oral
+drug, human rejuvenation result or transferable adamantane benefit is asserted.
+
+All **8 structural checks** and **9 prescribed hypothesis-filter/split tests**
+passed in Docker `dev`. New-code Ruff passed with Windows bind-mount `EXE002`
+excluded. The Epitalon depiction was visually inspected. Checks cover
+independent graph identity, stereochemistry, terminal-site specificity,
+composition, charge accounting and representation round trips. They validate
+chemical definitions, not biology. Curated grades, frozen inputs, splits,
+thresholds and model/generator configurations were unchanged.

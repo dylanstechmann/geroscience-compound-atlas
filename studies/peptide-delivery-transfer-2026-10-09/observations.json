@@ -1,0 +1,45 @@
+{
+  "status": "reported_source_observations_separate_from_structural_hypotheses",
+  "records": [
+    {
+      "source_id": "mots_ck2",
+      "endpoint": "surface_plasmon_resonance_binding_to_CK2alpha",
+      "native_Kd_nM": 1.0,
+      "K14Q_Kd_nM": 16.2,
+      "source_location": "Figure 2E, Figure 5B, Figure 10A and associated Results",
+      "conditions": "Immobilized MOTS-c; CK2alpha flowed over sensor",
+      "limits": ["Not soluble-peptide cell-entry or human receptor occupancy.", "Predicted AlphaFold interaction contacts are not a resolved complex structure."]
+    },
+    {
+      "source_id": "mots_ck2",
+      "endpoint": "CK2_substrate_phosphorylation_in_mouse_tissues",
+      "responses_in_tested_context": {"skeletal_muscle": "increased", "epididymal_fat": "decreased", "liver": "no_detected_change"},
+      "source_location": "Figure 3 and associated Results",
+      "limits": ["Reported mouse-context responses, not universal effects in each organ.", "Tissue response differences do not establish selective drug delivery."]
+    },
+    {
+      "source_id": "mots_k14q",
+      "endpoint": "reported_variant_clearance_comparison",
+      "K14Q_reported_slower_factor": 2.6,
+      "source_location": "Results: circulating MOTS-c levels; Methods: mouse osmotic-pump/ELISA comparison",
+      "method": "Pump infusion and steady-state immunoreactivity; variant-specific ELISA calibration",
+      "limits": ["Not an intravenous washout or human terminal-half-life estimate.", "Lower clearance coexisted with diminished insulin-sensitizing effects.", "Intact-molecule-specific analytical PK is not supplied by immunoreactivity alone."]
+    },
+    {
+      "source_id": "mots_nucleus",
+      "endpoint": "sequence_mutant_localization_and_DNA_binding",
+      "YIFY_to_AAAA": "prevented nuclear entry in EGFP-fusion comparison; lost tested DNA binding",
+      "RKLR_to_AAAA": "did not prevent nuclear entry in EGFP-fusion comparison; lost tested DNA binding",
+      "source_location": "Figures 1E-F and 4E and associated Results",
+      "limits": ["Mutant fusion behavior is not native-peptide oral PK.", "Tail basicity and hydrophobic core affected different endpoints."]
+    },
+    {
+      "source_id": "semax_acetyl",
+      "endpoint": "copper_induced_toxicity_in_SH_SY5Y_cells",
+      "acetylated_comparator": "did not preserve reported parent protection",
+      "zinc_complexation": "comparable strength for parent and acetylated comparator",
+      "source_location": "Official primary abstract",
+      "limits": ["Endpoint-specific comparison, not generalized loss of cognition or clinical function.", "No oral or human PK improvement established in this source."]
+    }
+  ]
+}

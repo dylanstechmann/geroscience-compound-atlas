@@ -68,6 +68,11 @@ adds ten exact molecular graphs, published ERR response comparisons and
 four unvalidated structural hypotheses. It retains microsomal lower bounds
 and separates parent, precursors and confirmed transformation products.
 
+The [peptide-delivery transfer audit](studies/peptide-delivery-transfer-2026-10-09/README.md)
+adds MOTS-c CK2/tissue-response evidence, the K14Q persistence counterexample,
+Semax/P021 modification precedents and nine exact terminal-comparison graphs.
+It also records a native-name MOTS-c trial separately from CB4211 and oral claims.
+
 ## Architecture
 
 The project is structured into four core modules:

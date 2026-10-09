@@ -1,0 +1,223 @@
+{
+  "retrieved_at_utc": "2026-10-09T17:07:38.995803+00:00",
+  "sources": [
+    {
+      "id": "mots_ck2",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC11570452&format=json&resultType=core&pageSize=3",
+      "title": "MOTS-c modulates skeletal muscle function by directly binding and activating CK2.",
+      "pmid": "39559755",
+      "doi": "10.1016/j.isci.2024.111212",
+      "pmcid": "PMC11570452",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11570452/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "41f91ab949a61a5fefcdc2bd01a5834f9f56dbbe5eab7725fcef6d91042260bc",
+      "bytes": 218182,
+      "limits": [
+        "SPR immobilized MOTS-c and flowed CK2alpha; no free-solution or human receptor-occupancy estimate.",
+        "Mouse tissue responses differ; neither tissue targeting nor whole-body aging reversal established."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/39559755/"
+    },
+    {
+      "id": "mots_k14q",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC7880332&format=json&resultType=core&pageSize=3",
+      "title": "A pro-diabetogenic mtDNA polymorphism in the mitochondrial-derived peptide, MOTS-c.",
+      "pmid": "33468709",
+      "doi": "10.18632/aging.202529",
+      "pmcid": "PMC7880332",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7880332/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "7706100fcac3ed0e4e98999eb999733b8c100cd9d8aa0ceba556011c1d1c0f8a",
+      "bytes": 148377,
+      "limits": [
+        "Reported clearance comparison used pump infusion and ELISA, not a human terminal-half-life experiment.",
+        "Sequence-dependent ELISA sensitivity was calibrated; intact-parent mass-specific PK was not established."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/33468709/"
+    },
+    {
+      "id": "semax_acetyl",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A27586814&format=json&resultType=core&pageSize=3",
+      "title": "Influence of the N-terminus acetylation of Semax, a synthetic analog of ACTH(4-10), on copper(II) and zinc(II) coordination and biological properties.",
+      "pmid": "27586814",
+      "doi": "10.1016/j.jinorgbio.2016.08.013",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract only.",
+        "Loss of copper-toxicity protection is endpoint-specific, not generalized loss of Semax function."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/27586814/"
+    },
+    {
+      "id": "mots_nucleus",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A29983246&format=json&resultType=core&pageSize=3",
+      "title": "The Mitochondrial-Encoded Peptide MOTS-c Translocates to the Nucleus to Regulate Nuclear Gene Expression in Response to Metabolic Stress.",
+      "pmid": "29983246",
+      "doi": "10.1016/j.cmet.2018.06.008",
+      "pmcid": "PMC6185997",
+      "fulltext_error": "HTTP Error 500: ",
+      "fulltext_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC6185997/unicode",
+      "access_mode": "official_NCBI_BioC_full_text",
+      "sha256": "784fee314e34867cd091865e24bac8eb3909c0d76ce4cad3f9fbea1ce423d71d",
+      "bytes": 147005,
+      "limits": [
+        "EGFP fusions/FITC localization cannot be treated as native-peptide oral PK.",
+        "Hydrophobic-core and basic-tail mutations affected different endpoints."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/29983246/"
+    },
+    {
+      "id": "p021_oral",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A25046994&format=json&resultType=core&pageSize=3",
+      "title": "Disease modifying effect of chronic oral treatment with a neurotrophic peptidergic compound in a triple transgenic mouse model of Alzheimer's disease.",
+      "pmid": "25046994",
+      "doi": "10.1016/j.nbd.2014.07.001",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "limits": [
+        "Official primary abstract only; complete numerical oral PK not extracted.",
+        "Mouse oral outcomes for this scaffold do not establish Adamax or other peptides as orally effective."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/25046994/"
+    },
+    {
+      "id": "p021_prevention",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1186%2Fs13195-017-0273-7&format=json&resultType=core&pageSize=3",
+      "title": "Prevention of dendritic and synaptic deficits and cognitive impairment with a neurotrophic compound.",
+      "pmid": "28655344",
+      "doi": "10.1186/s13195-017-0273-7",
+      "pmcid": "PMC5488423",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5488423/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "444bd13e2cc3cac8c2dcb2f2634e0c9ad281de14f613ce4b3f5e44d8659a325a",
+      "bytes": 128036,
+      "limits": [
+        "Artificial-fluid/plasma stability claims cite prior work, rather than a new stability study here.",
+        "Preclinical chronic oral outcomes do not isolate acetylation or adamantane contributions."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/28655344/"
+    },
+    {
+      "id": "epitalon_cell",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A40908429&format=json&resultType=core&pageSize=3",
+      "title": "Epitalon increases telomere length in human cell lines through telomerase upregulation or ALT activity.",
+      "pmid": "40908429",
+      "doi": "10.1007/s10522-025-10315-x",
+      "pmcid": "PMC12411320",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12411320/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "168c8560946675e0553a4b485285f0754dde9bb95cb63051bdc9b6a81e277f41",
+      "bytes": 157509,
+      "limits": [
+        "Cell-line telomere endpoints, including cancer lines, are not healthy-human rejuvenation or oral PK.",
+        "No capped-versus-parent comparison supplied by this study."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/40908429/"
+    },
+    {
+      "id": "NCT07505745",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT07505745",
+      "sha256": "19a16085e5b4cfbb815779e1a47003bd0dd36a33c01b4d032f81824dbbb9d6fb",
+      "bytes": 9168,
+      "access_mode": "official_registry_api",
+      "limits": [
+        "Registry reports Recruiting and subcutaneous route; no posted results at retrieval.",
+        "Listing does not independently verify active recruitment, exact material identity or efficacy."
+      ],
+      "canonical_primary_url": "https://clinicaltrials.gov/study/NCT07505745",
+      "record_summary": {
+        "title": "MOTS-c for Improving Insulin Sensitivity in Adults With Prediabetes and Overweight/Obesity",
+        "reported_status": "RECRUITING",
+        "last_update_posted": "2026-04-01",
+        "has_posted_results": false,
+        "route": "subcutaneous"
+      }
+    },
+    {
+      "id": "NCT03998514",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03998514",
+      "sha256": "ecca75ff971910232800dc39ff3fe45cb0c703441e2514a13f04cc86452bfb1d",
+      "bytes": 28002,
+      "access_mode": "official_registry_api",
+      "limits": [
+        "Completed subcutaneous CB4211 study; no posted results at retrieval.",
+        "CB4211 is not native MOTS-c; registry does not validate an oral native peptide."
+      ],
+      "canonical_primary_url": "https://clinicaltrials.gov/study/NCT03998514",
+      "record_summary": {
+        "title": "A Phase 1a/1b Study of CB4211 in Healthy Non-obese Subjects and Subjects With Nonalcoholic Fatty Liver Disease",
+        "reported_status": "COMPLETED",
+        "last_update_posted": "2021-05-11",
+        "has_posted_results": false,
+        "route": "subcutaneous"
+      }
+    },
+    {
+      "id": "MOTS_c_pubchem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/146675088/property/MolecularFormula,MolecularWeight,ExactMass,MonoisotopicMass,InChIKey,InChI,SMILES/JSON",
+      "canonical_primary_url": "https://pubchem.ncbi.nlm.nih.gov/compound/146675088",
+      "access_mode": "official_property_api",
+      "sha256": "5279752d588f041375b9c3f7a15c7f122db23f5e3b166365591997b5ed5e9c80",
+      "bytes": 1652,
+      "limits": [
+        "Graph identity reference; not biological or PK validation."
+      ]
+    },
+    {
+      "id": "Epitalon_pubchem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/219042/property/MolecularFormula,MolecularWeight,ExactMass,MonoisotopicMass,InChIKey,InChI,SMILES/JSON",
+      "canonical_primary_url": "https://pubchem.ncbi.nlm.nih.gov/compound/219042",
+      "access_mode": "official_property_api",
+      "sha256": "b1e4fd1aaf58d3143ffa2b8e618298d97e05757c48801e2803dc3f7dd6b8f027",
+      "bytes": 595,
+      "limits": [
+        "Graph identity reference; not biological or PK validation."
+      ]
+    },
+    {
+      "id": "N_acetyl_Epitalon_pubchem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/171390141/property/MolecularFormula,MolecularWeight,ExactMass,MonoisotopicMass,InChIKey,InChI,SMILES/JSON",
+      "canonical_primary_url": "https://pubchem.ncbi.nlm.nih.gov/compound/171390141",
+      "access_mode": "official_property_api",
+      "sha256": "c831d373c1e73bf1f2af51cb575ebe03ddbf19c94bd86f80b53cf202adc89be9",
+      "bytes": 627,
+      "limits": [
+        "Graph identity reference; not biological or PK validation."
+      ]
+    },
+    {
+      "id": "semax_acetyl_proteolysis",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A23652441&format=json&resultType=core&pageSize=2",
+      "title": "Stability of Semax acetyl to proteolysis in various biological media.",
+      "pmid": "23652441",
+      "doi": "10.1134/s0012496613020166",
+      "access_mode": "official_primary_metadata_no_abstract",
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/23652441/",
+      "limits": [
+        "Indexed stability study exists, but no abstract in the retrieved metadata.",
+        "No numerical stability benefit or identity of the C-terminal form is inferred from its title."
+      ]
+    }
+  ],
+  "scoped_searches": [
+    {
+      "query": "TITLE_ABS:(\"acetyl epitalon\" OR \"acetyl epithalon\" OR \"acetyl epithalone\")",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3A%28%22acetyl+epitalon%22+OR+%22acetyl+epithalon%22+OR+%22acetyl+epithalone%22%29&format=json&resultType=core&pageSize=10",
+      "hit_count": 0,
+      "results": [],
+      "limits": [
+        "Scoped title/abstract search, not proof that no experiment exists under other names or outside this index."
+      ]
+    },
+    {
+      "query": "TITLE_ABS:adamax AND TITLE_ABS:(semax OR peptide OR nootropic OR adamantane)",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3Aadamax+AND+TITLE_ABS%3A%28semax+OR+peptide+OR+nootropic+OR+adamantane%29&format=json&resultType=core&pageSize=10",
+      "hit_count": 0,
+      "results": [],
+      "limits": [
+        "Scoped title/abstract search, not proof that no experiment exists under other names or outside this index."
+      ]
+    }
+  ]
+}

@@ -24,6 +24,10 @@ The [SLU-PP-915 comparator study](../slu915-oral-comparators-2026-10-09/README.m
 adds exact parent/product graphs, published positional-isomer responses and
 four unvalidated comparison structures. It defines no improved oral drug.
 
+The [peptide-delivery transfer audit](../peptide-delivery-transfer-2026-10-09/README.md)
+adds MOTS-c target/tissue and sequence-variant evidence, updated native-name
+trial context, nine exact terminal comparisons and direct Semax/P021 precedents.
+
 ## Biological age is a collection of measurements
 
 Human plasma-proteomic research estimated distinct aging signatures for eleven
@@ -139,6 +143,11 @@ development was attempted, not its success. [Single-administration registry](htt
 CB4211 has a completed human phase-I registry record, also without posted
 results in that record; it is not a validation of oral native MOTS-c.
 [CB4211 registry](https://clinicaltrials.gov/study/NCT03998514).
+
+An October 9 follow-up also verified a native-name MOTS-c record reporting
+Recruiting and subcutaneous administration, without posted results; it does
+not establish oral efficacy. See [the dated registry assessment](../peptide-delivery-transfer-2026-10-09/README.md)
+and [NCT07505745](https://clinicaltrials.gov/study/NCT07505745).
 
 One recent oral colon-targeted nanoparticle paper attached SS-31 to a carrier
 containing kaempferol. Its mouse colitis result is local composite-platform
