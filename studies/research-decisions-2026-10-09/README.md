@@ -12,6 +12,12 @@ for each program. The [CSV index](molecule_index.csv) connects every graph to it
 original identity, evidence qualification and review. The
 [JSON catalog](research_catalog.json) retains both the programs and provenance.
 
+The [online research explorer](https://dylanstechmann.github.io/geroscience-compound-atlas/research.html)
+adds program/role filters and text search. Each molecular card retains its
+original qualification and links to the review and graph archive at source
+commit `47d1b94fbaf76c43d2faa77d16bc168debc2c9f0`. Programs without an exact graph
+panel display their unresolved questions rather than placeholder molecules.
+
 ## What the catalog contains
 
 | Graph archive | Total | Published biological references | Confirmed transformation products | Identity reference only | Unvalidated comparisons |
@@ -87,6 +93,22 @@ From this directory, using the repository's review runtime:
 ../../.venv/atlas-review-runtime/bin/python -m unittest test_catalog -v
 ../../.venv/atlas-review-runtime/bin/ruff check . --ignore EXE002
 ```
+
+Build or verify the public page and its JSON download with:
+
+```sh
+../../.venv/atlas-review-runtime/bin/python build_site.py
+../../.venv/atlas-review-runtime/bin/python build_site.py --check
+../../.venv/atlas-review-runtime/bin/python -m unittest test_catalog test_site -v
+```
+
+The site builder first rebuilds the catalog in memory and rejects a stale
+saved catalog. Check mode compares saved publication outputs without rewriting
+them. Four publication checks cover embedded-data containment, stale catalogs,
+saved-output consistency and preserving an existing page on validation failure.
+GitHub Actions runs these alongside the eight catalog checks. A later scientific
+snapshot requires explicit source review and a deliberate source-commit update;
+the explorer does not refresh evidence automatically.
 
 The eight integration checks cover counts and coverage, verbatim qualification
 and identity transfer, altered hashes, new/stale/duplicate records, invalid

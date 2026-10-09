@@ -559,3 +559,27 @@ These checks validate the catalog, not biological improvement or human use.
 No improved oral drug, stimulant reversal agent, reproductive protection or
 rejuvenation effect is established. Curated grades, frozen inputs, splits,
 thresholds and model/generator configurations were unchanged.
+
+## Public research explorer and publication checks — 2026-10-09
+
+The AI coding assistant added a static research explorer in `site/research.html`
+and a matching JSON download. It organizes the existing 28 graph records and ten
+programs without adding scientific evidence or upgrading any hypothesis. Program,
+role and text filters preserve original qualifications, source reviews and
+supported/unsupported decision branches. Programs without a graph panel display
+the missing design requirements. Source links identify the exact prior snapshot
+commit. The dashboard and its generator link to the explorer.
+
+The deterministic publisher rejects a stale catalog before writing. Its check
+mode verifies saved publication outputs. Embedded source JSON cannot end its
+script element; browser rendering uses text content. GitHub CI now runs the
+eight catalog checks and four publication checks, then checks saved outputs.
+
+All **162 repository tests** and **12 catalog/publication checks** passed in
+Docker `dev`; study-code Ruff and whitespace checks passed. Browser checks
+verified program/role intersections, text search, reset and the no-panel state;
+the page layout was inspected and no browser warning/error was observed.
+These checks validate navigation and publication, not drug efficacy. No
+curated grade, training input, scaffold split, threshold or generator setting
+changed. The public framing remains a personal hobby and learning project with
+substantial AI coding assistance.

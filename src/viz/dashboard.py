@@ -759,6 +759,7 @@ def build_dashboard_html(
             <p class="pitch" style="margin-top: 0.75rem; font-size: 0.9rem;">
                 Personal hobby and learning project, developed with substantial assistance from AI coding tools.
             </p>
+            <p style="margin-top:0.75rem;"><a href="research.html" style="color:#93c5fd;">Explore research decisions: oral delivery, organ targeting and stimulant reversal</a></p>
         </div>
         <div>
             <span class="safety-banner">

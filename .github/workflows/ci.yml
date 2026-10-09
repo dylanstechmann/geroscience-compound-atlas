@@ -24,3 +24,8 @@ jobs:
           python -m pip install -c requirements-ci.txt -e '.[dev]'
       - name: Run unit tests
         run: python -m pytest tests/ -q
+      - name: Verify research snapshot and published page
+        working-directory: studies/research-decisions-2026-10-09
+        run: |
+          python -m unittest test_catalog test_site -v
+          python build_site.py --check

@@ -45,6 +45,11 @@ evidence roles, preserved source qualifications and decision branches.
 Hash-pinned graph inputs make changed or unmapped records fail a rebuild.
 The guide organizes the existing reviews; it assigns no efficacy ranking.
 
+The [research explorer](https://dylanstechmann.github.io/geroscience-compound-atlas/research.html)
+provides program, graph-role and text filters with original qualifications,
+decision branches, source reviews and a downloadable catalog. Publication
+checks reject a stale source snapshot or generated page.
+
 The [October 9 research analysis](studies/oral-targeting-feasibility-2026-10-09/README.md)
 examines organ-specific aging endpoints, oral SLU-PP-915 and peptide delivery,
 SS-31 duration/manufacturing hypotheses, caffeine sequestration and

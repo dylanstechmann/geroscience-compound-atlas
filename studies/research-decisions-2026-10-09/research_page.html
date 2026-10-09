@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research decisions | Geroscience Compound Atlas</title>
+<style>
+:root { color-scheme: dark; --bg:#0b101b; --panel:#141e30; --line:#33425b; --text:#edf2fb; --muted:#b4c1d4; --accent:#99d5fd; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,sans-serif; }
+main { max-width:1200px; padding:32px 24px 60px; margin:auto; }
+a { color:var(--accent); text-underline-offset:3px; }
+a:hover { color:#fff; }
+h1 { font-size:clamp(2rem,5vw,3rem); line-height:1.15; margin:12px 0 16px; }
+h2 { font-size:1.35rem; margin:24px 0 12px; }
+h3 { font-size:1.06rem; margin:0 0 12px; overflow-wrap:anywhere; }
+p { margin:8px 0; }
+.muted, small { color:var(--muted); }
+.intro { max-width:880px; }
+.notice { border-left:4px solid #e9b967; padding:12px 18px; background:#25221e; margin:22px 0; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:22px 0; }
+.stat, .card, .decision { border:1px solid var(--line); background:var(--panel); border-radius:12px; padding:18px; }
+.stat strong { display:block; font-size:1.7rem; }
+.filters { display:flex; gap:14px; flex-wrap:wrap; align-items:end; margin:20px 0; }
+label { display:block; flex:1; min-width:180px; font-size:.9rem; }
+input, select, button { font:inherit; color:var(--text); border:1px solid #617794; background:#0b101b; border-radius:6px; padding:10px; width:100%; margin-top:6px; }
+button { cursor:pointer; width:auto; min-height:46px; }
+:focus-visible { outline:3px solid #c6e7fd; outline-offset:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:16px; }
+.decision { margin:12px 0; }
+summary { cursor:pointer; font-weight:650; }
+details[open] summary { margin-bottom:14px; }
+.decision dl { margin:0; }
+dt { font-weight:650; margin-top:12px; }
+dd { margin:4px 0 0; }
+.role { display:inline-block; color:#d6e6f9; background:#223750; border-radius:5px; padding:3px 8px; font-size:.8rem; margin-bottom:12px; }
+.qualification { border-left:3px solid #e9b967; padding-left:12px; }
+code { font-size:.85rem; overflow-wrap:anywhere; white-space:pre-wrap; }
+.identity { margin-top:16px; }
+.identity p { font-size:.9rem; }
+.empty { border:1px dashed var(--line); padding:24px; color:var(--muted); }
+.downloads { display:flex; flex-wrap:wrap; gap:18px; }
+footer { border-top:1px solid var(--line); margin-top:34px; padding-top:20px; font-size:.9rem; }
+@media(max-width:600px) { main { padding:22px 16px 40px; } .filters label { min-width:100%; } }
+</style>
+</head>
+<body>
+<main>
+<nav aria-label="Project navigation"><a href="index.html">← Compound atlas</a></nav>
+<header class="intro">
+<p class="muted">Research snapshot · October 9, 2026</p>
+<h1>What would make a modification useful?</h1>
+<p>Explore defined molecular comparisons and the unresolved questions behind oral delivery, duration, organ targeting and stimulant reversal.</p>
+<p class="muted">A personal hobby and learning project, developed with substantial AI coding assistance. This page organizes existing reviews; it adds no experimental results or new literature search.</p>
+</header>
+<div class="notice"><strong>Structure identity, exposure and useful function are separate outcomes.</strong>
+<p>No comparison here establishes an improved human-use drug, rejuvenation effect, stimulant antidote or reproductive protection. Published references can include diminished function. Roles describe the comparison's provenance, not its quality or an atlas evidence grade.</p></div>
+<div id="stats" class="stats" aria-label="Snapshot totals"></div>
+<p class="downloads"><a href="research-catalog.json" download>Download catalog JSON</a><a id="guide-link">Read the full decision guide</a></p>
+<section aria-labelledby="filter-heading">
+<h2 id="filter-heading">Choose a research question</h2>
+<div class="filters">
+<label>Program<select id="program"><option value="">All programs</option></select></label>
+<label>Graph role<select id="role"><option value="">All roles</option></select></label>
+<label>Search molecular records<input id="query" type="search" placeholder="Name, formula, identity or qualification"></label>
+<button id="reset" type="button">Reset filters</button>
+</div>
+<p class="muted">Program selection shows its decision branches and linked graphs. Role and text filters apply to molecular records.</p>
+<div id="decisions"></div>
+</section>
+<section aria-labelledby="graph-heading">
+<h2 id="graph-heading">Defined molecular comparisons</h2>
+<p id="results" role="status" aria-live="polite"></p>
+<div id="records" class="grid"></div>
+</section>
+<noscript><p>This explorer requires JavaScript. The catalog download and the repository's Markdown decision guide contain the full snapshot.</p><a href="https://github.com/dylanstechmann/geroscience-compound-atlas/tree/main/studies/research-decisions-2026-10-09">Open the repository guide</a></noscript>
+<footer>
+<p>The molecular archives are hash-pinned. Review and graph links point to the source commit used for this snapshot; they are computational definitions rather than independent chemical validation.</p>
+<p>No owner laboratory work or source review is claimed. Original source-access limits and biological qualifications remain in the linked reviews.</p>
+</footer>
+</main>
+<script id="catalog" type="application/json">@@CATALOG@@</script>
+<script>
+'use strict';
+const catalog = JSON.parse(document.getElementById('catalog').textContent);
+const sourceBase = '@@SOURCE_BASE@@';
+const roles = {
+  published_biological_reference:'Published biological reference',
+  confirmed_transformation_product:'Confirmed transformation product',
+  identity_reference_only:'Identity reference only',
+  unvalidated_comparison:'Unvalidated comparison'
+};
+const get = id => document.getElementById(id);
+function node(tag, value, className) {
+  const el = document.createElement(tag);
+  if (value !== undefined) el.textContent = value;
+  if (className) el.className = className;
+  return el;
+}
+function link(label, path) {
+  const a = node('a', label);
+  a.href = sourceBase + path;
+  return a;
+}
+function field(dl, label, value) {
+  dl.append(node('dt', label), node('dd', value));
+}
+function decision(p, open) {
+  const details = node('details', undefined, 'decision');
+  details.open = open;
+  details.append(node('summary', p.name));
+  const dl = node('dl');
+  for (const [label, key] of [['Objective','objective'],['Starting evidence','starting_point'],['First unresolved question','first_question'],['If supported','if_supported'],['If unresolved or unsupported','if_not_supported'],['Required measurements','requirements'],['Unsupported shortcut','invalid_shortcut']]) {
+    field(dl, label, Array.isArray(p[key]) ? p[key].join('; ') : p[key]);
+  }
+  const refs = node('p');
+  const primary = node('a', 'Primary reference');
+  primary.href = p.primary_url;
+  refs.append(primary, document.createTextNode(' · '), link('Review and limits', p.review_path));
+  details.append(dl, refs);
+  return details;
+}
+function record(r) {
+  const card = node('article', undefined, 'card');
+  card.append(node('span', roles[r.graph_role], 'role'), node('h3', r.archive_id.replaceAll('_', ' ')));
+  card.append(node('p', catalog.role_definitions[r.graph_role], 'muted'));
+  card.append(node('p', r.archive_evidence_status));
+  const qualification = node('div', undefined, 'qualification');
+  qualification.append(node('strong', r.qualification_field.replaceAll('_', ' ')), node('p', r.archive_qualification));
+  card.append(qualification);
+  card.append(node('p', r.neutral_formula + ' · neutral average mass ' + r.neutral_average_mass_Da.toFixed(3) + ' Da'));
+  const refs = node('p');
+  refs.append(link('Source review', r.review_path), document.createTextNode(' · '), link('Graph archive', r.source_path));
+  card.append(refs);
+  const identity = node('details', undefined, 'identity');
+  identity.append(node('summary', 'Identity and provenance'));
+  for (const [label, key] of [['Record','id'],['Isomeric SMILES','isomeric_smiles'],['Standard InChIKey','standard_inchi_key'],['Source SHA-256','source_sha256']]) {
+    const p = node('p');
+    p.append(node('strong', label + ': '), node('code', r[key]));
+    identity.append(p);
+  }
+  card.append(identity);
+  return card;
+}
+function update() {
+  const selected = catalog.programs.find(p => p.id === get('program').value);
+  get('decisions').replaceChildren(...(selected ? [selected] : catalog.programs).map(p => decision(p, Boolean(selected))));
+  const term = get('query').value.trim().toLowerCase();
+  const rows = catalog.records.filter(r =>
+    (!selected || selected.linked_graphs.includes(r.id)) &&
+    (!get('role').value || r.graph_role === get('role').value) &&
+    (!term || [r.id, r.neutral_formula, r.standard_inchi_key, r.archive_evidence_status, r.archive_qualification, r.isomeric_smiles].join(' ').toLowerCase().includes(term)));
+  get('results').textContent = rows.length + ' of ' + catalog.records.length + ' graph records shown. Roles are not efficacy rankings.';
+  get('records').replaceChildren(...rows.map(record));
+  if (!rows.length) get('records').append(node('p', selected && !selected.linked_graphs.length ? 'This program has no exact graph panel in this snapshot. Its unresolved questions and required measurements are shown above.' : 'No records match these filters. Reset or change the selection.', 'empty'));
+}
+get('guide-link').href = sourceBase + 'studies/research-decisions-2026-10-09/PROGRAMS.md';
+for (const p of catalog.programs) {
+  const option = node('option', p.name); option.value = p.id; get('program').append(option);
+}
+for (const [role, label] of Object.entries(roles)) {
+  const option = node('option', label); option.value = role; get('role').append(option);
+}
+for (const [label, total] of [['Defined graphs',catalog.records.length],['Research programs',catalog.programs.length],['Published references',catalog.role_counts.published_biological_reference],['Unvalidated comparisons',catalog.role_counts.unvalidated_comparison]]) {
+  const card = node('div', undefined, 'stat'); card.append(node('strong', String(total)), node('span', label)); get('stats').append(card);
+}
+get('program').addEventListener('change', update);
+get('role').addEventListener('change', update);
+get('query').addEventListener('input', update);
+get('reset').addEventListener('click', () => { get('program').value=''; get('role').value=''; get('query').value=''; update(); });
+update();
+</script>
+</body>
+</html>
