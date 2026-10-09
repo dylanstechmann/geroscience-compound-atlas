@@ -311,3 +311,27 @@ and both configuration files. Generated cards from this check are local under
 `.venv/review-hypotheses`; they are surrogate artifacts, not measured activity
 or evidence of rejuvenation. Existing hypothesis archives and QED=0 sensitivity
 outputs were preserved. No new source reading or biological result is claimed.
+
+## Oral delivery and selective-exposure feasibility — 2026-10-09
+
+An AI coding assistant prepared a [focused primary-source feasibility analysis](studies/oral-targeting-feasibility-2026-10-09/README.md)
+covering organ-specific biological-age endpoints, SLU-PP-915, SS-31, MOTS-c,
+acetylated Epitalon, stimulant reversal and reproductive-sparing rapamycin
+development. This is agent-run research; no biological finding or paper review
+is attributed to the owner.
+
+The study archives real Europe PMC search and ClinicalTrials.gov registry
+receipts, eight peptide reference/hypothesis specifications with chemistry
+bookkeeping, five synthetic exposure scenarios, thirty synthetic equilibrium
+binding scenarios, and a rendered comparison figure. It separates current
+observations from proposed modifications and highlights failed or missing
+evidence. It does not update the curated evidence table, benchmark, generator,
+review statuses or claims of oral/human efficacy. No analog was synthesized,
+optimized against a validated model or shown to reduce reproductive risk.
+
+All seven physical/reference checks passed in Docker `dev`. They cover
+stoichiometric capacity, conservation, affinity/capacity monotonicity,
+limiting behavior, invalid parameters, exposure tradeoffs and the FDA reference
+peptide mass. The figure was visually inspected. The standalone model uses
+only the standard library; plotting uses matplotlib. These checks verify the
+calculations, not biological validity.

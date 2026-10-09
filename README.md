@@ -37,6 +37,16 @@ from the existing audit receipts with `python -B tools/build_evidence_review.py`
 the builder refuses stale triage or summary files. No source identifiers,
 recorded claims or grades in the curated CSV are changed by that command.
 
+## Oral delivery and tissue-targeting feasibility
+
+The [October 9 research analysis](studies/oral-targeting-feasibility-2026-10-09/README.md)
+examines organ-specific aging endpoints, oral SLU-PP-915 and peptide delivery,
+SS-31 duration/manufacturing hypotheses, caffeine sequestration and
+reproductive-sparing mTOR targeting. It includes primary-source links,
+registry/search receipts, explicitly unvalidated peptide specifications and
+synthetic sensitivity calculations. It establishes no improved human-use drug,
+oral formulation or aging-reversal effect.
+
 ## Architecture
 
 The project is structured into four core modules:

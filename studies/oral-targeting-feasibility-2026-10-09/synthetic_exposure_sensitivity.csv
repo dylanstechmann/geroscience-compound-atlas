@@ -1,0 +1,6 @@
+synthetic_scenario,assumed_systemic_oral_bioavailability,half_life_relative,free_fraction_relative,cellular_access_relative,activity_relative,exposure_proxy_relative_to_reference
+synthetic_reference,0.01,1,1,1,1,1.0
+absorption_only_improved,0.1,1,1,1,1,10.0
+half_life_only_improved,0.01,4,1,1,1,4.0
+longer_lived_but_bound_and_poor_cell_access,0.01,4,0.05,0.5,1,0.1
+absorbed_but_activity_lost,0.1,1,1,1,0.05,0.5000000000000001

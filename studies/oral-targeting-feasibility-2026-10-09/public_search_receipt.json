@@ -1,0 +1,180 @@
+{
+  "retrieved_utc": "2026-10-09T05:52:26.723220+00:00",
+  "searches": [
+    {
+      "query": "(TITLE_ABS:\"N-acetyl epitalon\" OR TITLE_ABS:\"N-acetyl epithalon\" OR TITLE_ABS:\"acetyl-epitalon\")",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3A%22N-acetyl+epitalon%22+OR+TITLE_ABS%3A%22N-acetyl+epithalon%22+OR+TITLE_ABS%3A%22acetyl-epitalon%22%29&format=json&pageSize=25",
+      "hit_count": 0,
+      "records": []
+    },
+    {
+      "query": "TITLE_ABS:Adamax AND (TITLE_ABS:Semax OR TITLE_ABS:peptide OR TITLE_ABS:pharmacokinetics)",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3AAdamax+AND+%28TITLE_ABS%3ASemax+OR+TITLE_ABS%3Apeptide+OR+TITLE_ABS%3Apharmacokinetics%29&format=json&pageSize=25",
+      "hit_count": 1,
+      "records": [
+        {
+          "id": "41241764",
+          "source": "MED",
+          "title": "Neural Controlled Differential Equation and Its Application in Pharmacokinetics and Pharmacodynamics.",
+          "doi": "10.1002/psp4.70146",
+          "pubYear": "2026"
+        }
+      ]
+    },
+    {
+      "query": "TITLE_ABS:\"SLU-PP-915\"",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3A%22SLU-PP-915%22&format=json&pageSize=25",
+      "hit_count": 7,
+      "records": [
+        {
+          "id": "41588687",
+          "source": "MED",
+          "title": "In Vitro Metabolism and Analytical Characterization of SLU-PP-332 and SLU-PP-915: Novel Pan-ERR Agonists With Doping Potential.",
+          "doi": "10.1002/rcm.70039",
+          "pubYear": "2026"
+        },
+        {
+          "id": "41421047",
+          "source": "MED",
+          "title": "An orally active estrogen receptor-related receptor agonist, SLU-PP-915, enhances aerobic exercise capacity.",
+          "doi": "10.1016/j.jpet.2025.103787",
+          "pubYear": "2026"
+        },
+        {
+          "id": "42024694",
+          "source": "MED",
+          "title": "[Pharmacological Activation of ERR\u03b1/\u03b2/\u03b3 as an Exercise Mimetic: Potential Therapeutic Applications].",
+          "doi": "10.4067/s0034-98872026000200237",
+          "pubYear": "2026"
+        },
+        {
+          "id": "41750342",
+          "source": "MED",
+          "title": "Nuclear Receptor-Targeted Therapies: Reprogramming Metabolism with TR\u03b2, ERR\u03b1, and LXR Modulators.",
+          "doi": "10.3390/biom16020272",
+          "pubYear": "2026"
+        },
+        {
+          "id": "37421886",
+          "source": "MED",
+          "title": "Development and pharmacological evaluation of a new chemical series of potent pan-ERR agonists, identification of SLU-PP-915.",
+          "doi": "10.1016/j.ejmech.2023.115582",
+          "pubYear": "2023"
+        },
+        {
+          "id": "37961903",
+          "source": "MED",
+          "title": "Novel Pan-ERR Agonists Ameliorate Heart Failure Through Enhancing Cardiac Fatty Acid Metabolism and Mitochondrial Function.",
+          "doi": "10.1161/circulationaha.123.066542",
+          "pubYear": "2024"
+        },
+        {
+          "id": "PPR455004",
+          "source": "PPR",
+          "title": "Novel ERR pan-agonists ameliorate heart failure through boosting cardiac fatty acid metabolism and mitochondrial function",
+          "doi": "10.1101/2022.02.14.480431",
+          "pubYear": "2022"
+        }
+      ]
+    },
+    {
+      "query": "TITLE_ABS:\"SS-31\" AND TITLE_ABS:oral",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3A%22SS-31%22+AND+TITLE_ABS%3Aoral&format=json&pageSize=25",
+      "hit_count": 5,
+      "records": [
+        {
+          "id": "42708867",
+          "source": "MED",
+          "title": "Targeting Mitochondria in MASLD: Comparative Evaluation of MitoQ and SS-31 (Elamipretide) in Aged Female Mice under Nutritional Stress.",
+          "doi": null,
+          "pubYear": "2026"
+        },
+        {
+          "id": "42638278",
+          "source": "MED",
+          "title": "Oral Colon- and Mitochondria-Targeted Nanoparticles Alleviate Ulcerative Colitis by Reeducating Macrophage Polarization via SIRT3/FOXO3a-Mediated Mitochondrial Restoration.",
+          "doi": "10.1111/jgh.70668",
+          "pubYear": "2026"
+        },
+        {
+          "id": "39069114",
+          "source": "MED",
+          "title": "SS-31 mitigates oxidative stress and restores mitochondrial function in cigarette smoke-damaged oral epithelial cells via PINK1-mediated mitophagy.",
+          "doi": "10.1016/j.cbi.2024.111166",
+          "pubYear": "2024"
+        },
+        {
+          "id": "PPR783835",
+          "source": "PPR",
+          "title": "Biomaterials Functionalized with Inflammasome Inhibitors - Premises and Perspectives",
+          "doi": "10.20944/preprints202401.0310.v1",
+          "pubYear": "2024"
+        },
+        {
+          "id": "38391885",
+          "source": "MED",
+          "title": "Biomaterials Functionalized with Inflammasome Inhibitors-Premises and Perspectives.",
+          "doi": "10.3390/jfb15020032",
+          "pubYear": "2024"
+        }
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "nct_id": "NCT01754818",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01754818",
+      "title": "A Phase 1 Study Examining the Pharmacokinetics and Tolerability of a Single Oral Dose of Bendavia (MTP-131)",
+      "status": "COMPLETED",
+      "last_update": {
+        "date": "2013-02-06",
+        "type": "ESTIMATED"
+      },
+      "has_results": false,
+      "phases": [
+        "PHASE1"
+      ],
+      "enrollment": {
+        "count": 30,
+        "type": "ACTUAL"
+      }
+    },
+    {
+      "nct_id": "NCT01786915",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT01786915",
+      "title": "Safety and Pharmacokinetic (PK) Study of Oral Bendavia Administered for 7 Days",
+      "status": "COMPLETED",
+      "last_update": {
+        "date": "2014-04-02",
+        "type": "ESTIMATED"
+      },
+      "has_results": false,
+      "phases": [
+        "PHASE1"
+      ],
+      "enrollment": {
+        "count": 30,
+        "type": "ACTUAL"
+      }
+    },
+    {
+      "nct_id": "NCT03998514",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03998514",
+      "title": "A Phase 1a/1b Study of CB4211 in Healthy Non-obese Subjects and Subjects With Nonalcoholic Fatty Liver Disease",
+      "status": "COMPLETED",
+      "last_update": {
+        "date": "2021-05-11",
+        "type": "ACTUAL"
+      },
+      "has_results": false,
+      "phases": [
+        "PHASE1"
+      ],
+      "enrollment": {
+        "count": 88,
+        "type": "ACTUAL"
+      }
+    }
+  ],
+  "limits": "Search counts do not prove absence of research. Registry records do not establish efficacy."
+}
