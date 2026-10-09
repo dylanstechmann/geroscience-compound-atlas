@@ -63,6 +63,11 @@ evidence, source-access receipts and a reconstruction of published binding
 equilibria. It distinguishes aggregate affinity from a one-site Kd and
 defines the missing oral exposure, metabolite and sleep evidence.
 
+The [SLU-PP-915 comparator study](studies/slu915-oral-comparators-2026-10-09/README.md)
+adds ten exact molecular graphs, published ERR response comparisons and
+four unvalidated structural hypotheses. It retains microsomal lower bounds
+and separates parent, precursors and confirmed transformation products.
+
 ## Architecture
 
 The project is structured into four core modules:

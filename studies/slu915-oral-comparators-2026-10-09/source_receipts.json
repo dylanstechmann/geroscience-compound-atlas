@@ -1,0 +1,76 @@
+{
+  "retrieved_at_utc": "2026-10-09T16:48:48.158124+00:00",
+  "sources": [
+    {
+      "id": "slu_discovery",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A37421886&format=json&resultType=core&pageSize=3",
+      "title": "Development and pharmacological evaluation of a new chemical series of potent pan-ERR agonists, identification of SLU-PP-915.",
+      "pmid": "37421886",
+      "doi": "10.1016/j.ejmech.2023.115582",
+      "pmcid": "PMC10399613",
+      "fulltext_error": "HTTP Error 500: ",
+      "access_mode": "official_NCBI_BioC_full_text",
+      "fulltext_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10399613/unicode",
+      "sha256": "44f6ca0e66ed5f93c0e93cf968a44688d54910d98d0f20ce1008316d7752d621",
+      "bytes": 209682,
+      "sections_read": [
+        "SAR and docking",
+        "Tables 2, 4, 5",
+        "Systematic names of 10q, 10r, 10s"
+      ],
+      "limits": [
+        "Microsomal half-lives >60 min are lower bounds, not systemic PK.",
+        "Docking poses are proposed, not resolved protein-ligand structures.",
+        "BioC table substitution diagrams can be omitted; graph definitions use explicit systematic names."
+      ],
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/37421886/"
+    },
+    {
+      "id": "slu_oral",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A41421047&format=json&resultType=core&pageSize=3",
+      "title": "An orally active estrogen receptor-related receptor agonist, SLU-PP-915, enhances aerobic exercise capacity.",
+      "pmid": "41421047",
+      "doi": "10.1016/j.jpet.2025.103787",
+      "pmcid": null,
+      "access_mode": "official_primary_abstract_metadata",
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/41421047/",
+      "limits": [
+        "Official primary abstract; no quantitative absolute bioavailability extracted.",
+        "Oral exercise findings are in mice, not a human oral or aging result."
+      ]
+    },
+    {
+      "id": "slu_metabolism",
+      "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMC12835572&format=json&resultType=core&pageSize=3",
+      "title": "In Vitro Metabolism and Analytical Characterization of SLU-PP-332 and SLU-PP-915: Novel Pan-ERR Agonists With Doping Potential.",
+      "pmid": "41588687",
+      "doi": "10.1002/rcm.70039",
+      "pmcid": "PMC12835572",
+      "fulltext_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12835572/fullTextXML",
+      "access_mode": "official_full_text_xml",
+      "sha256": "fda3a2d9c359b6cf613c3b2b98e219358d84ae6e54807bf54eceedbafd40bab0",
+      "bytes": 111796,
+      "canonical_primary_url": "https://pubmed.ncbi.nlm.nih.gov/41588687/",
+      "sections_read": [
+        "Systematic identity of parent and M1/M3/M4",
+        "Table 2",
+        "In vitro transformation and enzyme-blank findings"
+      ],
+      "limits": [
+        "Analytical product identification, not clearance fractions or retained ERR activity.",
+        "M6 assigned to hydroxylation on the aniline ring; exact carbon is not established here."
+      ]
+    },
+    {
+      "id": "slu_pubchem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/142532359/property/MolecularFormula,MolecularWeight,ExactMass,InChIKey,InChI,SMILES/JSON",
+      "canonical_primary_url": "https://pubchem.ncbi.nlm.nih.gov/compound/142532359",
+      "access_mode": "official_property_api",
+      "sha256": "975943ed385d6bc4d9906e8d3ccf218f5c34080c43759ce0f75571576b79b36d",
+      "bytes": 472,
+      "limits": [
+        "Official graph/property reference for CID 142532359, not efficacy evidence."
+      ]
+    }
+  ]
+}

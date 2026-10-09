@@ -20,6 +20,10 @@ adds measured aqueous caffeine hosts, DNA/RNA aptamers, bacterial conversion
 evidence and a source-equilibrium reconstruction. Its measured constants
 are separate from the wholly synthetic models in this initial analysis.
 
+The [SLU-PP-915 comparator study](../slu915-oral-comparators-2026-10-09/README.md)
+adds exact parent/product graphs, published positional-isomer responses and
+four unvalidated comparison structures. It defines no improved oral drug.
+
 ## Biological age is a collection of measurements
 
 Human plasma-proteomic research estimated distinct aging signatures for eleven

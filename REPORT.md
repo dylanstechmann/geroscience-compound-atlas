@@ -454,3 +454,39 @@ excluded for Windows bind-mount executable flags. Calculation checks include
 independent analytic references, a constructed multimer state, mass conservation
 and two-guests-per-host accounting. Curated evidence grades/tables, frozen
 inputs, splits, thresholds and generator configurations were unchanged.
+
+## SLU-PP-915 exact oral-development comparisons — 2026-10-09
+
+The AI coding assistant added a [SLU-PP-915 comparator study](studies/slu915-oral-comparators-2026-10-09/README.md)
+with ten exact neutral molecular graphs: parent, published 10q/10r ERR
+comparators, reference-confirmed M1/M3/M4 products, and four unvalidated
+structural comparisons. The hypotheses are two difluoro-aniline positional
+variants, an amide N-methyl comparator and a pinacol-ester precursor. None
+has a claimed synthesis, improved oral performance, novelty, safety or aging
+effect. No owner laboratory work or source review is claimed.
+
+Three primary-source receipts and one official PubChem receipt preserve
+access limitations and downloaded-file hashes. The discovery full text was
+read via official NCBI BioC after Europe PMC fullTextXML failed. Microsomal
+half-lives reported as >60 minutes remain censored lower bounds; reported
+EC50 and maximal response stay distinct. The oral-study assessment is based
+on its official abstract and supplies no numerical absolute availability.
+M6's aniline-ring assignment is not promoted to a known hydroxylation carbon.
+Apparent source analytical-mass inconsistencies are documented, not inserted
+as chemical identity references. Copyrighted full text remains ignored.
+
+JSON/SDF and visually inspected 2D depictions define the panel. Parent matches
+independently retrieved PubChem formula, exact mass and stereochemical
+InChIKey. Both default RDKit TPSA and sulfur-inclusive TPSA are recorded so
+descriptor conventions are not silently combined. No classifier or oral
+drug-likeness ranking is assigned. The review defines retained activity,
+chemical recovery, active-species, free/tissue exposure and route-reference
+requirements for assessing oral improvement.
+
+All **8 structural checks** and **9 prescribed hypothesis-filter/split tests**
+passed in Docker `dev`; new-code Ruff passed with the Windows bind-mount
+`EXE002` excluded. Structural checks cover independent identity, source-product
+formula accounting, substitution distances, donor/connectivity changes and
+SDF/SMILES round trips. They validate molecular definitions, not biology.
+Curated evidence grades, frozen inputs, splits, thresholds and model/generator
+configurations were unchanged.

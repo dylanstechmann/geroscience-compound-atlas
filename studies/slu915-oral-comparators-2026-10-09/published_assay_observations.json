@@ -1,0 +1,40 @@
+{
+  "source_id": "slu_discovery",
+  "source_doi": "10.1016/j.ejmech.2023.115582",
+  "source_locations": ["Table 4", "Table 5", "In vitro microsomal stability"],
+  "activity_setting": "cellular co-transfection ERR agonism, not human exposure or aging benefit",
+  "efficacy_reference": "reported percentage relative to compound 6 (SLU-PP-332), within each assay",
+  "limits": [
+    "EC50 is not binding Kd or clinical potency.",
+    "Reported maximal responses and EC50 must be kept separate.",
+    "Microsomal experiments ran up to 60 minutes; >60 is a reported lower bound, not a point estimate.",
+    "No variability estimate is extracted here and no new comparison significance is asserted.",
+    "Compound 10r is absent from Table 5; no microsomal stability value is supplied for it."
+  ],
+  "records": [
+    {
+      "id": "SLU_PP_915", "publication_id": "10s",
+      "ERRalpha": {"EC50_uM": 0.414, "reported_efficacy_percent": 90},
+      "ERRbeta": {"EC50_uM": 0.435, "reported_efficacy_percent": 95},
+      "ERRgamma": {"EC50_uM": 0.378, "reported_efficacy_percent": 167},
+      "mouse_microsomal_half_life_min": {"relation": ">", "value": 60},
+      "human_microsomal_half_life_min": {"relation": ">", "value": 60}
+    },
+    {
+      "id": "published_10q", "publication_id": "10q",
+      "ERRalpha": {"EC50_uM": 0.108, "reported_efficacy_percent": 59},
+      "ERRbeta": {"EC50_uM": 0.117, "reported_efficacy_percent": 107},
+      "ERRgamma": {"EC50_uM": 0.238, "reported_efficacy_percent": 214},
+      "mouse_microsomal_half_life_min": {"relation": ">", "value": 60},
+      "human_microsomal_half_life_min": {"relation": ">", "value": 60}
+    },
+    {
+      "id": "published_10r", "publication_id": "10r",
+      "ERRalpha": {"EC50_uM": 0.030, "reported_efficacy_percent": 30},
+      "ERRbeta": {"EC50_uM": 0.089, "reported_efficacy_percent": 120},
+      "ERRgamma": {"EC50_uM": 0.182, "reported_efficacy_percent": 53},
+      "mouse_microsomal_half_life_min": {"status": "not_reported_in_table_5"},
+      "human_microsomal_half_life_min": {"status": "not_reported_in_table_5"}
+    }
+  ]
+}
