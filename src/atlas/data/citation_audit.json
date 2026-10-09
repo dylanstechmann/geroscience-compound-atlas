@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "scope": "identifier_titles_only",
+  "audit_date": "2026-10-07",
+  "inputs": {
+    "table": {
+      "path": "data/curated/curated_evidence.csv",
+      "rows": 57,
+      "sha256_lf": "1dbdc80c47d138bbc41b89872346dbdb7961ecc4f41fb54d7352e0118c6fecad"
+    },
+    "refcheck": {
+      "path": "docs/citation-audit-2026-10-07/refcheck_results.json",
+      "identifiers": 51,
+      "sha256_lf": "208bd5f87ad980d1dd9398de161ca4ef6ce11a163aaf9ab2ac7aa56544669814"
+    },
+    "second_sources": {
+      "path": "docs/citation-audit-2026-10-07/second_sources.json",
+      "sha256_lf": "b7c1f04e3d4f81b45922860f367c244fd80ea5b57c79920c8fb5f246c9986d9c"
+    }
+  },
+  "limits": [
+    "Titles only. The screen reads registry titles as retrieved on the audit date; no abstract or full text was read.",
+    "A resolved identifier shows that a record exists and how it is titled. It does not show that the paper supports the row's claim.",
+    "Registry records and service responses are dated 2026-10-07 and can change; the receipts here are the record of what was seen.",
+    "The curated table was not edited. No replacement identifiers were proposed or applied.",
+    "'Not found' means absent from PubMed and Europe PMC on the audit date (ChEMBL: HTTP 404 from its document endpoint, with a positive control passing).",
+    "The screen was written by an AI coding assistant. A person with the papers should check each category before any change."
+  ],
+  "records": [
+    {
+      "claim_sha256": "12b34a08fc6b8da77e16505f97fb790a22f3e27d5f1567968b39ff5688095b68",
+      "source_row_line": 2,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "19587680",
+          "registry_title": "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice.",
+          "screen": "on_topic",
+          "screen_note": "Title names rapamycin and lifespan in genetically heterogeneous mice. The recorded title matches."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "25237f9414d786425a1a8199117dac6b761d8fd430adf31fa1a8a9fca4eb3751",
+      "source_row_line": 3,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "20542383",
+          "registry_title": "Temporal changes of smoking status and motivation among Chinese heroin-dependent, methadone-maintained smokers.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about smoking status and motivation in heroin-dependent patients. Not rapamycin or autophagy."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "7d871660fd7b45c46a1ee70aba3cb5e4792522e810fee8dececa3863dd5242bf",
+      "source_row_line": 4,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "26140592",
+          "registry_title": "Single-Molecule Imaging Reveals that Argonaute Reshapes the Binding Properties of Its Nucleic Acid Guides.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about Argonaute and nucleic-acid guide binding. Not rapamycin or senescence."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "d21222e6c0e2eed5e760f220569b46bc709557a53bdeeb38b0d4460cde5100f3",
+      "source_row_line": 5,
+      "category": "not_found",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "24095454",
+          "registry_title": "",
+          "screen": "not_found",
+          "screen_note": "No PubMed article record (efetch returned none) and no Europe PMC hit. Europe PMC's positive control (PMID 19587680) returned one hit."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "5130e89d4b11890613ff7bb20bacf9cf3f9e4b649fda6f5362b5e4253356dc00",
+      "source_row_line": 6,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "19864835",
+          "registry_title": "Iron nutrition in infancy.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about iron nutrition in infancy. Not rapamycin or hematopoietic stem cells."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "db613bd2680b49d27ed010bddb68f48659b6f9d69e5570f672610e87e5118590",
+      "source_row_line": 7,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "28826136",
+          "registry_title": "Polychlorinated biphenyl concentrations, accumulation rates in soil from atmospheric deposition and analysis of their affecting landscape variables along an urban-rural gradient in Shanghai, China.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about PCB concentrations in soil along an urban-rural gradient in Shanghai. Not dasatinib, quercetin or senescent cells. Cited by two rows (7 and 11)."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "a6b8c620861f3699c1326adc07f0d4e469ab711c5bbea1088327e909cf58a498",
+      "source_row_line": 8,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30953051",
+          "registry_title": "Left Ventricular Remodeling and Masked Hypertension: Don't Forget Nighttime Diastolic Blood Pressure.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about left-ventricular remodeling and masked hypertension. Not dasatinib or SASP."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "3c4c525f84593fbfc611d9dd0b1d2eaecbc22710ecb580a1178921e75b751cc5",
+      "source_row_line": 9,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "25754376",
+          "registry_title": "Synthesis of oxazolidine-2,4-diones by a tandem phosphorus-mediated carboxylative condensation-cyclization reaction using atmospheric carbon dioxide.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about synthesizing oxazolidine-2,4-diones (chemistry). Not dasatinib or senescent preadipocytes."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "5a8b38ac198466e52be88ead214816e9a1f8e4a4a15ad48a96e6146ad2f27a39",
+      "source_row_line": 10,
+      "category": "chembl_not_found",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "CHEMBL",
+          "identifier": "CHEMBL768913",
+          "registry_title": "",
+          "screen": "chembl_not_found",
+          "screen_note": "ChEMBL document API returned HTTP 404; the positive control CHEMBL1132865 returned 200."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "2d57cf41f7764097a499ed664db87d94af3d87a02ecc2da9de6e45ea03d3a741",
+      "source_row_line": 11,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "28826136",
+          "registry_title": "Polychlorinated biphenyl concentrations, accumulation rates in soil from atmospheric deposition and analysis of their affecting landscape variables along an urban-rural gradient in Shanghai, China.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about PCB concentrations in soil along an urban-rural gradient in Shanghai. Not dasatinib, quercetin or senescent cells. Cited by two rows (7 and 11)."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "b4db64260e0ca2b752122f47bc3f8da440dd4c4e67207da18a45d6fd2c9b9234",
+      "source_row_line": 12,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27038166",
+          "registry_title": "Antiepileptic drugs with histone deacetylase inhibition activity and prostate cancer risk: a population-based case-control study.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about antiepileptic drugs and prostate cancer risk. Not quercetin, NF-kB or SASP."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "c3348a0fd0354b5ae884ba0d410191a239355719454f27df603087eec97203b0",
+      "source_row_line": 13,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "16443825",
+          "registry_title": "Identification of mouse palmitoyl-coenzyme A Delta9-desaturase.",
+          "screen": "title_unrelated",
+          "screen_note": "Title names a mouse palmitoyl-CoA desaturase. Not quercetin or SIRT1."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "9533f4faf7bcc2f23128f312875b25645bdab8929edb3f0d1b19732cc7ff81a2",
+      "source_row_line": 14,
+      "category": "chembl_not_found",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "CHEMBL",
+          "identifier": "CHEMBL1768407",
+          "registry_title": "",
+          "screen": "chembl_not_found",
+          "screen_note": "ChEMBL document API returned HTTP 404; the positive control CHEMBL1132865 returned 200."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "81e4d3e5853f44e071f1b8154e9a17933d30bba863e8d2ea7b641e31e71443ef",
+      "source_row_line": 15,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30279143",
+          "registry_title": "Fisetin is a senotherapeutic that extends health and lifespan.",
+          "screen": "on_topic",
+          "screen_note": "Title names fisetin as a senotherapeutic that extends health and lifespan. Covers both rows that cite it (senescent-cell burden and SASP); the SASP detail is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "c781f5f5dbeaab7b85cb4e82ea7765ac74c066f952334298faa201359858f9aa",
+      "source_row_line": 16,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30279143",
+          "registry_title": "Fisetin is a senotherapeutic that extends health and lifespan.",
+          "screen": "on_topic",
+          "screen_note": "Title names fisetin as a senotherapeutic that extends health and lifespan. Covers both rows that cite it (senescent-cell burden and SASP); the SASP detail is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "986ff7175f29defe2348ecfb84010fbc2bcc13838ba4decd047208a0d64827be",
+      "source_row_line": 17,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "29704257",
+          "registry_title": "Fibroblast Growth Factor Receptor Inhibition for Cholangiocarcinoma: Looking Through a Door Half-Opened.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about FGFR inhibition in cholangiocarcinoma. Not fisetin or neuronal autophagy."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "c9ed4ec9dab1e904facb70e2696e4a20cd3805584f5a10d43e1df4cfe3f2afec",
+      "source_row_line": 18,
+      "category": "on_topic_label_differs",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "25041462",
+          "registry_title": "Can people with type 2 diabetes live longer than those without? A comparison of mortality in people initiated with metformin or sulphonylurea monotherapy and matched, non-diabetic controls.",
+          "screen": "on_topic_label_differs",
+          "screen_note": "Title is on-topic (mortality after metformin or sulphonylurea monotherapy in people with type 2 diabetes). The row's recorded title does not describe this paper."
+        },
+        {
+          "identifier_kind": "PMID",
+          "identifier": "28802803",
+          "registry_title": "Metformin reduces all-cause mortality and diseases of ageing independent of its effect on diabetes control: A systematic review and meta-analysis.",
+          "screen": "on_topic_label_differs",
+          "screen_note": "Title is on-topic (metformin and all-cause mortality; systematic review and meta-analysis). The row's recorded title is not this paper's title and may describe another paper."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "d1eac2a8359d8caf1129a3e8e9891aa1348ad49e912a4f20af250817358ceb85",
+      "source_row_line": 19,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "10839993",
+          "registry_title": "Evidence that metformin exerts its anti-diabetic effects through inhibition of complex 1 of the mitochondrial respiratory chain.",
+          "screen": "on_topic",
+          "screen_note": "Title names metformin and inhibition of complex 1 of the mitochondrial respiratory chain, which fits the mild complex I row. The hepatocyte detail is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "4265ce0411a35f494732814c713e326ed3e680b36f18907dcb049d0f8c09f12c",
+      "source_row_line": 20,
+      "category": "not_found",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "21303889",
+          "registry_title": "",
+          "screen": "not_found",
+          "screen_note": "No PubMed article record (efetch returned none) and no Europe PMC hit. Europe PMC's positive control (PMID 19587680) returned one hit."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "56ed9f61191b15d52782018cab6506ff7838743d6e5b28e9ca7723703df4038a",
+      "source_row_line": 21,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "23708518",
+          "registry_title": "The deubiquitylase USP15 stabilizes newly synthesized REST and rescues its expression at mitotic exit.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about the USP15 deubiquitylase and REST. Not metformin or inflammatory markers."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "dedfdbb8c4801784b89fbe93fce35b6fab1d5ddb767d8e5cfbcb3b6219c313b4",
+      "source_row_line": 22,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "32130836",
+          "registry_title": "Suggested Assessments for Sarcopenia in Patients With Stroke Who Can Walk Independently.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about sarcopenia assessment after stroke. Not metformin or epigenetic clocks."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "16562439f5a409093b9499c59d53fb6fe1c765e2c9860d82d18ffb78672e3458",
+      "source_row_line": 23,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27841876",
+          "registry_title": "Cardioprotection and lifespan extension by the natural polyamine spermidine.",
+          "screen": "on_topic",
+          "screen_note": "Title names spermidine with cardioprotection and lifespan extension. The macroautophagy mechanism in the row is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "fb6bfd90bfb410a862248daf8a1fa41de041f1302c6e43d6a31bc605bf5ae2cf",
+      "source_row_line": 24,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "33005886",
+          "registry_title": "RNA-seq with RNase H-based ribosomal RNA depletion specifically designed for C. elegans.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about RNA-seq library preparation for C. elegans. Not spermidine or eIF5A."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "6704fe962490e4ff0443045c771a8ed55d7a6ae90a887cf77564f903dc8a4233",
+      "source_row_line": 25,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30472097",
+          "registry_title": "VANGL2 protein stability is regulated by integrin αv and the extracellular matrix.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about VANGL2 stability and integrin alphav. Not spermidine or B-cell defects."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "a143d780ca9d725ae7df3cfbbdf71b435a56a7df041bdb9e6f466c38851dec14",
+      "source_row_line": 26,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "25439502",
+          "registry_title": "Assessing intentions to eat low-glycemic index foods by adults with diabetes using a new questionnaire based on the theory of planned behaviour.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about intentions to eat low-glycemic-index foods. Not spermidine or EP300."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "11555a67eac1f8ebd3ae9478fec9f8050c9172e7d2514ffb24f8813186e7f174",
+      "source_row_line": 27,
+      "category": "on_topic_label_differs",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "24245565",
+          "registry_title": "Acarbose, 17-α-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males.",
+          "screen": "on_topic",
+          "screen_note": "Title names acarbose, 17-alpha-estradiol and NDGA with male-preferential lifespan extension. Fits the sex-difference rows; the recorded title for line 27 agrees."
+        },
+        {
+          "identifier_kind": "PMID",
+          "identifier": "33788371",
+          "registry_title": "17-a-estradiol late in life extends lifespan in aging UM-HET3 male mice; nicotinamide riboside and three other drugs do not affect lifespan in either sex.",
+          "screen": "on_topic_label_differs",
+          "screen_note": "Title is on-topic (17-alpha-estradiol, male lifespan in UM-HET3 mice). The recorded label 'late-start 17alpha-estradiol intervention' is a paraphrase, not this title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "b2f0fb44c2ec6567c0b7a8548ec1f7dd0625bfad158f30cf68ae6e4b4cdb90c6",
+      "source_row_line": 28,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30139981",
+          "registry_title": "Ferromagnetism in a topological semimetal.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about ferromagnetism in a topological semimetal. Not 17-alpha-estradiol or inflammaging."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "e70329683ea099e9cbd890435e0c2844756254c976e578081eae56cfd3f87613",
+      "source_row_line": 29,
+      "category": "not_found",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "26760636",
+          "registry_title": "",
+          "screen": "not_found",
+          "screen_note": "No PubMed article record (efetch returned none) and no Europe PMC hit. Europe PMC's positive control (PMID 19587680) returned one hit."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "a214bd0dda35b28f38ab0d946e7eabec9ef6d62f7c9e9b951756b39fdcc2fcc6",
+      "source_row_line": 30,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "26711582",
+          "registry_title": "High occurrence of Pacearchaeota and Woesearchaeota (Archaea superphylum DPANN) in the surface waters of oligotrophic high-altitude lakes.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about Pacearchaeota and Woesearchaeota in lake surface waters. Not navitoclax or senescent cells. Cited by two rows (30 and 32)."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "77cdcf5179219e0a16396f4ead849d549117d470bc3afe0d276e03508d169121",
+      "source_row_line": 31,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "18698246",
+          "registry_title": "Photodynamic therapy with methyl aminolevulinate for prevention of new skin lesions in transplant recipients: a randomized study.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about photodynamic therapy for skin lesions in transplant recipients. Not navitoclax or BCL-xL/BCL-2 binding."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "b0d8d7f29773c13b2680db368eef77536d9e3c0804ba3722cd7777ef5e1d49d3",
+      "source_row_line": 32,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "26711582",
+          "registry_title": "High occurrence of Pacearchaeota and Woesearchaeota (Archaea superphylum DPANN) in the surface waters of oligotrophic high-altitude lakes.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about Pacearchaeota and Woesearchaeota in lake surface waters. Not navitoclax or senescent cells. Cited by two rows (30 and 32)."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "e92b99f2f662aee9c41c4fc3e4f7c24db20b3d4f685effebaf3865477f83c41b",
+      "source_row_line": 33,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "17086191",
+          "registry_title": "Resveratrol improves health and survival of mice on a high-calorie diet.",
+          "screen": "on_topic",
+          "screen_note": "Title names resveratrol and survival of mice on a high-calorie diet, which fits the high-fat-diet row. The ITP lifespan note in the row is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "b0b17c0855090c328d4c8034106f28c7526c0d7d2b75e97b757de6d2aee1138d",
+      "source_row_line": 34,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "17112576",
+          "registry_title": "Resveratrol improves mitochondrial function and protects against metabolic disease by activating SIRT1 and PGC-1alpha.",
+          "screen": "on_topic",
+          "screen_note": "Title names resveratrol with mitochondrial function, SIRT1 and PGC-1alpha, which fits the biogenesis row."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "18cd39e068632ebe37c1c6baf82dc3f3b80eca1c7b62be404ec8c7f54101e949",
+      "source_row_line": 35,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "20543254",
+          "registry_title": "Integrated health systems.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is 'Integrated health systems.' Not resveratrol or autophagy."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "2b1a0e4294b10565f4b4f43363efc57d411e8f316760a783cca2aa6d6b6608d1",
+      "source_row_line": 36,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27797883",
+          "registry_title": "Coronary artery bypass grafting with internal thoracic arteries may cause bilateral brachiocephalic vein occlusion, complicating pacemaker implantation.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about bypass grafting and bilateral brachiocephalic vein occlusion. Not nicotinamide mononucleotide."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "b262c3e4ee5395dd2651c2720a83c872307a1b877b30d42f3166a494c0586769",
+      "source_row_line": 37,
+      "category": "needs_reading",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "24360282",
+          "registry_title": "Declining NAD(+) induces a pseudohypoxic state disrupting nuclear-mitochondrial communication during aging.",
+          "screen": "needs_reading",
+          "screen_note": "Title is about declining NAD(+) and nuclear-mitochondrial communication during aging. It does not name nicotinamide mononucleotide or the one-week reversal claim."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "2f897b118bcefe7834ba49af92884c1f8f451ec29d8215ec619ee6e10c2d2450",
+      "source_row_line": 38,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27127236",
+          "registry_title": "NAD⁺ repletion improves mitochondrial and stem cell function and enhances life span in mice.",
+          "screen": "on_topic",
+          "screen_note": "Title names NAD+ repletion with mitochondrial and stem-cell function and lifespan in mice. Fits both nicotinamide riboside rows; the muscle-specific detail is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "f98c4024064936e61b26f4a76a7ba00973ac79ceb47bb303b9a5331f23afe823",
+      "source_row_line": 39,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27127236",
+          "registry_title": "NAD⁺ repletion improves mitochondrial and stem cell function and enhances life span in mice.",
+          "screen": "on_topic",
+          "screen_note": "Title names NAD+ repletion with mitochondrial and stem-cell function and lifespan in mice. Fits both nicotinamide riboside rows; the muscle-specific detail is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "07168a526dafdfab20d6608f68a314a85572e44fc32c9a2062b186cc56f030e7",
+      "source_row_line": 40,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "29599478",
+          "registry_title": "Chronic nicotinamide riboside supplementation is well-tolerated and elevates NAD(+) in healthy middle-aged and older adults.",
+          "screen": "on_topic",
+          "screen_note": "Title names nicotinamide riboside raising NAD(+) in healthy middle-aged and older adults, which fits the human-pilot row. The blood-pressure result is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "d2c672625f9446deeb6a578a55c49d25713a15c7da21bab018599af512ca5893",
+      "source_row_line": 41,
+      "category": "on_topic_label_differs",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "24245565",
+          "registry_title": "Acarbose, 17-α-estradiol, and nordihydroguaiaretic acid extend mouse lifespan preferentially in males.",
+          "screen": "on_topic",
+          "screen_note": "Title names acarbose, 17-alpha-estradiol and NDGA with male-preferential lifespan extension. Fits the sex-difference rows; the recorded title for line 27 agrees."
+        },
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30688027",
+          "registry_title": "Acarbose improves health and lifespan in aging HET3 mice.",
+          "screen": "on_topic_label_differs",
+          "screen_note": "Title is on-topic (acarbose, lifespan in aging HET3 mice). The recorded label 'genetically heterogeneous mice' paraphrases it."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "d7e3e3059cd26d4ef5f8d256480a6fb6197f03a823f006d0b69254693a53edef",
+      "source_row_line": 42,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "31195972",
+          "registry_title": "Changes in the gut microbiome and fermentation products concurrent with enhanced longevity in acarbose-treated mice.",
+          "screen": "on_topic",
+          "screen_note": "Title names acarbose with gut-microbiome and fermentation changes and enhanced longevity. The recorded title agrees apart from one article ('the')."
+        },
+        {
+          "identifier_kind": "PMID",
+          "identifier": "30728281",
+          "registry_title": "The Glucoamylase Inhibitor Acarbose Has a Diet-Dependent and Reversible Effect on the Murine Gut Microbiome.",
+          "screen": "on_topic",
+          "screen_note": "Title names acarbose and the murine gut microbiome, which fits the microbiome row. Line 42 records one title (for 31195972), so this identifier has no recorded title of its own; refcheck's MISMATCH reflects that, not a disagreement."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "945076cb2a79d9911b5a02d4b3cac118ccf72054e848f63a8c07039c49a3ff94",
+      "source_row_line": 43,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27400265",
+          "registry_title": "Urolithin A induces mitophagy and prolongs lifespan in C. elegans and increases muscle function in rodents.",
+          "screen": "on_topic",
+          "screen_note": "Title names urolithin A with mitophagy and lifespan in C. elegans and muscle function in rodents. Fits both urolithin A rows."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "a0ea50b31402ef76c63c4391ee32706024a9b7e2ee9c6ca5c8ef3f8449b2c6fc",
+      "source_row_line": 44,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "27400265",
+          "registry_title": "Urolithin A induces mitophagy and prolongs lifespan in C. elegans and increases muscle function in rodents.",
+          "screen": "on_topic",
+          "screen_note": "Title names urolithin A with mitophagy and lifespan in C. elegans and muscle function in rodents. Fits both urolithin A rows."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "f9f3ad2ceec2f55f0a6c1c6d6f51cc0559500662fcf456afb1fbbd5604a9d266",
+      "source_row_line": 45,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "31190014",
+          "registry_title": "Isotopic constraint on the twentieth-century increase in tropospheric ozone.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about the isotopic constraint on tropospheric ozone. Not urolithin A or muscle mitochondria."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "c14598bedba6e949814ad7cbcf716786484f1378e8e526a973c63bc0f93f6305",
+      "source_row_line": 46,
+      "category": "needs_reading",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "15545992",
+          "registry_title": "Genes and pathophysiology of type 2 diabetes: more than just the Randle cycle all over again.",
+          "screen": "needs_reading",
+          "screen_note": "Title is a general article on type 2 diabetes pathophysiology. It does not name berberine; the row's claim concerns db/db mice."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "bf369bfa5748d7b28fd8f43c3dd34eb8775be7845f18d7cf8b8a0261696a874d",
+      "source_row_line": 47,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "22086884",
+          "registry_title": "Lead, calcium uptake, and related genetic variants in association with renal cell carcinoma risk in a cohort of male Finnish smokers.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about lead, calcium uptake and renal cell carcinoma genetics. Not berberine or AMPK."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "e177ef0a3c5bb2018d270910c59e57062ec3ee79810624971337261faf403ce0",
+      "source_row_line": 48,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "25732152",
+          "registry_title": "How does pain induce negative emotion? Role of the bed nucleus of the stria terminalis in pain-induced place aversion.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about pain and the bed nucleus of the stria terminalis. Not berberine or hepatocyte autophagy."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "22ed48926637e2c5e47802f181de39c932f92cb66dd8bbb49b1e1d40dce32fb3",
+      "source_row_line": 49,
+      "category": "needs_reading",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "19149749",
+          "registry_title": "Chronic inflammation and oxidative stress as a major cause of age-related diseases and cancer.",
+          "screen": "needs_reading",
+          "screen_note": "Title is a general article on chronic inflammation and oxidative stress in age-related disease and cancer. It does not name curcumin."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "354c10e74caeb9a0f9218925710bb39ac3c781ca44e53f189fc2d41c37ab2560",
+      "source_row_line": 50,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "28599427",
+          "registry_title": "Periostin suppresses in vivo invasiveness via PDK1/Akt/mTOR signaling pathway in a mouse orthotopic model of bladder cancer.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about periostin and PDK1/Akt/mTOR in bladder cancer invasion. Not curcumin or SASP."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "50e6ecf2cae718c375aeced4ab694427eec53db952de2c49404170b659f541d5",
+      "source_row_line": 51,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "16551579",
+          "registry_title": "Nordihydroguaiaretic acid is a potent in vitro scavenger of peroxynitrite, singlet oxygen, hydroxyl radical, superoxide anion and hypochlorous acid and prevents in vivo ozone-induced tyrosine nitration in lungs.",
+          "screen": "title_unrelated",
+          "screen_note": "Title names nordihydroguaiaretic acid (NDGA), not curcumin. The row's claim concerns fibrotic stellate-cell gene expression."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "a37c8b5b7f2c1da5bca18f8bc3a607d78d2769e8c0c4ce77b223cdf5c3ccdec3",
+      "source_row_line": 52,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "26113653",
+          "registry_title": "Aspergillus Polymerase Chain Reaction: Systematic Review of Evidence for Clinical Use in Comparison With Antigen Testing.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about Aspergillus PCR for clinical use. Not trametinib or lifespan."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "555e2970a4c31505b1575cf18ae37fa27d81852038ab8394e3c523c3684f73d4",
+      "source_row_line": 53,
+      "category": "title_unrelated",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "29352236",
+          "registry_title": "Control of neural crest induction by MarvelD3-mediated attenuation of JNK signalling.",
+          "screen": "title_unrelated",
+          "screen_note": "Title is about neural-crest induction and JNK signaling. Not trametinib, MEK or oncogene-induced senescence."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "aec5e8f08bb49bd092ebf77d88ce7191895f240f8397eafdf3eaddd1a18bb20c",
+      "source_row_line": 54,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "32990681",
+          "registry_title": "Canagliflozin extends life span in genetically heterogeneous male but not female mice.",
+          "screen": "on_topic",
+          "screen_note": "Title names canagliflozin and male-only lifespan extension in genetically heterogeneous mice. The recorded title matches."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "c116470eba78f31e9bc181e1ff46265bf702f84ed0e49f8778b83e46bd99a7e8",
+      "source_row_line": 55,
+      "category": "on_topic",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "21030672",
+          "registry_title": "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration.",
+          "screen": "on_topic",
+          "screen_note": "Title names BPC 157 and tendon healing, which fits the tendon row. The row itself says no verified lifespan data exist."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "421e9688299510345712582abba14979fccd84d6af0d2def50b1f720bdd26169",
+      "source_row_line": 56,
+      "category": "no_identifier",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "",
+          "identifier": "",
+          "registry_title": "",
+          "screen": "no_identifier",
+          "screen_note": "No identifier in the row; source_review_status is unverified_vendor_or_gray_market_claim."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "e9aa00a9c6ab284833b4293cffa381213aa0e9d922bfd795816f2d5f2df5be4b",
+      "source_row_line": 57,
+      "category": "needs_reading",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "PMID",
+          "identifier": "14501183",
+          "registry_title": "Effect of Epitalon on biomarkers of aging, life span and spontaneous tumor incidence in female Swiss-derived SHR mice.",
+          "screen": "needs_reading",
+          "screen_note": "Title names Epitalon and aging, lifespan and tumor incidence in female Swiss-derived SHR mice. The row's claim (telomerase elongation in a cultured human fibroblast line) is not in the title."
+        }
+      ]
+    },
+    {
+      "claim_sha256": "669e77f4e6db9b3d84b13e321f708799330126f3485941c54f61253aea9dd42e",
+      "source_row_line": 58,
+      "category": "no_identifier",
+      "claim_support_status": "unreviewed",
+      "identifiers": [
+        {
+          "identifier_kind": "",
+          "identifier": "",
+          "registry_title": "",
+          "screen": "no_identifier",
+          "screen_note": "No identifier in the row; source_review_status is unverified_vendor_or_gray_market_claim."
+        }
+      ]
+    }
+  ]
+}

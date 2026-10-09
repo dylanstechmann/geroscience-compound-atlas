@@ -23,6 +23,20 @@ Explore the compound cards, evidence grades, benchmark bake-off, and generated c
 
 **Evidence-table status (2026-10-07):** an identifier audit found that 37 of the 57 curated evidence rows cite an identifier that does not resolve, resolves to an unrelated paper, or resolves to a title that does not show the recorded claim. No row is yet verified as supporting its claim. The counts, the row-by-row screen and the owner decision list are in [docs/citation-audit-2026-10-07](docs/citation-audit-2026-10-07/README.md).
 
+**Evidence displays (2026-10-09):** lookups, newly materialized edges and the
+dashboard apply that dated audit to each matching claim. All current displayed
+grades are E0 pending source-to-claim review; historical catalog and curator
+grades remain visible separately. The four historical E4 rows therefore do not
+pass the current E4 filter. Each card shows the citation category and identifier
+findings. A resolved or on-topic title does not verify claim support. Changed,
+legacy or unmatched records remain unreviewed, including when the audit is
+unavailable. This also applies when reading an older cached parquet.
+
+The versioned display manifest is packaged with the Python library. Rebuild it
+from the existing audit receipts with `python -B tools/build_evidence_review.py`;
+the builder refuses stale triage or summary files. No source identifiers,
+recorded claims or grades in the curated CSV are changed by that command.
+
 ## Architecture
 
 The project is structured into four core modules:
@@ -92,7 +106,7 @@ geroatlas lookup "COc1ccc2c(c1)c(CC(=O)O)c(C)n2C(=O)c1ccc(Cl)cc1" --out candidat
 The interactive dashboard (`site/index.html` and `artifacts/dashboard.html`) includes:
 - **Multi-Field Real-Time Search**: Matches compound names, synonyms, PubChem CID, SMILES, InChIKey, target symbols, hallmark categories, citations (PMIDs), and mechanistic notes.
 - **ChEMBL Assay Filters**: Filter by verified binding assays, general bioactivity records, or historical coverage holes.
-- **Quick Preset Buttons**: 1-click filtering for `mTOR Pathway`, `Senolytics`, `AMPK / Metformin`, `Peptides Only`, and `E4 Lifespan Gold Standard`.
+- **Quick Preset Buttons**: 1-click filtering for `mTOR Pathway`, `Senolytics`, `AMPK / Metformin`, `Peptides Only`, and `E4 Reported Lifespan / Human Outcome`. The E4 preset currently has no eligible claims pending source-to-claim review.
 - **Candidate Gallery Explorer**: Filter and sort the 200 GA-generated candidate molecules by PAINS status (pass/flagged) and sort by composite reward, mTOR probability, or QED drug-likeness.
 
 ## Continuous mTOR activity check

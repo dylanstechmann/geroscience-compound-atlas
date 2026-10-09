@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 from rdkit import Chem
 
+from atlas.evidence_review import apply_evidence_review
 from atlas.features import compute_rdkit_descriptors
 from gen.scorer import CompositeSurrogateScorer
 
@@ -139,7 +140,7 @@ def lookup_compound(
         "matched_records": 0,
     }
     if edges_file.exists():
-        edges_df = pd.read_parquet(edges_file)
+        edges_df = apply_evidence_review(pd.read_parquet(edges_file))
         if "compound_inchikey" in edges_df.columns:
             matched_edges = edges_df[edges_df["compound_inchikey"] == inchikey]
         elif "inchikey" in edges_df.columns:
@@ -181,6 +182,12 @@ def lookup_compound(
                 "source_review_status": _optional_text(e.get("source_review_status")),
                 "intervention_components": _optional_text(e.get("intervention_components")),
                 "attribution_scope": _optional_text(e.get("attribution_scope")),
+                "catalog_grade": e["catalog_grade"],
+                "claim_support_status": e["claim_support_status"],
+                "citation_audit_status": e["citation_audit_status"],
+                "citation_audit_date": e["citation_audit_date"],
+                "citation_audit_category": e["citation_audit_category"],
+                "citation_audit_identifiers": e["citation_audit_identifiers"],
             })
 
     # ChEMBL coverage & measured activities
@@ -351,7 +358,22 @@ def format_lookup_report(data: dict[str, Any]) -> str:
             lines.append(f"  • [{e['grade']}] {h_clean}")
             lines.append(f"    Target    : {e['target_symbol']} ({e['relation']})")
             review_status = e.get("source_review_status", "")
-            if review_status == "source_reviewed_with_claim_limits":
+            if e.get("claim_support_status") == "unreviewed":
+                lines.append(
+                    f"    Review    : Claim support unreviewed; curator grade {e.get('curator_grade', 'unknown')} "
+                    "withheld and displayed as E0"
+                )
+                lines.append(f"    Catalog review label: {review_status or 'unspecified'} (historical assertion)")
+                lines.append(
+                    f"    Citation audit: {e['citation_audit_category']} "
+                    f"({e['citation_audit_date'] or e['citation_audit_status']}); titles only"
+                )
+                for identifier in e["citation_audit_identifiers"]:
+                    lines.append(
+                        f"      {identifier['identifier_kind']} {identifier['identifier']}: "
+                        f"{identifier['screen']} — {identifier['screen_note']}"
+                    )
+            elif review_status == "source_reviewed_with_claim_limits":
                 lines.append("    Review    : Source reviewed; claim limits recorded")
             elif review_status == "claim_support_unreviewed":
                 lines.append(
@@ -363,7 +385,7 @@ def format_lookup_report(data: dict[str, Any]) -> str:
             else:
                 lines.append("    Review    : Source status unverified; displayed as E0")
             if e.get("notes"):
-                lines.append(f"    Evidence  : {e['notes']}")
+                lines.append(f"    Recorded claim: {e['notes']}")
             if e.get("document_ids"):
                 lines.append(f"    Citations : {e['document_ids']}")
             if e.get("source_title"):

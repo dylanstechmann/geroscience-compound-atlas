@@ -87,6 +87,29 @@ Re-running refcheck against the live services is optional. The receipts are what
 registry records can change. If the curated table changes, `build_triage.py` fails until every new identifier
 has a screen, and the test fails until the committed outputs are rebuilt and reviewed.
 
+## Display integration (2026-10-09)
+
+`python -B tools/build_evidence_review.py`, from the repository root with the
+project installed, builds `src/atlas/data/citation_audit.json`. It first rebuilds
+this audit in memory and requires the committed triage and summary to agree.
+The packaged manifest binds each screen to the claim's identity, citations,
+wording and context through a SHA-256 of normalized fields. CSV line numbers
+remain locators; display matching uses the claim digest instead.
+
+New edge materialization, lookup and dashboard generation apply the same
+display overlay, including to old cached edges. It withholds all current grades
+as E0 and retains `catalog_grade`, `curator_grade` and the historical
+`source_review_status`. The six earlier `source_reviewed_with_claim_limits`
+labels remain historical assertions, rather than overriding the newer audit's
+unreviewed claim-support state. Matching cards carry the audit date, category
+and separate identifier findings. Missing manifests and changed/unmatched
+claims remain visibly unreviewed; they cannot inherit another claim's screen
+through a shared PMID or a reused line number.
+
+This changes display and filtering behavior, not the curated source table or
+the title-screen judgments. It introduces no replacement citations, new paper
+readings or verified biological conclusions.
+
 ## Limits
 
 - The screen is about titles. It says whether a title fits the compound and claim, not whether a paper supports

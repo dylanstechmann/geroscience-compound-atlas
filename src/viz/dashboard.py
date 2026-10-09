@@ -11,6 +11,8 @@ import pandas as pd
 from rdkit import Chem
 from rdkit.Chem.Draw import rdMolDraw2D
 
+from atlas.evidence_review import apply_evidence_review
+
 logger = logging.getLogger(__name__)
 
 
@@ -127,7 +129,7 @@ def build_dashboard_html(
 ) -> Path:
     """Compile processed atlas tables, benchmark metrics, and generated molecules into an interactive standalone HTML dashboard."""
     compounds_df = pd.read_parquet(compounds_parquet)
-    edges_df = pd.read_parquet(edges_parquet)
+    edges_df = apply_evidence_review(pd.read_parquet(edges_parquet))
     coverage_df = pd.read_parquet(coverage_parquet)
 
     with open(metrics_json, "r", encoding="utf-8") as f:
@@ -752,7 +754,7 @@ def build_dashboard_html(
         <div class="title-area">
             <h1>Geroscience Compound Atlas + Predictive Bench</h1>
             <p class="pitch">
-                A reproducible computational atlas mapping public small molecules and peptides to graded aging mechanisms, with a leak-free Bemis-Murcko scaffold predictive bake-off.
+                A computational atlas of public small molecules, peptides and recorded aging-mechanism claims, alongside a frozen Bemis-Murcko scaffold predictive benchmark.
             </p>
             <p class="pitch" style="margin-top: 0.75rem; font-size: 0.9rem;">
                 Personal hobby and learning project, developed with substantial assistance from AI coding tools.
@@ -774,6 +776,11 @@ def build_dashboard_html(
 </section>
 
 <main class="container">
+    <section role="note" aria-label="Citation review" style="margin-top:1.25rem;padding:1rem 1.25rem;background:#1e293b;border:1px solid #475569;border-radius:10px;">
+        <h2 style="margin:0 0 0.5rem;color:#fbbf24;font-size:1rem;">Claim support remains unreviewed</h2>
+        <p style="margin:0;color:#e2e8f0;line-height:1.6;">Citation screens check identifier titles, not whether a paper supports a claim. Current displayed grades are E0 pending source-to-claim review. Historical catalog grades and review labels are retained separately; the E4 filter currently has no eligible claims.</p>
+        <a href="https://github.com/dylanstechmann/geroscience-compound-atlas/blob/main/docs/citation-audit-2026-10-07/README.md" style="display:inline-block;margin-top:0.5rem;color:#93c5fd;">Read the dated citation audit and its limits</a>
+    </section>
     <!-- Top Summary Metrics -->
     <div class="metrics-grid">
         <div class="metric-card">
@@ -792,9 +799,9 @@ def build_dashboard_html(
             <div class="metric-sub">662 bioactivity records mapped</div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Curated Evidence Edges</div>
-            <div class="metric-value">62</div>
-            <div class="metric-sub">Across 12 hallmarks (E0–E4 graded)</div>
+            <div class="metric-label">Recorded Claim Edges</div>
+            <div class="metric-value">{len(edges_df)}</div>
+            <div class="metric-sub">Claim support unreviewed; displayed as E0</div>
         </div>
         <div class="metric-card">
             <div class="metric-label">Internal Scaffold AUROC</div>
@@ -1123,6 +1130,11 @@ def build_dashboard_html(
     }}
 
     function edgeReviewLabel(edge) {{
+        if (edge.claim_support_status === 'unreviewed') {{
+            return 'Claim support unreviewed; curator grade ' + (edge.curator_grade || 'unknown') +
+                ' withheld, shown as E0. Citation screen: ' + edge.citation_audit_category +
+                ' (' + (edge.citation_audit_date || edge.citation_audit_status) + '), titles only.';
+        }}
         if (edge.source_review_status === 'source_reviewed_with_claim_limits') {{
             return 'Source reviewed; claim limits recorded.';
         }}
@@ -1161,7 +1173,8 @@ def build_dashboard_html(
                 const evidenceRows = [
                     ['Endpoint', e.endpoint], ['Comparator', e.comparator],
                     ['Effect estimate', e.effect_estimate], ['Uncertainty', e.uncertainty],
-                    ['Source location', e.source_locator], ['Evidence basis', e.evidence_basis]
+                    ['Source location', e.source_locator], ['Evidence basis', e.evidence_basis],
+                    ['Historical catalog review label', e.source_review_status]
                 ].filter(([, value]) => value != null && String(value).trim())
                  .map(([label, value]) => `<div><strong>${{escapeHtml(label)}}:</strong> ${{escapeHtml(value)}}</div>`)
                  .join('');
@@ -1172,8 +1185,11 @@ def build_dashboard_html(
                         <span class="grade-badge grade-${{grade}}">${{grade}}</span>
                     </div>
                     <div class="edge-notes">
-                        <strong>${{escapeHtml(e.target_symbol || e.target_id || '')}}</strong> ${{escapeHtml(e.relation)}} &bull; ${{escapeHtml(e.notes || '')}}
+                        <strong>${{escapeHtml(e.target_symbol || e.target_id || '')}}</strong> ${{escapeHtml(e.relation)}} &bull; Recorded claim: ${{escapeHtml(e.notes || '')}}
                         <div class="review-status">${{escapeHtml(edgeReviewLabel(e))}}</div>
+                        ${{(e.citation_audit_identifiers || []).map(item =>
+                            `<div>${{escapeHtml(item.identifier_kind)}} ${{escapeHtml(item.identifier)}}: ${{escapeHtml(item.screen)}} — ${{escapeHtml(item.screen_note)}}</div>`
+                        ).join('')}}
                         ${{e.document_ids ? `<div style="margin-top: 2px; color: #60a5fa;">${{escapeHtml(e.document_ids)}}</div>` : ''}}
                         ${{sourceHtml ? `<div style="margin-top: 2px;">Source: ${{sourceHtml}}</div>` : ''}}
                         ${{context.length ? `<div style="margin-top: 2px;">Context: ${{context.map(escapeHtml).join(' · ')}}</div>` : ''}}

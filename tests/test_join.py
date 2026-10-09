@@ -4,9 +4,13 @@ from pathlib import Path
 
 import pandas as pd
 
+from atlas.chembl_join import (
+    build_curated_edges_frame,
+    run_phase2_pipeline,
+    validate_curated_evidence,
+)
 from atlas.graph import EvidenceGraph
 from atlas.models import EvidenceEdge, EvidenceGrade, HallmarkSlug
-from atlas.chembl_join import build_curated_edges_frame, run_phase2_pipeline, validate_curated_evidence
 
 
 def test_curated_evidence_file_integrity():
@@ -90,8 +94,10 @@ def test_unreviewed_claim_grades_are_withheld_until_source_review():
     assert set(unreviewed["grade"]) == {"E0"}
     assert set(vendor["grade"]) == {"E0"}
     assert set(unreviewed["curator_grade"]) == {"E1", "E2", "E3"}
-    assert (reviewed["grade"] == reviewed["curator_grade"]).all()
-    assert set(reviewed[reviewed["grade"] == "E4"]["evidence_basis"]) == {"mammalian_lifespan"}
+    assert set(reviewed["grade"]) == {"E0"}
+    assert (reviewed["catalog_grade"] == reviewed["curator_grade"]).all()
+    assert set(reviewed[reviewed["catalog_grade"] == "E4"]["evidence_basis"]) == {"mammalian_lifespan"}
+    assert set(edges["claim_support_status"]) == {"unreviewed"}
     assert "curator_grade" in curated.columns
     assert set(curated.loc[curated["source_review_status"] == "claim_support_unreviewed", "grade"]) == {"E0"}
 
@@ -106,13 +112,13 @@ def test_unreviewed_claim_grades_are_withheld_until_source_review():
         raise AssertionError("Unreviewed curator grades must not be promoted in the active CSV")
 
 
-def test_high_grade_curated_interventions():
-    """Verify that E4 lifespan interventions are properly registered."""
+def test_historical_catalog_lifespan_assertions():
+    """Preserve historical catalog grades without treating them as verified."""
     df = pd.read_csv("data/curated/curated_evidence.csv")
     e4_rows = df[df["grade"] == "E4"]
 
     assert len(e4_rows) >= 3, (
-        "Expected multiple E4 validated interventions (e.g. Rapamycin, Acarbose, Metformin, 17a-estradiol)"
+        "Expected multiple historical E4 catalog rows"
     )
     e4_compounds = set(e4_rows["compound_name"])
     assert "Rapamycin" in e4_compounds

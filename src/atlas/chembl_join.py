@@ -8,6 +8,7 @@ from typing import Any
 import pandas as pd
 
 from atlas.chembl import ChEMBLClient
+from atlas.evidence_review import apply_evidence_review
 from atlas.graph import EvidenceGraph
 from atlas.models import EvidenceEdge, EvidenceGrade, HallmarkSlug
 
@@ -231,7 +232,7 @@ def build_curated_edges_frame(edges_raw: pd.DataFrame) -> pd.DataFrame:
                 "attribution_scope": _normalized_optional(e_row.get("attribution_scope")) or "",
             }
         )
-    return pd.DataFrame(validated_edges)
+    return apply_evidence_review(pd.DataFrame(validated_edges))
 
 
 def run_phase2_pipeline(

@@ -265,3 +265,49 @@ remain byte-identical.
 An identifier audit of `data/curated/curated_evidence.csv` (57 rows; 51 unique PubMed IDs; 2 ChEMBL document IDs) found that 37 rows cite an identifier that does not resolve, resolves to a paper with an unrelated title, or resolves to a title that does not show the recorded claim. Three PubMed IDs are absent from both PubMed and Europe PMC. Twenty-six PubMed IDs resolve to titles on unrelated subjects. Two ChEMBL document IDs return HTTP 404. Four rows need the paper read before their titles can be judged. Eighteen rows fit at title level only, and no row has been verified as supporting its claim.
 
 No curated value, grade or claim was changed. The audit, its receipts (refcheck results and second-source checks), the row-level screen and the owner decision list are in [docs/citation-audit-2026-10-07](docs/citation-audit-2026-10-07/README.md). The README carries a short status note that points there.
+
+## Claim-bound citation display — 2026-10-09
+
+An AI coding assistant integrated the October 7 identifier screen into edge
+materialization, the lookup CLI and dashboard generation. The versioned Python
+package now includes 57 claim-bound title screens rebuilt from the existing
+audit receipts. Matching uses the normalized compound identity, target,
+citations, recorded claim and study context rather than CSV positions or shared
+identifiers. Changed or legacy claims and missing/invalid manifests remain
+unreviewed. The manifest builder refuses stale summary or triage outputs.
+
+All 57 current displayed grades are E0 pending source-to-claim review. The six
+historical `source_reviewed_with_claim_limits` labels remain inspectable with
+the original `catalog_grade` and `curator_grade`; they no longer override the
+newer audit's unreviewed claim-support state. The four historical E4 rows do
+not pass the current dashboard E4 preset. CLI and cards expose the dated
+category and individual identifier findings, label the notes as recorded
+claims, and explain that title resolution does not verify paper support.
+Cached parquet readers apply the overlay without requiring a data rebuild.
+The source CSV, citation identifiers and audit judgments were not changed.
+
+Validation used the workspace's Docker `dev` service. The full suite passed
+**162 tests**, including changed claim/citation/context identities, reordered
+records, legacy caches, missing/malformed manifests, duplicate records,
+per-identifier findings, display withholding and reproducibility from receipts.
+The focused run passed 53 tests; the prescribed hypothesis-filter/split check
+also passed 9 tests. The built wheel contains and loads all 57 screens outside
+the editable source path. Both generated HTML copies are identical. A Node
+execution of the generated dashboard script confirmed initial rendering,
+E4 → zero compounds, reset → 20 compounds and Rapamycin search → one compound.
+Ruff passed for the new module, manifest builder and tests with `EXE002`
+excluded because the Windows bind mount reports Python files as executable.
+The broader lint check of existing lookup/dashboard files still reports their
+pre-existing `SIM102`, `RUF046`, `BLE001` and `ISC004` findings; those unrelated
+sections were retained.
+
+The unchanged constrained generator was rerun using the existing seed-42
+scaffold reference (449 training rows, 393 active rows). It again retained 25
+cards from a 400-molecule archive, with overlapping rejects: 347 rings, 122
+too-close-to-training-active, 97 molecular weight, 77 heavy atoms, 66 TPSA and
+19 seen-in-training. The [run receipt](artifacts/hypothesis_review_2026-10-09.json)
+records the metrics and unchanged SHA-256 values for the frozen dataset, split
+and both configuration files. Generated cards from this check are local under
+`.venv/review-hypotheses`; they are surrogate artifacts, not measured activity
+or evidence of rejuvenation. Existing hypothesis archives and QED=0 sensitivity
+outputs were preserved. No new source reading or biological result is claimed.
