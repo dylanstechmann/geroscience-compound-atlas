@@ -7,6 +7,12 @@ No new molecule has been synthesized, tested or shown to improve human oral
 exposure, sleep, fertility or biological age. This is a focused feasibility
 review, not a systematic review or a prescribing document.
 
+The [continuation and prioritized research decisions](RESEARCH_DECISIONS.md)
+add full-text SLU metabolism findings, FDA human PK context, a negative oral
+SBT-272 development disclosure, parent manufacturing precedents, SS-31 clock
+versus function evidence, and a competitive binding calculation. That review
+supersedes the initial abstract-only metabolism limitation below.
+
 ## Biological age is a collection of measurements
 
 Human plasma-proteomic research estimated distinct aging signatures for eleven
@@ -70,12 +76,16 @@ observation tells us which process dominates human oral exposure.
 
 My first design hypothesis is a formulation comparison using the unchanged
 parent. Compare dissolution-limited exposure against presystemic metabolism
-before changing the pharmacophore. Dispersion, particle-size and solid-state
+before changing the pharmacophore. Include enzyme-free chemical-stability
+controls: the [subsequently retrieved full paper](RESEARCH_DECISIONS.md)
+reports several products in enzyme blanks. Dispersion, particle-size and solid-state
 approaches are candidate formulation classes, not established improvements
 for this compound. A structural optimization program should then use confirmed
-metabolite structures and binding data to choose substitutions. The retrieved
-metabolism abstract does not identify sufficient site-level detail to justify
-a particular new substitution here.
+metabolite structures and binding data to choose substitutions. The initial
+abstract alone did not identify sufficient site-level detail. The continuation
+now maps reported transformations and the control finding; it still does not
+establish a dominant human clearance pathway or justify calling a particular
+substitution an improved oral analog.
 
 The relevant relation is F = Fa × Fg × Fh: intestinal absorption, escape from
 intestinal metabolism and escape from hepatic first-pass metabolism all matter.

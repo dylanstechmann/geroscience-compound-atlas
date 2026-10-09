@@ -1,0 +1,142 @@
+{
+  "status": "synthetic_equilibrium_examples_no_biological_validation",
+  "concentration_scale": "arbitrary_shared_dimensionless_scale",
+  "limits": [
+    "No measured caffeine, metabolite or physiological competitor affinities.",
+    "Target and metabolite labels do not assign real pharmacological activity.",
+    "No kinetics, protein binding, compartments, oral absorption or sleep model.",
+    "Capacity examples are not dose estimates or candidate-selection scores."
+  ],
+  "records": [
+    {
+      "scenario": "target_only",
+      "host_total": 1,
+      "free_host": 0.09512492197250394,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.09512492197250393,
+          "bound": 0.9048750780274961,
+          "free_fraction": 0.09512492197250393
+        }
+      ]
+    },
+    {
+      "scenario": "equal_affinity_active_metabolite",
+      "host_total": 1,
+      "free_host": 0.009805788623243827,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.5049028943116218,
+          "bound": 0.49509710568837817,
+          "free_fraction": 0.5049028943116218
+        },
+        {
+          "name": "active_metabolite",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.5049028943116218,
+          "bound": 0.49509710568837817,
+          "free_fraction": 0.5049028943116218
+        }
+      ]
+    },
+    {
+      "scenario": "poor_metabolite_capture",
+      "host_total": 1,
+      "free_host": 0.09051611752838845,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.09948653256703564,
+          "bound": 0.9005134674329645,
+          "free_fraction": 0.09948653256703564
+        },
+        {
+          "name": "active_metabolite",
+          "total": 1,
+          "assumed_kd": 10,
+          "free": 0.991029584961353,
+          "bound": 0.008970415038647185,
+          "free_fraction": 0.991029584961353
+        }
+      ]
+    },
+    {
+      "scenario": "abundant_tighter_competitor",
+      "host_total": 1,
+      "free_host": 5.234029572605378e-05,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.9947932228529601,
+          "bound": 0.005206777147039806,
+          "free_fraction": 0.9947932228529601
+        },
+        {
+          "name": "competitor",
+          "total": 20,
+          "assumed_kd": 0.001,
+          "free": 19.00525911744277,
+          "bound": 0.9947408825572341,
+          "free_fraction": 0.9502629558721384
+        }
+      ]
+    },
+    {
+      "scenario": "abundant_weaker_competitor",
+      "host_total": 1,
+      "free_host": 0.017564341493413224,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.3627875529836111,
+          "bound": 0.6372124470163889,
+          "free_fraction": 0.3627875529836111
+        },
+        {
+          "name": "competitor",
+          "total": 20,
+          "assumed_kd": 1,
+          "free": 19.654776788509803,
+          "bound": 0.34522321149019786,
+          "free_fraction": 0.9827388394254901
+        }
+      ]
+    },
+    {
+      "scenario": "more_capacity_with_competitor",
+      "host_total": 2,
+      "free_host": 0.00011043048740883921,
+      "guests": [
+        {
+          "name": "target",
+          "total": 1,
+          "assumed_kd": 0.01,
+          "free": 0.9890775682057885,
+          "bound": 0.010922431794211462,
+          "free_fraction": 0.9890775682057885
+        },
+        {
+          "name": "competitor",
+          "total": 20,
+          "assumed_kd": 0.001,
+          "free": 18.01103286228162,
+          "bound": 1.98896713771838,
+          "free_fraction": 0.9005516431140811
+        }
+      ]
+    }
+  ]
+}

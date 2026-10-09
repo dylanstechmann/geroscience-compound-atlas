@@ -335,3 +335,34 @@ limiting behavior, invalid parameters, exposure tradeoffs and the FDA reference
 peptide mass. The figure was visually inspected. The standalone model uses
 only the standard library; plotting uses matplotlib. These checks verify the
 calculations, not biological validity.
+
+## Research decisions and competitive capture follow-up — 2026-10-09
+
+The AI coding assistant extended the [oral/selective-exposure study](studies/oral-targeting-feasibility-2026-10-09/RESEARCH_DECISIONS.md)
+with six prioritized programs and explicit advance/stop criteria. Newly read
+sources include the full SLU-PP-915 metabolism paper, the FDA elamipretide
+integrated review and a 2025 SS-31 mouse function/aging-clock study. The review
+also records a sponsor's negative human oral SBT-272 exposure disclosure and
+a primary patent's unchanged-parent manufacturing approach, with limitations.
+Source access modes and downloaded-file hashes are archived in follow-up
+receipts; full texts remain in ignored local storage. Relevant FDA PDF pages
+were rendered and visually checked. This research was performed by the agent,
+not attributed to the owner.
+
+The findings distinguish chemical instability from enzyme-mediated turnover,
+human in vitro plasma stability from clinical plasma elimination, manufacturing
+burden from marketed price, and functional improvement from clock changes.
+No source supplies a newly validated oral candidate or fertility-sparing
+rapalog. Existing curated evidence grades and compound tables were retained.
+
+A standard-library equilibrium solver now includes multiple guests competing
+for one-to-one binding sites. Six wholly synthetic scenarios illustrate
+metabolite coverage and competition; there are no measured caffeine affinities,
+human exposure values, candidate scores or sleep predictions. All **15 study
+checks** passed in Docker `dev`, including eight new checks of mass action,
+conservation, limiting behavior and agreement with an independent analytic
+single-guest reference. The prescribed hypothesis-filter/split tests passed
+**9 tests**. New-code Ruff passed with `EXE002` excluded for Windows bind-mount
+executable flags. These checks validate calculation behavior, not biology.
+Frozen datasets, splits, configurations and generated hypothesis archives
+were unchanged.

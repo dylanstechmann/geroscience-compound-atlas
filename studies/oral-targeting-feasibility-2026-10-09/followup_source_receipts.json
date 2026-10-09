@@ -1,0 +1,115 @@
+{
+  "retrieved_at_utc": "2026-10-09T15:40:28.167288+00:00",
+  "status": "agent_read_primary_sources_not_owner_review",
+  "sources": [
+    {
+      "id": "slu_metabolism",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12835572/fullTextXML",
+      "sha256": "fda3a2d9c359b6cf613c3b2b98e219358d84ae6e54807bf54eceedbafd40bab0",
+      "bytes": 111796,
+      "access_mode": "official_full_text_download_read_locally",
+      "title": "In Vitro Metabolism and Analytical Characterization of SLU-PP-332 and SLU-PP-915: Novel Pan-ERR Agonists With Doping Potential",
+      "doi": "10.1002/rcm.70039",
+      "sections_read": [
+        "SLU-PP-915 metabolism",
+        "Table 2",
+        "reference-standard and blank findings"
+      ]
+    },
+    {
+      "id": "fda_review",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/215244Orig1s000IntegratedR.pdf",
+      "sha256": "354af3d2efb096379db185bcbd181635c91bbe0c1a3a2327c375a16f820f2415",
+      "bytes": 20587533,
+      "access_mode": "official_full_text_download_read_locally",
+      "title": "NDA 215244 Forzinity (elamipretide) Integrated Review",
+      "page_count": 378,
+      "rendered_and_visually_checked_pdf_pages_one_based": [
+        251,
+        256
+      ],
+      "printed_pages_for_rendered_pages": [
+        182,
+        187
+      ],
+      "limitations": [
+        "Human plasma in vitro estimates extrapolated from six-hour incubation.",
+        "Human IV Table 103 is not oral bioavailability.",
+        "Targeted search did not locate oral elamipretide results in this document."
+      ]
+    },
+    {
+      "id": "PMC12151887",
+      "title": "The Mitochondria\u2010Targeted Peptide Therapeutic Elamipretide Improves Cardiac and Skeletal Muscle Function During Aging Without Detectable Changes in Tissue Epigenetic or Transcriptomic Age",
+      "doi": "10.1111/acel.70026",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12151887/fullTextXML",
+      "sha256": "fa3f02d2f91f2cb346d447b8027126d8d5e5ff9d2cf590cbf9fa306bbf43d688",
+      "bytes": 188966,
+      "access_mode": "official_full_text_download_read_locally",
+      "sections_read": [
+        "Abstract",
+        "Experimental Design and ELAM Treatment",
+        "Results",
+        "Future Directions and Limitations"
+      ]
+    },
+    {
+      "id": "ss31_process_patent",
+      "title": "Process for preparing D-arginyl-2,6-dimethyl-L-tyrosyl-L-lysyl-L-phenylalaninamide",
+      "url": "https://patents.google.com/patent/EP3160984B1/en",
+      "access_mode": "primary_patent_html_read_via_browser_tool",
+      "sections_read": [
+        "Summary",
+        "manufacturing advantages",
+        "crystallization and purification description"
+      ],
+      "limitations": [
+        "Patent-applicant process assertions, no current cost measurement or independent reproduction."
+      ]
+    },
+    {
+      "id": "sbt272_sponsor_disclosure",
+      "title": "Stealth BioTherapeutics 2021 Form 20-F",
+      "url": "https://www.sec.gov/Archives/edgar/data/1696396/000095017022005474/mito-20211231.htm",
+      "access_mode": "indexed_primary_filing_text_in_search_results",
+      "sections_read": [
+        "SBT-272 Safety"
+      ],
+      "limitations": [
+        "Direct browser open failed.",
+        "Sponsor disclosure, not peer-reviewed trial data.",
+        "No quantitative human oral PK dataset retrieved."
+      ]
+    },
+    {
+      "id": "ss31_intermittent",
+      "title": "Intermittent treatment with elamipretide preserves exercise tolerance in aged female mice",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10651577/",
+      "access_mode": "indexed_primary_article_text_in_search_results",
+      "sections_read": [
+        "Discussion and outcome summary"
+      ],
+      "limitations": [
+        "Official fullTextXML endpoint returned HTTP 500.",
+        "No human treatment-schedule inference or matched-exposure analog comparison."
+      ]
+    }
+  ],
+  "updated_at_utc": "2026-10-09T15:47:57.649036+00:00",
+  "limits": [
+    "Access records are not evidence grades or an owner review.",
+    "Full copyrighted source text is not redistributed in this receipt."
+  ],
+  "retrieval_failures": [
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10399613/fullTextXML",
+      "status": "HTTP 500",
+      "effect": "No new full-text discovery-paper claims added."
+    },
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10651577/fullTextXML",
+      "status": "HTTP 500",
+      "effect": "Indexed primary-paper text only for follow-up intermittent finding."
+    }
+  ]
+}
